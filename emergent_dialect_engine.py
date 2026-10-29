@@ -259,7 +259,25 @@ class EmergentDialectEngine:
             self._ensure_token(t, "RISK", f"Systemischer Korrelations-Kollaps (ρ={avg_c:.2f}): Alle Assets stürzen synchron ab")
             tokens_used.append(t)
 
-        # L. Confluence-Grad (Güteklasse des Setups)
+        # L. Multi-Timeframe Alignment & Proactive Risk Shield
+        tf_st = getattr(snapshot, "timeframe_alignment_status", "")
+        if tf_st == "TRIPLE_BULLISH_ALIGNMENT":
+            t = "📐:TRIPLE_TIMEFRAME_ALIGN"
+            self._ensure_token(t, "TREND", "Perfekte fraktale Resonanz: Daily, 4H und 1H synchron im Aufwärtstrend")
+            tokens_used.append(t)
+
+        proactive_risk = getattr(snapshot, "proactive_risk_alert", "NORMAL")
+        void_detected = getattr(snapshot, "liquidity_void_detected", False)
+        if void_detected or proactive_risk == "LIQUIDITY_VOID_EVACUATE":
+            t = "🚨:LIQUIDITY_VOID_EVACUATE"
+            self._ensure_token(t, "RISK", "Orderbuch-Vakuum & Liquiditäts-Schwund: Notausstieg zum Kapitalschutz")
+            tokens_used.append(t)
+        elif proactive_risk == "SURGE_VOLATILITY_HAZARD" or getattr(snapshot, "volatility_spike_ratio", 1.0) >= 2.0:
+            t = "⚡:PROACTIVE_VOLATILITY_SHOCK"
+            self._ensure_token(t, "RISK", "Volatilitäts-Explosion erkannt: Proaktive Breakeven-Stop-Nachziehung")
+            tokens_used.append(t)
+
+        # M. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
         if conf_len >= 4:

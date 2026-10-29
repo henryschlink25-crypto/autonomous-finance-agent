@@ -310,6 +310,13 @@ class MultiAssetExecutionEngine:
                         triggered_events.append(
                             f"[SHORT_TRAILING_STOP_UPDATED] {sym}: Short Stop-Loss auf ${new_sl:,.2f} nachgezogen (Gewinnsicherung)"
                         )
+            elif (
+                getattr(snap, "liquidity_void_detected", False)
+                or getattr(snap, "proactive_risk_alert", "NORMAL") == "LIQUIDITY_VOID_EVACUATE"
+                or getattr(snap, "adverse_price_velocity_pct", 0.0) <= -3.5
+            ):
+                # Proaktiver Liquiditäts-Vakuum Notausstieg (Flash-Crash-Schutz vor SL-Slippage)
+                symbols_to_close.append((sym, snap.current_price, "PROACTIVE_LIQUIDITY_VOID_EVACUATION"))
             elif snap.current_price <= pos.stop_loss_price:
                 reason = "TRAILING_STOP_TRIGGERED" if pos.stop_loss_price > pos.avg_entry_price else "STOP_LOSS_TRIGGERED"
                 symbols_to_close.append((sym, snap.current_price, reason))
@@ -347,6 +354,16 @@ class MultiAssetExecutionEngine:
                 # 4. Regulärer Time-Stop (3 Tage für 3x-ETFs / 5 Tage für 2x-Assets)
                 symbols_to_close.append((sym, snap.current_price, f"TIME_STOP_STALE_{holding_days}D"))
             else:
+                # Proaktiver Breakeven-Schutz bei Volatilitäts-Spike / ungünstiger Kursgeschwindigkeit
+                vol_spike = getattr(snap, "volatility_spike_ratio", 1.0)
+                adv_vel = getattr(snap, "adverse_price_velocity_pct", 0.0)
+                if (vol_spike >= 2.0 or adv_vel <= -1.8) and snap.current_price > pos.avg_entry_price and pos.stop_loss_price < pos.avg_entry_price:
+                    new_be_sl = round(pos.avg_entry_price * 1.001, 4)
+                    pos.stop_loss_price = new_be_sl
+                    triggered_events.append(
+                        f"[PROACTIVE_RISK_SHIELD] {sym}: Volatilitäts-Schock ({vol_spike:.1f}x) – Stop-Loss proaktiv auf Einstand (${new_be_sl:,.2f}) nachgezogen!"
+                    )
+
                 # 5. Zeit-basierte Stop-Loss-Verengung (ab Tag 3): Jeden Tag über Tag 2 rückt der SL 0.25x ATR näher!
                 if holding_days >= 3 and pos.stop_loss_price < pos.avg_entry_price:
                     tightened_sl = round(

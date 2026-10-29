@@ -152,6 +152,16 @@ class MarketSnapshot(BaseModel):
     forecast_asymmetry_ratio: float = 1.0       # (P90 - P50) / (P50 - P10)
     forecast_favorable: bool = False
     forecast_summary: str = ""
+    # Multi-Timeframe Resonanz & Trend-Konfluenz (Daily + 4H + 1H Alignment)
+    timeframe_alignment_status: str = "NEUTRAL"  # "TRIPLE_BULLISH_ALIGNMENT", "DUAL_BULLISH_ALIGNMENT", "MIXED_CHOP", "TRIPLE_BEARISH_ALIGNMENT"
+    timeframe_alignment_score: float = 0.0       # -1.0 bis +1.0
+    higher_tf_trend: str = "NEUTRAL"             # "BULLISH_TREND", "BEARISH_TREND", "SIDEWAYS"
+    intraday_tf_trend: str = "NEUTRAL"           # "BULLISH_ABOVE_VWAP", "BEARISH_BELOW_VWAP", "SIDEWAYS"
+    # Proaktive Risiko-Früherkennung & Liquiditäts-Evaporation (Flash-Crash-Schutz)
+    adverse_price_velocity_pct: float = 0.0      # Sturzgeschwindigkeit des Kurses in % über 15-30 Min
+    volatility_spike_ratio: float = 1.0          # Aktuelle Intraday-Spanne vs. 14-Tage-ATR (>2.0 = Schock-Spike)
+    liquidity_void_detected: bool = False        # Plötzliches Verschwinden der Geldseite (Orderbuch-Vakuum)
+    proactive_risk_alert: str = "NORMAL"         # "SURGE_VOLATILITY_HAZARD", "LIQUIDITY_VOID_EVACUATE", "NORMAL"
     custom_metrics: Dict[str, Any] = Field(default_factory=dict)
     sec_form8k_catalyst: str = ""
     option_delta: Optional[float] = None

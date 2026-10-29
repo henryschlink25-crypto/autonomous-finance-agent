@@ -185,6 +185,22 @@ class ADASMetaArchitect:
             )
             self._save()
 
+        # Stelle sicher, dass neu definierte Spezialisten immer sofort im Schwarm aktiv sind
+        default_macro = MacroRegime(
+            regime_state="GREEN_RISK_ON",
+            vix_level=16.0,
+            risk_multiplier=1.0,
+            allowed_clusters=["*"],
+            spy_price=500.0,
+            spy_sma_50=490.0,
+            spy_sma_200=470.0,
+            summary="Standard",
+        )
+        for spec in self._detect_needed_specialist_agents({}, default_macro):
+            if spec.agent_id not in self.state.active_subagents:
+                self.state.active_subagents[spec.agent_id] = spec
+        self._save()
+
     def _save(self) -> None:
         self.state.updated_at = datetime.datetime.now(datetime.timezone.utc).isoformat()[:19]
         with open(self.state_file, "w", encoding="utf-8") as f:
@@ -671,6 +687,26 @@ class ADASMetaArchitect:
                 role="Berechnet probabilistische Kurstrichter (P10/P50/P90 Quantile) über Monte-Carlo/Bootstrapping. Genehmigt Trades nur bei asymmetrischem Upside-Vorteil (>= 1.6x).",
                 specialty_focus="PROBABILISTIC_FORECAST",
                 trust_weight=1.25,
+            ))
+
+        # 18. Multi-Timeframe Alignment & Confluence Specialist (Sub-Agent #31)
+        if "multi_timeframe_alignment_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="multi_timeframe_alignment_specialist",
+                name="📐 Multi-Timeframe Trend & Resonance Specialist",
+                role="Prüft fraktale Zeitebenen-Resonanz (Daily Macro + 4H Swing + 1H Intraday). Erkennt A+ Chancen bei synchroner Trend-Konfluenz.",
+                specialty_focus="TIMEFRAME_CONFLUENCE",
+                trust_weight=1.26,
+            ))
+
+        # 19. Adverse Volatility & Liquidity Evaporation Sentinel (Sub-Agent #32)
+        if "adverse_volatility_shield_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="adverse_volatility_shield_sentinel",
+                name="⚡ Adverse Volatility & Liquidity Evaporation Sentinel",
+                role="Erkennt schlagartige Sturz-Geschwindigkeiten, Liquiditäts-Vakua und Volatilitäts-Spikes in Echtzeit und verhängt Notfall-Vetos.",
+                specialty_focus="ADVERSE_VOLATILITY_SHIELD",
+                trust_weight=1.28,
             ))
 
         return new_specs
@@ -1426,6 +1462,76 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = f"Probabilistischer Trichter temporär nicht verfügbar ({e})"
+
+        elif focus == "TIMEFRAME_CONFLUENCE":
+            try:
+                tf_status = getattr(snap, "timeframe_alignment_status", "NEUTRAL")
+                tf_score = getattr(snap, "timeframe_alignment_score", 0.0)
+                htf = getattr(snap, "higher_tf_trend", "NEUTRAL")
+
+                is_stacked_bull = snap.current_price >= snap.sma_20 >= snap.sma_50
+                is_stacked_bear = snap.current_price <= snap.sma_20 <= snap.sma_50
+
+                s_triple_bull = rec.flag("Triple Bull Alignment", tf_status == "TRIPLE_BULLISH_ALIGNMENT" or (tf_score >= 0.70 and is_stacked_bull), "bull")
+                s_triple_bear = rec.flag("Triple Bear Alignment", tf_status == "TRIPLE_BEARISH_ALIGNMENT" or (tf_score <= -0.70 and is_stacked_bear), "bear")
+
+                if s_triple_bull.passed:
+                    score = 0.88
+                    conf = 0.90
+                    rationale = f"📐 Perfekte Multi-Timeframe Resonanz: Daily + 4H + 1H synchron bullisch (Score {tf_score:+.2f})"
+                    decisive_idx = rec.idx(s_triple_bull)
+                elif s_triple_bear.passed:
+                    score = -0.85
+                    conf = 0.88
+                    rationale = f"🔻 Bärische Zeitebenen-Konfluenz: Alle Timeframes abwärtsgerichtet (Score {tf_score:+.2f})"
+                    decisive_idx = rec.idx(s_triple_bear)
+                elif tf_status == "DUAL_BULLISH_ALIGNMENT" or is_stacked_bull:
+                    score = 0.50
+                    conf = 0.75
+                    rationale = f"Solide Zeitebenen-Unterstützung (Trend: {htf})"
+                else:
+                    score = -0.20 if is_stacked_bear else 0.0
+                    conf = 0.60
+                    rationale = f"Zeitebenen uneinheitlich (Status: {tf_status})"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"Multi-Timeframe Engine temporär nicht verfügbar ({e})"
+
+        elif focus == "ADVERSE_VOLATILITY_SHIELD":
+            try:
+                alert = getattr(snap, "proactive_risk_alert", "NORMAL")
+                vel = getattr(snap, "adverse_price_velocity_pct", 0.0)
+                spike = getattr(snap, "volatility_spike_ratio", 1.0)
+                void = getattr(snap, "liquidity_void_detected", False)
+
+                s_void = rec.flag("Liquidity Void Hazard", void or alert == "LIQUIDITY_VOID_EVACUATE", "bear")
+                s_shock = rec.flag("Volatility Shock", spike >= 2.2 or alert == "SURGE_VOLATILITY_HAZARD" or vel <= -2.5, "bear")
+                s_stable = rec.flag("Microstructure Stability", spike < 1.4 and vel > -1.0 and not void, "bull")
+
+                if s_void.passed:
+                    score = -0.98
+                    conf = 0.95
+                    rationale = f"🚨 NOTFALL-VETO: Liquiditäts-Vakuum im Orderbuch erkannt (Spread/Tiefe kollabiert)"
+                    decisive_idx = rec.idx(s_void)
+                elif s_shock.passed:
+                    score = -0.85
+                    conf = 0.90
+                    rationale = f"⚡ VETO: Volatilitäts-Schock (Spike {spike:.1f}x, Sturz-Tempo {vel:+.1f}%)"
+                    decisive_idx = rec.idx(s_shock)
+                elif s_stable.passed:
+                    score = 0.45
+                    conf = 0.80
+                    rationale = f"🛡️ Mikrostruktur ruhig & liquide (Spike {spike:.1f}x, Tempo {vel:+.1f}%)"
+                    decisive_idx = rec.idx(s_stable)
+                else:
+                    score = 0.0
+                    conf = 0.65
+                    rationale = f"Volatilität im Normalbereich ({spike:.1f}x)"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"Risk Shield temporär nicht verfügbar ({e})"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:

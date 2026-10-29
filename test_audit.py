@@ -1715,7 +1715,86 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 42 bestanden: Dual-Mode Execution & Live Ultra-Conviction Fortress – Paper-Experimente freigegeben, Live-Trading strikt auf Tier-1 Alpha & A+ Spitzen-Setups beschränkt.")
 
-    print("=== Alle 42 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution- & Live-Ultra-Conviction-Tests erfolgreich bestanden! ===")
+        # --- Test 43: Multi-Timeframe Trend Resonance (Sub-Agent #31) & Proactive Adverse Volatility Risk Evaporator (Sub-Agent #32) ---
+        from adas_meta_agent import ADASMetaArchitect
+        arch_32 = ADASMetaArchitect(cfg_paper)
+        assert len(arch_32.state.active_subagents) == 32, f"Schwarm muss genau 32 Spezialisten umfassen, erhalten: {len(arch_32.state.active_subagents)}"
+
+        # 1. Sub-Agent #31 (TIMEFRAME_CONFLUENCE)
+        ag_tf = next(ag for ag in arch_32.state.active_subagents.values() if ag.specialty_focus == "TIMEFRAME_CONFLUENCE")
+        snap_tf_bull = snap_fav.model_copy(update={
+            "timeframe_alignment_status": "TRIPLE_BULLISH_ALIGNMENT",
+            "timeframe_alignment_score": 0.85,
+            "higher_tf_trend": "BULLISH_TREND",
+        })
+        vote_tf_bull, _ = arch_32._compute_single_subagent_vote(ag_tf, snap_tf_bull, green_macro)
+        assert vote_tf_bull.vote_action == "BUY" and vote_tf_bull.score >= 0.80
+        assert "Multi-Timeframe" in vote_tf_bull.rationale
+
+        snap_tf_bear = snap_fav.model_copy(update={
+            "timeframe_alignment_status": "TRIPLE_BEARISH_ALIGNMENT",
+            "timeframe_alignment_score": -0.85,
+            "higher_tf_trend": "BEARISH_TREND",
+        })
+        vote_tf_bear, _ = arch_32._compute_single_subagent_vote(ag_tf, snap_tf_bear, green_macro)
+        assert vote_tf_bear.vote_action == "SELL" and vote_tf_bear.score <= -0.80
+
+        # 2. Sub-Agent #32 (ADVERSE_VOLATILITY_SHIELD)
+        ag_shield = next(ag for ag in arch_32.state.active_subagents.values() if ag.specialty_focus == "ADVERSE_VOLATILITY_SHIELD")
+        snap_void = snap_fav.model_copy(update={
+            "symbol": "NVDA",
+            "current_price": 104.0,
+            "liquidity_void_detected": True,
+            "proactive_risk_alert": "LIQUIDITY_VOID_EVACUATE",
+        })
+        vote_void, _ = arch_32._compute_single_subagent_vote(ag_shield, snap_void, green_macro)
+        assert vote_void.vote_action == "SELL" and vote_void.score <= -0.90
+        assert "NOTFALL-VETO" in vote_void.rationale
+
+        # 3. Proaktive Schutzreaktion in der Execution Engine: Breakeven-Nachziehung & Notausstieg
+        exec_shield = MultiAssetExecutionEngine(cfg_paper)
+        test_pos_profit = Position(
+            symbol="NVDA",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            side="LONG",
+            quantity=10.0,
+            avg_entry_price=100.0,
+            current_price=104.0,  # Im Gewinn!
+            highest_price=105.0,
+            stop_loss_price=96.0,  # Normaler Stop-Loss liegt noch unter Einstand
+            partial_tp_price=108.0,
+            take_profit_price=112.0,
+            opened_at="2026-10-28T10:00:00",
+        )
+        exec_shield.positions["NVDA"] = test_pos_profit
+
+        # a) Volatilitäts-Spike (2.4x ATR) -> Stop-Loss wird sofort auf Einstand (Breakeven) angehoben!
+        snap_vol_spike = snap_fav.model_copy(update={
+            "symbol": "NVDA",
+            "current_price": 104.0,
+            "volatility_spike_ratio": 2.4,
+            "adverse_price_velocity_pct": -1.9,
+        })
+        events_tighten = exec_shield.update_prices_and_check_stops({"NVDA": snap_vol_spike})
+        assert exec_shield.positions["NVDA"].stop_loss_price >= 100.0, "SL muss auf oder über Einstand nachgezogen sein"
+        assert any("PROACTIVE_RISK_SHIELD" in ev for ev in events_tighten)
+
+        # b) Liquiditäts-Vakuum -> Sofortiger Notausstieg vor Stop-Loss-Slippage
+        events_void = exec_shield.update_prices_and_check_stops({"NVDA": snap_void})
+        assert "NVDA" not in exec_shield.positions, "Position muss bei Liquiditäts-Vakuum sofort geschlossen worden sein"
+        assert any("PROACTIVE_LIQUIDITY_VOID_EVACUATION" in ev for ev in events_void)
+
+        # 4. Emergent Dialect Integration
+        deal_tf = dialect_engine.compose_and_negotiate_deal(snap_tf_bull, fake_buy_sig, green_macro, dummy_risk)
+        assert "📐:TRIPLE_TIMEFRAME_ALIGN" in deal_tf.dialect_sentence
+
+        deal_void = dialect_engine.compose_and_negotiate_deal(snap_void, fake_buy_sig, green_macro, dummy_risk)
+        assert "🚨:LIQUIDITY_VOID_EVACUATE" in deal_void.dialect_sentence
+
+        print(f"[OK] Test 43 bestanden: Multi-Timeframe Resonance (Sub-Agent #31, 32 Spezialisten im Schwarm), Adverse Volatility Sentinel (Sub-Agent #32) & Proaktive Breakeven-/Notfall-Evakuierung.")
+
+    print("=== Alle 43 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction- & Multi-Timeframe-Proactive-Shield-Tests erfolgreich bestanden! ===")
 
 
 
