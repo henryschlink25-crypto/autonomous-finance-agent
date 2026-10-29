@@ -80,6 +80,9 @@ class MarketSnapshot(BaseModel):
     ttm_squeeze_momentum: float = 0.0
     insider_sentiment: str = "NEUTRAL"  # "STRONG_INSIDER_BUY", "INSIDER_SELLING", "NEUTRAL"
     insider_summary: str = ""
+    supertrend_direction: str = "NEUTRAL"  # "BULLISH", "BEARISH", "NEUTRAL"
+    supertrend_val: float = 0.0
+    supertrend_flipped: bool = False
     option_delta: Optional[float] = None
     option_gamma: Optional[float] = None
     option_vega: Optional[float] = None

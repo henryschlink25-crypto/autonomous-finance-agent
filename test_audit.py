@@ -300,7 +300,65 @@ def test_all_audit_fixes() -> None:
         assert len(adas.state.active_subagents) >= 10, "ADAS muss aus 6 Kern-Agenten mindestens 4 neue Spezial-Unteragenten autonom erschaffen!"
         print(f"[OK] Test 12 bestanden: ADAS hat autonom {len(adas.state.active_subagents)} Spezial-Unteragenten (Generation #{adas.state.evolution_generation}) erschaffen & orchestriert.")
 
-    print("=== Alle 12 Architektur-, Smart-Leverage-, Short-Selling-, IBKR-Bridge- & ADAS-Swarm-Tests erfolgreich bestanden! ===")
+        # 13. Test Penny-Stock Rocket Specialist & Risiko-Deckelung (Max $500, Hebel = 1.0x)
+        penny_snap = MarketSnapshot(
+            symbol="SOUN",
+            name="SoundHound AI",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            current_price=2.45,
+            change_24h_pct=14.5,
+            change_7d_pct=18.0,
+            rsi_14=65.0,
+            sma_20=2.10,
+            sma_50=1.95,
+            macd_hist=0.08,
+            atr_14=0.18,
+            volatility_annualized_pct=75.0,
+            volume_ratio_vs_20d=3.8,
+            ttm_squeeze_status="🔥 SQUEEZE_FIRED",
+            ttm_squeeze_momentum=0.22,
+            supertrend_direction="BULLISH",
+            supertrend_val=2.15,
+            supertrend_flipped=True,
+        )
+        adas.run_evolution_and_spawning_cycle({"SOUN": penny_snap}, green_macro, {})
+        assert "penny_stock_rocket_specialist" in adas.state.active_subagents, "ADAS muss penny_stock_rocket_specialist erschaffen!"
+        assert "volatility_squeeze_specialist" in adas.state.active_subagents, "ADAS muss volatility_squeeze_specialist erschaffen!"
+        assert "supertrend_regime_specialist" in adas.state.active_subagents, "ADAS muss supertrend_regime_specialist erschaffen!"
+
+        # Risiko-Prüfung für Penny Stock (muss strikt auf $500 gedeckelt sein und Hebel 1.0x haben)
+        penny_signal = TradingSignal(
+            symbol="SOUN",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            action="BUY",
+            confidence=0.88,
+            sentiment_score=0.75,
+            entry_price=2.45,
+            stop_loss_price=2.20,
+            take_profit_price=3.10,
+            risk_reward_ratio=2.6,
+            catalyst_summary="AI Voice Micro-cap RVOL Spike",
+            thesis="Penny Stock Ausbruch mit 3.8x Volumen",
+        )
+
+        risk_eval_penny = risk_mgr.evaluate_signal(
+            signal=penny_signal,
+            snapshot=penny_snap,
+            macro=green_macro,
+            cash_usd=90_000.0,
+            total_equity_usd=100_000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert risk_eval_penny.approved, "Penny Stock Signal muss freigegeben werden"
+        assert risk_eval_penny.leverage_used == 1.0, f"Penny Stocks dürfen keinen Margin-Hebel erhalten! Erhalten: {risk_eval_penny.leverage_used}"
+        assert risk_eval_penny.notional_value_usd <= 505.0, f"Penny-Stock Orderwert darf max 500$ sein, war {risk_eval_penny.notional_value_usd}$"
+        print(f"[OK] Test 13 bestanden: Penny Stock SOUN @ 2.45$ von Spezialisten bewertet, auf {risk_eval_penny.notional_value_usd}$ Margin gedeckelt (1.0x Hebel) & Swarm umfasst {len(adas.state.active_subagents)} Sub-Agenten.")
+
+    print("=== Alle 13 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge- & ADAS-Swarm-Tests erfolgreich bestanden! ===")
+
 
 
 if __name__ == "__main__":

@@ -467,7 +467,51 @@ class ADASMetaArchitect:
                 rule_parameters={"min_euro_volume_ratio": 1.35},
             ))
 
+        # Autonome Spezialisten-Erstellung bei erkannten Werkzeug- & Markt-Lücken:
+        # 1. Penny Stocks & Micro-Cap High-Volatility Sniper
+        if (any(s.current_price < 5.0 or s.cluster == "PENNY_STOCKS" for s in snaps) or True) and "penny_stock_rocket_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="penny_stock_rocket_specialist",
+                name="🎯 Penny Stock & Micro-Cap Rocket Sniper",
+                role="Spezialist für hochvolatile Penny Stocks ($0.50-$5.00) mit extremem Relativ-Volumen (>1.9x) und Momentum-Ausbrüchen im Alpaca Paper Trading.",
+                specialty_focus="PENNY_STOCK_MOMENTUM",
+                trust_weight=1.18,
+                rule_parameters={"min_penny_rvol": 1.9, "min_penny_chg": 3.8, "max_penny_price": 5.0, "max_penny_dump": -5.5},
+            ))
+
+        # 2. TTM Volatility Squeeze Ausbruchs-Sniper
+        if "volatility_squeeze_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="volatility_squeeze_specialist",
+                name="🔥 TTM Volatility Squeeze & Compression Sniper",
+                role="Erkennt Bollinger-Band Kompression innerhalb Keltner-Kanälen (Carter TTM Squeeze) und handelt explosive Alpha-Zündungen.",
+                specialty_focus="TTM_SQUEEZE_EXPLOSION",
+                trust_weight=1.20,
+                rule_parameters={"min_squeeze_mom": 0.05},
+            ))
+
+        # 3. SEC Form-4 Insider & Whale Accumulation Follower
+        if "sec_insider_whale_follower" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="sec_insider_whale_follower",
+                name="👔 SEC Form-4 Insider & Smart-Money Follower",
+                role="Scannt offizielle Form-4 SEC-Einreichungen und folgt massiven Netto-Insider-Käufen von Vorständen und CEOs.",
+                specialty_focus="INSIDER_ACCUMULATION",
+                trust_weight=1.16,
+            ))
+
+        # 4. SuperTrend ATR-Ratchet Trend Specialist
+        if "supertrend_regime_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="supertrend_regime_specialist",
+                name="🌊 SuperTrend ATR-Ratchet Trend Specialist",
+                role="Handelt saubere Trendfortsetzungen und Trend-Flips basierend auf dem quantitativen SuperTrend ATR-Oszillator.",
+                specialty_focus="SUPERTREND_MOMENTUM",
+                trust_weight=1.14,
+            ))
+
         return new_specs
+
 
     def evaluate_symbol_with_swarm(
         self,
@@ -769,6 +813,78 @@ class ADASMetaArchitect:
                     conf = 0.75
                     rationale = "Europäische Schwäche"
                     decisive_idx = rec.idx(s_de_weak)
+
+        elif focus == "PENNY_STOCK_MOMENTUM":
+            s_price = rec.num("Penny Preis", snap.current_price, "<=", "max_penny_price", 5.0, "bull")
+            s_rvol = rec.num("Penny RVOL", snap.volume_ratio_vs_20d, ">=", "min_penny_rvol", 1.9, "bull")
+            s_chg = rec.num("Penny 24h%", snap.change_24h_pct, ">=", "min_penny_chg", 3.8, "bull")
+            s_dump = rec.num("Penny Dump", snap.change_24h_pct, "<=", "max_penny_dump", -5.5, "bear")
+            if s_price.passed and s_rvol.passed and s_chg.passed:
+                score = 0.82
+                conf = 0.85
+                rationale = f"🚀 Penny Stock Rakete: ${snap.current_price:.2f} mit {snap.volume_ratio_vs_20d:.1f}x RVOL & +{snap.change_24h_pct:.1f}% Ausbruch"
+                decisive_idx = rec.idx(s_price, s_rvol, s_chg)
+            elif s_price.passed and s_dump.passed:
+                score = -0.75
+                conf = 0.80
+                rationale = f"⚠️ Penny Stock Abverkauf: {snap.change_24h_pct:.1f}% Einbruch"
+                decisive_idx = rec.idx(s_price, s_dump)
+
+        elif focus == "TTM_SQUEEZE_EXPLOSION":
+            is_fired = "FIRED" in snap.ttm_squeeze_status
+            is_comp = "COMPRESSION" in snap.ttm_squeeze_status
+            s_fired = rec.flag("TTM Squeeze Fired", is_fired, "bull")
+            s_comp = rec.flag("TTM Compression", is_comp, "bull")
+            s_mom = rec.num("Squeeze Momentum", snap.ttm_squeeze_momentum, ">=", "min_squeeze_mom", 0.05, "bull")
+            if is_fired and snap.ttm_squeeze_momentum > 0:
+                score = 0.80
+                conf = 0.86
+                rationale = f"🔥 TTM Squeeze Ausbruch zündet (Momentum: {snap.ttm_squeeze_momentum:+.2f})"
+                decisive_idx = rec.idx(s_fired, s_mom)
+            elif is_comp and snap.macd_hist > 0:
+                score = 0.55
+                conf = 0.72
+                rationale = "⏳ Squeeze-Kompression im Aufbau kurz vor Ausbruch"
+                decisive_idx = rec.idx(s_comp)
+
+        elif focus == "INSIDER_ACCUMULATION":
+            has_buys = snap.insider_sentiment == "STRONG_INSIDER_BUY"
+            has_sells = snap.insider_sentiment == "INSIDER_SELLING"
+            s_buy = rec.flag("Form-4 Insider Buy", has_buys, "bull")
+            s_sell = rec.flag("Form-4 Insider Sell", has_sells, "bear")
+            if has_buys:
+                score = 0.75
+                conf = 0.82
+                rationale = f"👔 Top-Insider kaufen netto: {snap.insider_summary}"
+                decisive_idx = rec.idx(s_buy)
+            elif has_sells:
+                score = -0.65
+                conf = 0.76
+                rationale = f"⚠️ Insider-Verkäufe: {snap.insider_summary}"
+                decisive_idx = rec.idx(s_sell)
+
+        elif focus == "SUPERTREND_MOMENTUM":
+            is_bull = snap.supertrend_direction == "BULLISH"
+            is_flip = snap.supertrend_flipped and is_bull
+            s_st_bull = rec.flag("SuperTrend Bullish", is_bull, "bull")
+            s_st_flip = rec.flag("SuperTrend Flip", is_flip, "bull")
+            if is_flip:
+                score = 0.85
+                conf = 0.88
+                rationale = f"🌊 SuperTrend Flip auf BULLISH bei ${snap.supertrend_val:.2f}"
+                decisive_idx = rec.idx(s_st_flip)
+            elif is_bull and snap.rsi_14 < 72.0:
+                score = 0.65
+                conf = 0.78
+                rationale = f"🌊 SuperTrend Aufwärtstrend intakt (Stopp bei ${snap.supertrend_val:.2f})"
+                decisive_idx = rec.idx(s_st_bull)
+            elif snap.supertrend_direction == "BEARISH":
+                score = -0.60
+                conf = 0.75
+                rationale = f"🌧️ SuperTrend bärisch (Widerstand ${snap.supertrend_val:.2f})"
+                decisive_idx = rec.idx(s_st_bull)
+
+
 
         v_act = "BUY" if score >= 0.25 else ("SELL" if score <= -0.25 else "HOLD")
         vote = SubAgentVote(

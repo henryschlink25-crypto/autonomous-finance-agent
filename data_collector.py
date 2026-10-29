@@ -126,16 +126,24 @@ class MultiAssetDataCollector:
                     vol_mult = vol / max(1.0, avg_vol)
                     mkt_cap = float(q.get("marketCap") or 0.0)
 
-                    # Liquide Aktie mit außergewöhnlicher Bewegung oder Volumen-Spike ("Stock in Play")
-                    if price >= 5.0 and mkt_cap >= 800_000_000 and (abs(chg_pct) >= 2.8 or (abs(chg_pct) >= 1.6 and vol_mult >= 1.4)):
+                    # Liquide Aktie oder Penny-Stock mit außergewöhnlicher Bewegung / RVOL
+                    is_penny = (0.50 <= price < 5.0) and (vol_mult >= 1.6 or abs(chg_pct) >= 3.5)
+                    is_mid_large = (price >= 5.0 and mkt_cap >= 400_000_000 and (abs(chg_pct) >= 2.5 or (abs(chg_pct) >= 1.5 and vol_mult >= 1.3)))
+
+                    if is_penny or is_mid_large:
                         name = str(q.get("shortName") or q.get("longName") or sym)[:28]
-                        tag = "🔥 Breakout" if chg_pct > 0 else "⚡ Reversal/Short"
+                        if is_penny:
+                            tag = "🎯 Penny Stock In-Play"
+                            clust = "PENNY_STOCKS"
+                        else:
+                            tag = "🔥 Breakout" if chg_pct > 0 else "⚡ Reversal/Short"
+                            clust = "DYNAMIC_MARKET"
                         discovered.append(
                             WatchlistItem(
                                 symbol=sym,
                                 yf_ticker=sym,
                                 asset_class="EQUITY",
-                                cluster="DYNAMIC_MARKET",
+                                cluster=clust,
                                 name=f"{name} ({tag})",
                                 intrinsic_leverage=1.0,
                             )
@@ -143,6 +151,7 @@ class MultiAssetDataCollector:
                         seen.add(sym)
                         if len(discovered) >= max_additions:
                             return discovered
+
             except Exception:
                 continue
         return discovered
@@ -773,6 +782,7 @@ class MultiAssetDataCollector:
 
             # Erweiterte Quantitative & Insider Werkzeuge anwenden
             squeeze_info = QuantitativeToolbox.detect_ttm_volatility_squeeze(df)
+            supertrend_info = QuantitativeToolbox.calculate_supertrend(df)
             insider_info = {"insider_signal": "NEUTRAL", "summary": ""}
             if item.asset_class == "EQUITY" and not item.symbol.endswith(".DE"):
                 insider_info = QuantitativeToolbox.get_sec_insider_activity(item.symbol)
@@ -821,6 +831,9 @@ class MultiAssetDataCollector:
                 ttm_squeeze_momentum=squeeze_info.get("momentum_hist", 0.0),
                 insider_sentiment=insider_info.get("insider_signal", "NEUTRAL"),
                 insider_summary=insider_info.get("summary", ""),
+                supertrend_direction=supertrend_info.get("trend", "NEUTRAL"),
+                supertrend_val=supertrend_info.get("supertrend_val", 0.0),
+                supertrend_flipped=supertrend_info.get("trend_flipped", False),
                 option_delta=opt_delta,
                 option_gamma=opt_gamma,
                 option_vega=opt_vega,

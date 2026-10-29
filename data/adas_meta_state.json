@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-29T08:49:08",
-  "evolution_generation": 5,
-  "total_evolution_cycles": 93,
+  "updated_at": "2026-10-29T09:06:45",
+  "evolution_generation": 9,
+  "total_evolution_cycles": 97,
   "active_subagents": {
     "alpha_breakout_hunter": {
       "agent_id": "alpha_breakout_hunter",
@@ -308,6 +308,112 @@
       "near_miss_counts": {},
       "param_history": [],
       "reflection_log": []
+    },
+    "penny_stock_rocket_specialist": {
+      "agent_id": "penny_stock_rocket_specialist",
+      "name": "🎯 Penny Stock & Micro-Cap Rocket Sniper",
+      "role": "Spezialist für hochvolatile Penny Stocks ($0.50-$5.00) mit extremem Relativ-Volumen (>1.9x) und Momentum-Ausbrüchen im Alpaca Paper Trading.",
+      "generation": 6,
+      "is_spawned_by_adas": true,
+      "created_at": "2026-10-29T09:05:23",
+      "specialty_focus": "PENNY_STOCK_MOMENTUM",
+      "trust_weight": 1.18,
+      "signals_evaluated": 0,
+      "correct_votes": 0,
+      "false_votes": 0,
+      "cumulative_edge_contributed": 0.0,
+      "last_verdict_summary": "LH: HOLD (+0.00)",
+      "rule_parameters": {
+        "min_penny_rvol": 1.9,
+        "min_penny_chg": 3.8,
+        "max_penny_price": 5.0,
+        "max_penny_dump": -5.5
+      },
+      "prompt_directive": "",
+      "fitness_score": 50.0,
+      "param_defaults": {
+        "max_penny_price": 5.0,
+        "min_penny_rvol": 1.9,
+        "min_penny_chg": 3.8,
+        "max_penny_dump": -5.5
+      },
+      "blame_counts": {},
+      "near_miss_counts": {},
+      "param_history": [],
+      "reflection_log": []
+    },
+    "volatility_squeeze_specialist": {
+      "agent_id": "volatility_squeeze_specialist",
+      "name": "🔥 TTM Volatility Squeeze & Compression Sniper",
+      "role": "Erkennt Bollinger-Band Kompression innerhalb Keltner-Kanälen (Carter TTM Squeeze) und handelt explosive Alpha-Zündungen.",
+      "generation": 7,
+      "is_spawned_by_adas": true,
+      "created_at": "2026-10-29T09:05:23",
+      "specialty_focus": "TTM_SQUEEZE_EXPLOSION",
+      "trust_weight": 1.2,
+      "signals_evaluated": 0,
+      "correct_votes": 0,
+      "false_votes": 0,
+      "cumulative_edge_contributed": 0.0,
+      "last_verdict_summary": "LH: HOLD (+0.00)",
+      "rule_parameters": {
+        "min_squeeze_mom": 0.05
+      },
+      "prompt_directive": "",
+      "fitness_score": 50.0,
+      "param_defaults": {
+        "min_squeeze_mom": 0.05
+      },
+      "blame_counts": {},
+      "near_miss_counts": {},
+      "param_history": [],
+      "reflection_log": []
+    },
+    "sec_insider_whale_follower": {
+      "agent_id": "sec_insider_whale_follower",
+      "name": "👔 SEC Form-4 Insider & Smart-Money Follower",
+      "role": "Scannt offizielle Form-4 SEC-Einreichungen und folgt massiven Netto-Insider-Käufen von Vorständen und CEOs.",
+      "generation": 8,
+      "is_spawned_by_adas": true,
+      "created_at": "2026-10-29T09:05:23",
+      "specialty_focus": "INSIDER_ACCUMULATION",
+      "trust_weight": 1.16,
+      "signals_evaluated": 0,
+      "correct_votes": 0,
+      "false_votes": 0,
+      "cumulative_edge_contributed": 0.0,
+      "last_verdict_summary": "LH: SELL (-0.65)",
+      "rule_parameters": {},
+      "prompt_directive": "",
+      "fitness_score": 50.0,
+      "param_defaults": {},
+      "blame_counts": {},
+      "near_miss_counts": {},
+      "param_history": [],
+      "reflection_log": []
+    },
+    "supertrend_regime_specialist": {
+      "agent_id": "supertrend_regime_specialist",
+      "name": "🌊 SuperTrend ATR-Ratchet Trend Specialist",
+      "role": "Handelt saubere Trendfortsetzungen und Trend-Flips basierend auf dem quantitativen SuperTrend ATR-Oszillator.",
+      "generation": 9,
+      "is_spawned_by_adas": true,
+      "created_at": "2026-10-29T09:05:23",
+      "specialty_focus": "SUPERTREND_MOMENTUM",
+      "trust_weight": 1.14,
+      "signals_evaluated": 0,
+      "correct_votes": 0,
+      "false_votes": 0,
+      "cumulative_edge_contributed": 0.0,
+      "last_verdict_summary": "LH: HOLD (+0.00)",
+      "rule_parameters": {},
+      "prompt_directive": "",
+      "fitness_score": 50.0,
+      "param_defaults": {},
+      "blame_counts": {},
+      "near_miss_counts": {},
+      "param_history": [],
+      "reflection_log": []
     }
   },
   "extinct_subagents": [],
@@ -316,7 +422,11 @@
     "[00:25:44] 🧬 ADAS NEU-EVOLUTION (Gen #2): Unteragent '💎 Institutional Quality-Dip & Rebound Sniper' autonom erschaffen -> Aufgabe: Kauft antizyklisch stark überverkaufte Qualitätsführer (RSI < 37, Umsatzwachstum > 15%), sobald sie den 15m-VWAP zurückerobern.",
     "[00:25:44] 🧬 ADAS NEU-EVOLUTION (Gen #3): Unteragent '🐻 Short-Breakdown & Bear-Put Hunter' autonom erschaffen -> Aufgabe: Identifiziert hochkonfidente Leerverkaufs-Chancen (Short-Sells) und bärische Put-Optionen bei gebrochenem Trend (< SMA20 & < VWAP).",
     "[00:27:27] 🧬 ADAS NEU-EVOLUTION (Gen #4): Unteragent '⚡ Gamma-Squeeze & Extreme-Whale Specialist' autonom erschaffen -> Aufgabe: Jagd auf asymmetrische Options-Gamma-Squeezes mit V/OI >= 4.0x und Put/Call < 0.35 (entdeckt durch GLXY, FLEX, SOXL).",
-    "[00:27:27] 🧬 ADAS NEU-EVOLUTION (Gen #5): Unteragent '📈 Post-Earnings-Announcement-Drift (PEAD) Agent' autonom erschaffen -> Aufgabe: Handelt mehrtägige institutionelle Trendfortsetzungen nach +10% Volumen-Ausbrüchen & Quartalszahlen (SOFI)."
+    "[00:27:27] 🧬 ADAS NEU-EVOLUTION (Gen #5): Unteragent '📈 Post-Earnings-Announcement-Drift (PEAD) Agent' autonom erschaffen -> Aufgabe: Handelt mehrtägige institutionelle Trendfortsetzungen nach +10% Volumen-Ausbrüchen & Quartalszahlen (SOFI).",
+    "[09:05:23] 🧬 Neu erschaffen (Gen #6): '🎯 Penny Stock & Micro-Cap Rocket Sniper' -> Spezialist für hochvolatile Penny Stocks ($0.50-$5.00) mit extremem Relativ-Volumen (>1.9x) und Momentum-Ausbrüchen im Alpaca Paper Trading.",
+    "[09:05:23] 🧬 Neu erschaffen (Gen #7): '🔥 TTM Volatility Squeeze & Compression Sniper' -> Erkennt Bollinger-Band Kompression innerhalb Keltner-Kanälen (Carter TTM Squeeze) und handelt explosive Alpha-Zündungen.",
+    "[09:05:23] 🧬 Neu erschaffen (Gen #8): '👔 SEC Form-4 Insider & Smart-Money Follower' -> Scannt offizielle Form-4 SEC-Einreichungen und folgt massiven Netto-Insider-Käufen von Vorständen und CEOs.",
+    "[09:05:23] 🧬 Neu erschaffen (Gen #9): '🌊 SuperTrend ATR-Ratchet Trend Specialist' -> Handelt saubere Trendfortsetzungen und Trend-Flips basierend auf dem quantitativen SuperTrend ATR-Oszillator."
   ],
   "Active_entry_prices": {
     "AVGO": 351.81,

@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-29T08:48:35",
-  "scan_cycle": 101,
-  "total_scanned_count": 114,
+  "updated_at": "2026-10-29T09:06:13",
+  "scan_cycle": 105,
+  "total_scanned_count": 121,
   "hot_action_count": 24,
-  "watch_closely_count": 5,
-  "discarded_count": 36,
+  "watch_closely_count": 7,
+  "discarded_count": 34,
   "hot_action_highlights": [
     "AXGN (Live-Screener, Move +31.5%, Vol 4.8x, 5d +35.0%)",
     "GMAB (Live-Screener, Move +28.3%, Vol 4.5x, 5d +44.8%)",
@@ -14,12 +14,12 @@
     "BEAM (Live-Screener, Move +15.6%, Vol 2.6x, 5d +15.9%)"
   ],
   "promoted_from_watch": [
-    "SOXL (🚀 Aus 'Weiterbeobachten' gezündet: Move +6.2%)",
     "SOXS (🚀 Aus 'Weiterbeobachten' gezündet: Move -6.4%, 5d -10.2%)",
     "MU (🚀 Aus 'Weiterbeobachten' gezündet: Move +5.9%, Vol-Anstieg 1.13x, 5d +7.6%)",
     "HOOD (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.3%, Vol 2.0x, 5d -10.3%)",
     "SOFI (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.5%, Vol 1.6x, 5d +15.0%)",
     "MRNA (🚀 Aus 'Weiterbeobachten' gezündet: Move +3.0%, 5d -12.9%)",
+    "BBAI (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.7%, Vol 1.6x, 5d +12.3%)",
     "CECO (🚀 Aus 'Weiterbeobachten' gezündet: Move +9.4%, Vol 1.4x, 5d -5.9%)"
   ],
   "watch_closely_queue": {
@@ -45,6 +45,17 @@
       "last_price": 0.0,
       "cycles_watched": 1
     },
+    "BBAI": {
+      "symbol": "BBAI",
+      "yf_ticker": "BBAI",
+      "asset_class": "EQUITY",
+      "cluster": "PENNY_STOCKS",
+      "name": "BigBear.ai Holdings (Defense AI)",
+      "activity_score": 7.42,
+      "reason": "🚀 Aus Watch-Queue gezündet, Move +4.7%, Vol 1.6x, 5d +12.3%",
+      "last_price": 0.0,
+      "cycles_watched": 2
+    },
     "LABU": {
       "symbol": "LABU",
       "yf_ticker": "LABU",
@@ -55,6 +66,17 @@
       "reason": "Move +4.9%, 5d +8.5%",
       "last_price": 0.0,
       "cycles_watched": 1
+    },
+    "SIE.DE": {
+      "symbol": "SIE.DE",
+      "yf_ticker": "SIE.DE",
+      "asset_class": "EQUITY",
+      "cluster": "EU_LEADERS",
+      "name": "Siemens AG (Xetra Industrial Tech)",
+      "activity_score": 1.1,
+      "reason": "5d +5.5%",
+      "last_price": 269.7,
+      "cycles_watched": 3
     },
     "SNOW": {
       "symbol": "SNOW",
@@ -96,25 +118,23 @@
     "FUTU",
     "SE",
     "SAP",
-    "AIR.DE",
     "MBG.DE",
     "REGN",
     "ISRG",
     "CAT",
     "FCX",
     "GLD",
+    "OPEN",
     "CECO (nach 3 Watch-Zyklen eingeschlafen)",
     "SOFI (nach 3 Watch-Zyklen eingeschlafen)",
     "SOXS (nach 3 Watch-Zyklen eingeschlafen)",
     "HOOD (nach 3 Watch-Zyklen eingeschlafen)",
     "MU (nach 3 Watch-Zyklen eingeschlafen)",
     "MRNA (nach 3 Watch-Zyklen eingeschlafen)",
-    "SOXL (nach 3 Watch-Zyklen eingeschlafen)",
     "XOM (nach 3 Watch-Zyklen eingeschlafen)",
     "VRTX (nach 3 Watch-Zyklen eingeschlafen)",
     "GS (nach 3 Watch-Zyklen eingeschlafen)",
     "YINN (nach 3 Watch-Zyklen eingeschlafen)",
-    "NFLX (nach 3 Watch-Zyklen eingeschlafen)",
-    "USO (nach 3 Watch-Zyklen eingeschlafen)"
+    "NFLX (nach 3 Watch-Zyklen eingeschlafen)"
   ]
 }

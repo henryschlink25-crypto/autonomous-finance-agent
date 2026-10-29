@@ -182,4 +182,13 @@ class AgentConfig:
         WatchlistItem(symbol="SOL/USD", yf_ticker="SOL-USD", asset_class="CRYPTO", cluster="CRYPTO", name="Solana"),
         WatchlistItem(symbol="XRP/USD", yf_ticker="XRP-USD", asset_class="CRYPTO", cluster="CRYPTO", name="Ripple XRP"),
         WatchlistItem(symbol="DOGE/USD", yf_ticker="DOGE-USD", asset_class="CRYPTO", cluster="CRYPTO", name="Dogecoin"),
+        # 9. Penny Stocks & High-Momentum Micro-Caps (Alpaca Paper Trading)
+        WatchlistItem(symbol="SOUN", yf_ticker="SOUN", asset_class="EQUITY", cluster="PENNY_STOCKS", name="SoundHound AI (AI Voice Microcap)"),
+        WatchlistItem(symbol="BBAI", yf_ticker="BBAI", asset_class="EQUITY", cluster="PENNY_STOCKS", name="BigBear.ai Holdings (Defense AI)"),
+        WatchlistItem(symbol="LUNR", yf_ticker="LUNR", asset_class="EQUITY", cluster="PENNY_STOCKS", name="Intuitive Machines (Space Exploration)"),
+        WatchlistItem(symbol="ACHR", yf_ticker="ACHR", asset_class="EQUITY", cluster="PENNY_STOCKS", name="Archer Aviation (eVTOL Air Taxi)"),
+        WatchlistItem(symbol="OPEN", yf_ticker="OPEN", asset_class="EQUITY", cluster="PENNY_STOCKS", name="Opendoor Technologies (Real Estate Tech)"),
+        WatchlistItem(symbol="CLOV", yf_ticker="CLOV", asset_class="EQUITY", cluster="PENNY_STOCKS", name="Clover Health Investments"),
+        WatchlistItem(symbol="PLUG", yf_ticker="PLUG", asset_class="EQUITY", cluster="PENNY_STOCKS", name="Plug Power (Hydrogen Energy)"),
     ])
+

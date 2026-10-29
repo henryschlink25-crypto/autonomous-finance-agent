@@ -349,9 +349,11 @@ class DeterministicRiskManager:
 
         # Smart-Leverage Bestimmung:
         # - 3x ETFs (SOXL, TQQQ, SQQQ) haben bereits 3.0x Hebel eingebaut -> kein zusätzlicher Margin-Hebel (leverage_used = 1.0)
+        # - Penny Stocks (< 5.00$) werden ohne Margin-Hebel gehandelt (Schutz vor Spreads & Volatilität)
         # - Standard-Aktien & Krypto (intrinsic_leverage == 1.0) erhalten bei GRÜNER Makro-Ampel bis zu 2.0x Smart-Margin-Hebel
+        is_penny = snapshot.cluster == "PENNY_STOCKS" or snapshot.current_price < 5.0
         is_green_macro = macro is None or macro.regime_state == "GREEN_RISK_ON"
-        if is_green_macro and snapshot.intrinsic_leverage <= 1.0 and not snapshot.is_safe_haven:
+        if is_green_macro and snapshot.intrinsic_leverage <= 1.0 and not snapshot.is_safe_haven and not is_penny:
             leverage_used = self.config.smart_leverage_max
         else:
             leverage_used = 1.0
@@ -374,6 +376,10 @@ class DeterministicRiskManager:
             remaining_cluster_capacity,
             deployable_cash_usd,
         )
+        # Penny-Stock-Positionen auf max 500$ deckeln zum Schutz des 100k-Portfolios
+        if is_penny:
+            allowed_margin = min(allowed_margin, 500.0)
+
         if allowed_margin < min_order:
             return RiskEvaluation(
                 approved=False,
