@@ -162,6 +162,7 @@ class TelegramCommandListener:
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
                 "🔔 <b>/alerts</b> [trades|balanced|all] - Benachrichtigungen drosseln & Limit prüfen\n"
                 "🧠 <b>/knowledge</b> - Geteilter Schwarm-Wissensspeicher & Agenten-Synergien\n"
+                "🗣️ <b>/deals</b> - Ausgehandelte Deals im Agenten-Dialekt\n"
                 "─────────────────────────────"
             )
             self.send_message(help_msg)
@@ -213,6 +214,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/knowledge", "/wissen", "/learnings", "/synergies", "/schwarm"]:
             self._handle_knowledge()
+
+        elif cmd in ["/deals", "/deal", "/dialect", "/dialekt", "/sprache"]:
+            self._handle_dialect()
 
         elif cmd == "/breed":
             self.send_message("🧬 <i>Starte autonome genetische Strategie-Zucht und Krisen-Stresstest im Hintergrund...</i>")
@@ -636,6 +640,16 @@ class TelegramCommandListener:
             self.send_message(summary)
         except Exception as e:
             self.send_message(f"❌ Fehler beim Laden des Schwarm-Wissens: {e}")
+
+    def _handle_dialect(self) -> None:
+        self.send_message("🗣️ <i>Dekodiere verhandelte Schwarm-Deals aus dem Agenten-Dialekt...</i>")
+        try:
+            from emergent_dialect_engine import get_dialect_engine
+            dialect_eng = get_dialect_engine()
+            summary = dialect_eng.format_telegram_deals_summary()
+            self.send_message(summary)
+        except Exception as e:
+            self.send_message(f"❌ Fehler beim Dekodieren des Agenten-Dialekts: {e}")
 
     def _run_breed_task(self) -> None:
         try:

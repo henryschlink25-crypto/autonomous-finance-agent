@@ -469,6 +469,20 @@ def run_autonomous_cycle(
             positions=engine.positions,
             portfolio_risk=port_risk,
         )
+
+        # Autonome Deal-Verhandlung im emergenten Agenten-Dialekt
+        try:
+            from emergent_dialect_engine import get_dialect_engine
+            dialect_eng = get_dialect_engine()
+            dialect_eng.compose_and_negotiate_deal(
+                snapshot=snap,
+                signal=signal,
+                macro=macro,
+                risk_evaluation=risk_eval,
+            )
+        except Exception:
+            pass
+
         exec_result = engine.execute_order(signal, risk_eval)
         # Zeichne JEDE Prognose (auch SELL ohne Bestand & abgelehnte BUY-Signale) im Shadow-Tracker auf!
         shadow_tracker.record_prediction(

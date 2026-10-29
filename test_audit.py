@@ -979,7 +979,74 @@ def test_all_audit_fixes() -> None:
         assert "Schwarm-Warnung" in penny_ag_vote.rationale or penny_ag_vote.score < 0.82, "Penny Hunter muss Schwarm-Warnung integriert haben"
         print(f"[OK] Test 32 bestanden: Kollektive Schwarm-Intelligenz teilt Erkenntnisse über alle 26 Spezialisten & vergibt Synergie-Boni ({boost:.2f}x).")
 
-    print("=== Alle 32 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam- & Collective-Swarm-Knowledge-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 33: Emergent Agent Dialect & Deal-Negotiation Engine
+        # ============================================================================
+        from emergent_dialect_engine import EmergentDialectEngine, get_dialect_engine
+        from models import RiskEvaluation
+        dialect_eng = get_dialect_engine()
+        assert len(dialect_eng.vocabulary) >= 10, "Codebook muss Basistokens enthalten"
+
+        # Simuliere Setup mit Hurst-Persistenz, Options-Call Flow & Sektor-Alpha
+        ai_snap = MarketSnapshot(
+            symbol="NVDA",
+            name="Nvidia Corp",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=140.0,
+            change_24h_pct=3.2,
+            change_7d_pct=7.0,
+            rsi_14=62.0,
+            sma_20=132.0,
+            sma_50=125.0,
+            macd_hist=0.5,
+            atr_14=3.0,
+            volatility_annualized_pct=25.0,
+            volume_ratio_vs_20d=1.8,
+            hurst_exponent=0.66,
+            options_flow_sentiment="BULLISH_CALL_FLOW",
+            options_flow_score=0.65,
+            relative_strength_vs_spy=3.5,
+            analyst_consensus="STRONG_BUY",
+            analyst_target_upside_pct=35.0,
+        )
+        ai_sig = TradingSignal(
+            symbol="NVDA",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="BUY",
+            confidence=0.88,
+            sentiment_score=0.80,
+            entry_price=140.0,
+            stop_loss_price=133.0,
+            take_profit_price=160.0,
+            risk_reward_ratio=2.85,
+            expected_edge_score=2.35,
+            catalyst_summary="Alpha",
+            thesis="Deal Pitch",
+        )
+        ai_risk_eval = RiskEvaluation(
+            approved=True,
+            reason="Freigabe",
+            adjusted_action="BUY",
+            position_size_usd=1400.0,
+        )
+
+        packet = dialect_eng.compose_and_negotiate_deal(ai_snap, ai_sig, green_macro, ai_risk_eval)
+        assert "Ω:HURST_PERSIST" in packet.dialect_sentence
+        assert "Ψ:CALL_WHALE_BURST" in packet.dialect_sentence
+        assert "Σ:CONFLUENCE" in packet.dialect_sentence
+        assert packet.consensus_verdict == "SEALED_APPROVED"
+        assert len(packet.plain_german_summary) > 20
+        assert "Begründung der Agenten" in packet.plain_german_summary
+
+        # Feedback-Loop testen
+        dialect_eng.record_deal_profitability("NVDA", move_pct=3.5)
+        top_h_tok = dialect_eng.vocabulary.get("Ω:HURST_PERSIST")
+        assert top_h_tok and top_h_tok.weight > 1.0, "Gewinner-Tokens müssen im Gewicht steigen"
+        print(f"[OK] Test 33 bestanden: Emergent Dialect Engine verhandelt Deals symbolisch (Dialekt: {packet.dialect_sentence[:50]}...) & Dolmetscher dekodiert nach Deutsch.")
+
+    print("=== Alle 33 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge- & Emergent-Dialect-Tests erfolgreich bestanden! ===")
 
 
 
