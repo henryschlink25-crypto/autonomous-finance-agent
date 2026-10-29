@@ -1,0 +1,29 @@
+# Secrets & API Keys
+.env
+*.env
+*.key
+*.pem
+credentials.json
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# Interactive Brokers local runtime / Gateway caches
+*.jts
+*.ib
+ibgateway/
+jts/
+
+# OS and IDE caches
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large log files
+*.log

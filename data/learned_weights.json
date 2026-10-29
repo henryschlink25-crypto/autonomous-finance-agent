@@ -1,0 +1,80 @@
+{
+  "updated_at": "2026-10-29T08:49:09",
+  "total_evaluated": 16,
+  "correct_calls": 6,
+  "false_calls": 10,
+  "guardrail_saved_losses": 0,
+  "weights": {
+    "trend": 0.775,
+    "momentum": 0.94,
+    "volume": 1.025,
+    "fundamentals": 0.965,
+    "news_sentiment": 1.05,
+    "options_flow": 0.99,
+    "intraday_vwap_rs": 0.965
+  },
+  "asset_accuracy": {
+    "NVDA": {
+      "correct": 0,
+      "false": 1
+    },
+    "MSFT": {
+      "correct": 1,
+      "false": 0
+    },
+    "AAPL": {
+      "correct": 2,
+      "false": 0
+    },
+    "AVGO": {
+      "correct": 0,
+      "false": 1
+    },
+    "QQQ": {
+      "correct": 0,
+      "false": 1
+    },
+    "GLD": {
+      "correct": 1,
+      "false": 1
+    },
+    "BTC/USD": {
+      "correct": 0,
+      "false": 2
+    },
+    "ETH/USD": {
+      "correct": 1,
+      "false": 1
+    },
+    "SOL/USD": {
+      "correct": 0,
+      "false": 1
+    },
+    "SOXL": {
+      "correct": 0,
+      "false": 1
+    },
+    "IONQ": {
+      "correct": 1,
+      "false": 0
+    },
+    "GLXY": {
+      "correct": 0,
+      "false": 1
+    }
+  },
+  "recent_lessons": [
+    "[2026-10-28] Fehlanalyse bei SELL AVGO: Irreführende Faktoren ['trend', 'momentum'] abgewertet.",
+    "[2026-10-28] Fehlanalyse bei BUY QQQ: Irreführende Faktoren ['trend', 'momentum'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
+    "[2026-10-28] Fehlanalyse bei SELL GLD: Irreführende Faktoren ['trend', 'momentum'] abgewertet.",
+    "[2026-10-28] Prognose (SELL GLD) bestätigt. Treiber ['trend'] gestärkt.",
+    "[2026-10-28] Fehlanalyse bei BUY BTC/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
+    "[2026-10-28] Fehlanalyse bei BUY BTC/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
+    "[2026-10-28] Fehlanalyse bei BUY ETH/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
+    "[2026-10-28] Prognose (SELL ETH/USD) bestätigt. Treiber ['trend'] gestärkt.",
+    "[2026-10-28] Fehlanalyse bei BUY SOL/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
+    "[2026-10-28] Fehlanalyse bei SELL SOXL (-1.15%): Irreführende Faktoren ['trend', 'momentum'] abgewertet.",
+    "[2026-10-29] Prognose (SELL IONQ) bestätigt. Treiber ['momentum', 'news_sentiment', 'options_flow'] gestärkt.",
+    "[2026-10-29] Fehlanalyse bei SELL GLXY (-11.12%): Irreführende Faktoren ['trend', 'momentum', 'fundamentals', 'options_flow', 'intraday_vwap_rs'] abgewertet."
+  ]
+}
