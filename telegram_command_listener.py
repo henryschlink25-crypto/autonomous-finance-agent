@@ -163,6 +163,8 @@ class TelegramCommandListener:
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
+                "🧪 <b>/lab</b> - Walk-Forward Forschungs-Labor & WFER-Effizienz\n"
+                "⚡ <b>/optimize</b> - Starte Walk-Forward Optimierung & Auto-Kalibrierung\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
                 "🔔 <b>/alerts</b> [trades|balanced|all] - Benachrichtigungen drosseln & Limit prüfen\n"
                 "🧠 <b>/knowledge</b> - Geteilter Schwarm-Wissensspeicher & Agenten-Synergien\n"
@@ -234,6 +236,12 @@ class TelegramCommandListener:
 
         elif cmd in ["/deals", "/deal", "/dialect", "/dialekt", "/sprache"]:
             self._handle_dialect()
+
+        elif cmd in ["/lab", "/research", "/wfa", "/efficiency"]:
+            self._handle_lab()
+
+        elif cmd in ["/optimize", "/opt", "/calibrate"]:
+            self._handle_optimize()
 
         elif cmd in ["/update", "/upgrade", "/pull", "/sync"]:
             self._handle_update()
@@ -722,6 +730,30 @@ class TelegramCommandListener:
                 )
         except Exception as e:
             self.send_message(f"❌ <b>Fehler beim autonomen Update:</b> {e}")
+
+    def _handle_lab(self) -> None:
+        self.send_message("🧪 <i>Lade aktuellen Walk-Forward Forschungs- & Robustheits-Bericht...</i>")
+        try:
+            from walk_forward_research_lab import get_research_lab
+            lab = get_research_lab()
+            msg = lab.format_telegram_summary()
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler beim Laden des Forschungs-Labors: {e}")
+
+    def _handle_optimize(self) -> None:
+        self.send_message("⚡ <i>Starte Walk-Forward Optimierungs-Lauf & Multi-Regime Stresstest im Hintergrund...</i>")
+        threading.Thread(target=self._run_optimization_task, daemon=True).start()
+
+    def _run_optimization_task(self) -> None:
+        try:
+            from walk_forward_research_lab import get_research_lab
+            lab = get_research_lab()
+            res = lab.run_walk_forward_optimization()
+            msg = lab.format_telegram_summary(res)
+            self.send_message(f"✅ <b>Walk-Forward Optimierung abgeschlossen!</b>\n\n{msg}")
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Walk-Forward Optimierung: {e}")
 
     def _run_breed_task(self) -> None:
         try:

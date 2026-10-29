@@ -1230,7 +1230,32 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 35 bestanden: Institutional VWAP & Volume-Profile Liquidity Sweeper (Sub-Agent #28) identifiziert Stop-Loss-Absorption (Status: {vwap_res.sweep_status}, CRV {vwap_res.risk_reward_ratio}:1) & Dialekt verhandelt Token 🎯:LIQUIDITY_SWEEP_RECLAIM.")
 
-    print("=== Alle 35 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment- & VWAP-Liquidity-Sweep-Tests erfolgreich bestanden! ===")
+        # --- Test 36: Walk-Forward Research & Optimization Lab (Forschungsfeld C) ---
+        from pathlib import Path
+        from walk_forward_research_lab import WalkForwardResearchLab, ParameterCandidate
+        test_lab_report = Path(tmpdir) / "test_wfa_report.json"
+        test_lab_calibrated = Path(tmpdir) / "test_wfa_calibrated.json"
+        lab = WalkForwardResearchLab(report_file=test_lab_report, calibrated_file=test_lab_calibrated)
+
+        # 1. Schnellen Walk-Forward Optimierungszyklus über alle 4 Regime ausführen
+        wfa_res = lab.run_walk_forward_optimization(custom_candidates=[
+            ParameterCandidate(atr_stop_loss_mult=2.0, atr_take_profit_mult=3.8, min_confidence_cutoff=0.68),
+            ParameterCandidate(atr_stop_loss_mult=2.5, atr_take_profit_mult=4.5, min_confidence_cutoff=0.74),
+        ])
+        assert wfa_res.total_iterations_tested == 2
+        assert len(wfa_res.regime_breakdown) == 4, "Muss alle 4 Regime getestet haben"
+        assert wfa_res.overall_wfer_pct > 0.0, "WFER muss berechnet sein"
+        assert wfa_res.robustness_grade in ("A_EXEMPLARY", "B_ROBUST", "C_MARGINAL", "REJECTED_OVERFIT")
+        assert test_lab_report.exists(), "Report-Datei muss erzeugt worden sein"
+
+        # 2. Telegram Formatierung testen
+        summary_txt = lab.format_telegram_summary(wfa_res)
+        assert "Walk-Forward Forschungs-Labor" in summary_txt
+        assert "WFER" in summary_txt
+
+        print(f"[OK] Test 36 bestanden: Walk-Forward Research Lab optimiert Parameter rollend (WFER {wfa_res.overall_wfer_pct:.1f}%, OOS Sharpe {wfa_res.overall_oos_sharpe:.2f}, Note: {wfa_res.robustness_grade}) über 4 Stress-Regime.")
+
+    print("=== Alle 36 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep- & Walk-Forward-Lab-Tests erfolgreich bestanden! ===")
 
 
 
