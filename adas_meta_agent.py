@@ -923,6 +923,16 @@ class ADASMetaArchitect:
                 trust_weight=1.38,
             ))
 
+        # 38. Dynamic Stop-Loss & Structural Trailing Analyst (Sub-Agent #51)
+        if "stop_loss_structural_analyst" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="stop_loss_structural_analyst",
+                name="🎯 Dynamic Stop-Loss & Structural Trailing Analyst",
+                role="Passt Stop-Loss-Limits für alle offenen Positionen dynamisch nach tiefgehender Multi-Faktoren-Analyse (Marktstruktur, EMA20/VWAP-Support, ATR-Rauschband, Regime-Panik & Eiserne Ratschen-Regel) an.",
+                specialty_focus="STOP_LOSS_CALIBRATOR",
+                trust_weight=1.36,
+            ))
+
         return new_specs
 
 
@@ -2367,6 +2377,32 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.40
                 rationale = f"Hedge Fund Auditor neutral ({e})"
+
+        elif focus == "STOP_LOSS_CALIBRATOR":
+            try:
+                from dynamic_stop_loss_manager import DynamicStopLossAnalyzer
+                from models import Position
+                sl_analyzer = DynamicStopLossAnalyzer()
+                dummy_pos = Position(
+                    symbol=snap.symbol,
+                    asset_class=snap.asset_class,
+                    quantity=1.0,
+                    avg_entry_price=snap.current_price,
+                    current_price=snap.current_price,
+                    highest_price=snap.current_price,
+                    stop_loss_price=round(snap.current_price * 0.95, 4),
+                    take_profit_price=round(snap.current_price * 1.10, 4),
+                    opened_at="2026-10-30T00:00:00",
+                )
+                sl_eval = sl_analyzer.evaluate_position_stop_loss(dummy_pos, snap, macro)
+                score = 0.82 if snap.current_price >= getattr(snap, "sma_20", snap.current_price) else 0.40
+                conf = 0.88
+                v_act = "BUY" if score >= 0.60 else "HOLD"
+                rationale = f"🎯 Dynamic Stop-Loss Audit: {sl_eval.audit_headline} (ATR-Puffer: ${sl_eval.analysis_components.get('atr_corridor', 1.0):.2f})"
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Dynamic Stop Loss Analyst neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

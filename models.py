@@ -289,6 +289,7 @@ class Position(BaseModel):
     recovery_shield_active: bool = False
     recovery_score: float = 0.0
     horizon: str = "TACTICAL"  # "TACTICAL" (kurzfristig) oder "CORE_ETF" (langfristig)
+    last_stop_analysis_rationale: str = ""
 
     def model_post_init(self, __context) -> None:
         if self.hard_stop_loss_price <= 0:

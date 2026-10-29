@@ -3240,7 +3240,87 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 64 bestanden: Situational Awareness & Hedge Fund Auditor (Sub-Agent #50 - 50 SPEZIALISTEN MEILENSTEIN) schützt vor Aschenbrenner-Hebel-Ruin & erzwingt Citadel-Risikodisziplin.")
 
-    print("=== Alle 64 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter-, Simple-Arbitrage-Hunter-, Autonomous-Constraint-Regulator- & Situational-Awareness-Hedge-Fund-Auditor-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 65: Dynamische Stop-Loss-Anpassung nach ausführlicher Analyse (Sub-Agent #51)
+        #          Marktstruktur, EMA20/VWAP-Support, ATR-Rauschkorridor & Eiserne Ratschen-Regel
+        # ============================================================================
+        from dynamic_stop_loss_manager import DynamicStopLossAnalyzer
+        sl_manager = DynamicStopLossAnalyzer()
+
+        # 1. Teste Breakeven-Schutz & Gewinnsicherung nach ausführlicher Analyse
+        pos_long_nvda = Position(
+            symbol="NVDA",
+            asset_class="EQUITY",
+            side="LONG",
+            quantity=2.0,
+            avg_entry_price=130.0,
+            current_price=133.50, # +2.7% Buchgewinn
+            highest_price=134.0,
+            stop_loss_price=125.0, # Ursprünglicher Stop unter Einstand
+            take_profit_price=145.0,
+            opened_at="2026-10-29T10:00:00",
+        )
+        snap_nvda_gain = dummy_snap.model_copy(update={
+            "symbol": "NVDA",
+            "current_price": 133.50,
+            "atr_14": 2.20,
+            "sma_20": 131.0,
+            "intraday_vwap": 131.80,
+            "rsi_14": 58.0,
+        })
+        eval_sl_gain = sl_manager.evaluate_position_stop_loss(pos_long_nvda, snap_nvda_gain, green_macro)
+        assert eval_sl_gain.should_update is True, "Stop-Loss muss bei intaktem Buchgewinn nachgezogen werden"
+        assert eval_sl_gain.recommended_stop_loss > 130.0, f"Stop-Loss muss über Breakeven liegen: {eval_sl_gain.recommended_stop_loss}"
+        assert eval_sl_gain.recommended_stop_loss <= 133.50 - 0.35 * 2.20, "Stop-Loss muss Mindestabstand zum aktuellen Kurs halten"
+        assert "Ausführliche Stop-Loss-Analyse" in eval_sl_gain.detailed_rationale
+
+        # 2. Teste Eiserne Ratschen-Regel (Keine Risikoausweitung bei Kursschwankung)
+        snap_nvda_dip = snap_nvda_gain.model_copy(update={
+            "current_price": 131.50, # Kurs gibt leicht nach
+            "sma_20": 128.0,         # Indikator fällt
+        })
+        pos_long_nvda_ratchet = pos_long_nvda.model_copy(update={
+            "stop_loss_price": 130.80,
+            "current_price": 131.50,
+        })
+        eval_sl_ratchet = sl_manager.evaluate_position_stop_loss(pos_long_nvda_ratchet, snap_nvda_dip, green_macro)
+        assert eval_sl_ratchet.recommended_stop_loss >= 130.80, "Stop-Loss darf NIEMALS nach unten abgesenkt werden!"
+        assert eval_sl_ratchet.should_update is False, "Keine Abwärts-Anpassung erlaubt"
+
+        # 3. Teste Integration in ExecutionEngine (update_prices_and_check_stops)
+        engine_sl_test = MultiAssetExecutionEngine(cfg_dyn)
+        engine_sl_test.positions["NVDA"] = pos_long_nvda.model_copy()
+        events_sl = engine_sl_test.update_prices_and_check_stops({"NVDA": snap_nvda_gain}, macro=green_macro)
+        assert any("DYNAMIC_STOP_LOSS_ANALYSIS" in e for e in events_sl), f"Event muss DYNAMIC_STOP_LOSS_ANALYSIS enthalten: {events_sl}"
+        assert engine_sl_test.positions["NVDA"].stop_loss_price > 125.0, "Stop-Loss in Execution Engine muss aktualisiert worden sein"
+        assert len(engine_sl_test.positions["NVDA"].last_stop_analysis_rationale) > 20, "Ausführliche Rationale muss in Position gespeichert sein"
+
+        # 4. Teste Sub-Agent #51 im ADAS-Schwarm (51 Spezialisten!)
+        adas_sl = ADASMetaAgent()
+        assert "stop_loss_structural_analyst" in adas_sl.state.active_subagents, "Sub-Agent #51 muss aktiv sein"
+        assert len(adas_sl.state.active_subagents) >= 51, f"Schwarm muss 51 Spezialisten umfassen, aktuell: {len(adas_sl.state.active_subagents)}"
+
+        _, votes_sl, _ = adas_sl.evaluate_symbol_with_swarm(
+            snap=snap_nvda_gain,
+            baseline_signal=sig_nvda_knife.model_copy(update={"entry_price": 133.50}),
+            macro=green_macro,
+        )
+        vote_sl = next((v for v in votes_sl if v.agent_id == "stop_loss_structural_analyst"), None)
+        assert vote_sl is not None, "Vote von stop_loss_structural_analyst muss vorhanden sein"
+        assert "Dynamic Stop-Loss Audit" in vote_sl.rationale
+
+        # 5. Teste Dialekt-Token (🛡️:DYNAMIC_STRUCTURAL_STOP)
+        deal_sl = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_nvda_gain,
+            signal=sig_nvda_healthy,
+            macro=green_macro,
+            risk_evaluation=eval_nvda_healthy,
+        )
+        assert "🛡️:DYNAMIC_STRUCTURAL_STOP" in deal_sl.dialect_sentence, f"Dialekt muss 🛡️:DYNAMIC_STRUCTURAL_STOP enthalten: {deal_sl.dialect_sentence}"
+
+        print(f"[OK] Test 65 bestanden: Dynamische Stop-Loss-Anpassung nach ausführlicher Analyse (Sub-Agent #51 - 51 SPEZIALISTEN) schützt Buchgewinne & erzwingt die Eiserne Ratschen-Regel.")
+
+    print("=== Alle 65 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter-, Simple-Arbitrage-Hunter-, Autonomous-Constraint-Regulator-, Situational-Awareness-Hedge-Fund-Auditor- & Dynamic-Stop-Loss-Structural-Analyzer-Tests erfolgreich bestanden! ===")
 
 
 

@@ -183,6 +183,7 @@ class TelegramCommandListener:
                 "⚡ <b>/arbitrage</b> - Einfache Arbitrage-Gewinne (Dual-Listing ADRs, ETF-Disagio, Krypto Funding Yield)\n"
                 "🔓 <b>/constraints</b> - Autonome Begrenzungs-Regulierung (Lockerung/Schärfung, Extended-Hours, Loop-Speed)\n"
                 "🏛️ <b>/situational</b> - Situational Awareness & Hedge Fund Auditor (KI-Infrastruktur & Citadel-Disziplin)\n"
+                "🎯 <b>/stops</b> - Dynamische Stop-Loss-Analyse (Struktur, VWAP-Support, ATR-Puffer & Ratschen-Regel)\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Kointegrations-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/evolve</b> - Autonome Schwarm-Evolution & Bayesianische Re-Kalibrierung\n"
@@ -326,6 +327,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/situational", "/macrofund", "/citadel", "/aschenbrenner", "/hedgefund"]:
             self._handle_situational()
+
+        elif cmd in ["/stops", "/stoploss", "/trailing", "/trailingstops"]:
+            self._handle_stop_loss_analysis()
 
         elif cmd in ["/morgen", "/morning"]:
             self._handle_morning_briefing()
@@ -1293,6 +1297,43 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei Situational-Awareness-Abfrage: {e}")
+
+    def _handle_stop_loss_analysis(self) -> None:
+        try:
+            if not self.engine_ref or not self.engine_ref.positions:
+                self.send_message(
+                    "🎯 <b>Dynamische Stop-Loss- & Trailing-Analyse (Sub-Agent #51):</b>\n"
+                    "─────────────────────────────\n"
+                    "<i>Aktuell keine offenen Positionen im Depot. Bei jedem Trade wird der Stop-Loss "
+                    "kontinuierlich anhand von Marktstruktur (EMA20, VWAP), ATR-Rauschband und Buchgewinn-Lock "
+                    "nach ausführlicher Analyse vollautomatisch nachgezogen.</i>"
+                )
+                return
+
+            from dynamic_stop_loss_manager import DynamicStopLossAnalyzer
+            from data_collector import MultiAssetDataCollector
+            from config import AgentConfig
+            cfg = AgentConfig()
+            col = MultiAssetDataCollector(cfg)
+            macro = col.fetch_macro_regime()
+            analyzer = DynamicStopLossAnalyzer()
+
+            lines = [
+                "🎯 <b>Dynamische Stop-Loss- & Trailing-Analyse (Sub-Agent #51):</b>",
+                "─────────────────────────────",
+            ]
+            for sym, pos in self.engine_ref.positions.items():
+                snap = col.fetch_snapshot(sym)
+                eval_res = analyzer.evaluate_position_stop_loss(pos, snap, macro)
+                lines.append(f"• <b>{sym} ({pos.side}):</b>")
+                lines.append(f"   Kurs: <b>${pos.current_price:,.2f}</b> (Einstieg: ${pos.avg_entry_price:,.2f})")
+                lines.append(f"   Stop-Loss: <code>${pos.stop_loss_price:,.2f}</code> ({eval_res.audit_headline})")
+                lines.append(f"   <i>{eval_res.detailed_rationale}</i>\n")
+
+            lines.append("─────────────────────────────\n<i>Eiserne Ratschen-Regel: Risiko wird NIEMALS vergrößert!</i>")
+            self.send_message("\n".join(lines))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Stop-Loss-Analyse: {e}")
 
     def _send_evening_briefing(self) -> None:
         try:

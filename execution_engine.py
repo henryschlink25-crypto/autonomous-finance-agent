@@ -1,10 +1,10 @@
 import datetime
 import json
 import os
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 from config import AgentConfig
 from ibkr_bridge import IBKRBridge
-from models import MarketSnapshot, Position, RiskEvaluation, TradingSignal
+from models import MacroRegime, MarketSnapshot, Position, RiskEvaluation, TradingSignal
 from risk_manager import is_us_equity_market_open
 from smart_recovery_evaluator import SmartRecoveryEvaluator
 
@@ -245,7 +245,11 @@ class MultiAssetExecutionEngine:
             return 0.0
         return round(((self.total_equity_usd - self.day_start_equity_usd) / self.day_start_equity_usd) * 100.0, 2)
 
-    def update_prices_and_check_stops(self, snapshots: Dict[str, MarketSnapshot]) -> List[str]:
+    def update_prices_and_check_stops(
+        self,
+        snapshots: Dict[str, MarketSnapshot],
+        macro: Optional[MacroRegime] = None,
+    ) -> List[str]:
         """
         Aktualisiert Kurse offener Positionen, führt 50%-Teilgewinnmitnahmen (Scale-Out bei TP1) aus,
         zieht den Chandelier-Trailing-Stop nach und löst SL/TP2 inkl. Gebühren aus.
@@ -353,16 +357,30 @@ class MultiAssetExecutionEngine:
                     symbols_to_close.append((sym, snap.current_price, "SHORT_OVERSOLD_CLIMAX_TAKE_PROFIT"))
                 elif holding_days >= max_days_allowed and pos.unrealized_pnl_pct < 1.5 and snap.macd_hist >= 0:
                     symbols_to_close.append((sym, snap.current_price, f"SHORT_TIME_STOP_STALE_{holding_days}D"))
-                elif pos.highest_price <= pos.avg_entry_price - 0.9 * atr:
-                    new_sl = round(
-                        min(pos.stop_loss_price, pos.avg_entry_price * 0.998, pos.highest_price + 1.5 * atr),
-                        4,
-                    )
-                    if new_sl < pos.stop_loss_price:
-                        pos.stop_loss_price = new_sl
-                        triggered_events.append(
-                            f"[SHORT_TRAILING_STOP_UPDATED] {sym}: Short Stop-Loss auf ${new_sl:,.2f} nachgezogen (Gewinnsicherung)"
-                        )
+                else:
+                    # Dynamische Stop-Loss-Analyse für Short-Position (Sub-Agent #51)
+                    try:
+                        from dynamic_stop_loss_manager import DynamicStopLossAnalyzer
+                        sl_analyzer = DynamicStopLossAnalyzer()
+                        sl_eval = sl_analyzer.evaluate_position_stop_loss(position=pos, snapshot=snap, macro=macro)
+                        if sl_eval.should_update:
+                            new_sl = sl_eval.recommended_stop_loss
+                            pos.stop_loss_price = new_sl
+                            pos.last_stop_analysis_rationale = sl_eval.detailed_rationale
+                            triggered_events.append(
+                                f"[DYNAMIC_SHORT_STOP_ADAPTED] {sym}: Short-Stop nach Analyse auf ${new_sl:,.2f} abgesenkt ({sl_eval.audit_headline})"
+                            )
+                    except Exception:
+                        if pos.highest_price <= pos.avg_entry_price - 0.9 * atr:
+                            new_sl = round(
+                                min(pos.stop_loss_price, pos.avg_entry_price * 0.998, pos.highest_price + 1.5 * atr),
+                                4,
+                            )
+                            if new_sl < pos.stop_loss_price:
+                                pos.stop_loss_price = new_sl
+                                triggered_events.append(
+                                    f"[SHORT_TRAILING_STOP_UPDATED] {sym}: Short Stop-Loss auf ${new_sl:,.2f} nachgezogen (Gewinnsicherung)"
+                                )
             elif (
                 getattr(snap, "liquidity_void_detected", False)
                 or getattr(snap, "proactive_risk_alert", "NORMAL") == "LIQUIDITY_VOID_EVACUATE"
@@ -502,14 +520,20 @@ class MultiAssetExecutionEngine:
                             },
                         )
 
-                # 2. Dynamischer Chandelier Trailing-Stop: Sobald Höchstkurs >= Einstieg + 0.9x ATR erreicht
-                if pos.highest_price >= pos.avg_entry_price + 0.9 * atr:
-                    new_sl = round(
-                        max(pos.stop_loss_price, pos.avg_entry_price * 1.002, pos.highest_price - 1.5 * atr),
-                        4,
+                # 2. Ausführliche Dynamische Stop-Loss- & Trailing-Analyse (Sub-Agent #51)
+                try:
+                    from dynamic_stop_loss_manager import DynamicStopLossAnalyzer
+                    sl_analyzer = DynamicStopLossAnalyzer()
+                    sl_eval = sl_analyzer.evaluate_position_stop_loss(
+                        position=pos,
+                        snapshot=snap,
+                        macro=macro,
                     )
-                    if new_sl > pos.stop_loss_price:
+                    if sl_eval.should_update:
+                        new_sl = sl_eval.recommended_stop_loss
                         pos.stop_loss_price = new_sl
+                        pos.last_stop_analysis_rationale = sl_eval.detailed_rationale
+
                         broker_sl_note = self._sync_broker_exit_or_stop_update(
                             symbol=sym,
                             asset_class=pos.asset_class,
@@ -519,8 +543,37 @@ class MultiAssetExecutionEngine:
                         )
                         sl_suffix = f" [{broker_sl_note}]" if broker_sl_note else ""
                         triggered_events.append(
-                            f"[TRAILING_STOP_UPDATED] {sym}: Stop-Loss auf ${new_sl:,.2f} nachgezogen (Gewinnsicherung){sl_suffix}"
+                            f"[DYNAMIC_STOP_LOSS_ANALYSIS] {sym}: Stop-Loss nach ausführlicher Analyse auf ${new_sl:,.2f} nachgezogen: {sl_eval.audit_headline}{sl_suffix}"
                         )
+                        self._append_audit_log(
+                            "DYNAMIC_STOP_LOSS_ANALYSIS_ADAPTED",
+                            {
+                                "symbol": sym,
+                                "old_stop_loss": sl_eval.current_stop_loss,
+                                "new_stop_loss": new_sl,
+                                "rationale": sl_eval.detailed_rationale,
+                                "components": sl_eval.analysis_components,
+                            },
+                        )
+                except Exception:
+                    if pos.highest_price >= pos.avg_entry_price + 0.9 * atr:
+                        new_sl = round(
+                            max(pos.stop_loss_price, pos.avg_entry_price * 1.002, pos.highest_price - 1.5 * atr),
+                            4,
+                        )
+                        if new_sl > pos.stop_loss_price:
+                            pos.stop_loss_price = new_sl
+                            broker_sl_note = self._sync_broker_exit_or_stop_update(
+                                symbol=sym,
+                                asset_class=pos.asset_class,
+                                sell_qty=0.0,
+                                new_stop_loss=new_sl,
+                                remaining_qty=pos.quantity,
+                            )
+                            sl_suffix = f" [{broker_sl_note}]" if broker_sl_note else ""
+                            triggered_events.append(
+                                f"[TRAILING_STOP_UPDATED] {sym}: Stop-Loss auf ${new_sl:,.2f} nachgezogen (Fallback){sl_suffix}"
+                            )
 
         for sym, exec_price, trigger_reason in symbols_to_close:
             pos = self.positions.pop(sym)

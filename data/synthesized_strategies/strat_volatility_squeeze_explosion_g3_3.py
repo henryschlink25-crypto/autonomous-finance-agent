@@ -2,7 +2,7 @@
 Synthetisierte Handelsstrategie: VolSqueezeExplosion_Gen3_3
 Archetyp: VOLATILITY_SQUEEZE_EXPLOSION
 Hypothese: Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.
-Generiert am: 2026-10-29T23:48:14.208228
+Generiert am: 2026-10-30T00:11:24.470721
 """
 
 class VolSqueezeExplosion_Gen3_3:
@@ -15,14 +15,14 @@ class VolSqueezeExplosion_Gen3_3:
     
     def __init__(self):
         self.genes = {
-        "min_rvol": 1.46,
-        "min_change_pct": 1.587,
-        "max_rsi": 72.355,
-        "min_edge_score": 1.422,
-        "atr_sl_mult": 1.836,
-        "atr_tp_mult": 4.133,
+        "min_rvol": 1.598,
+        "min_change_pct": 1.55,
+        "max_rsi": 73.674,
+        "min_edge_score": 1.411,
+        "atr_sl_mult": 2.15,
+        "atr_tp_mult": 4.041,
         "time_stop_days": 5,
-        "penny_max_price": 1102.163
+        "penny_max_price": 932.913
 }
 
     def evaluate_entry(self, snapshot, macro=None) -> dict:

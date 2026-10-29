@@ -497,6 +497,29 @@ class EmergentDialectEngine:
         except Exception:
             pass
 
+        # FF. Dynamic Stop-Loss & Structural Trailing Analyzer (Sub-Agent #51)
+        try:
+            from dynamic_stop_loss_manager import DynamicStopLossAnalyzer
+            from models import Position
+            sl_an = DynamicStopLossAnalyzer()
+            v_pos = Position(
+                symbol=snapshot.symbol,
+                asset_class=snapshot.asset_class,
+                quantity=1.0,
+                avg_entry_price=snapshot.current_price,
+                current_price=snapshot.current_price,
+                highest_price=snapshot.current_price,
+                stop_loss_price=getattr(signal, "stop_loss_price", snapshot.current_price * 0.95),
+                take_profit_price=getattr(signal, "take_profit_price", snapshot.current_price * 1.10),
+                opened_at="2026-10-30T00:00:00",
+            )
+            v_eval = sl_an.evaluate_position_stop_loss(v_pos, snapshot, macro)
+            t = f"🛡️:DYNAMIC_STRUCTURAL_STOP[{snapshot.symbol}_{v_eval.analysis_components.get('best_anchor', 'SUPPORT')[:12]}]"
+            self._ensure_token("🛡️:DYNAMIC_STRUCTURAL_STOP", "RISK", "Dynamische Stop-Loss-Analyse (Marktstruktur & ATR-Puffer)")
+            tokens_used.append(t)
+        except Exception:
+            pass
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐") and not t.startswith("🛡️") and not t.startswith("⏳")]
         conf_len = len(bullish_tokens)
