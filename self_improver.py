@@ -99,17 +99,30 @@ class SelfLearningShadowTracker:
                 pass
 
     def _save(self) -> None:
-        self.calibration.updated_at = datetime.datetime.now(datetime.timezone.utc).isoformat()[:19]
-        with open(self.calibration_file, "w", encoding="utf-8") as f:
-            json.dump(self.calibration.model_dump(), f, indent=2, ensure_ascii=False)
+        try:
+            self.calibration.updated_at = datetime.datetime.now(datetime.timezone.utc).isoformat()[:19]
+            for attempt in range(3):
+                try:
+                    with open(self.calibration_file, "w", encoding="utf-8") as f:
+                        json.dump(self.calibration.model_dump(), f, indent=2, ensure_ascii=False)
+                    break
+                except OSError:
+                    time.sleep(0.08)
 
-        shadow_data = {
-            "updated_at": self.calibration.updated_at,
-            "active": {k: v.model_dump() for k, v in self.active_predictions.items()},
-            "closed": [v.model_dump() for v in self.closed_predictions[-50:]],
-        }
-        with open(self.shadow_file, "w", encoding="utf-8") as f:
-            json.dump(shadow_data, f, indent=2, ensure_ascii=False)
+            shadow_data = {
+                "updated_at": self.calibration.updated_at,
+                "active": {k: v.model_dump() for k, v in self.active_predictions.items()},
+                "closed": [v.model_dump() for v in self.closed_predictions[-50:]],
+            }
+            for attempt in range(3):
+                try:
+                    with open(self.shadow_file, "w", encoding="utf-8") as f:
+                        json.dump(shadow_data, f, indent=2, ensure_ascii=False)
+                    break
+                except OSError:
+                    time.sleep(0.08)
+        except Exception as e:
+            logger.warning(f"Fehler beim Speichern von Shadow Predictions: {e}")
 
     def prune_inactive_symbols(self, active_symbols: set, open_position_symbols: set) -> None:
         """

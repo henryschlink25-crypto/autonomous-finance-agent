@@ -630,8 +630,12 @@ def main() -> None:
     if args.loop > 0:
         console.print(f"[bold green]Starte autonomen Dauerbetrieb (Intervall: {args.loop} Sekunden)...[/bold green]")
         while True:
-            run_autonomous_cycle(config, collector, analyst, risk_mgr, engine)
-            DashboardGenerator(config).generate(open_browser=False)
+            try:
+                run_autonomous_cycle(config, collector, analyst, risk_mgr, engine)
+                DashboardGenerator(config).generate(open_browser=False)
+            except Exception as e:
+                console.print(f"[bold red]Fehler im Analyse-Zyklus (Bot läuft stabil weiter): {e}[/bold red]")
+                time.sleep(5)
             console.print(f"[dim]Nächster Zyklus in {args.loop} Sekunden (Strg+C zum Beenden)...[/dim]")
             time.sleep(args.loop)
     else:
