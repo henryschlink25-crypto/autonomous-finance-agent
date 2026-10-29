@@ -1255,7 +1255,59 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 36 bestanden: Walk-Forward Research Lab optimiert Parameter rollend (WFER {wfa_res.overall_wfer_pct:.1f}%, OOS Sharpe {wfa_res.overall_oos_sharpe:.2f}, Note: {wfa_res.robustness_grade}) über 4 Stress-Regime.")
 
-    print("=== Alle 36 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep- & Walk-Forward-Lab-Tests erfolgreich bestanden! ===")
+        # --- Test 37: Macro Economic Event Horizon Sentinel (Sub-Agent #29, Forschungsfeld A) ---
+        from macro_event_horizon_sentinel import MacroEventHorizonSentinel, MacroEvent
+        test_calendar = Path(tmpdir) / "test_macro_calendar.json"
+        event_sentinel = MacroEventHorizonSentinel(calendar_file=test_calendar)
+
+        # 1. Spontanes Notfall-Event in 25 Minuten eintragen (Event Horizon aktiv)
+        now_dt = datetime.datetime.now(datetime.timezone.utc)
+        fomc_in_25m = (now_dt + datetime.timedelta(minutes=25)).isoformat()[:19] + "Z"
+        event_sentinel.register_custom_event(MacroEvent(
+            name="Fed Notfall-Zinsentscheid",
+            category="FOMC_RATE_DECISION",
+            timestamp_utc=fomc_in_25m,
+            expected_note="Eil-Sitzung der Federal Reserve",
+        ))
+
+        snap_event = event_sentinel.analyze_event_horizon(now_dt)
+        assert snap_event.event_horizon_active is True, "Event in 25 Min muss Event Horizon aktivieren"
+        assert snap_event.protective_action == "BLOCK_NEW_TRADES"
+        assert snap_event.horizon_state == "EVENT_HORIZON_ACTIVE"
+        assert "Fed Notfall-Zinsentscheid" in snap_event.next_event_name
+
+        # 2. Sub-Agent #29 im ADAS-Schwarm prüfen
+        arch_event = ADASMetaArchitect(cfg)
+        ev_spec = next((ag for ag in arch_event.state.active_subagents.values() if ag.specialty_focus == "MACRO_EVENT_HORIZON"), None)
+        assert ev_spec is not None, "Sub-Agent #29 (MACRO_EVENT_HORIZON) muss im Schwarm existieren"
+
+        macro_active = green_macro.model_copy(update={
+            "macro_event_horizon_active": True,
+            "macro_event_horizon_name": "Fed Notfall-Zinsentscheid",
+            "macro_minutes_to_event": 25,
+            "macro_event_protective_action": "BLOCK_NEW_TRADES",
+        })
+        ev_vote, _ = arch_event._compute_single_subagent_vote(ev_spec, ada_hf_snap, macro_active)
+        assert ev_vote.vote_action in ("SELL", "HOLD"), "Neukauf muss bei aktivem Event Horizon verboten sein"
+        assert ev_vote.score <= -0.90, f"Score muss tief bärisch sein (Veto), erhalten: {ev_vote.score}"
+
+        # 3. Red-Team Veto bei aktivem Event Horizon prüfen
+        tribunal_event = red_tribunal_hf.convene_tribunal(fake_buy_sig, ada_hf_snap, macro_active, {})
+        assert "Macro Event Horizon" in tribunal_event.bear_rebuttal
+        assert tribunal_event.verdict == "REJECTED_VETO", "Red Team muss bei Notenbank-Zinsentscheid Veto verhängen"
+
+        # 4. Approaching Event (120 Min vorher -> Half Size)
+        cpi_in_120m = (now_dt + datetime.timedelta(minutes=120)).isoformat()[:19] + "Z"
+        test_cal_2 = Path(tmpdir) / "test_cal_2.json"
+        sentinel_caution = MacroEventHorizonSentinel(calendar_file=test_cal_2)
+        sentinel_caution.events = [MacroEvent(name="US CPI Inflation", category="US_CPI_INFLATION", timestamp_utc=cpi_in_120m)]
+        snap_caution = sentinel_caution.analyze_event_horizon(now_dt)
+        assert snap_caution.horizon_state == "APPROACHING_CAUTION"
+        assert snap_caution.protective_action == "HALF_SIZE_ONLY"
+
+        print(f"[OK] Test 37 bestanden: Macro Event Horizon Sentinel (Sub-Agent #29) schützt vor Zins-/Inflations-Whipsaws (Status: {snap_event.horizon_state}, Aktion: {snap_event.protective_action}) & Red-Team verhängt VETO.")
+
+    print("=== Alle 37 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab- & Macro-Event-Horizon-Tests erfolgreich bestanden! ===")
 
 
 

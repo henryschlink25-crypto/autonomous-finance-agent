@@ -31,6 +31,11 @@ class MacroRegime(BaseModel):
     geopolitical_regime_mode: str = "NEUTRAL_STABLE"  # ESCALATION_CRISIS_REGIME, TRADE_WAR_TARIFF_TENSION, NEUTRAL_STABLE, PEACE_DIVIDEND_EXPANSION
     geopolitical_strategy_mandate: str = "BALANCED_MULTI_ASSET"
     geopolitical_catalysts: List[str] = Field(default_factory=list)
+    # Macro Economic Event Horizon (FOMC, CPI, NFP)
+    macro_event_horizon_active: bool = False
+    macro_event_horizon_name: str = ""
+    macro_minutes_to_event: int = 9999
+    macro_event_protective_action: str = "UNRESTRICTED"  # "BLOCK_NEW_TRADES", "HALF_SIZE_ONLY", "UNRESTRICTED"
     summary: str
 
 

@@ -265,6 +265,19 @@ class AdversarialRedTeamTribunal:
             fatal_risks.append("VWAP Climax Exhaustion (> +2.5σ)")
             risk_score += 3.0
 
+        # 16. Macro Economic Event Horizon (FOMC, CPI, NFP Whipsaw-Gefahr)
+        if macro is not None:
+            if getattr(macro, "macro_event_horizon_active", False):
+                ev_n = getattr(macro, "macro_event_horizon_name", "FOMC / CPI Event")
+                msg = f"🏛️ Macro Event Horizon aktiv ({ev_n}) – Whipsaw-Gefahr & Liquiditätsentzug"
+                rebuttals.append(msg)
+                fatal_risks.append("Macro Event Horizon")
+                risk_score += 7.0
+            elif getattr(macro, "macro_event_protective_action", "") == "HALF_SIZE_ONLY":
+                mins = getattr(macro, "macro_minutes_to_event", 120)
+                rebuttals.append(f"Makro-Event naht in {mins} Min – Positionsgröße halbiert")
+                risk_score += 2.0
+
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)
 

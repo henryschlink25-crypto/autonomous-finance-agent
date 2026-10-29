@@ -161,6 +161,7 @@ class TelegramCommandListener:
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
                 "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
+                "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧪 <b>/lab</b> - Walk-Forward Forschungs-Labor & WFER-Effizienz\n"
@@ -227,6 +228,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/geopolitics", "/geo", "/war", "/peace"]:
             self._handle_geopolitics()
+
+        elif cmd in ["/events", "/event", "/fomc", "/cpi", "/nfp", "/fed"]:
+            self._handle_macro_events()
 
         elif cmd in ["/alerts", "/alert", "/quiet", "/drossel"]:
             self._handle_alerts(args)
@@ -646,6 +650,17 @@ class TelegramCommandListener:
             self.send_message("\n".join(lines))
         except Exception as e:
             self.send_message(f"❌ Fehler bei Geopolitik-Analyse: {e}")
+
+    def _handle_macro_events(self) -> None:
+        self.send_message("🏛️ <i>Analysiere Wirtschaftskalender & Notenbank-Events (FOMC, CPI, NFP)...</i>")
+        try:
+            from macro_event_horizon_sentinel import get_macro_event_sentinel
+            sentinel = get_macro_event_sentinel()
+            snap = sentinel.analyze_event_horizon()
+            msg = sentinel.format_telegram_summary(snap)
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Makro-Event Analyse: {e}")
 
     def _handle_alerts(self, args: List[str]) -> None:
         try:

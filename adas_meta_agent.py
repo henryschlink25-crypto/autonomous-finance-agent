@@ -653,6 +653,16 @@ class ADASMetaArchitect:
                 rule_parameters={"min_sweep_edge": 0.50, "max_exhaustion_score": -0.60},
             ))
 
+        # 16. Macro Economic Event Horizon Sentinel (Sub-Agent #29)
+        if "macro_event_horizon_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="macro_event_horizon_sentinel",
+                name="🏛️ Macro Event Horizon Sentinel",
+                role="Überwacht US-Zinsentscheide (Fed FOMC), Inflationsdaten (CPI) und Arbeitsmarktberichte (NFP). Blockiert Neukäufe 60 Min. vor bis 30 Min. nach Veröffentlichungen.",
+                specialty_focus="MACRO_EVENT_HORIZON",
+                trust_weight=1.28,
+            ))
+
         return new_specs
 
 
@@ -1318,6 +1328,39 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = f"VWAP-Sweeper temporär nicht verfügbar ({e})"
+
+        elif focus == "MACRO_EVENT_HORIZON":
+            try:
+                from macro_event_horizon_sentinel import get_macro_event_sentinel
+                ev_sent = get_macro_event_sentinel()
+                snap_ev = ev_sent.analyze_event_horizon()
+
+                is_active = getattr(macro, "macro_event_horizon_active", False) or snap_ev.event_horizon_active
+                is_caution = getattr(macro, "macro_event_protective_action", "") == "HALF_SIZE_ONLY" or snap_ev.horizon_state == "APPROACHING_CAUTION"
+                ev_name = getattr(macro, "macro_event_horizon_name", "") or snap_ev.next_event_name
+                mins = getattr(macro, "macro_minutes_to_event", snap_ev.minutes_to_next_event)
+
+                s_event_active = rec.flag("Event Horizon Active", is_active, "bear")
+                s_caution = rec.flag("Approaching Event", is_caution, "bear")
+
+                if s_event_active.passed:
+                    score = -0.95
+                    conf = 0.98
+                    rationale = f"🏛️ VETO: Macro Event Horizon aktiv ({ev_name}) – Whipsaw-Schutz aktiv!"
+                    decisive_idx = rec.idx(s_event_active)
+                elif s_caution.passed:
+                    score = 0.20
+                    conf = 0.70
+                    rationale = f"⏳ Makro-Event naht in {mins} Min ({ev_name}) – Vorsichtige Positionierung"
+                    decisive_idx = rec.idx(s_caution)
+                else:
+                    score = 0.50
+                    conf = 0.75
+                    rationale = f"🟢 Horizont frei: Nächstes Notenbank-Event ({ev_name}) in {mins//60}h"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"Makro-Event Radar temporär nicht verfügbar ({e})"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:
