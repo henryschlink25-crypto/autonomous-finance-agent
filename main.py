@@ -374,7 +374,16 @@ def run_autonomous_cycle(
     # Berechne initiale 60-Tage-Korrelations-Matrix & Kovarianz-VaR
     port_risk = collector.compute_cross_asset_risk(snapshots, engine.positions, engine.total_equity_usd)
 
-    # 1c. ADAS (Automated Design of Agentic Systems) Meta-Architekt & Unteragenten-Schwarm:
+    # 1c. Walk-Forward Hyperparameter Auto-Tuning (Kalibriert SL, TP, CRV und Konfidenz dynamisch an VIX & Regime)
+    try:
+        from hyperparameter_autotuner import HyperparameterAutoTuner
+        tuner = HyperparameterAutoTuner()
+        calib = tuner.tune_parameters(macro)
+        console.print(f"[bold cyan]🎯 Hyperparameter Auto-Tuner:[/bold cyan] {calib.tuning_rationale} (SL: {calib.atr_stop_loss_mult}x ATR, TP: {calib.atr_take_profit_mult}x ATR, CRV: {calib.target_risk_reward_ratio}:1)")
+    except Exception as e:
+        logger.debug(f"AutoTuner Fehler: {e}")
+
+    # 1d. ADAS (Automated Design of Agentic Systems) Meta-Architekt & Unteragenten-Schwarm:
     #     Erschafft bei neuen Markt-Phänomenen autonom neue Spezial-Unteragenten und lässt den gesamten Schwarm abstimmen!
     adas = ADASMetaArchitect(config)
     adas_events = adas.run_evolution_and_spawning_cycle(snapshots, macro, engine.positions)
@@ -554,6 +563,48 @@ def main() -> None:
     if args.status:
         render_portfolio_summary(engine, config)
         return
+
+    # Telegram-Fernsteuerungs-Listener starten (erlaubt /status, /portfolio, /debates, /breed per Telegram)
+    if config.telegram_bot_token and config.telegram_chat_id:
+        try:
+            from telegram_command_listener import TelegramCommandListener
+            from genetic_strategy_breeder import run_strategy_breeding_cycle
+
+            def _get_live_portfolio():
+                return [
+                    {
+                        "symbol": p.symbol,
+                        "qty": p.quantity,
+                        "avg_entry_price": p.entry_price,
+                        "current_price": p.current_price,
+                        "unrealized_pl": p.unrealized_pnl_usd,
+                        "unrealized_plpc": p.unrealized_pnl_pct / 100.0,
+                    }
+                    for p in engine.positions.values()
+                ]
+
+            def _get_live_status():
+                return {
+                    "equity": engine.total_equity_usd,
+                    "cash": engine.cash_usd,
+                    "regime": "AUTONOMOUS_SWARM_ACTIVE",
+                }
+
+            def _trigger_breed():
+                run_strategy_breeding_cycle(num_generations=1, pop_per_gen=4)
+                return "1 Generation erfolgreich gezüchtet & im Schwarm integriert!"
+
+            tg_listener = TelegramCommandListener(
+                bot_token=config.telegram_bot_token,
+                authorized_chat_id=config.telegram_chat_id,
+                portfolio_callback=_get_live_portfolio,
+                status_callback=_get_live_status,
+                breed_callback=_trigger_breed,
+            )
+            tg_listener.start()
+            console.print("[bold green]✔ Telegram-Fernsteuerungs-Listener aktiv[/bold green] (Antwortet auf /status, /portfolio, /trades, /debates, /breed)")
+        except Exception as e:
+            console.print(f"[yellow]Warnung: Telegram-Listener konnte nicht gestartet werden: {e}[/yellow]")
 
     if args.loop > 0:
         console.print(f"[bold green]Starte autonomen Dauerbetrieb (Intervall: {args.loop} Sekunden)...[/bold green]")

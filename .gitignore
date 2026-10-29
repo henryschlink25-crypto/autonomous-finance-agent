@@ -27,3 +27,7 @@ Thumbs.db
 
 # Large log files
 *.log
+
+# Disk caches
+data/*_cache/
+data/*.tmp

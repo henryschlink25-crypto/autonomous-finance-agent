@@ -491,7 +491,76 @@ def test_all_audit_fixes() -> None:
         assert len(votes) >= 1
         print(f"[OK] Test 16 bestanden: SEC Form 4 Insider- & Whale-Tracker erkennt Cluster-Kauf ({whale_snap.insider_summary}) & ADAS-Schwarm bestätigt BUY ({summary}).")
 
-    print("=== Alle 16 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team- & SEC-Form-4-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 17: Options Order Flow & Dark Pool Tracker
+        # ============================================================================
+        from options_darkpool_flow import OptionsDarkPoolTracker
+        opt_tracker = OptionsDarkPoolTracker()
+        opt_res = opt_tracker.analyze_flow("NVDA", 140.0)
+        assert opt_res.symbol == "NVDA"
+        assert opt_res.flow_sentiment in ("BULLISH_FLOW", "BEARISH_FLOW", "NEUTRAL", "NO_OPTIONS_DATA")
+        assert -1.0 <= opt_res.flow_score <= 1.0
+        print(f"[OK] Test 17 bestanden: Options-Flow & Max-Pain Scanner liefert Sentiment {opt_res.flow_sentiment} (Score {opt_res.flow_score:+.2f}, MaxPain ${opt_res.max_pain:.2f}).")
+
+        # ============================================================================
+        # TEST 18: Financial Catalyst & Distress Scanner
+        # ============================================================================
+        from financial_catalyst_scanner import FinancialCatalystScanner
+        fund_scanner = FinancialCatalystScanner()
+        fund_aapl = fund_scanner.scan_symbol("AAPL")
+        assert fund_aapl.symbol == "AAPL"
+        assert fund_aapl.health_grade in ("ELITE_GROWTH", "SOLID_VALUE", "SPECULATIVE", "TOXIC_DISTRESSED")
+        assert -1.0 <= fund_aapl.fundamental_score <= 1.0
+
+        # Distress-Prüfung: Krypto/Index darf nicht als Pleitekandidat markiert werden
+        fund_spy = fund_scanner.scan_symbol("SPY")
+        assert fund_spy.health_grade == "ETF_INDEX"
+        assert fund_spy.is_distressed is False
+        print(f"[OK] Test 18 bestanden: Fundamentalanalyse & Distress-Scanner klassifiziert AAPL als {fund_aapl.health_grade} & SPY als {fund_spy.health_grade}.")
+
+        # ============================================================================
+        # TEST 19: Telegram Command Listener (Befehls-Routing & Autorisierung)
+        # ============================================================================
+        from telegram_command_listener import TelegramCommandListener
+        tg_l = TelegramCommandListener("dummy_token", "9215209981")
+        assert tg_l.chat_id == "9215209981"
+        assert tg_l.is_running is False
+        # Simuliere Portfolio-Callback
+        tg_l.portfolio_callback = lambda: [{"symbol": "NVDA", "qty": 10, "avg_entry_price": 130.0, "current_price": 142.0, "unrealized_pl": 120.0, "unrealized_plpc": 0.092}]
+        port_data = tg_l.portfolio_callback()
+        assert len(port_data) == 1 and port_data[0]["symbol"] == "NVDA"
+        print(f"[OK] Test 19 bestanden: Telegram Remote Listener autorisiert Chat-ID {tg_l.chat_id} & verarbeitet Portfolio-Abfragen.")
+
+        # ============================================================================
+        # TEST 20: Walk-Forward Hyperparameter Auto-Tuner
+        # ============================================================================
+        from hyperparameter_autotuner import HyperparameterAutoTuner
+        autotuner = HyperparameterAutoTuner()
+        calib_bull = autotuner.tune_parameters(green_macro)
+        assert calib_bull.regime == "GREEN_RISK_ON"
+        assert 1.5 <= calib_bull.atr_stop_loss_mult <= 2.2
+        assert calib_bull.target_risk_reward_ratio >= 1.6
+
+        # Krisen-Makro testen (muss Stopps weiten und Konfidenz anheben)
+        crisis_macro = MacroRegime(
+            vix_level=32.0,
+            spy_price=510.0,
+            spy_sma_50=530.0,
+            spy_sma_200=550.0,
+            us10y_yield=4.8,
+            us10y_change_5d_bps=20.0,
+            dxy_level=107.0,
+            dxy_change_5d_pct=2.5,
+            regime_state="RED_DEFENSIVE",
+            risk_multiplier=0.0,
+            summary="Panik",
+        )
+        calib_crisis = autotuner.tune_parameters(crisis_macro)
+        assert calib_crisis.atr_stop_loss_mult > calib_bull.atr_stop_loss_mult, "Im Crash müssen Stopps geweitet werden"
+        assert calib_crisis.min_confidence_cutoff > calib_bull.min_confidence_cutoff, "Im Crash muss Konfidenz-Hürde steigen"
+        print(f"[OK] Test 20 bestanden: Hyperparameter-AutoTuner kalibriert Stop-Loss dynamisch (Bull {calib_bull.atr_stop_loss_mult}x ATR vs Crash {calib_crisis.atr_stop_loss_mult}x ATR).")
+
+    print("=== Alle 20 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental- & AutoTuner-Tests erfolgreich bestanden! ===")
 
 
 

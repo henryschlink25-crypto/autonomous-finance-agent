@@ -189,10 +189,25 @@ class HybridAIAnalyst:
                 reasons.append("⏸️ ABWARTEN (Fehlende Trend- & Volumen-Bestätigung – Schutz vor Fehlausbruch)")
 
         # Dynamische 2-Stufen Fast-Momentum Stop-Loss & Take-Profit Berechnung über 14-Tage ATR
+        # Verwendet kalibrierte Hyperparameter aus dem Walk-Forward AutoTuner, falls vorhanden
         atr = max(snap.atr_14, snap.current_price * 0.015)
-        stop_distance = 1.6 * atr
-        partial_tp_distance = 1.5 * atr
-        tp_distance = 3.2 * atr
+        sl_mult = 1.8
+        tp_mult = 3.5
+        try:
+            from pathlib import Path
+            import json
+            calib_file = Path("data/hyperparameters_calibrated.json")
+            if calib_file.exists():
+                with open(calib_file, "r", encoding="utf-8") as f:
+                    c_data = json.load(f)
+                    sl_mult = float(c_data.get("atr_stop_loss_mult", sl_mult))
+                    tp_mult = float(c_data.get("atr_take_profit_mult", tp_mult))
+        except Exception:
+            pass
+
+        stop_distance = sl_mult * atr
+        partial_tp_distance = max(1.2 * atr, (sl_mult * 0.8) * atr)
+        tp_distance = tp_mult * atr
 
         stop_loss_price = round(max(0.0001, snap.current_price - stop_distance), 4)
         partial_tp_price = round(snap.current_price + partial_tp_distance, 4)

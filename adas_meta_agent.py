@@ -543,6 +543,26 @@ class ADASMetaArchitect:
                 trust_weight=1.14,
             ))
 
+        # 5. Options Smart-Money & Max-Pain Hunter
+        if "options_smart_money_hunter" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="options_smart_money_hunter",
+                name="⚡ Options Smart-Money & Max-Pain Hunter",
+                role="Analysiert Put/Call-Ratio, Max-Pain-Magnetismus und Unusual Options Whale Flow.",
+                specialty_focus="OPTIONS_SMART_MONEY",
+                trust_weight=1.18,
+            ))
+
+        # 6. Fundamental Solvency & Health Guardian
+        if "fundamental_health_guardian" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="fundamental_health_guardian",
+                name="🛡️ Fundamental Solvency & Health Guardian",
+                role="Prüft Cashflow, Solvenz und Umsatzwachstum und schützt das Kapital vor toxischen Pleitekandidaten.",
+                specialty_focus="FUNDAMENTAL_HEALTH",
+                trust_weight=1.20,
+            ))
+
         return new_specs
 
 
@@ -931,6 +951,46 @@ class ADASMetaArchitect:
                 conf = 0.75
                 rationale = f"🌧️ SuperTrend bärisch (Widerstand ${snap.supertrend_val:.2f})"
                 decisive_idx = rec.idx(s_st_bull)
+
+        elif focus == "OPTIONS_SMART_MONEY":
+            flow_s = getattr(snap, "options_flow_score", 0.0)
+            pcr = getattr(snap, "options_put_call_ratio", 1.0)
+            max_p = getattr(snap, "options_max_pain", 0.0)
+            s_opt_bull = rec.num("Options Flow Bull", flow_s, ">=", "min_flow_score", 0.35, "bull")
+            s_opt_bear = rec.num("Options Flow Bear", flow_s, "<=", "max_flow_bear", -0.35, "bear")
+            if s_opt_bull.passed:
+                score = 0.82
+                conf = 0.85
+                pain_txt = f" (MaxPain ${max_p:.2f})" if max_p and max_p > 0 else ""
+                rationale = f"⚡ Bullischer Smart-Money Call-Flow (Score {flow_s:+.2f}){pain_txt}"
+                decisive_idx = rec.idx(s_opt_bull)
+            elif s_opt_bear.passed:
+                score = -0.70
+                conf = 0.80
+                rationale = f"🌧️ Starker Put-Flow / Absicherung (P/C {pcr or 1.2:.2f})"
+                decisive_idx = rec.idx(s_opt_bear)
+
+        elif focus == "FUNDAMENTAL_HEALTH":
+            f_score = getattr(snap, "fundamental_score", 0.0)
+            f_grade = getattr(snap, "fundamental_health_grade", "SOLID_VALUE")
+            is_dist = getattr(snap, "is_fundamentally_distressed", False)
+            s_elite = rec.flag("Elite Growth", f_grade == "ELITE_GROWTH", "bull")
+            s_dist = rec.flag("Toxic Distressed", is_dist or f_grade == "TOXIC_DISTRESSED", "bear")
+            if s_dist.passed:
+                score = -0.95
+                conf = 0.95
+                rationale = "🛑 VETO: Fundamentale Insolvenz- oder Verwässerungsgefahr (Negativer Cashflow & Schulden)"
+                decisive_idx = rec.idx(s_dist)
+            elif s_elite.passed:
+                score = 0.85
+                conf = 0.88
+                rationale = f"💎 Elite-Fundamentaldaten & hohes Umsatzwachstum (Score {f_score:+.2f})"
+                decisive_idx = rec.idx(s_elite)
+            elif f_score >= 0.15:
+                score = 0.45
+                conf = 0.75
+                rationale = f"Solide Bilanz & Cashflow (Score {f_score:+.2f})"
+                decisive_idx = rec.idx(s_elite)
 
 
 

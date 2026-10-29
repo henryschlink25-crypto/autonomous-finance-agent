@@ -83,6 +83,12 @@ class MarketSnapshot(BaseModel):
     form4_net_usd_90d: float = 0.0
     form4_cluster_buy: bool = False
     form4_recent_whale_buys: List[Dict[str, Any]] = Field(default_factory=list)
+    # Erweiterte Optionen- und Fundamental-Felder
+    options_max_pain: Optional[float] = None
+    options_flow_score: float = 0.0
+    fundamental_health_grade: str = "SOLID_VALUE"
+    is_fundamentally_distressed: bool = False
+    fundamental_score: float = 0.0
     supertrend_direction: str = "NEUTRAL"  # "BULLISH", "BEARISH", "NEUTRAL"
     supertrend_val: float = 0.0
     supertrend_flipped: bool = False

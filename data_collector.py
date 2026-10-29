@@ -799,6 +799,34 @@ class MultiAssetDataCollector:
                     insider_info = QuantitativeToolbox.get_sec_insider_activity(item.symbol)
                 sec_8k = QuantitativeToolbox.get_sec_form8k_events(item.symbol)
 
+            # Erweiterte Optionen-Flow- und Fundamentaldaten-Module
+            opt_max_pain = None
+            opt_flow_score = 0.0
+            fund_grade = "SOLID_VALUE"
+            is_distressed = False
+            fund_score = 0.0
+            if item.asset_class == "EQUITY":
+                try:
+                    from options_darkpool_flow import OptionsDarkPoolTracker
+                    opt_tracker = OptionsDarkPoolTracker()
+                    opt_snap = opt_tracker.analyze_flow(item.symbol, current_price)
+                    opt_max_pain = opt_snap.max_pain
+                    opt_flow_score = opt_snap.flow_score
+                    if opt_snap.unusual_call_activity and opt_flow == "NEUTRAL":
+                        opt_flow = "BULLISH_CALL_FLOW"
+                except Exception:
+                    pass
+
+                try:
+                    from financial_catalyst_scanner import FinancialCatalystScanner
+                    fund_scanner = FinancialCatalystScanner()
+                    fund_snap = fund_scanner.scan_symbol(item.symbol)
+                    fund_grade = fund_snap.health_grade
+                    is_distressed = fund_snap.is_distressed
+                    fund_score = fund_snap.fundamental_score
+                except Exception:
+                    pass
+
             # Dynamisch synthetisierte Werkzeuge (ADAS AI Scientist) anwenden
             synth_metrics = QuantitativeToolbox.execute_synthesized_tools(df)
 
@@ -849,6 +877,11 @@ class MultiAssetDataCollector:
                 form4_net_usd_90d=float(form4_data.get("net_usd_90d", 0.0)),
                 form4_cluster_buy=bool(form4_data.get("cluster_buy_detected", False)),
                 form4_recent_whale_buys=form4_data.get("recent_whale_buys", []),
+                options_max_pain=opt_max_pain,
+                options_flow_score=opt_flow_score,
+                fundamental_health_grade=fund_grade,
+                is_fundamentally_distressed=is_distressed,
+                fundamental_score=fund_score,
                 supertrend_direction=supertrend_info.get("trend", "NEUTRAL"),
                 supertrend_val=supertrend_info.get("supertrend_val", 0.0),
                 supertrend_flipped=supertrend_info.get("trend_flipped", False),
