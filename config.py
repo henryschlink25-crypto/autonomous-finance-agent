@@ -64,6 +64,7 @@ class AgentConfig:
     enable_opportunity_rotation: bool = os.getenv("ENABLE_OPPORTUNITY_ROTATION", "True").lower() == "true"
     max_stale_holding_days: int = int(os.getenv("MAX_STALE_HOLDING_DAYS", "5"))
     leveraged_etf_max_days: int = int(os.getenv("LEVERAGED_ETF_MAX_DAYS", "3"))
+    enable_adversarial_red_team: bool = os.getenv("ENABLE_ADVERSARIAL_RED_TEAM", "True").lower() == "true"
     min_order_usd: float = 25.0
 
     # Optionale Echtzeit-Push-Alerts (Telegram Bot, Discord Webhook oder WhatsApp)

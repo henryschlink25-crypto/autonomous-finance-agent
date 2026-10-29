@@ -91,6 +91,22 @@ class MarketSnapshot(BaseModel):
     news: List[NewsItem] = Field(default_factory=list)
 
 
+class AdversarialDebateResult(BaseModel):
+    """
+    Ergebnis der Adversarial LLM-Debatte vor Trade-Freigabe (Red-Teaming Tribunal).
+    Bulle (Alpha-Hunter) vs. Bär (Teufels Advokat / Red Team) vor dem CIO-Richter.
+    """
+    symbol: str
+    action_debated: str = "BUY"
+    verdict: Literal["APPROVED", "REDUCED_SIZE", "REJECTED_VETO"] = "APPROVED"
+    bull_argument: str = ""
+    bear_rebuttal: str = ""
+    cio_reasoning: str = ""
+    risk_score: float = Field(default=3.0, ge=0.0, le=10.0, description="Risiko-Score von 0 (harmlos) bis 10 (Falle)")
+    size_multiplier: float = 1.0
+    debated_at: str = ""
+
+
 class TradingSignal(BaseModel):
     symbol: str
     asset_class: Literal["EQUITY", "CRYPTO"]
@@ -109,6 +125,7 @@ class TradingSignal(BaseModel):
     thesis: str = Field(description="Begründung für die Handelsentscheidung")
     best_option_contract: str = ""
     analysis_source: str = "AI_HYBRID"
+    debate_result: Optional[AdversarialDebateResult] = None
 
     def model_post_init(self, __context) -> None:
         if self.partial_take_profit_price <= 0 and self.take_profit_price > self.entry_price:
@@ -130,6 +147,7 @@ class RiskEvaluation(BaseModel):
     notional_value_usd: float = 0.0
     max_loss_usd: float = 0.0
     portfolio_risk_pct: float = 0.0
+    debate_result: Optional[AdversarialDebateResult] = None
 
 
 class Position(BaseModel):

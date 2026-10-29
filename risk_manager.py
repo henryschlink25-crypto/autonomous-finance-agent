@@ -86,6 +86,13 @@ class DeterministicRiskManager:
 
     def __init__(self, config: AgentConfig):
         self.config = config
+        self.red_team_tribunal = None
+        if getattr(self.config, "enable_adversarial_red_team", True):
+            try:
+                from adversarial_red_team import AdversarialRedTeamTribunal
+                self.red_team_tribunal = AdversarialRedTeamTribunal(config)
+            except Exception:
+                pass
 
     def evaluate_signal(
         self,
@@ -401,6 +408,25 @@ class DeterministicRiskManager:
         if is_penny:
             allowed_margin = min(allowed_margin, 500.0)
 
+        # 6. Adversarial LLM Red-Teaming Tribunal (Bulle vs. Bär vor dem CIO)
+        debate_result = None
+        if self.red_team_tribunal is not None:
+            debate_result = self.red_team_tribunal.convene_tribunal(
+                signal=signal,
+                snapshot=snapshot,
+                macro=macro,
+                positions=positions,
+            )
+            signal.debate_result = debate_result
+            if debate_result.verdict == "REJECTED_VETO":
+                return RiskEvaluation(
+                    approved=False,
+                    reason=f"RED-TEAM-VETO: {debate_result.cio_reasoning}",
+                    adjusted_action="HOLD",
+                    debate_result=debate_result,
+                )
+            elif debate_result.verdict == "REDUCED_SIZE":
+                allowed_margin *= debate_result.size_multiplier
 
         if allowed_margin < min_order:
             return RiskEvaluation(
@@ -419,12 +445,13 @@ class DeterministicRiskManager:
         portfolio_risk_pct = round((actual_max_loss / total_equity_usd) * 100.0, 2)
 
         corr_note = f", Corr-Drossel {corr_penalty:.2f}x" if corr_penalty < 1.0 else ""
+        red_team_note = f", Red-Team: {debate_result.verdict}" if debate_result else ""
         lev_note = f"⚡ {effective_total_leverage:.0f}x Hebel ({leverage_used:.0f}x Margin)" if leverage_used > 1.0 else (
             f"⚡ {effective_total_leverage:.0f}x ETF-Hebel" if snapshot.intrinsic_leverage > 1.0 else "1x"
         )
         return RiskEvaluation(
             approved=True,
-            reason=f"Freigegeben [{lev_note}, Edge {signal.expected_edge_score:.2f}{corr_note}]: Margin {margin_required:.0f}$ (Kaufkraft {notional:.0f}$), Max-Risiko {actual_max_loss:.2f}$ ({portfolio_risk_pct:.2f}%)",
+            reason=f"Freigegeben [{lev_note}, Edge {signal.expected_edge_score:.2f}{corr_note}{red_team_note}]: Margin {margin_required:.0f}$ (Kaufkraft {notional:.0f}$), Max-Risiko {actual_max_loss:.2f}$ ({portfolio_risk_pct:.2f}%)",
             adjusted_action="BUY",
             leverage_used=leverage_used,
             effective_total_leverage=effective_total_leverage,
@@ -433,4 +460,5 @@ class DeterministicRiskManager:
             notional_value_usd=notional,
             max_loss_usd=actual_max_loss,
             portfolio_risk_pct=portfolio_risk_pct,
+            debate_result=debate_result,
         )

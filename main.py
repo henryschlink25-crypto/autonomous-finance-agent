@@ -469,9 +469,13 @@ def run_autonomous_cycle(
             "bold green"
             if exec_result.startswith("EXECUTED")
             else (
-                "yellow"
-                if any(k in exec_result for k in ("EARNINGS", "MAKRO", "CLUSTER", "CASH-RESERVE", "KORRELATIONS", "VaR"))
-                else "dim"
+                "bold magenta"
+                if "RED-TEAM-VETO" in exec_result
+                else (
+                    "yellow"
+                    if any(k in exec_result for k in ("EARNINGS", "MAKRO", "CLUSTER", "CASH-RESERVE", "KORRELATIONS", "VaR"))
+                    else "dim"
+                )
             )
         )
 
@@ -481,6 +485,7 @@ def run_autonomous_cycle(
             1,
         )
         lev_tag = f" [bold yellow]⚡{eff_lev:.0f}x[/bold yellow]" if eff_lev > 1.0 else ""
+        rt_note = f"\n[dim cyan]⚖️ Red-Team: {signal.debate_result.verdict} (Risk: {signal.debate_result.risk_score:.1f}/10)[/dim cyan]" if signal.debate_result else ""
         analysis_table.add_row(
             f"{snap.symbol}{lev_tag}\n[dim]{snap.cluster}[/dim]",
             f"${snap.current_price:,.2f}\n[{chg_color}]{snap.change_24h_pct:+.2f}%[/{chg_color}]",
@@ -488,7 +493,7 @@ def run_autonomous_cycle(
             format_fundamentals_and_corr_cell(snap, config.earnings_blackout_days, config_lev=eff_lev),
             f"[{sig_color} bold]{signal.action}[/{sig_color} bold]\n({signal.confidence*100:.0f}% | E:{signal.expected_edge_score:.2f})",
             f"SL: {signal.stop_loss_price:,.2f}\nTP1: {signal.partial_take_profit_price:,.2f}\nTP2: {signal.take_profit_price:,.2f}",
-            f"{signal.thesis}\n[dim]📰 {signal.catalyst_summary}[/dim]",
+            f"{signal.thesis}\n[dim]📰 {signal.catalyst_summary}[/dim]{rt_note}",
             f"[{exec_color}]{exec_result}[/{exec_color}]",
         )
 

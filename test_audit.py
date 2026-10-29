@@ -382,7 +382,63 @@ def test_all_audit_fixes() -> None:
         assert not ast_bad, "AST-Sicherheitsprüfung muss gefährliche os.system Calls abfangen!"
         print(f"[OK] Test 14 bestanden: Genetische Strategie-Zucht simuliert Backtest (Sharpe {res['sharpe_ratio']}, Win-Rate {res['win_rate_pct']}%) & AST-Sicherheitsprüfung schützt Codebase.")
 
-    print("=== Alle 14 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm- & Strategie-Zucht-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 15: Adversarial LLM Red-Teaming Tribunal (Bulle vs. Bär vor dem CIO)
+        # ============================================================================
+        from adversarial_red_team import AdversarialRedTeamTribunal
+        tribunal = AdversarialRedTeamTribunal(cfg_breed)
+        trap_snap = MarketSnapshot(
+            symbol="TRAP",
+            name="Trap Microcap",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            current_price=2.80,
+            change_24h_pct=28.5,
+            change_7d_pct=45.0,
+            rsi_14=84.5,  # Extrem überkauft!
+            sma_20=2.10,
+            sma_50=1.80,
+            macd_hist=0.15,
+            atr_14=0.25,
+            volatility_annualized_pct=110.0,
+            volume_ratio_vs_20d=4.2,
+            days_to_earnings=45,  # Keine Quartalszahlen, reine Bullenfalle!
+            sec_form8k_catalyst="",  # Kein SEC Filing!
+        )
+        trap_signal = TradingSignal(
+            symbol="TRAP",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            action="BUY",
+            confidence=0.88,
+            sentiment_score=0.70,
+            entry_price=2.80,
+            stop_loss_price=2.40,
+            take_profit_price=3.60,
+            risk_reward_ratio=2.0,
+            catalyst_summary="Pump Ausbruch",
+            thesis="Parabolischer Anstieg",
+        )
+        debate_trap = tribunal.convene_tribunal(trap_signal, trap_snap, green_macro, {})
+        assert debate_trap.verdict == "REJECTED_VETO", f"Red Team muss tödliche Falle vetoen! Erhalten: {debate_trap.verdict}"
+        assert debate_trap.risk_score >= 8.0, f"Risiko-Score muss hoch sein! Erhalten: {debate_trap.risk_score}"
+
+        # Risk-Manager muss den VETO-Entscheid respektieren und den Kauf blockieren
+        risk_mgr_test = DeterministicRiskManager(cfg_breed)
+        risk_eval_trap = risk_mgr_test.evaluate_signal(
+            signal=trap_signal,
+            snapshot=trap_snap,
+            macro=green_macro,
+            cash_usd=90_000.0,
+            total_equity_usd=100_000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert not risk_eval_trap.approved, "Risk Manager muss VETO Trade blockieren"
+        assert "RED-TEAM-VETO" in risk_eval_trap.reason, f"Begründung muss RED-TEAM-VETO enthalten! Erhalten: {risk_eval_trap.reason}"
+        print(f"[OK] Test 15 bestanden: Adversarial Red-Team Tribunal entlarvt Bullenfalle & verhindert Fehlkauf (Score {debate_trap.risk_score}/10 -> {debate_trap.verdict}).")
+
+    print("=== Alle 15 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht- & Red-Team-Tests erfolgreich bestanden! ===")
 
 
 

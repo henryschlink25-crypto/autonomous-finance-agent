@@ -411,6 +411,59 @@ class DashboardGenerator:
         </div>
     </div>"""
 
+        # Baue das Adversarial Red-Teaming Tribunal Panel (Bulle vs. Bär vor dem CIO)
+        red_team_debates = []
+        red_team_file = os.path.join(self.data_dir, "red_team_debates.jsonl")
+        if os.path.exists(red_team_file):
+            try:
+                with open(red_team_file, "r", encoding="utf-8") as f:
+                    for line in f:
+                        if line.strip():
+                            red_team_debates.append(json.loads(line))
+            except Exception:
+                pass
+        recent_debates = list(reversed(red_team_debates[-8:]))
+        red_team_rows_html = ""
+        for d in recent_debates:
+            v = d.get("verdict", "APPROVED")
+            v_pill = "pill-green" if v == "APPROVED" else ("pill-red" if "VETO" in v else "pill-amber")
+            v_label = "✔ FREIGABE" if v == "APPROVED" else ("🛡️ VETO (ABGEWENDET)" if "VETO" in v else "⚠️ 50% GRÖSSE")
+            red_team_rows_html += f"""
+            <tr>
+                <td><strong>{d.get('symbol')}</strong></td>
+                <td><span class="pill {v_pill}">{v_label}</span></td>
+                <td style="font-size:12px;color:#38bdf8;">{d.get('bull_argument', '')[:130]}</td>
+                <td style="font-size:12px;color:#f43f5e;">{d.get('bear_rebuttal', '')[:130]}</td>
+                <td style="font-size:12px;color:#cbd5e1;">{d.get('cio_reasoning', '')[:150]}</td>
+            </tr>"""
+        if not red_team_rows_html:
+            red_team_rows_html = '<tr><td colspan="5" class="muted" style="text-align:center;">Noch keine Red-Team-Debatten protokolliert.</td></tr>'
+
+        red_team_panel_html = f"""
+    <div class="panel" style="border-color:rgba(244, 63, 94, 0.4);">
+        <div class="panel-hdr">
+            <div>
+                <h2>⚔️ Adversarial Red-Teaming Tribunal (Bulle vs. Bär vor dem CIO)</h2>
+                <div class="panel-subtitle">Vor jeder Trade-Freigabe sucht der Bären-Advokat (Red Team) gezielt nach versteckten Fallen (Dilution, Parabolic Exhaustion, Binary Risk) – der CIO fällt das finale Urteil</div>
+            </div>
+            <span class="pill pill-rose">{len(red_team_debates)} Debatten protokolliert</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Asset</th>
+                    <th>CIO-Urteil</th>
+                    <th>🐂 Bullen-Advokat (Edge & Katalysator)</th>
+                    <th>🐻 Bären-Advokat (Red Team Risikofaktoren)</th>
+                    <th>⚖️ CIO-Begründung</th>
+                </tr>
+            </thead>
+            <tbody>
+                {red_team_rows_html}
+            </tbody>
+        </table>
+    </div>"""
+
         # Baue das ADAS (Automated Design of Agentic Systems) Multi-Agenten-Schwarm-Panel
         adas_data = {}
         if os.path.exists(self.adas_state_file):
@@ -854,6 +907,8 @@ class DashboardGenerator:
     {diagnostics_panel_html}
 
     {funnel_panel_html}
+
+    {red_team_panel_html}
 
     {adas_panel_html}
 
