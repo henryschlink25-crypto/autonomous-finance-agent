@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T09:06:46",
+  "updated_at": "2026-10-29T09:13:29",
   "active": {
     "AAPL": {
       "prediction_id": "AAPL_2026-10-29T00:27:27",
@@ -128,7 +128,7 @@
       "current_price": 78.26,
       "target_price": 88.963,
       "invalidation_price": 67.557,
-      "directional_return_pct": 0.0,
+      "directional_return_pct": -0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",
@@ -186,7 +186,7 @@
       "current_price": 93.03,
       "target_price": 109.2724,
       "invalidation_price": 76.7876,
-      "directional_return_pct": 0.0,
+      "directional_return_pct": -0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",
@@ -319,17 +319,17 @@
       }
     },
     "EVR": {
-      "prediction_id": "EVR_2026-10-29T01:34:38",
-      "opened_at": "2026-10-29T01:34:38",
+      "prediction_id": "EVR_2026-10-29T09:13:29",
+      "opened_at": "2026-10-29T09:13:29",
       "symbol": "EVR",
       "asset_class": "EQUITY",
-      "predicted_action": "BUY",
-      "confidence": 0.97,
+      "predicted_action": "HOLD",
+      "confidence": 0.7,
       "was_executed": false,
-      "execution_note": "SKIPPED (BÖRSENZEITEN-SCHUTZ: NYSE/Nasdaq geschlossen (NY: 21:34 ",
+      "execution_note": "SKIPPED (⏸️ ABWARTEN: Kein erstklassiges A+ Setup – Cash bleibt g",
       "entry_price": 292.38,
       "current_price": 292.38,
-      "target_price": 314.4114,
+      "target_price": 316.6145,
       "invalidation_price": 268.1455,
       "directional_return_pct": 0.0,
       "max_favorable_pct": 0.0,
@@ -339,12 +339,12 @@
       "factor_contributions": {
         "trend": 0.0,
         "momentum": 0.0,
-        "volume": 0.14,
-        "fundamentals": 0.16,
-        "news_sentiment": 0.246,
-        "options_flow": 0.184,
+        "volume": 0.143,
+        "fundamentals": 0.154,
+        "news_sentiment": 0.252,
+        "options_flow": 0.238,
         "cross_asset_lead_lag": 0.0,
-        "intraday_vwap_rs": 0.16
+        "intraday_vwap_rs": 0.154
       }
     },
     "ORCL": {

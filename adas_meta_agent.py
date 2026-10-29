@@ -821,9 +821,16 @@ class ADASMetaArchitect:
             s_dump = rec.num("Penny Dump", snap.change_24h_pct, "<=", "max_penny_dump", -5.5, "bear")
             if s_price.passed and s_rvol.passed and s_chg.passed:
                 score = 0.82
-                conf = 0.85
-                rationale = f"🚀 Penny Stock Rakete: ${snap.current_price:.2f} mit {snap.volume_ratio_vs_20d:.1f}x RVOL & +{snap.change_24h_pct:.1f}% Ausbruch"
+                if snap.sec_form8k_catalyst:
+                    score = min(0.98, score + 0.10)
+                if snap.custom_metrics.get("chaikin_money_flow_accumulation"):
+                    score = min(0.98, score + 0.05)
+                conf = 0.88
+                cat_txt = f" [⚡8-K: {snap.sec_form8k_catalyst[:35]}]" if snap.sec_form8k_catalyst else ""
+                cmf_txt = " [CMF Akkumulation]" if snap.custom_metrics.get("chaikin_money_flow_accumulation") else ""
+                rationale = f"🚀 Penny Stock Rakete: ${snap.current_price:.2f} mit {snap.volume_ratio_vs_20d:.1f}x RVOL & +{snap.change_24h_pct:.1f}% Ausbruch{cat_txt}{cmf_txt}"
                 decisive_idx = rec.idx(s_price, s_rvol, s_chg)
+
             elif s_price.passed and s_dump.passed:
                 score = -0.75
                 conf = 0.80

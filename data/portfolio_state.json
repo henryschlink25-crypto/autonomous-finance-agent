@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-29T09:06:46.948800+00:00",
+  "updated_at": "2026-10-29T09:13:29.940650+00:00",
   "day_start_date": "2026-10-29",
   "day_start_equity_usd": 100000.0,
-  "cash_usd": 99598.11,
+  "cash_usd": 99598.12,
   "realized_pnl_usd": 0.0,
   "positions": {
     "AAPL": {
@@ -15,7 +15,7 @@
       "intrinsic_leverage": 1.0,
       "margin_used_usd": 172.15,
       "avg_entry_price": 344.3,
-      "current_price": 347.5,
+      "current_price": 347.4,
       "highest_price": 347.57,
       "stop_loss_price": 334.3782,
       "partial_tp_price": 353.5629,
@@ -33,7 +33,7 @@
       "intrinsic_leverage": 1.0,
       "margin_used_usd": 229.73,
       "avg_entry_price": 350.3605,
-      "current_price": 344.0,
+      "current_price": 344.11,
       "highest_price": 351.81,
       "stop_loss_price": 332.5859,
       "partial_tp_price": 367.1685,
@@ -46,7 +46,7 @@
     "portfolio_beta": 0.0,
     "daily_var_95_usd": 8.46,
     "daily_var_95_pct": 0.01,
-    "undiversified_var_95_usd": 11.76,
+    "undiversified_var_95_usd": 11.77,
     "diversification_benefit_pct": 28.1,
     "top_correlated_pairs": [
       "VRT ↔ FLEX: r=+0.77",
@@ -734,57 +734,57 @@
     }
   },
   "portfolio_diagnostics": {
-    "timestamp": "2026-10-29T09:06:46",
+    "timestamp": "2026-10-29T09:13:29",
     "overall_status": "ATTENTION",
     "overall_badge": "🟢 NACH PLAN MIT LERN-HINWEIS (Normaler ATR-Spielraum, 1 Berechnungs-Lerneffekt)",
-    "overall_summary": "Das Konto steht aktuell minimal bei $99,994.85 (-5.15$ bzw. -0.01% ggü. $100,000 Startkapital). Hauptursache für das kleine Minus: Offene Schwankung bei AVGO (-8.34$), während AAPL (+3.20$) im Plus liegt (Realisiert: +0.00$). Alle Positionen bewegen sich weit oberhalb ihrer Stop-Loss-Marken im normalen ATR-Schwankungskorridor.",
-    "equity_usd": 99994.85,
+    "overall_summary": "Das Konto steht aktuell minimal bei $99,994.90 (-5.10$ bzw. -0.01% ggü. $100,000 Startkapital). Hauptursache für das kleine Minus: Offene Schwankung bei AVGO (-8.20$), während AAPL (+3.10$) im Plus liegt (Realisiert: +0.00$). Alle Positionen bewegen sich weit oberhalb ihrer Stop-Loss-Marken im normalen ATR-Schwankungskorridor.",
+    "equity_usd": 99994.9,
     "initial_capital_usd": 100000.0,
-    "equity_delta_usd": -5.15,
+    "equity_delta_usd": -5.1,
     "equity_delta_pct": -0.01,
-    "unrealized_pnl_usd": -5.14,
+    "unrealized_pnl_usd": -5.1,
     "realized_pnl_usd": 0.0,
     "system_notes": [
-      "⏳ Börsenzeiten-Filter (NYSE/Nasdaq geschlossen (NY: 05:06 ET, offen 09:30-16:00 ET)): 11 erkannte A+ Kaufsignale (AXGN (97%, Edge 1.94), SDGR (97%, Edge 1.94), VRT (97%, Edge 1.94), SKHY (97%, Edge 1.94)) warten diszipliniert auf reguläre Börsenöffnung (Schutz vor teuren After-Hours-Spreads)."
+      "⏳ Börsenzeiten-Filter (NYSE/Nasdaq geschlossen (NY: 05:13 ET, offen 09:30-16:00 ET)): 10 erkannte A+ Kaufsignale (AXGN (97%, Edge 1.94), SDGR (97%, Edge 1.94), VRT (97%, Edge 1.94), SKHY (97%, Edge 1.94)) warten diszipliniert auf reguläre Börsenöffnung (Schutz vor teuren After-Hours-Spreads)."
     ],
     "position_audits": [
       {
         "symbol": "AAPL",
         "quantity": 1.0,
         "entry_price": 344.3,
-        "current_price": 347.5,
+        "current_price": 347.4,
         "stop_loss_price": 334.3782,
         "partial_tp_price": 353.5629,
         "take_profit_price": 364.0835,
-        "pnl_usd": 3.2,
-        "pnl_pct": 1.86,
-        "account_impact_pct": 0.0032,
+        "pnl_usd": 3.1,
+        "pnl_pct": 1.8,
+        "account_impact_pct": 0.0031,
         "stop_buffer_used_pct": 0.0,
         "stop_buffer_remaining_pct": 100.0,
         "status_code": "ON_PLAN_PROFIT",
         "status_badge": "🟢 NACH PLAN (Im Gewinn)",
-        "why_in_minus_or_plus": "Broker-Echtzeit-/After-Hours-Kurs ($347.50) weicht vom regulären Yahoo-Schlusskurs ($343.83) ab | Kurs liegt +0.93% über Einstieg ($344.30 → $347.50) und trägt +$3.20 zum Konto bei",
+        "why_in_minus_or_plus": "Broker-Echtzeit-/After-Hours-Kurs ($347.40) weicht vom regulären Yahoo-Schlusskurs ($343.83) ab | Kurs liegt +0.90% über Einstieg ($344.30 → $347.40) und trägt +$3.10 zum Konto bei",
         "which_calculation_was_off": "Berechnung bestätigt: Aktive Treiber (trend (+0.25), fundamentals (+0.15), news_sentiment (+0.25), options_flow (+0.24)) stützen die Gewinnposition. Hinweis zur Positionsgröße: Kleine Test-Stückzahl (1 Stk. / $172.15 Einsatz) stammt noch aus dem initialen Test-Lauf vor der $100k-Skalierung.",
-        "plan_verdict": "Voll nach Plan: Position liegt +$3.20 (+1.86%) im Plus. 50%-Teilgewinnmitnahme (TP1) wartet bei $353.56, Stop-Loss sichert bei $334.38 ab."
+        "plan_verdict": "Voll nach Plan: Position liegt +$3.10 (+1.80%) im Plus. 50%-Teilgewinnmitnahme (TP1) wartet bei $353.56, Stop-Loss sichert bei $334.38 ab."
       },
       {
         "symbol": "AVGO",
         "quantity": 1.3114,
         "entry_price": 350.3605,
-        "current_price": 344.0,
+        "current_price": 344.11,
         "stop_loss_price": 332.5859,
         "partial_tp_price": 367.1685,
         "take_profit_price": 386.1332,
-        "pnl_usd": -8.34,
-        "pnl_pct": -3.63,
-        "account_impact_pct": 0.0083,
-        "stop_buffer_used_pct": 35.8,
-        "stop_buffer_remaining_pct": 64.2,
+        "pnl_usd": -8.2,
+        "pnl_pct": -3.57,
+        "account_impact_pct": 0.0082,
+        "stop_buffer_used_pct": 35.2,
+        "stop_buffer_remaining_pct": 64.8,
         "status_code": "ON_PLAN_PULLBACK",
-        "status_badge": "🟢 NACH PLAN (Normaler Pullback, 64% SL-Puffer frei)",
-        "why_in_minus_or_plus": "Broker-Echtzeit-/After-Hours-Kurs ($344.00) weicht vom regulären Yahoo-Schlusskurs ($351.81) ab | Aktie notiert -1.82% unter Einstieg ($350.36 → $344.00, RSI 52.7, Vol 1.03x)",
+        "status_badge": "🟢 NACH PLAN (Normaler Pullback, 65% SL-Puffer frei)",
+        "why_in_minus_or_plus": "Broker-Echtzeit-/After-Hours-Kurs ($344.11) weicht vom regulären Yahoo-Schlusskurs ($351.81) ab | Aktie notiert -1.78% unter Einstieg ($350.36 → $344.11, RSI 52.7, Vol 1.03x)",
         "which_calculation_was_off": "Fehlende Trend- & Volumen-Bestätigung beim Kauf (trend=+0.00, volume=+0.00): Das Kaufsignal stützte sich nur auf Sekundär-Faktoren (Momentum +0.20, Options-Flow +0.18). Ohne echtes institutionelles Kaufvolumen gab der Kurs nachbörslich nach. [Lerneffekt: AI-Analyst fordert ab sofort zwingend Trend > 0 oder Volumen > 0!] Hinweis zur Positionsgröße: Kleine Test-Stückzahl (1.3114 Stk. / $229.73 Einsatz) stammt noch aus dem initialen Test-Lauf vor der $100k-Skalierung.",
-        "plan_verdict": "Alles im Plan-Korridor: Nur 36% des erlaubten ATR-Stop-Abstands ($332.59) genutzt. Das aktuelle Minus von $-8.34 macht nur 0.008% deines $99,995-Kontos aus. Position bleibt bis Stop-Loss ($332.59) oder Rebound Richtung TP1 ($367.17) aktiv."
+        "plan_verdict": "Alles im Plan-Korridor: Nur 35% des erlaubten ATR-Stop-Abstands ($332.59) genutzt. Das aktuelle Minus von $-8.20 macht nur 0.008% deines $99,995-Kontos aus. Position bleibt bis Stop-Loss ($332.59) oder Rebound Richtung TP1 ($367.17) aktiv."
       }
     ]
   }

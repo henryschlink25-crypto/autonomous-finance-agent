@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-10-29T09:06:45",
-  "evolution_generation": 9,
-  "total_evolution_cycles": 97,
+  "updated_at": "2026-10-29T09:13:28",
+  "evolution_generation": 11,
+  "total_evolution_cycles": 99,
   "active_subagents": {
     "alpha_breakout_hunter": {
       "agent_id": "alpha_breakout_hunter",
       "name": "🚀 Alpha-Breakout & RVOL Hunter",
       "role": "Sucht explosive Ausbrüche mit hohem Relativ-Volumen (>1.8x) und starker Relativer Stärke vs. S&P 500.",
-      "generation": 1,
+      "generation": 3,
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "MOMENTUM_RVOL_RS",
@@ -18,7 +18,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: BUY (+0.88)",
       "rule_parameters": {
-        "min_rvol": 1.6,
+        "min_rvol": 1.8662,
         "min_rs_spy": 4.0,
         "min_chg_bull": 2.5,
         "max_chg_bear": -3.0,
@@ -42,7 +42,7 @@
       "agent_id": "options_whale_profiler",
       "name": "🐋 Options-Whale & IV-Skew Profiler",
       "role": "Analysiert ungewöhnliche Options-Käufe (Vol/OI Ratio), Put/Call-Skew und Smart-Money Call-Sweeps.",
-      "generation": 1,
+      "generation": 3,
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "OPTIONS_WHALE_FLOW",
@@ -53,7 +53,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: BUY (+0.96)",
       "rule_parameters": {
-        "whale_vol_oi_threshold": 1.8,
+        "whale_vol_oi_threshold": 1.7885,
         "bullish_pc_max": 0.68,
         "min_gamma": 0.015
       },
@@ -73,7 +73,7 @@
       "agent_id": "intraday_vwap_sniper",
       "name": "🎯 Intraday 15m-VWAP & Pullback Sniper",
       "role": "Prüft das Intraday-Timing auf 15-Minuten-Basis (Kurs über VWAP vs. gefährlicher Abverkauf vom Tageshoch).",
-      "generation": 1,
+      "generation": 3,
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "INTRADAY_MICROSTRUCTURE",
@@ -84,7 +84,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: SELL (-0.65)",
       "rule_parameters": {
-        "fading_penalty": -0.65,
+        "fading_penalty": -0.5502,
         "vwap_confirm_boost": 0.45
       },
       "prompt_directive": "",
@@ -99,7 +99,7 @@
       "agent_id": "fundamental_catalyst_auditor",
       "name": "📊 Fundamental & Earnings-Catalyst Auditor",
       "role": "Bewertet Umsatzwachstum, Gewinnmargen, KGV-Bewertung und hochrelevante News-Katalysatoren.",
-      "generation": 1,
+      "generation": 2,
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "FUNDAMENTALS_AND_NEWS",
@@ -110,7 +110,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: HOLD (+0.00)",
       "rule_parameters": {
-        "min_rev_growth": 15.0,
+        "min_rev_growth": 16.2,
         "max_healthy_pe": 42.0,
         "min_profit_margin": 8.0,
         "min_news_bull": 0.35,
@@ -133,7 +133,7 @@
       "agent_id": "cross_asset_macro_sentinel",
       "name": "🌐 Cross-Asset & Macro-Regime Sentinel",
       "role": "Überwacht Zinsen (10Y Yield), US-Dollar (DXY), VIX und Lead-Lag-Rotationen zwischen US, EU/Xetra und China.",
-      "generation": 1,
+      "generation": 3,
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "MACRO_INTERMARKET",
@@ -144,7 +144,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: BUY (+0.35)",
       "rule_parameters": {
-        "max_corr_tolerance": 0.78
+        "max_corr_tolerance": 0.9098
       },
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -160,7 +160,7 @@
       "agent_id": "tail_risk_adversary_guard",
       "name": "🛡️ Adversarial Tail-Risk & Trap Guard",
       "role": "Spielt des Teufels Advokat: Sucht nach Bullenfallen (RSI > 82 ohne News, Parabolic Exhaustion, Earnings-Risiko).",
-      "generation": 1,
+      "generation": 3,
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "RISK_VETO_GUARD",
@@ -169,9 +169,9 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "LH: HOLD (+0.00)",
+      "last_verdict_summary": "LH: VETO_BUY (-0.90)",
       "rule_parameters": {
-        "overbought_rsi_veto": 81.0,
+        "overbought_rsi_veto": 68.5584,
         "max_volatility_pct": 115.0,
         "news_override": 0.5,
         "blowoff_min_chg": 12.0,
@@ -223,7 +223,7 @@
       "agent_id": "short_breakdown_bear_agent",
       "name": "🐻 Short-Breakdown & Bear-Put Hunter",
       "role": "Identifiziert hochkonfidente Leerverkaufs-Chancen (Short-Sells) und bärische Put-Optionen bei gebrochenem Trend (< SMA20 & < VWAP).",
-      "generation": 3,
+      "generation": 4,
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "SHORT_SELL_SPECIALIST",
@@ -234,7 +234,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: HOLD (+0.00)",
       "rule_parameters": {
-        "min_put_call_ratio": 1.25,
+        "min_put_call_ratio": 1.35,
         "max_price_to_sma20": 0.995,
         "max_macd_hist": 0.0
       },
@@ -253,7 +253,7 @@
       "agent_id": "gamma_squeeze_specialist",
       "name": "⚡ Gamma-Squeeze & Extreme-Whale Specialist",
       "role": "Jagd auf asymmetrische Options-Gamma-Squeezes mit V/OI >= 4.0x und Put/Call < 0.35 (entdeckt durch GLXY, FLEX, SOXL).",
-      "generation": 4,
+      "generation": 6,
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T00:27:27",
       "specialty_focus": "GAMMA_SQUEEZE",
@@ -264,7 +264,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: HOLD (+0.00)",
       "rule_parameters": {
-        "min_vol_oi_ratio": 3.5,
+        "min_vol_oi_ratio": 4.0824,
         "max_pc_ratio": 0.35
       },
       "prompt_directive": "",
@@ -282,7 +282,7 @@
       "agent_id": "pead_earnings_drift_agent",
       "name": "📈 Post-Earnings-Announcement-Drift (PEAD) Agent",
       "role": "Handelt mehrtägige institutionelle Trendfortsetzungen nach +10% Volumen-Ausbrüchen & Quartalszahlen (SOFI).",
-      "generation": 5,
+      "generation": 6,
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T00:27:27",
       "specialty_focus": "PEAD_DRIFT",
@@ -293,7 +293,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: HOLD (+0.00)",
       "rule_parameters": {
-        "min_gap_pct": 8.5,
+        "min_gap_pct": 9.18,
         "min_rvol": 1.9,
         "max_rsi_ceiling": 79.0
       },
@@ -313,7 +313,7 @@
       "agent_id": "penny_stock_rocket_specialist",
       "name": "🎯 Penny Stock & Micro-Cap Rocket Sniper",
       "role": "Spezialist für hochvolatile Penny Stocks ($0.50-$5.00) mit extremem Relativ-Volumen (>1.9x) und Momentum-Ausbrüchen im Alpaca Paper Trading.",
-      "generation": 6,
+      "generation": 8,
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T09:05:23",
       "specialty_focus": "PENNY_STOCK_MOMENTUM",
@@ -324,7 +324,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: HOLD (+0.00)",
       "rule_parameters": {
-        "min_penny_rvol": 1.9,
+        "min_penny_rvol": 2.2162,
         "min_penny_chg": 3.8,
         "max_penny_price": 5.0,
         "max_penny_dump": -5.5
@@ -346,7 +346,7 @@
       "agent_id": "volatility_squeeze_specialist",
       "name": "🔥 TTM Volatility Squeeze & Compression Sniper",
       "role": "Erkennt Bollinger-Band Kompression innerhalb Keltner-Kanälen (Carter TTM Squeeze) und handelt explosive Alpha-Zündungen.",
-      "generation": 7,
+      "generation": 8,
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T09:05:23",
       "specialty_focus": "TTM_SQUEEZE_EXPLOSION",
@@ -357,7 +357,7 @@
       "cumulative_edge_contributed": 0.0,
       "last_verdict_summary": "LH: HOLD (+0.00)",
       "rule_parameters": {
-        "min_squeeze_mom": 0.05
+        "min_squeeze_mom": 0.054
       },
       "prompt_directive": "",
       "fitness_score": 50.0,

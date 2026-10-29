@@ -425,6 +425,17 @@ class DashboardGenerator:
         adas_agents = adas_data.get("active_subagents", {})
         adas_evo_log = adas_data.get("evolution_log", [])
 
+        synth_registry = {}
+        synth_tools_file = os.path.join(self.data_dir, "synthesized_tools", "synthesized_registry.json")
+        if os.path.exists(synth_tools_file):
+            try:
+                with open(synth_tools_file, "r", encoding="utf-8") as f:
+                    synth_registry = json.load(f)
+            except Exception:
+                pass
+        active_synths = synth_registry.get("active_tools", {})
+        synth_badges = "".join(f'<span class="pill pill-cyan">⚡ {v.get("name", k)}</span> ' for k, v in active_synths.items()) or '<span class="pill pill-muted">Keine</span>'
+
         adas_rows_html = ""
         for ag_id, ag in adas_agents.items():
             is_spawn = ag.get("is_spawned_by_adas", False)
@@ -463,6 +474,13 @@ class DashboardGenerator:
             </div>
             <span class="pill pill-green">Generation #{adas_gen} · {len(adas_agents)} Spezial-Agenten aktiv · {adas_cycles} Zyklen</span>
         </div>
+        <div style="margin:8px 0 14px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <span style="font-size:12px;font-weight:600;color:var(--muted);">Autonome Werkzeuge (AI Scientist):</span>
+            {synth_badges}
+            <span class="pill pill-indigo">📐 Kelly-Kriterium & Volatilitäts-Parität aktiv</span>
+            <span class="pill pill-green">⚔️ AlphaZero Monte-Carlo Simulator</span>
+        </div>
+
         {adas_evo_html}
         <table>
             <thead>

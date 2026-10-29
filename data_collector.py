@@ -784,8 +784,13 @@ class MultiAssetDataCollector:
             squeeze_info = QuantitativeToolbox.detect_ttm_volatility_squeeze(df)
             supertrend_info = QuantitativeToolbox.calculate_supertrend(df)
             insider_info = {"insider_signal": "NEUTRAL", "summary": ""}
+            sec_8k = {"summary": ""}
             if item.asset_class == "EQUITY" and not item.symbol.endswith(".DE"):
                 insider_info = QuantitativeToolbox.get_sec_insider_activity(item.symbol)
+                sec_8k = QuantitativeToolbox.get_sec_form8k_events(item.symbol)
+
+            # Dynamisch synthetisierte Werkzeuge (ADAS AI Scientist) anwenden
+            synth_metrics = QuantitativeToolbox.execute_synthesized_tools(df)
 
             # Exakte Black-Scholes Greeks für den identifizierten Top-Optionskontrakt
             opt_delta, opt_gamma, opt_vega = None, None, None
@@ -834,6 +839,8 @@ class MultiAssetDataCollector:
                 supertrend_direction=supertrend_info.get("trend", "NEUTRAL"),
                 supertrend_val=supertrend_info.get("supertrend_val", 0.0),
                 supertrend_flipped=supertrend_info.get("trend_flipped", False),
+                custom_metrics=synth_metrics,
+                sec_form8k_catalyst=sec_8k.get("summary", ""),
                 option_delta=opt_delta,
                 option_gamma=opt_gamma,
                 option_vega=opt_vega,

@@ -1,0 +1,18 @@
+{
+  "synthesized_count": 1,
+  "active_tools": {
+    "chaikin_money_flow": {
+      "name": "ChaikinMoneyFlow",
+      "tool_id": "chaikin_money_flow",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\chaikin_money_flow.py",
+      "description": "Chaikin Money Flow (CMF): Misst institutionelle Akkumulation vs. Distribution über das Volumen-gewichtete Hoch/Tief-Verhältnis.",
+      "synthesized_at": "2026-10-29T10:11:38.534592",
+      "test_output": {
+        "cmf": -0.057,
+        "status": "NEUTRAL",
+        "accumulation": false
+      },
+      "status": "ACTIVE_DEPLOYED"
+    }
+  }
+}

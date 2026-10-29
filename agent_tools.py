@@ -7,6 +7,9 @@ agent_tools.py - Institutionelle Werkzeug-Bibliothek für den KI-Agenten-Schwarm
 """
 
 import math
+import os
+import json
+import importlib.util
 from typing import Dict, Optional, Tuple, Any
 import numpy as np
 import pandas as pd
@@ -292,4 +295,85 @@ class QuantitativeToolbox:
         except Exception:
             pass
         return {"score": 50, "sentiment": "NEUTRAL", "summary": "Sentiment neutral (50/100)"}
+
+    @staticmethod
+    def execute_synthesized_tools(df_daily: pd.DataFrame) -> Dict[str, Any]:
+        """
+        Dynamischer Werkzeug-Loader: Lädt alle vom ADAS-Meta-Architekten autonom
+        programmierten Indikatoren aus 'data/synthesized_tools/' und führt sie auf den Kursdaten aus.
+        """
+        custom_metrics: Dict[str, Any] = {}
+        if df_daily is None or len(df_daily) < 15:
+            return custom_metrics
+
+        tools_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "synthesized_tools")
+        reg_file = os.path.join(tools_dir, "synthesized_registry.json")
+        if not os.path.exists(reg_file):
+            return custom_metrics
+
+        try:
+            with open(reg_file, "r", encoding="utf-8") as f:
+                registry = json.load(f)
+
+            for tool_id, info in registry.get("active_tools", {}).items():
+                py_path = info.get("file_path", "")
+                if not os.path.exists(py_path):
+                    continue
+                try:
+                    mod_name = f"synthesized_{tool_id}"
+                    spec = importlib.util.spec_from_file_location(mod_name, py_path)
+                    if spec and spec.loader:
+                        mod = importlib.util.module_from_spec(spec)
+                        spec.loader.exec_module(mod)
+                        func = getattr(mod, f"calculate_{tool_id}", None)
+                        if callable(func):
+                            res = func(df_daily)
+                            if isinstance(res, dict):
+                                for k, v in res.items():
+                                    custom_metrics[f"{tool_id}_{k}"] = v
+                except Exception:
+                    continue
+        except Exception:
+            pass
+        return custom_metrics
+
+    @staticmethod
+    def get_sec_form8k_events(ticker_symbol: str) -> Dict[str, Any]:
+        """
+        Scannt SEC Form 8-K Ad-hoc-Meldungen & Material Corporate Events
+        (FDA-Zulassungen, Übernahmen, strategische Partnerschaften, CEO-Wechsel).
+        """
+        try:
+            clean_sym = ticker_symbol.replace(".DE", "").split("/")[0]
+            t = yf.Ticker(clean_sym)
+            news = t.news
+            if not news:
+                return {"has_material_event": False, "catalyst_type": "NONE", "summary": "Keine Ad-hoc-Meldungen"}
+
+            catalyst_keywords = {
+                "FDA": "FDA-Zulassung / MedTech Catalyst",
+                "APPROV": "Regulatorische Zulassung",
+                "ACQUISITION": "Übernahme / Merger",
+                "MERGER": "Fusion / Übernahme",
+                "PARTNERSHIP": "Strategische Partnerschaft",
+                "CONTRACT": "Großauftrag / Regierungsvertrag",
+                "EARNINGS": "Quartalszahlen-Überraschung",
+                "OFFERING": "Kapitalerhöhung (Verwässerung)",
+            }
+
+            for item in news[:5]:
+                title = str(item.get("title", "")).upper()
+                for kw, cat_label in catalyst_keywords.items():
+                    if kw in title:
+                        is_negative = "OFFERING" in kw or "DOWNGRADE" in title
+                        return {
+                            "has_material_event": True,
+                            "catalyst_type": cat_label,
+                            "is_negative": is_negative,
+                            "summary": f"{cat_label}: {item.get('title', '')[:80]}",
+                        }
+        except Exception:
+            pass
+        return {"has_material_event": False, "catalyst_type": "NONE", "summary": "Keine aktuellen 8-K Katalysatoren"}
+
 

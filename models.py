@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Literal
+from typing import Dict, List, Optional, Literal, Any
 from pydantic import BaseModel, Field
 
 
@@ -83,6 +83,8 @@ class MarketSnapshot(BaseModel):
     supertrend_direction: str = "NEUTRAL"  # "BULLISH", "BEARISH", "NEUTRAL"
     supertrend_val: float = 0.0
     supertrend_flipped: bool = False
+    custom_metrics: Dict[str, Any] = Field(default_factory=dict)
+    sec_form8k_catalyst: str = ""
     option_delta: Optional[float] = None
     option_gamma: Optional[float] = None
     option_vega: Optional[float] = None
