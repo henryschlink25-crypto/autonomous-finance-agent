@@ -7,11 +7,17 @@ agent_tools.py - Institutionelle Werkzeug-Bibliothek für den KI-Agenten-Schwarm
 """
 
 import math
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional, Tuple, Any
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
+import requests
 import yfinance as yf
+
+try:
+    import quantstats as qs
+except ImportError:
+    qs = None
 
 
 class QuantitativeToolbox:
@@ -160,3 +166,130 @@ class QuantitativeToolbox:
             }
         except Exception:
             return {"net_insider_shares": 0, "has_insider_buys": False, "insider_signal": "NEUTRAL", "summary": "Insider-Daten nicht abrufbar"}
+
+    @staticmethod
+    def calculate_supertrend(
+        df_daily: pd.DataFrame,
+        period: int = 10,
+        multiplier: float = 3.0,
+    ) -> Dict[str, Any]:
+        """
+        Open-Source SuperTrend-Indikator (ATR-Bänder mit Trailing-Ratchet).
+        Gibt Trend-Richtung (BULLISH/BEARISH), SuperTrend-Preisschwelle und Trend-Wechsel-Signal zurück.
+        """
+        if df_daily is None or len(df_daily) < period + 5:
+            return {"trend": "NEUTRAL", "supertrend_val": 0.0, "trend_flipped": False}
+
+        high = df_daily["High"].astype(float).values
+        low = df_daily["Low"].astype(float).values
+        close = df_daily["Close"].astype(float).values
+        n = len(close)
+
+        # True Range & ATR
+        tr = np.zeros(n)
+        for i in range(1, n):
+            hl = high[i] - low[i]
+            hc = abs(high[i] - close[i - 1])
+            lc = abs(low[i] - close[i - 1])
+            tr[i] = max(hl, hc, lc)
+        tr[0] = high[0] - low[0]
+
+        atr = pd.Series(tr).rolling(period).mean().bfill().values
+
+        hl2 = (high + low) / 2.0
+        upper_basic = hl2 + (multiplier * atr)
+        lower_basic = hl2 - (multiplier * atr)
+
+        upper_final = np.copy(upper_basic)
+        lower_final = np.copy(lower_basic)
+        supertrend = np.zeros(n)
+        trend = np.zeros(n)  # 1 = Bullish, -1 = Bearish
+
+        for i in range(1, n):
+            # Trailing Upper Band
+            if upper_basic[i] < upper_final[i - 1] or close[i - 1] > upper_final[i - 1]:
+                upper_final[i] = upper_basic[i]
+            else:
+                upper_final[i] = upper_final[i - 1]
+
+            # Trailing Lower Band
+            if lower_basic[i] > lower_final[i - 1] or close[i - 1] < lower_final[i - 1]:
+                lower_final[i] = lower_basic[i]
+            else:
+                lower_final[i] = lower_final[i - 1]
+
+            # Trend Determination
+            if close[i] > upper_final[i - 1]:
+                trend[i] = 1
+            elif close[i] < lower_final[i - 1]:
+                trend[i] = -1
+            else:
+                trend[i] = trend[i - 1]
+
+            supertrend[i] = lower_final[i] if trend[i] == 1 else upper_final[i]
+
+        curr_trend = "BULLISH" if trend[-1] == 1 else ("BEARISH" if trend[-1] == -1 else "NEUTRAL")
+        trend_flipped = (trend[-1] != trend[-2]) if n >= 2 else False
+
+        return {
+            "trend": curr_trend,
+            "supertrend_val": round(float(supertrend[-1]), 2),
+            "trend_flipped": bool(trend_flipped),
+            "atr": round(float(atr[-1]), 2),
+        }
+
+    @staticmethod
+    def calculate_quantstats_tearsheet(
+        returns: pd.Series,
+        benchmark: str = "SPY",
+    ) -> Dict[str, Any]:
+        """
+        Berechnet Profi-Hedgefonds-Kennzahlen via QuantStats (GitHub: ranaroussi/quantstats):
+        Sharpe, Sortino, Max Drawdown, Calmar Ratio, Win Rate.
+        """
+        if returns is None or len(returns) < 5 or qs is None:
+            return {
+                "sharpe": 0.0,
+                "sortino": 0.0,
+                "max_drawdown": 0.0,
+                "win_rate": 0.0,
+                "status": "INSUFFICIENT_DATA",
+            }
+        try:
+            clean_rets = returns.dropna()
+            sharpe = float(qs.stats.sharpe(clean_rets)) if not np.isnan(qs.stats.sharpe(clean_rets)) else 0.0
+            sortino = float(qs.stats.sortino(clean_rets)) if not np.isnan(qs.stats.sortino(clean_rets)) else 0.0
+            max_dd = float(qs.stats.max_drawdown(clean_rets)) if not np.isnan(qs.stats.max_drawdown(clean_rets)) else 0.0
+            win_rate = float(qs.stats.win_rate(clean_rets)) if not np.isnan(qs.stats.win_rate(clean_rets)) else 0.0
+
+            return {
+                "sharpe": round(sharpe, 2),
+                "sortino": round(sortino, 2),
+                "max_drawdown_pct": round(max_dd * 100, 2),
+                "win_rate_pct": round(win_rate * 100, 1),
+                "status": "VALID",
+            }
+        except Exception:
+            return {"sharpe": 0.0, "sortino": 0.0, "max_drawdown_pct": 0.0, "win_rate_pct": 0.0, "status": "CALCULATION_ERROR"}
+
+    @staticmethod
+    def get_fear_and_greed_sentiment() -> Dict[str, Any]:
+        """
+        Holt das offizielle Fear & Greed Sentiment (Alternative.me API mit Fallback).
+        Skala: 0 (Extreme Fear) bis 100 (Extreme Greed).
+        """
+        try:
+            resp = requests.get("https://api.alternative.me/fng/?limit=1", timeout=4)
+            if resp.status_code == 200:
+                data = resp.json().get("data", [{}])[0]
+                val = int(data.get("value", 50))
+                cls = data.get("value_classification", "Neutral")
+                return {
+                    "score": val,
+                    "sentiment": cls.upper(),
+                    "summary": f"Market Sentiment: {cls} ({val}/100)",
+                }
+        except Exception:
+            pass
+        return {"score": 50, "sentiment": "NEUTRAL", "summary": "Sentiment neutral (50/100)"}
+
