@@ -47,9 +47,22 @@ class CalibratedParameters:
 
 
 class HyperparameterAutoTuner:
-    def __init__(self, config_path: Path = CONFIG_FILE):
+    def __init__(self, config_path: Path = CONFIG_FILE, validated_path: Optional[Path] = None):
         self.config_path = Path(config_path)
         self.config_path.parent.mkdir(parents=True, exist_ok=True)
+        self.validated_path = Path(validated_path) if validated_path else self.config_path.parent / "walk_forward_validated_params.json"
+
+    def _load_validated_params(self) -> Optional[dict]:
+        """Lädt Walk-Forward-validierte Parameter – nur wenn auf echten Daten mit Note A/B bestätigt."""
+        try:
+            if self.validated_path.exists():
+                with open(self.validated_path, "r", encoding="utf-8") as f:
+                    v = json.load(f)
+                if v.get("grade") in ("A_EXEMPLARY", "B_ROBUST") and v.get("data_source") == "REAL_YFINANCE":
+                    return v
+        except Exception as e:
+            logger.debug(f"Validierte WFA-Parameter nicht lesbar: {e}")
+        return None
 
     def tune_parameters(
         self,
@@ -109,6 +122,26 @@ class HyperparameterAutoTuner:
             min_conf = 0.62
             max_pos_risk = 0.025  # Bis zu 2.5% pro Position
             rationale_parts.append(f"Ruhiger Markt (VIX {vix:.1f}) -> Knappe Stopps ({atr_sl:.1f}x ATR), hohes Ausführungs-Tempo")
+
+        # Walk-Forward-validierte Basis übernehmen (nur Note A/B auf echten Daten).
+        # Regime-Skalierung bleibt erhalten: ruhig = Basis, gelb = +15 %, rot = +40 % Stop-Weite.
+        validated = self._load_validated_params()
+        if validated:
+            base_sl = float(validated["atr_stop_loss_mult"])
+            base_tp = float(validated["atr_take_profit_mult"])
+            if vix >= 25.0 or state == "RED_DEFENSIVE":
+                scale = 1.40
+            elif vix >= 20.0 or state == "YELLOW_CAUTION":
+                scale = 1.15
+            else:
+                scale = 1.00
+            atr_sl = base_sl * scale
+            atr_tp = base_tp * scale
+            if scale == 1.00:
+                atr_sl = min(2.2, max(1.5, atr_sl))  # Ruhige Märkte: enge Leitplanken
+            rationale_parts.append(
+                f"WFA-validierte Basis (Note {validated.get('grade')}, OOS Sharpe {validated.get('oos_sharpe')}) x{scale:.2f}"
+            )
 
         # Asymmetrisches Chance-Risiko-Verhältnis (CRV) sichern
         target_crv = round(atr_tp / atr_sl, 2)

@@ -1,5 +1,7 @@
 import os
 import sys
+import json
+import math
 import tempfile
 import numpy as np
 import pandas as pd
@@ -1230,30 +1232,67 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 35 bestanden: Institutional VWAP & Volume-Profile Liquidity Sweeper (Sub-Agent #28) identifiziert Stop-Loss-Absorption (Status: {vwap_res.sweep_status}, CRV {vwap_res.risk_reward_ratio}:1) & Dialekt verhandelt Token 🎯:LIQUIDITY_SWEEP_RECLAIM.")
 
-        # --- Test 36: Walk-Forward Research & Optimization Lab (Forschungsfeld C) ---
+        # --- Test 36: Walk-Forward Research Lab V2 (Fehlerkorrektur, siehe LESSONS_LEARNED.md #1) ---
+        # Lehre: Tests prüfen nicht nur "es kommt etwas heraus", sondern PLAUSIBILITÄT & korrekte Mathematik.
         from pathlib import Path
-        from walk_forward_research_lab import WalkForwardResearchLab, ParameterCandidate
-        test_lab_report = Path(tmpdir) / "test_wfa_report.json"
-        test_lab_calibrated = Path(tmpdir) / "test_wfa_calibrated.json"
-        lab = WalkForwardResearchLab(report_file=test_lab_report, calibrated_file=test_lab_calibrated)
+        from walk_forward_research_lab import (
+            WalkForwardResearchLab, ParameterCandidate, prepare_indicators,
+            simulate_strategy, _stats_from_daily, MAX_PLAUSIBLE_ABS_SHARPE, COST_PER_SIDE,
+        )
+        lab = WalkForwardResearchLab(
+            report_file=Path(tmpdir) / "test_wfa_report.json",
+            validated_file=Path(tmpdir) / "test_wfa_validated.json",
+        )
 
-        # 1. Schnellen Walk-Forward Optimierungszyklus über alle 4 Regime ausführen
-        wfa_res = lab.run_walk_forward_optimization(custom_candidates=[
-            ParameterCandidate(atr_stop_loss_mult=2.0, atr_take_profit_mult=3.8, min_confidence_cutoff=0.68),
-            ParameterCandidate(atr_stop_loss_mult=2.5, atr_take_profit_mult=4.5, min_confidence_cutoff=0.74),
-        ])
-        assert wfa_res.total_iterations_tested == 2
-        assert len(wfa_res.regime_breakdown) == 4, "Muss alle 4 Regime getestet haben"
-        assert wfa_res.overall_wfer_pct > 0.0, "WFER muss berechnet sein"
-        assert wfa_res.robustness_grade in ("A_EXEMPLARY", "B_ROBUST", "C_MARGINAL", "REJECTED_OVERFIT")
-        assert test_lab_report.exists(), "Report-Datei muss erzeugt worden sein"
+        # 36a) Mathematik-Check: bekannte Tagesrenditen -> bekannter Sharpe
+        known = np.array([0.01, -0.005, 0.01, -0.005] * 63)
+        exp_sharpe = np.mean(known) / np.std(known, ddof=1) * math.sqrt(252)
+        assert abs(_stats_from_daily(known, []).sharpe - exp_sharpe) < 0.01, "Sharpe muss aus Tagesrenditen berechnet werden"
 
-        # 2. Telegram Formatierung testen
+        # 36b) Einzeltrade-Check: TP wird getroffen -> PnL = TP-Abstand minus Kosten
+        idx = pd.bdate_range("2024-01-01", periods=40)
+        closes = np.concatenate([np.linspace(90, 100, 30), [100.0] * 10])
+        df_one = pd.DataFrame({"Open": closes, "High": closes + 0.5, "Low": closes - 0.5, "Close": closes, "Volume": 1e6}, index=idx)
+        df_one.iloc[35, df_one.columns.get_loc("High")] = 130.0  # Spike über TP
+        ind_one = prepare_indicators(df_one)
+        _, trades_one = simulate_strategy(ind_one, ParameterCandidate(atr_stop_loss_mult=50.0, atr_take_profit_mult=1.0))
+        assert len(trades_one) >= 1 and trades_one[0] > 0, "Treffer des Take-Profits muss Gewinn ergeben"
+        assert trades_one[0] < 0.10, "PnL muss realistisch klein sein (TP-Abstand ~1 ATR minus Kosten)"
+
+        # 36c) Vollständiger Walk-Forward auf deterministischen Testdaten
+        test_data = {f"T{i}": lab.generate_synthetic_series(seed=7 + i, n_bars=800, drift=0.0006) for i in range(3)}
+        wfa_res = lab.run_walk_forward_optimization(
+            price_data=test_data,
+            candidates=[
+                ParameterCandidate(atr_stop_loss_mult=2.0, atr_take_profit_mult=3.5),
+                ParameterCandidate(atr_stop_loss_mult=2.5, atr_take_profit_mult=4.5, momentum_threshold=0.02),
+            ],
+            data_source_label="SYNTHETIC_TEST",
+        )
+        assert wfa_res.total_folds >= 10, f"Zu wenige Folds: {wfa_res.total_folds}"
+        assert abs(wfa_res.overall_oos_sharpe) <= MAX_PLAUSIBLE_ABS_SHARPE, f"OOS-Sharpe unplausibel: {wfa_res.overall_oos_sharpe}"
+        assert abs(wfa_res.overall_is_sharpe) <= MAX_PLAUSIBLE_ABS_SHARPE, f"IS-Sharpe unplausibel: {wfa_res.overall_is_sharpe}"
+        assert -100.0 < wfa_res.oos_max_drawdown_pct <= 100.0 and wfa_res.oos_max_drawdown_pct >= 0.0
+        if wfa_res.overall_is_ann_return_pct <= 0:
+            assert wfa_res.overall_wfer_pct == 0.0, "Kein erfundener WFER-Ersatzwert bei negativer IS-Rendite"
+        assert wfa_res.auto_calibrated_applied is False, "Synthetische Daten dürfen NIE kalibrieren"
+        assert not (Path(tmpdir) / "test_wfa_validated.json").exists()
+        assert any("keine echten Marktdaten" in w for w in wfa_res.sanity_warnings)
+
+        # 36d) Telegram-Ausgabe zeigt Datenquelle & Warnungen
         summary_txt = lab.format_telegram_summary(wfa_res)
-        assert "Walk-Forward Forschungs-Labor" in summary_txt
-        assert "WFER" in summary_txt
+        assert "SYNTHETIC_TEST" in summary_txt and "Plausibilitäts-Hinweise" in summary_txt
 
-        print(f"[OK] Test 36 bestanden: Walk-Forward Research Lab optimiert Parameter rollend (WFER {wfa_res.overall_wfer_pct:.1f}%, OOS Sharpe {wfa_res.overall_oos_sharpe:.2f}, Note: {wfa_res.robustness_grade}) über 4 Stress-Regime.")
+        # 36e) Auto-Tuner nutzt validierte Basis und überschreibt sie nicht
+        from hyperparameter_autotuner import HyperparameterAutoTuner
+        vpath = Path(tmpdir) / "validated_for_tuner.json"
+        vpath.write_text(json.dumps({"grade": "B_ROBUST", "data_source": "REAL_YFINANCE", "atr_stop_loss_mult": 2.0,
+                                     "atr_take_profit_mult": 4.5, "oos_sharpe": 0.8}), encoding="utf-8")
+        tuner_v = HyperparameterAutoTuner(config_path=Path(tmpdir) / "calib_v.json", validated_path=vpath)
+        assert tuner_v.tune_parameters(green_macro).atr_take_profit_mult == 4.5
+        assert json.loads(vpath.read_text(encoding="utf-8"))["atr_take_profit_mult"] == 4.5, "Validierte Datei darf nicht überschrieben werden"
+
+        print(f"[OK] Test 36 bestanden: Walk-Forward Lab V2 – plausible Kennzahlen (OOS Sharpe {wfa_res.overall_oos_sharpe:.2f}, IS {wfa_res.overall_is_sharpe:.2f}, {wfa_res.total_folds} Folds), keine Kalibrierung mit Testdaten, Auto-Tuner übernimmt validierte Basis.")
 
         # --- Test 37: Macro Economic Event Horizon Sentinel (Sub-Agent #29, Forschungsfeld A) ---
         from macro_event_horizon_sentinel import MacroEventHorizonSentinel, MacroEvent
