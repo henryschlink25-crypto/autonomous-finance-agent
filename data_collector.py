@@ -417,6 +417,23 @@ class MultiAssetDataCollector:
 
         # Intermarket Lead-Lag Analyse
         intermarket_penalty = 1.0
+        credit_ratio = 0.75
+        credit_stress = False
+        cg_ratio = 0.12
+        bias_str = "NEUTRAL_STABLE"
+        try:
+            from intermarket_lead_lag import IntermarketLeadLagEngine
+            lead_lag_engine = IntermarketLeadLagEngine()
+            im_snap = lead_lag_engine.analyze_intermarket_dynamics()
+            credit_ratio = im_snap.credit_ratio_hyg_lqd
+            credit_stress = im_snap.credit_stress_active
+            cg_ratio = im_snap.copper_gold_ratio
+            bias_str = im_snap.intermarket_bias
+            intermarket_penalty *= im_snap.risk_budget_multiplier
+            intermarket_signals.extend(im_snap.lead_lag_signals)
+        except Exception:
+            pass
+
         if us10y_change_5d_bps >= 14.0:
             intermarket_signals.append(
                 f"⚠️ Zins-Sprung (+{us10y_change_5d_bps:.0f} bps auf {us10y_yield:.2f}%): Bewertungs-Gegenwind für Tech & Krypto"
@@ -466,6 +483,10 @@ class MultiAssetDataCollector:
             dxy_change_5d_pct=round(dxy_change_5d_pct, 2),
             regime_state=state,
             risk_multiplier=mult,
+            credit_spread_hyg_lqd=credit_ratio,
+            credit_stress_active=credit_stress,
+            copper_gold_ratio=cg_ratio,
+            intermarket_bias=bias_str,
             intermarket_signals=intermarket_signals,
             summary=summary,
         )
@@ -842,6 +863,32 @@ class MultiAssetDataCollector:
             except Exception:
                 pass
 
+            # Fraktale Marktanalyse (Hurst-Exponent & Regime)
+            hurst_val = 0.50
+            fractal_regime = "RANDOM_WALK_CHOP"
+            try:
+                from hurst_fractal_analyzer import HurstFractalAnalyzer
+                hurst_analyzer = HurstFractalAnalyzer()
+                frac_snap = hurst_analyzer.analyze_series(item.symbol, df["Close"])
+                hurst_val = frac_snap.hurst_exponent
+                fractal_regime = frac_snap.regime_mode
+            except Exception:
+                pass
+
+            # Markt-Mikrostruktur & Corwin-Schultz Bid-Ask-Spread Schätzer
+            est_spread = 0.10
+            amihud_val = 0.0
+            micro_routing = "MARKET_EXECUTION_SAFE"
+            try:
+                from market_microstructure import MarketMicrostructureAnalyzer
+                micro_analyzer = MarketMicrostructureAnalyzer()
+                micro_snap = micro_analyzer.analyze_microstructure(item.symbol, df)
+                est_spread = micro_snap.estimated_bid_ask_spread_pct
+                amihud_val = micro_snap.amihud_illiquidity
+                micro_routing = micro_snap.routing_recommendation
+            except Exception:
+                pass
+
             # Dynamisch synthetisierte Werkzeuge (ADAS AI Scientist) anwenden
             synth_metrics = QuantitativeToolbox.execute_synthesized_tools(df)
 
@@ -900,6 +947,11 @@ class MultiAssetDataCollector:
                 stat_arb_pair=stat_arb_pair,
                 stat_arb_z_score=stat_arb_z,
                 stat_arb_thesis=stat_arb_thesis,
+                hurst_exponent=hurst_val,
+                fractal_regime_mode=fractal_regime,
+                bid_ask_spread_pct=est_spread,
+                amihud_illiquidity=amihud_val,
+                microstructure_routing=micro_routing,
                 supertrend_direction=supertrend_info.get("trend", "NEUTRAL"),
                 supertrend_val=supertrend_info.get("supertrend_val", 0.0),
                 supertrend_flipped=supertrend_info.get("trend_flipped", False),

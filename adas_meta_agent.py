@@ -573,6 +573,36 @@ class ADASMetaArchitect:
                 trust_weight=1.22,
             ))
 
+        # 8. Hurst Fractal & Trend-Persistence Cycler
+        if "fractal_regime_cycler" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="fractal_regime_cycler",
+                name="🌀 Hurst Fractal & Regime Cycler",
+                role="Analysiert den Hurst-Exponenten (H). Forciert Trend-Folge bei H > 0.58, Mean-Reversion bei H < 0.44 und drosselt im Random-Walk-Chop.",
+                specialty_focus="FRACTAL_REGIME",
+                trust_weight=1.20,
+            ))
+
+        # 9. High-Yield Credit & Intermarket Sentinel
+        if "intermarket_credit_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="intermarket_credit_sentinel",
+                name="🚨 High-Yield Credit & Intermarket Sentinel",
+                role="Überwacht Junk-Bond Credit-Spreads (HYG/LQD) und Dr. Copper. Schützt vor systemischen Abverkäufen, bevor sie den Aktienmarkt treffen.",
+                specialty_focus="INTERMARKET_CREDIT",
+                trust_weight=1.25,
+            ))
+
+        # 10. Order-Book Depth & Liquidity Sniper
+        if "microstructure_liquidity_sniper" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="microstructure_liquidity_sniper",
+                name="🎯 Order-Book Depth & Liquidity Sniper",
+                role="Prüft Corwin-Schultz Bid-Ask-Spreads und Amihud-Illiquidität. Verhindert Slippage-Fallen und optimiert Einstiegs-Routing.",
+                specialty_focus="MARKET_MICROSTRUCTURE",
+                trust_weight=1.15,
+            ))
+
         return new_specs
 
 
@@ -1021,6 +1051,65 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = "Keine aktive Pairs-Trading Kointegration für dieses Symbol"
+
+        elif focus == "FRACTAL_REGIME":
+            h = getattr(snap, "hurst_exponent", 0.50)
+            f_mode = getattr(snap, "fractal_regime_mode", "RANDOM_WALK_CHOP")
+            s_trend = rec.num("Hurst Persistenter Trend", h, ">=", "min_hurst_trend", 0.58, "bull")
+            s_rev = rec.num("Hurst Mean-Reversion", h, "<=", "max_hurst_mean_rev", 0.44, "bull")
+            s_chop = rec.flag("Random Walk Chop", f_mode == "RANDOM_WALK_CHOP", "bear")
+            if s_trend.passed:
+                score = min(0.92, 0.55 + (h - 0.50) * 1.5)
+                conf = 0.86
+                rationale = f"🌀 Persistenter Trend-Modus (Hurst {h:.2f} >= 0.58) – Ausbrüche statistisch begünstigt"
+                decisive_idx = rec.idx(s_trend)
+            elif s_rev.passed and snap.rsi_14 <= 42.0:
+                score = 0.78
+                conf = 0.82
+                rationale = f"🌀 Anti-persistente Mean-Reversion (Hurst {h:.2f}) bei überverkauftem RSI ({snap.rsi_14:.1f})"
+                decisive_idx = rec.idx(s_rev)
+            elif s_chop.passed:
+                score = -0.35
+                conf = 0.75
+                rationale = f"Rauschiger Random-Walk Markt (Hurst {h:.2f}) – Gefahr von Fehlausbrüchen"
+                decisive_idx = rec.idx(s_chop)
+
+        elif focus == "INTERMARKET_CREDIT":
+            cred_stress = getattr(macro, "credit_stress_active", False)
+            bias = getattr(macro, "intermarket_bias", "NEUTRAL_STABLE")
+            s_c_stress = rec.flag("Credit Crunch Stress", cred_stress, "bear")
+            s_c_bull = rec.flag("Credit Tailwind", bias == "BULLISH_CREDIT_TAILWIND", "bull")
+            if s_c_stress.passed:
+                score = -0.92
+                conf = 0.94
+                rationale = "🚨 VETO: Kredit-Spreads kollabieren (HYG/LQD) – Systemischer Abverkauf droht!"
+                decisive_idx = rec.idx(s_c_stress)
+            elif s_c_bull.passed:
+                score = 0.72
+                conf = 0.82
+                rationale = f"🟢 Kreditmärkte entspannt (HYG/LQD {getattr(macro, 'credit_spread_hyg_lqd', 0.75):.3f}) ➜ Bullischer Rückenwind"
+                decisive_idx = rec.idx(s_c_bull)
+            else:
+                score = 0.15
+                conf = 0.65
+                rationale = f"Kredit- & Rohstoffmärkte stabil ({bias})"
+
+        elif focus == "MARKET_MICROSTRUCTURE":
+            spread = getattr(snap, "bid_ask_spread_pct", 0.10)
+            amihud = getattr(snap, "amihud_illiquidity", 0.0)
+            routing = getattr(snap, "microstructure_routing", "MARKET_EXECUTION_SAFE")
+            s_trap = rec.flag("Slippage Trap", routing == "SLIPPAGE_TRAP_AVOID" or spread >= 0.70, "bear")
+            s_tight = rec.num("Enge Spreads", spread, "<=", "max_tight_spread", 0.15, "bull")
+            if s_trap.passed:
+                score = -0.88
+                conf = 0.90
+                rationale = f"🛑 Dünnes Orderbuch (Spread {spread:.2f}%, Amihud {amihud:.3f}) – Hohes Slippage-Risiko"
+                decisive_idx = rec.idx(s_trap)
+            elif s_tight.passed:
+                score = 0.60
+                conf = 0.80
+                rationale = f"🎯 Enge Spreads ({spread:.2f}%) & tiefe institutionelle Liquidität"
+                decisive_idx = rec.idx(s_tight)
 
 
 

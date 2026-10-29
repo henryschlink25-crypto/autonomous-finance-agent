@@ -1,6 +1,7 @@
 import os
 import sys
 import tempfile
+import numpy as np
 import pandas as pd
 from config import AgentConfig
 from data_collector import compute_wilder_rsi
@@ -614,7 +615,110 @@ def test_all_audit_fixes() -> None:
         assert arb_votes[0].score >= 0.70, f"Specialist muss bei Z >= 2.0 stark bullisch votieren! Score: {arb_votes[0].score}"
         print(f"[OK] Test 21 bestanden: Statistische Arbitrage erkennt Z=+2.35σ Divergenz in NVDA_AMD & Specialist votiert {arb_votes[0].vote_action} ({arb_votes[0].score:+.2f}).")
 
-    print("=== Alle 21 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner- & StatArb-Pairs-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 22: Hurst-Exponent & Fraktale Marktanalyse
+        # ============================================================================
+        from hurst_fractal_analyzer import HurstFractalAnalyzer
+        hurst_tool = HurstFractalAnalyzer()
+        # Teste synthetischen persistenten Trend (Hurst > 0.55)
+        trend_series = pd.Series(np.linspace(100, 200, 65) + np.random.randn(65) * 0.5)
+        frac_res = hurst_tool.analyze_series("TREND", trend_series)
+        assert frac_res.hurst_exponent >= 0.55, f"Hurst-Exponent bei linearem Trend muss hoch sein! Erhalten: {frac_res.hurst_exponent}"
+        assert frac_res.regime_mode == "PERSISTENT_TRENDING"
+        assert frac_res.regime_edge_multiplier >= 1.20
+        print(f"[OK] Test 22 bestanden: Hurst-Exponent & Fraktal-Analyzer erkennt persistenten Trend (H={frac_res.hurst_exponent:.2f}, Modus={frac_res.regime_mode}, Multiplikator={frac_res.regime_edge_multiplier}x).")
+
+        # ============================================================================
+        # TEST 23: Intermarket High-Yield Credit & Rohstoff-Lead-Lag Engine
+        # ============================================================================
+        from intermarket_lead_lag import IntermarketLeadLagEngine
+        im_engine = IntermarketLeadLagEngine()
+        im_snap = im_engine.analyze_intermarket_dynamics()
+        assert im_snap.credit_ratio_hyg_lqd > 0.3
+        assert im_snap.intermarket_bias in ("BULLISH_CREDIT_TAILWIND", "NEUTRAL_STABLE", "BEARISH_CREDIT_WARNING", "SEVERE_CRUNCH")
+        assert 0.20 <= im_snap.risk_budget_multiplier <= 1.50
+        print(f"[OK] Test 23 bestanden: Intermarket-Engine analysiert Kredit-Spreads HYG/LQD ({im_snap.credit_ratio_hyg_lqd:.3f}) & Bias ({im_snap.intermarket_bias}).")
+
+        # ============================================================================
+        # TEST 24: Corwin-Schultz Bid-Ask Spread & Amihud Illiquiditäts-Schätzer
+        # ============================================================================
+        from market_microstructure import MarketMicrostructureAnalyzer
+        micro_tool = MarketMicrostructureAnalyzer()
+        # Simuliere Kurs-DataFrame mit engem Spread
+        synth_df = pd.DataFrame({
+            "High": np.linspace(101, 120, 25),
+            "Low": np.linspace(99, 118, 25),
+            "Close": np.linspace(100, 119, 25),
+            "Volume": np.full(25, 5_000_000.0),
+        })
+        micro_res = micro_tool.analyze_microstructure("SYNTH", synth_df)
+        assert micro_res.estimated_bid_ask_spread_pct >= 0.01
+        assert micro_res.routing_recommendation in ("MARKET_EXECUTION_SAFE", "LIMIT_MIDPOINT_PEG", "SLIPPAGE_TRAP_AVOID")
+        print(f"[OK] Test 24 bestanden: Corwin-Schultz Spread-Schätzer berechnet Spread {micro_res.estimated_bid_ask_spread_pct:.2f}% & Routing {micro_res.routing_recommendation}.")
+
+        # ============================================================================
+        # TEST 25: Schwarm-Spezialisten #21, #22, #23 & Red-Team Kredit-Crunch Veto
+        # ============================================================================
+        # 1. Simuliere toxischen systemischen Kredit-Stress
+        credit_crunch_macro = MacroRegime(
+            vix_level=28.0,
+            spy_price=530.0,
+            spy_sma_50=545.0,
+            spy_sma_200=520.0,
+            regime_state="YELLOW_CAUTION",
+            risk_multiplier=0.45,
+            credit_spread_hyg_lqd=0.68,
+            credit_stress_active=True,  # Junk-Bonds kollabieren!
+            copper_gold_ratio=0.10,
+            intermarket_bias="SEVERE_CRUNCH",
+            summary="Kredit-Krise",
+        )
+        safe_stock_snap = MarketSnapshot(
+            symbol="TECH",
+            name="Tech Growth",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=200.0,
+            change_24h_pct=2.0,
+            change_7d_pct=4.0,
+            rsi_14=55.0,
+            sma_20=195.0,
+            sma_50=190.0,
+            macd_hist=0.5,
+            atr_14=4.0,
+            volatility_annualized_pct=28.0,
+            volume_ratio_vs_20d=1.5,
+            hurst_exponent=0.62,
+            fractal_regime_mode="PERSISTENT_TRENDING",
+            bid_ask_spread_pct=0.04,
+            microstructure_routing="MARKET_EXECUTION_SAFE",
+        )
+        tech_sig = TradingSignal(
+            symbol="TECH",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="BUY",
+            confidence=0.82,
+            sentiment_score=0.75,
+            entry_price=200.0,
+            stop_loss_price=190.0,
+            take_profit_price=225.0,
+            risk_reward_ratio=2.5,
+            catalyst_summary="Technischer Ausbruch",
+            thesis="Hurst Persistenter Trend",
+        )
+        # Schwarm auswerten
+        _, votes_credit, _ = adas.evaluate_symbol_with_swarm(safe_stock_snap, tech_sig, credit_crunch_macro)
+        credit_vote = next(v for v in votes_credit if v.agent_id == "intermarket_credit_sentinel")
+        assert credit_vote.score <= -0.80, f"Credit Sentinel muss bei Kredit-Stress extrem negativ votieren! Erhalten: {credit_vote.score}"
+
+        # Red-Team Tribunal muss Kredit-Kollaps erkennen und VETO einlegen
+        tribunal_res = tribunal.convene_tribunal(tech_sig, safe_stock_snap, credit_crunch_macro, {})
+        assert tribunal_res.verdict == "REJECTED_VETO", f"Red-Team muss bei Systemic Credit Crunch VETO einlegen! Erhalten: {tribunal_res.verdict}"
+        assert "Credit" in tribunal_res.cio_reasoning or "Credit" in tribunal_res.bear_rebuttal, "Begründung muss Credit Crunch enthalten"
+        print(f"[OK] Test 25 bestanden: Intermarket Credit Sentinel votiert {credit_vote.vote_action} ({credit_vote.score:+.2f}) & Red Team legt VETO ein ({tribunal_res.cio_reasoning[:60]}...).")
+
+    print("=== Alle 25 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket- & Microstructure-Tests erfolgreich bestanden! ===")
 
 
 

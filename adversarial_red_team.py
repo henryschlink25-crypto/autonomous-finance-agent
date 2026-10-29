@@ -114,6 +114,12 @@ class AdversarialRedTeamTribunal:
             points.append(f"🌊 Bullischer Smart-Money Flow (Score {snapshot.options_flow_score:+.2f})")
         if getattr(snapshot, "stat_arb_z_score", None) is not None and abs(snapshot.stat_arb_z_score) >= 1.8:
             points.append(f"🔀 StatArb Mean-Reversion Edge ({snapshot.stat_arb_pair}, Z: {snapshot.stat_arb_z_score:+.2f})")
+        if getattr(snapshot, "hurst_exponent", 0.50) >= 0.58:
+            points.append(f"🌀 Persistenter Hurst-Trend (H={snapshot.hurst_exponent:.2f})")
+        if getattr(snapshot, "bid_ask_spread_pct", 0.10) <= 0.10:
+            points.append(f"🎯 Tiefe Liquidität (Spread {snapshot.bid_ask_spread_pct:.2f}%)")
+        if macro is not None and getattr(macro, "intermarket_bias", "") == "BULLISH_CREDIT_TAILWIND":
+            points.append("🟢 Entspannte Kreditmärkte (HYG/LQD Rückenwind)")
         if snapshot.options_flow_sentiment == "BULLISH_CALL_FLOW":
             points.append(f"Institutioneller Call-Whale Flow (Put/Call {snapshot.options_put_call_ratio or 0.5:.2f})")
         if snapshot.supertrend_direction == "BULLISH":
@@ -202,6 +208,21 @@ class AdversarialRedTeamTribunal:
         if getattr(snapshot, "options_flow_score", 0.0) <= -0.4:
             rebuttals.append(f"Institutioneller Flow bärisch (Score {snapshot.options_flow_score:+.2f})")
             risk_score += 1.5
+
+        # 10. Systemischer Kredit-Stress (Junk Bonds brechen ein)
+        if macro is not None and getattr(macro, "credit_stress_active", False):
+            is_severe = getattr(macro, "intermarket_bias", "") == "SEVERE_CRUNCH" or macro.regime_state != "GREEN_RISK_ON"
+            msg = "Systemischer Kredit-Stress: Junk-Bonds kollabieren relativ zu Investment Grade (HYG/LQD)"
+            rebuttals.append(msg)
+            fatal_risks.append("Systemic Credit Crunch")
+            risk_score += 6.5 if is_severe else 4.0
+
+        # 11. Illiquiditäts- & Slippage-Falle (Corwin-Schultz / Amihud)
+        if getattr(snapshot, "microstructure_routing", "") == "SLIPPAGE_TRAP_AVOID":
+            msg = f"Dünnes Orderbuch (Spread {getattr(snapshot, 'bid_ask_spread_pct', 0.8):.2f}%): Hohe Market-Impact-Kosten"
+            rebuttals.append(msg)
+            fatal_risks.append("Severe Slippage / Thin Liquidity")
+            risk_score += 3.0
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)

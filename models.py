@@ -21,6 +21,10 @@ class MacroRegime(BaseModel):
     dxy_change_5d_pct: float = 0.0
     regime_state: Literal["GREEN_RISK_ON", "YELLOW_CAUTION", "RED_DEFENSIVE"]
     risk_multiplier: float = Field(description="Skaliertes Risikobudget (0.0 bis 1.0)")
+    credit_spread_hyg_lqd: float = 0.75
+    credit_stress_active: bool = False
+    copper_gold_ratio: float = 0.12
+    intermarket_bias: str = "NEUTRAL_STABLE"
     intermarket_signals: List[str] = Field(default_factory=list)
     summary: str
 
@@ -93,6 +97,12 @@ class MarketSnapshot(BaseModel):
     stat_arb_pair: str = ""
     stat_arb_z_score: Optional[float] = None
     stat_arb_thesis: str = ""
+    # Fraktale Marktanalyse & Mikrostruktur-Felder
+    hurst_exponent: float = 0.50
+    fractal_regime_mode: str = "RANDOM_WALK_CHOP"
+    bid_ask_spread_pct: float = 0.10
+    amihud_illiquidity: float = 0.0
+    microstructure_routing: str = "MARKET_EXECUTION_SAFE"
     supertrend_direction: str = "NEUTRAL"  # "BULLISH", "BEARISH", "NEUTRAL"
     supertrend_val: float = 0.0
     supertrend_flipped: bool = False
