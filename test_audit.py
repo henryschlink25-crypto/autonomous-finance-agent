@@ -2054,7 +2054,91 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 46 bestanden: Dynamic US Market Screener, Relative Strength vs. SPY & Adaptive Live Capital Protection.")
 
-    print("=== Alle 46 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, Unattended-Travel-Fortress- & Dynamic-US-Market-Screener-Tests erfolgreich bestanden! ===")
+        # --- Test 47: Asymmetric Compounding & 1.000 € Multiplier Model ---
+        from emergent_dialect_engine import EmergentDialectEngine
+        dialect_engine = EmergentDialectEngine()
+
+        # 1. Basis-Kapital (1.000$): Kein Compounding-Bonus, 100% Stammkapital-Schutz
+        eval_base = risk_live.evaluate_signal(
+            signal=sig_apex,
+            snapshot=snap_leader,
+            macro=None,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_base.compounding_boosted is False
+        assert eval_base.compounding_bonus_usd == 0.0
+        assert eval_base.ratchet_floor_usd == 1000.0
+
+        # 2. Reingewinn aufgelaufen (1.150$ Equity = +150$ Gewinn): Asymmetrischer Multiplikator-Booster zündet!
+        sig_apex_high = TradingSignal(
+            symbol="XOM",
+            asset_class="EQUITY",
+            action="BUY",
+            confidence=0.92,
+            expected_edge_score=1.65,
+            sentiment_score=0.6,
+            entry_price=120.0,
+            stop_loss_price=117.0,
+            take_profit_price=126.0,
+            risk_reward_ratio=2.0,
+            catalyst_summary="Compounding High Conviction",
+            thesis="Compounding High Conviction",
+            cio_conviction_tier="TIER_1_ALPHA_HIGH_CONVICTION",
+        )
+        eval_profit = risk_live.evaluate_signal(
+            signal=sig_apex_high,
+            snapshot=snap_leader,
+            macro=None,
+            cash_usd=1150.0,
+            total_equity_usd=1150.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_profit.compounding_boosted is True, "Compounding-Booster muss bei Reingewinn zünden"
+        assert eval_profit.compounding_bonus_usd > 0.0, "Compounding-Bonus muss > 0 sein"
+        assert "🚀 Compounding" in eval_profit.reason, f"Compounding-Hinweis muss im Grund enthalten sein: {eval_profit.reason}"
+
+        # 3. Ratchet High-Water-Mark Sperrklinken-Schutz
+        # Bei 1.300$ Equity (>= 1.25x) -> Floor auf 1.100$ gelockt
+        eval_ratchet_125 = risk_live.evaluate_signal(
+            signal=sig_apex_high,
+            snapshot=snap_leader,
+            macro=None,
+            cash_usd=1300.0,
+            total_equity_usd=1300.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_ratchet_125.ratchet_floor_usd == 1100.0, f"Ratchet Floor muss bei 1100$ liegen, erhalten: {eval_ratchet_125.ratchet_floor_usd}"
+
+        # Bei 2.100$ Equity (>= 2.0x Verdopplung!) -> Floor auf 1.750$ gelockt
+        eval_ratchet_200 = risk_live.evaluate_signal(
+            signal=sig_apex_high,
+            snapshot=snap_leader,
+            macro=None,
+            cash_usd=2100.0,
+            total_equity_usd=2100.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_ratchet_200.ratchet_floor_usd == 1750.0, f"Ratchet Floor muss bei 1750$ liegen, erhalten: {eval_ratchet_200.ratchet_floor_usd}"
+
+        # 4. Emergent Dialect Token für Compounding
+        sig_apex_high.compounding_boosted = True
+        deal_terms = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_leader,
+            signal=sig_apex_high,
+            macro=None,
+            risk_evaluation=eval_profit,
+        )
+        assert "🚀:ASYMMETRIC_COMPOUNDING" in deal_terms.dialect_sentence, f"Dialekt muss 🚀:ASYMMETRIC_COMPOUNDING enthalten: {deal_terms.dialect_sentence}"
+
+        print(f"[OK] Test 47 bestanden: Asymmetric Compounding & 1.000 € Multiplier Model (High-Water Mark Ratchet Floor & Dialekt-Token).")
+
+    print("=== Alle 47 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, Unattended-Travel-Fortress-, Dynamic-US-Market-Screener- & Asymmetric-Compounding-Tests erfolgreich bestanden! ===")
 
 
 

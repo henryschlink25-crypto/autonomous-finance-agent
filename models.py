@@ -213,6 +213,9 @@ class TradingSignal(BaseModel):
     optimal_entry_price: Optional[float] = None
     timing_rationale: str = ""
     timing_risk_reward_improved: float = 0.0
+    # Asymmetrisches Compounding & 1.000 € Gewinn-Multiplikator
+    compounding_boosted: bool = False
+    compounding_bonus_usd: float = 0.0
 
     def model_post_init(self, __context) -> None:
         if self.partial_take_profit_price <= 0 and self.take_profit_price > self.entry_price:
@@ -235,6 +238,10 @@ class RiskEvaluation(BaseModel):
     max_loss_usd: float = 0.0
     portfolio_risk_pct: float = 0.0
     debate_result: Optional[AdversarialDebateResult] = None
+    # Asymmetrisches Compounding & 1.000 € Gewinn-Multiplikator
+    compounding_bonus_usd: float = 0.0
+    compounding_boosted: bool = False
+    ratchet_floor_usd: float = 1000.0
 
 
 class Position(BaseModel):

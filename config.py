@@ -67,6 +67,11 @@ class AgentConfig:
     enable_adversarial_red_team: bool = os.getenv("ENABLE_ADVERSARIAL_RED_TEAM", "True").lower() == "true"
     min_order_usd: float = 25.0
 
+    # 1.000 € Multiplikator & Asymmetrisches Compounding-Modell
+    enable_asymmetric_compounding: bool = os.getenv("ENABLE_ASYMMETRIC_COMPOUNDING", "True").lower() == "true"
+    base_principal_capital_usd: float = float(os.getenv("BASE_PRINCIPAL_CAPITAL_USD", "1000.0"))
+    profit_reinvestment_rate: float = float(os.getenv("PROFIT_REINVESTMENT_RATE", "0.35"))  # 35% der Reingewinne für vergrößerte Spitzen-Trades reinvestieren
+
     # Optionale Echtzeit-Push-Alerts (Telegram Bot, Discord Webhook oder WhatsApp)
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     telegram_chat_id: str = os.getenv("TELEGRAM_CHAT_ID", "")

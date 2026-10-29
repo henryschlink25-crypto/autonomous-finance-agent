@@ -466,6 +466,37 @@ class DeterministicRiskManager:
             0.025,
         ))
         max_risk_dollars = total_equity_usd * effective_risk_pct
+
+        # --- 5b. ASYMMETRISCHES COMPOUNDING & 1.000 € GEWINN-MULTIPLIKATOR ---
+        compounding_bonus_usd = 0.0
+        compounding_boosted = False
+        base_principal = getattr(self.config, "base_principal_capital_usd", 1000.0)
+        ratchet_floor = base_principal
+
+        if getattr(self.config, "enable_asymmetric_compounding", True) and total_equity_usd > base_principal:
+            # High-Water-Mark Sperrklinke (Ratchet): Schützt Meilenstein-Gewinne unantastbar
+            if total_equity_usd >= base_principal * 2.0:
+                ratchet_floor = base_principal * 1.75
+            elif total_equity_usd >= base_principal * 1.5:
+                ratchet_floor = base_principal * 1.30
+            elif total_equity_usd >= base_principal * 1.25:
+                ratchet_floor = base_principal * 1.10
+
+            safe_accrued_profit = max(0.0, total_equity_usd - ratchet_floor)
+
+            # Bei hochkonfidenten Setups (>= 85%) asymmetrischen Gewinn-Booster zuschalten
+            if safe_accrued_profit > 0 and signal.confidence >= 0.85:
+                reinvest_rate = getattr(self.config, "profit_reinvestment_rate", 0.35)
+                compounding_bonus_usd = min(
+                    safe_accrued_profit * reinvest_rate,
+                    total_equity_usd * 0.04  # Maximaler Sicherheitsdeckel: +4% der Gesamtequity
+                )
+                if compounding_bonus_usd > 0:
+                    max_risk_dollars += compounding_bonus_usd
+                    compounding_boosted = True
+                    signal.compounding_boosted = True
+                    signal.compounding_bonus_usd = round(compounding_bonus_usd, 2)
+
         risk_based_qty = max_risk_dollars / risk_per_unit
         risk_based_notional = risk_based_qty * signal.entry_price
         risk_based_margin = risk_based_notional / leverage_used
@@ -525,12 +556,13 @@ class DeterministicRiskManager:
 
         corr_note = f", Corr-Drossel {corr_penalty:.2f}x" if corr_penalty < 1.0 else ""
         red_team_note = f", Red-Team: {debate_result.verdict}" if debate_result else ""
+        comp_note = f", 🚀 Compounding +${compounding_bonus_usd:.2f}" if compounding_boosted else ""
         lev_note = f"⚡ {effective_total_leverage:.0f}x Hebel ({leverage_used:.0f}x Margin)" if leverage_used > 1.0 else (
             f"⚡ {effective_total_leverage:.0f}x ETF-Hebel" if snapshot.intrinsic_leverage > 1.0 else "1x"
         )
         return RiskEvaluation(
             approved=True,
-            reason=f"Freigegeben [{lev_note}, Edge {signal.expected_edge_score:.2f}{corr_note}{red_team_note}]: Margin {margin_required:.0f}$ (Kaufkraft {notional:.0f}$), Max-Risiko {actual_max_loss:.2f}$ ({portfolio_risk_pct:.2f}%)",
+            reason=f"Freigegeben [{lev_note}, Edge {signal.expected_edge_score:.2f}{corr_note}{red_team_note}{comp_note}]: Margin {margin_required:.0f}$ (Kaufkraft {notional:.0f}$), Max-Risiko {actual_max_loss:.2f}$ ({portfolio_risk_pct:.2f}%)",
             adjusted_action="BUY",
             leverage_used=leverage_used,
             effective_total_leverage=effective_total_leverage,
@@ -540,4 +572,7 @@ class DeterministicRiskManager:
             max_loss_usd=actual_max_loss,
             portfolio_risk_pct=portfolio_risk_pct,
             debate_result=debate_result,
+            compounding_bonus_usd=compounding_bonus_usd,
+            compounding_boosted=compounding_boosted,
+            ratchet_floor_usd=ratchet_floor,
         )

@@ -293,6 +293,12 @@ class EmergentDialectEngine:
             self._ensure_token("⏳:WAIT_RELIEF_BOUNCE", "TIMING", "Überverkauft: Abwarten auf Entlastungs-Bounce für besseren Exit")
             tokens_used.append(t)
 
+        # N. Asymmetrisches Compounding & 1.000 € Gewinn-Multiplikator
+        if getattr(signal, "compounding_boosted", False):
+            t = "🚀:ASYMMETRIC_COMPOUNDING"
+            self._ensure_token("🚀:ASYMMETRIC_COMPOUNDING", "COMPOUNDING", "Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

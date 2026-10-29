@@ -1036,6 +1036,7 @@ class TelegramCommandListener:
                 f"💰 <b>Gesamt-Equity:</b> ${total_eq:,.2f} ({icon} {delta:+.2f}$ / {delta_pct:+.2f}%)",
                 f"💵 <b>Verfügbarer Cash:</b> ${cash:,.2f}",
                 f"📊 <b>Realisierter PnL:</b> ${realized:+,.2f}",
+                f"🚀 <b>Compounding-Multiplikator:</b> {'Aktiv (+35% Gewinn-Reinvest)' if delta > 0 else 'Bereit ($1.000 Stammkapital gesichert)'}",
                 f"📦 <b>Offene Positionen ({len(positions)}):</b>",
             ]
             if not positions:
