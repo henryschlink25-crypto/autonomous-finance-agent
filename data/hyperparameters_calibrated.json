@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-10-29T20:27:48",
-  "regime": "YELLOW_CAUTION",
-  "atr_stop_loss_mult": 2.3,
-  "atr_take_profit_mult": 3.8,
-  "min_confidence_cutoff": 0.72,
-  "max_position_risk_pct": 0.015,
-  "target_risk_reward_ratio": 1.65,
+  "updated_at": "2026-10-29T20:47:22",
+  "regime": "RED_DEFENSIVE",
+  "atr_stop_loss_mult": 2.8,
+  "atr_take_profit_mult": 4.8,
+  "min_confidence_cutoff": 0.78,
+  "max_position_risk_pct": 0.008,
+  "target_risk_reward_ratio": 1.71,
   "win_rate_trailing": 0.58,
   "profit_factor_trailing": 1.85,
-  "tuning_rationale": "Mittlere Vola (VIX 17.2) -> Moderater Puffer (2.3x ATR SL)"
+  "tuning_rationale": "Hohe Vola (VIX 32.0) -> Weite ATR-Stopps (2.8x), strenge Konfidenz (78%)"
 }

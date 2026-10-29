@@ -803,6 +803,26 @@ class ADASMetaArchitect:
                 trust_weight=1.26,
             ))
 
+        # 26. Dark Pool & Off-Exchange Block Trade Sentinel (Sub-Agent #39)
+        if "dark_pool_block_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="dark_pool_block_sentinel",
+                name="🌑 Dark Pool & Off-Exchange Block Sentinel",
+                role="Erkennt verdeckte institutionelle Akkumulation in Dark Pools (ATS-Quote >45%) und schützt vor verdeckter Distribution / Short-Druck.",
+                specialty_focus="DARK_POOL_SENTINEL",
+                trust_weight=1.28,
+            ))
+
+        # 27. SEC Edgar Filing Scout & Catalyst Extractor (Sub-Agent #40)
+        if "sec_edgar_scout" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="sec_edgar_scout",
+                name="📑 SEC Edgar Regulatory Filing Scout",
+                role="Überwacht SEC Form 4 (Cluster- und Whale-Käufe) sowie Form 8-K (Material Events, Partnerschaften, Dilution Warnings) und postet Evidenz-Pakete auf das Blackboard.",
+                specialty_focus="SEC_EDGAR_SCOUT",
+                trust_weight=1.30,
+            ))
+
         return new_specs
 
 
@@ -909,6 +929,44 @@ class ADASMetaArchitect:
                 swarm_tag += " 🏛️ [CIO: TIER 1 ALPHA]"
         except Exception as e:
             cio_summary = f"CIO-Synthesizer Fallback ({e})"
+
+        # 📋 Blackboard & A2A Stigmergic Envelope Coordination
+        try:
+            from swarm_blackboard import get_swarm_blackboard, A2AMessageEnvelope
+            bb = get_swarm_blackboard()
+            
+            # 1. Prüfe bestehende Blackboard-Konversationen für das Symbol
+            topic_ctx = bb.get_topic_context(f"ALPHA::{snap.symbol}")
+            if topic_ctx:
+                if topic_ctx.status == "VETOED_CLOSED" and new_action == "BUY":
+                    new_action = "HOLD"
+                    swarm_tag += " 📋 [Blackboard: EMERGENCY_VETO aktiv]"
+                elif topic_ctx.status == "CONSENSUS_REACHED" and topic_ctx.leading_action == "BUY" and new_action == "BUY":
+                    new_conf = round(min(0.99, new_conf + 0.03), 2)
+                    swarm_tag += " 📋 [Blackboard: A2A-Konsens]"
+
+            # 2. Poste das aggregierte Meta-Schwarm Votum als strukturierte A2A Envelope
+            bb_intent = "PROPOSE_TRADE" if new_action in ("BUY", "SELL") else "CHALLENGE_CRITIQUE"
+            if veto_reasons:
+                bb_intent = "EMERGENCY_VETO"
+            envelope = A2AMessageEnvelope(
+                topic=f"ALPHA::{snap.symbol}",
+                from_agent="adas_meta_architect",
+                to_agent="ALL",
+                intent=bb_intent,
+                symbol=snap.symbol,
+                confidence=new_conf,
+                payload={
+                    "action": new_action,
+                    "swarm_consensus": round(swarm_consensus, 2),
+                    "bull_supporters": bull_supporters[:3],
+                    "veto_reasons": veto_reasons[:2],
+                },
+                summary_de=f"ADAS Schwarm-Votum: {new_action} ({new_conf*100:.0f}% Konfidenz)",
+            )
+            bb.post_envelope(envelope)
+        except Exception as e:
+            logger.debug(f"Blackboard-Protokoll Exception: {e}")
 
         updated_signal = TradingSignal(
             symbol=baseline_signal.symbol,
@@ -1822,6 +1880,87 @@ class ADASMetaArchitect:
                 score = 0.05
                 conf = 0.50
                 rationale = f"TradingView Sentinel neutral ({e})"
+
+        elif focus == "DARK_POOL_SENTINEL":
+            try:
+                dp_ratio = getattr(snap, "dark_pool_ratio", None)
+                dp_sent = getattr(snap, "dark_pool_sentiment", None)
+                dp_alert = getattr(snap, "dark_pool_block_alert", False)
+                if dp_ratio is None or dp_sent is None:
+                    from dark_pool_sentinel import get_dark_pool_sentinel
+                    dp_res = get_dark_pool_sentinel().analyze_symbol(
+                        snap.symbol,
+                        volume_ratio_vs_20d=getattr(snap, "volume_ratio_vs_20d", 1.0),
+                        current_price=snap.current_price,
+                        vwap=getattr(snap, "vwap", None),
+                    )
+                    dp_ratio = dp_res.dark_pool_ratio
+                    dp_sent = dp_res.sentiment
+                    dp_alert = dp_res.block_trade_detected
+
+                s_accum = rec.flag("Dark Pool Akkumulation", dp_sent == "ACCUMULATION" or (dp_ratio is not None and dp_ratio >= 0.48), "bull")
+                s_dist = rec.flag("Dark Pool Distribution", dp_sent == "DISTRIBUTION", "bear")
+                s_block = rec.flag("Block Trade Alert", dp_alert, "bull")
+
+                if s_dist.passed:
+                    score = -0.82
+                    conf = 0.88
+                    rationale = f"🛑 VETO: Verdeckte Dark-Pool Distribution / Short-Druck ({dp_ratio*100:.1f}% ATS-Ratio)"
+                    decisive_idx = rec.idx(s_dist)
+                elif s_accum.passed:
+                    score = min(0.95, 0.76 + (dp_ratio - 0.45) * 0.8)
+                    conf = 0.90
+                    rationale = f"🌑 Institutionelle Dark-Pool Akkumulation ({dp_ratio*100:.1f}% ATS-Quote, Whales akkumulieren)"
+                    decisive_idx = rec.idx(s_accum)
+                else:
+                    score = 0.05
+                    conf = 0.55
+                    rationale = f"Dark Pool Flow unauffällig ({dp_ratio*100:.1f}% Ratio)"
+            except Exception as e:
+                score = 0.05
+                conf = 0.50
+                rationale = f"Dark Pool Sentinel neutral ({e})"
+
+        elif focus == "SEC_EDGAR_SCOUT":
+            try:
+                sec_cat = getattr(snap, "sec_catalyst_type", None)
+                sec_sent = getattr(snap, "sec_catalyst_sentiment", None)
+                sec_8k = getattr(snap, "sec_form8k_catalyst", "")
+                if sec_cat is None:
+                    from sec_edgar_scout import get_sec_edgar_scout
+                    scout_res = get_sec_edgar_scout().scan_symbol_filings(
+                        snap.symbol, sec_form8k_text=sec_8k, post_to_blackboard=False
+                    )
+                    sec_cat = scout_res.catalyst_type
+                    sec_sent = scout_res.sentiment
+
+                s_cluster = rec.flag("SEC Cluster/Whale Buy", sec_cat in ("INSIDER_CLUSTER_BUY", "WHALE_BUY"), "bull")
+                s_pos_8k = rec.flag("SEC Positive 8-K", sec_cat == "FORM_8K_CATALYST", "bull")
+                s_dilution = rec.flag("SEC Verwässerung VETO", sec_cat == "DILUTION_WARNING" or sec_sent == "BEARISH", "bear")
+
+                if s_dilution.passed:
+                    score = -0.88
+                    conf = 0.92
+                    rationale = f"🛑 VETO: SEC EDGAR Verwässerungs- oder Sell-Warnung ({sec_cat})"
+                    decisive_idx = rec.idx(s_dilution)
+                elif s_cluster.passed:
+                    score = 0.92
+                    conf = 0.93
+                    rationale = f"📑 SEC EDGAR Top-Katalysator: {sec_cat} (Whales & Vorstände kaufen mit eigenem Privatgeld)"
+                    decisive_idx = rec.idx(s_cluster)
+                elif s_pos_8k.passed:
+                    score = 0.80
+                    conf = 0.85
+                    rationale = "📑 SEC Form 8-K Material Event Katalysator bestätigt"
+                    decisive_idx = rec.idx(s_pos_8k)
+                else:
+                    score = 0.05
+                    conf = 0.55
+                    rationale = "SEC EDGAR Meldungen unauffällig / neutral"
+            except Exception as e:
+                score = 0.05
+                conf = 0.50
+                rationale = f"SEC Edgar Scout neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

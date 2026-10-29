@@ -1,0 +1,259 @@
+{
+  "updated_at": "2026-10-29T20:47:43",
+  "threads": {
+    "TEST_ALPHA::TEST_SYM_1793306863": {
+      "topic_id": "TEST_ALPHA::TEST_SYM_1793306863",
+      "symbol": "TEST_SYM",
+      "created_at": "2026-10-29T20:47:43",
+      "updated_at": "2026-10-29T20:47:43",
+      "status": "VETOED_CLOSED",
+      "consensus_score": -1.0,
+      "leading_action": "VETO",
+      "messages": [
+        {
+          "message_id": "b6efe674",
+          "topic": "TEST_ALPHA::TEST_SYM_1793306863",
+          "from_agent": "alpha_breakout_hunter",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "TEST_SYM",
+          "confidence": 0.85,
+          "payload": {
+            "action": "BUY",
+            "target": 150.0
+          },
+          "summary_de": "Alpha Breakout erkannt",
+          "timestamp": "2026-10-29T20:47:43"
+        },
+        {
+          "message_id": "3d2f49c5",
+          "topic": "TEST_ALPHA::TEST_SYM_1793306863",
+          "from_agent": "dark_pool_block_sentinel",
+          "to_agent": "ALL",
+          "intent": "CONFIRM_CONSENSUS",
+          "symbol": "TEST_SYM",
+          "confidence": 0.9,
+          "payload": {
+            "dark_pool_ratio": 0.52
+          },
+          "summary_de": "Bestätigt durch Dark Pool Akkumulation",
+          "timestamp": "2026-10-29T20:47:43"
+        },
+        {
+          "message_id": "1484339a",
+          "topic": "TEST_ALPHA::TEST_SYM_1793306863",
+          "from_agent": "red_team_adversarial_critic",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "TEST_SYM",
+          "confidence": 0.95,
+          "payload": {},
+          "summary_de": "Toxische Finanzierung / Verwässerungsrisiko!",
+          "timestamp": "2026-10-29T20:47:43"
+        }
+      ]
+    },
+    "ALPHA::NVDA": {
+      "topic_id": "ALPHA::NVDA",
+      "symbol": "NVDA",
+      "created_at": "2026-10-29T20:47:22",
+      "updated_at": "2026-10-29T20:47:23",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": 1.0,
+      "leading_action": "BUY",
+      "messages": [
+        {
+          "message_id": "f335d04b",
+          "topic": "ALPHA::NVDA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "NVDA",
+          "confidence": 0.92,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.56,
+            "bull_supporters": [
+              "🌐 Cross-Asset",
+              "🚨 High-Yield",
+              "🎯 Order-Book"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (92% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:22"
+        },
+        {
+          "message_id": "25104554",
+          "topic": "ALPHA::NVDA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "NVDA",
+          "confidence": 0.98,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.59,
+            "bull_supporters": [
+              "🌐 Cross-Asset",
+              "🚨 High-Yield",
+              "🎯 Order-Book"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:22"
+        },
+        {
+          "message_id": "606d5f1a",
+          "topic": "ALPHA::NVDA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "NVDA",
+          "confidence": 0.9,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.56,
+            "bull_supporters": [
+              "🌐 Cross-Asset",
+              "🚨 High-Yield",
+              "🎯 Order-Book"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (90% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:23"
+        }
+      ]
+    },
+    "ALPHA::PUMPBULL": {
+      "topic_id": "ALPHA::PUMPBULL",
+      "symbol": "PUMPBULL",
+      "created_at": "2026-10-29T20:47:23",
+      "updated_at": "2026-10-29T20:47:23",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": 0.8,
+      "leading_action": "BUY",
+      "messages": [
+        {
+          "message_id": "f81f3a81",
+          "topic": "ALPHA::PUMPBULL",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PUMPBULL",
+          "confidence": 0.8,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.16,
+            "bull_supporters": [
+              "🌐 Cross-Asset",
+              "🎯 Penny",
+              "🎯 Order-Book"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (80% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:23"
+        }
+      ]
+    },
+    "ALPHA::AMD": {
+      "topic_id": "ALPHA::AMD",
+      "symbol": "AMD",
+      "created_at": "2026-10-29T20:47:22",
+      "updated_at": "2026-10-29T20:47:22",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "9d00589c",
+          "topic": "ALPHA::AMD",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "AMD",
+          "confidence": 0.5,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.14,
+            "bull_supporters": [
+              "🌐 Cross-Asset",
+              "🔀 Statistical",
+              "🎯 Order-Book"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (50% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:22"
+        }
+      ]
+    },
+    "ALPHA::TECH": {
+      "topic_id": "ALPHA::TECH",
+      "symbol": "TECH",
+      "created_at": "2026-10-29T20:47:22",
+      "updated_at": "2026-10-29T20:47:22",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "b26b363c",
+          "topic": "ALPHA::TECH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "TECH",
+          "confidence": 0.82,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.15,
+            "bull_supporters": [
+              "🌀 Hurst",
+              "🎯 Order-Book",
+              "🚀 Sector"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (82% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:22"
+        }
+      ]
+    },
+    "ALPHA::WHALE": {
+      "topic_id": "ALPHA::WHALE",
+      "symbol": "WHALE",
+      "created_at": "2026-10-29T20:47:21",
+      "updated_at": "2026-10-29T20:47:21",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": 0.82,
+      "leading_action": "BUY",
+      "messages": [
+        {
+          "message_id": "764bf4dc",
+          "topic": "ALPHA::WHALE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "WHALE",
+          "confidence": 0.82,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.2,
+            "bull_supporters": [
+              "📊 Fundamental",
+              "🌐 Cross-Asset",
+              "🎯 Penny"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (82% Konfidenz)",
+          "timestamp": "2026-10-29T20:47:21"
+        }
+      ]
+    }
+  }
+}

@@ -1060,6 +1060,32 @@ class MultiAssetDataCollector:
             except Exception:
                 pass
 
+            # Dark Pool & Off-Exchange Volume Sentinel (Sub-Agent #39)
+            dp_ratio, dp_sent, dp_alert = None, "NEUTRAL", False
+            try:
+                from dark_pool_sentinel import get_dark_pool_sentinel
+                dp_res = get_dark_pool_sentinel().analyze_symbol(
+                    item.symbol, volume_ratio_vs_20d=vol_ratio, current_price=current_price
+                )
+                dp_ratio = dp_res.dark_pool_ratio
+                dp_sent = dp_res.sentiment
+                dp_alert = dp_res.block_trade_detected
+            except Exception:
+                pass
+
+            # SEC Edgar Regulatory & Catalyst Scout (Sub-Agent #40)
+            sec_cat_type, sec_cat_sent, sec_cat_summary = "NEUTRAL", "NEUTRAL", ""
+            try:
+                from sec_edgar_scout import get_sec_edgar_scout
+                sec_rep = get_sec_edgar_scout().scan_symbol_filings(
+                    item.symbol, sec_form8k_text=sec_8k.get("summary", ""), post_to_blackboard=True
+                )
+                sec_cat_type = sec_rep.catalyst_type
+                sec_cat_sent = sec_rep.sentiment
+                sec_cat_summary = sec_rep.filing_summary
+            except Exception:
+                pass
+
             return MarketSnapshot(
                 symbol=item.symbol,
                 name=item.name,
@@ -1108,6 +1134,12 @@ class MultiAssetDataCollector:
                 tradingview_neutral_count=tv_neutral,
                 tradingview_summary=tv_summary,
                 sec_form8k_catalyst=sec_8k.get("summary", ""),
+                dark_pool_ratio=dp_ratio,
+                dark_pool_sentiment=dp_sent,
+                dark_pool_block_alert=dp_alert,
+                sec_catalyst_type=sec_cat_type,
+                sec_catalyst_sentiment=sec_cat_sent,
+                sec_catalyst_summary=sec_cat_summary,
                 option_delta=opt_delta,
                 option_gamma=opt_gamma,
                 option_vega=opt_vega,

@@ -170,6 +170,13 @@ class MarketSnapshot(BaseModel):
     tradingview_neutral_count: Optional[int] = None
     tradingview_summary: str = ""
     sec_form8k_catalyst: str = ""
+    # Dark Pool / Off-Exchange & SEC EDGAR Scout
+    dark_pool_ratio: Optional[float] = None
+    dark_pool_sentiment: Optional[str] = None
+    dark_pool_block_alert: bool = False
+    sec_catalyst_type: Optional[str] = None
+    sec_catalyst_sentiment: Optional[str] = None
+    sec_catalyst_summary: str = ""
     option_delta: Optional[float] = None
     option_gamma: Optional[float] = None
     option_vega: Optional[float] = None

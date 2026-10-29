@@ -2385,7 +2385,122 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 53 bestanden: TradingView 26-Indicator Matrix Sentinel (Sub-Agent #38), Riskfolio-Lib HRP Portfolio-Optimierung & Dialekt-Token.")
 
-    print("=== Alle 53 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel- & Riskfolio-HRP-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 54: Blackboard-Architektur, A2A-Envelope-Protokoll, Dark Pool Sentinel (Sub-Agent #39) & SEC Edgar Scout (Sub-Agent #40)
+        # ============================================================================
+        from swarm_blackboard import get_swarm_blackboard, A2AMessageEnvelope
+        from dark_pool_sentinel import get_dark_pool_sentinel, DarkPoolAnalysis
+        from sec_edgar_scout import get_sec_edgar_scout, SECCatalystReport
+
+        # 1. Teste Swarm Blackboard & A2A Envelopes
+        bb = get_swarm_blackboard()
+        test_topic = f"TEST_ALPHA::TEST_SYM_{int(datetime.datetime.now().timestamp())}"
+        env1 = A2AMessageEnvelope(
+            topic=test_topic,
+            from_agent="alpha_breakout_hunter",
+            intent="PROPOSE_TRADE",
+            symbol="TEST_SYM",
+            confidence=0.85,
+            payload={"action": "BUY", "target": 150.0},
+            summary_de="Alpha Breakout erkannt",
+        )
+        msg_id1 = bb.post_envelope(env1)
+        assert msg_id1 is not None and len(msg_id1) > 0
+
+        env2 = A2AMessageEnvelope(
+            topic=test_topic,
+            from_agent="dark_pool_block_sentinel",
+            intent="CONFIRM_CONSENSUS",
+            symbol="TEST_SYM",
+            confidence=0.90,
+            payload={"dark_pool_ratio": 0.52},
+            summary_de="Bestätigt durch Dark Pool Akkumulation",
+        )
+        bb.post_envelope(env2)
+        ctx = bb.get_topic_context(test_topic)
+        assert ctx is not None
+        assert ctx.status == "CONSENSUS_REACHED"
+        assert ctx.leading_action == "BUY"
+
+        # Teste Blackboard Emergency Veto
+        env_veto = A2AMessageEnvelope(
+            topic=test_topic,
+            from_agent="red_team_adversarial_critic",
+            intent="EMERGENCY_VETO",
+            symbol="TEST_SYM",
+            confidence=0.95,
+            summary_de="Toxische Finanzierung / Verwässerungsrisiko!",
+        )
+        bb.post_envelope(env_veto)
+        ctx_veto = bb.get_topic_context(test_topic)
+        assert ctx_veto.status == "VETOED_CLOSED"
+        assert ctx_veto.leading_action == "VETO"
+
+        # 2. Teste Sub-Agent #39: Dark Pool & Off-Exchange Block Sentinel
+        dp_sentinel = get_dark_pool_sentinel()
+        dp_analysis = dp_sentinel.analyze_symbol("NVDA", volume_ratio_vs_20d=2.4, current_price=120.0, override_ratio=0.52)
+        assert dp_analysis.institutional_accumulation is True
+        assert dp_analysis.sentiment == "ACCUMULATION"
+
+        adas_bb = ADASMetaArchitect(cfg)
+        needed_bb = adas_bb._detect_needed_specialist_agents({"NVDA": snap_fav}, green_macro)
+        for sp in needed_bb:
+            adas_bb.state.active_subagents[sp.agent_id] = sp
+        assert "dark_pool_block_sentinel" in adas_bb.state.active_subagents, "Sub-Agent #39 muss im Schwarm sein"
+        assert "sec_edgar_scout" in adas_bb.state.active_subagents, "Sub-Agent #40 muss im Schwarm sein"
+
+        dp_spec = adas_bb.state.active_subagents["dark_pool_block_sentinel"]
+        snap_dp_accum = snap_fav.model_copy(update={
+            "dark_pool_ratio": 0.53,
+            "dark_pool_sentiment": "ACCUMULATION",
+            "dark_pool_block_alert": True,
+        })
+        vote_dp, _ = adas_bb._compute_single_subagent_vote(dp_spec, snap_dp_accum, green_macro)
+        assert vote_dp.vote_action == "BUY", "Bei Dark Pool Akkumulation muss BUY gevotet werden"
+        assert vote_dp.score >= 0.80
+
+        snap_dp_dist = snap_fav.model_copy(update={
+            "dark_pool_ratio": 0.35,
+            "dark_pool_sentiment": "DISTRIBUTION",
+        })
+        vote_dp_veto, _ = adas_bb._compute_single_subagent_vote(dp_spec, snap_dp_dist, green_macro)
+        assert vote_dp_veto.vote_action in ("SELL", "VETO_BUY"), "Bei Dark Pool Distribution muss VETO/SELL gevotet werden"
+        assert vote_dp_veto.score <= -0.70
+
+        # 3. Teste Sub-Agent #40: SEC Edgar Regulatory Filing Scout
+        sec_scout = get_sec_edgar_scout()
+        sec_spec = adas_bb.state.active_subagents["sec_edgar_scout"]
+        snap_sec_cluster = snap_fav.model_copy(update={
+            "sec_catalyst_type": "INSIDER_CLUSTER_BUY",
+            "sec_catalyst_sentiment": "BULLISH",
+            "sec_catalyst_summary": "CEO und 3 Direktoren kauften für $500k",
+        })
+        vote_sec, _ = adas_bb._compute_single_subagent_vote(sec_spec, snap_sec_cluster, green_macro)
+        assert vote_sec.vote_action == "BUY"
+        assert vote_sec.score >= 0.85
+
+        snap_sec_dilution = snap_fav.model_copy(update={
+            "sec_catalyst_type": "DILUTION_WARNING",
+            "sec_catalyst_sentiment": "BEARISH",
+            "sec_catalyst_summary": "S-3 Verwässerung",
+        })
+        vote_sec_veto, _ = adas_bb._compute_single_subagent_vote(sec_spec, snap_sec_dilution, green_macro)
+        assert vote_sec_veto.vote_action in ("SELL", "VETO_BUY")
+        assert vote_sec_veto.score <= -0.80
+
+        # 4. Teste Dialekt-Token für Dark Pool und SEC Edgar Scout
+        deal_bb = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_dp_accum.model_copy(update={"sec_catalyst_type": "INSIDER_CLUSTER_BUY"}),
+            signal=sig_apex_high,
+            macro=green_macro,
+            risk_evaluation=eval_hrp,
+        )
+        assert "🌑:DARK_POOL_ACCUMULATION" in deal_bb.dialect_sentence, f"Dialekt muss 🌑:DARK_POOL_ACCUMULATION enthalten: {deal_bb.dialect_sentence}"
+        assert "📑:SEC_EDGAR_CATALYST" in deal_bb.dialect_sentence, f"Dialekt muss 📑:SEC_EDGAR_CATALYST enthalten: {deal_bb.dialect_sentence}"
+
+        print(f"[OK] Test 54 bestanden: Swarm Blackboard, A2A-Envelope-Protokoll, Dark Pool Block Sentinel (Sub-Agent #39), SEC Edgar Scout (Sub-Agent #40) & Dialekt-Token.")
+
+    print("=== Alle 54 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel- & SEC-Edgar-Scout-Tests erfolgreich bestanden! ===")
 
 
 

@@ -1,0 +1,57 @@
+{
+  "WHALE": {
+    "symbol": "WHALE",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": false,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T20:47:21"
+  },
+  "AMD": {
+    "symbol": "AMD",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T20:47:22"
+  },
+  "TECH": {
+    "symbol": "TECH",
+    "dark_pool_ratio": 0.46,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
+    "timestamp": "2026-10-29T20:47:22"
+  },
+  "NVDA": {
+    "symbol": "NVDA",
+    "dark_pool_ratio": 0.52,
+    "short_volume_ratio": 0.38,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (52.0% ATS-Volumen, geringer Short-Druck 38.0%)",
+    "timestamp": "2026-10-29T20:47:43"
+  },
+  "PUMPBULL": {
+    "symbol": "PUMPBULL",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T20:47:23"
+  }
+}

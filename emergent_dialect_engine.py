@@ -338,6 +338,43 @@ class EmergentDialectEngine:
             self._ensure_token("⚖️:HRP_RISK_PARITY", "ALLOCATION", f"Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib ({hrp_w*100:.1f}%)")
             tokens_used.append(t)
 
+        # S. Dark Pool & Off-Exchange Block Trade Sentinel (Sub-Agent #39)
+        dp_ratio = getattr(snapshot, "dark_pool_ratio", None)
+        dp_sent = getattr(snapshot, "dark_pool_sentiment", None)
+        if dp_sent == "ACCUMULATION" or (dp_ratio is not None and dp_ratio >= 0.48):
+            dp_pct = int(dp_ratio * 100) if dp_ratio is not None else 50
+            t = f"🌑:DARK_POOL_ACCUMULATION[{dp_pct}%]"
+            self._ensure_token("🌑:DARK_POOL_ACCUMULATION", "ALPHA", "Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)")
+            tokens_used.append(t)
+        elif dp_sent == "DISTRIBUTION":
+            t = "🛑:DARK_POOL_DISTRIBUTION_VETO"
+            self._ensure_token("🛑:DARK_POOL_DISTRIBUTION_VETO", "RISK", "VETO: Verdeckte Dark-Pool Distribution & hoher Leerverkaufsdruck")
+            tokens_used.append(t)
+
+        # T. SEC Edgar Regulatory Filing & Catalyst Scout (Sub-Agent #40)
+        sec_cat = getattr(snapshot, "sec_catalyst_type", None) or getattr(snapshot, "sec_form8k_catalyst", None)
+        sec_sent = getattr(snapshot, "sec_catalyst_sentiment", None)
+        if sec_cat in ("INSIDER_CLUSTER_BUY", "WHALE_BUY", "FORM_8K_CATALYST") or sec_sent == "BULLISH":
+            t = f"📑:SEC_EDGAR_CATALYST[{sec_cat or 'BULLISH'}]"
+            self._ensure_token("📑:SEC_EDGAR_CATALYST", "CATALYST", "Regulatorisch verifizierter SEC EDGAR Impuls (Form 4 Whales / Form 8-K)")
+            tokens_used.append(t)
+        elif sec_cat == "DILUTION_WARNING" or sec_sent == "BEARISH":
+            t = f"🛑:SEC_DILUTION_VETO[{sec_cat or 'BEARISH'}]"
+            self._ensure_token("🛑:SEC_DILUTION_VETO", "RISK", "VETO: Verwässerungs- oder toxische Finanzierungs-Meldung bei SEC EDGAR")
+            tokens_used.append(t)
+
+        # U. Swarm Blackboard A2A Konsens
+        try:
+            from swarm_blackboard import get_swarm_blackboard
+            bb = get_swarm_blackboard()
+            bb_topic = bb.get_topic_context(f"ALPHA::{snapshot.symbol}")
+            if bb_topic and bb_topic.status == "CONSENSUS_REACHED":
+                t = f"📋:BLACKBOARD_CONSENSUS[{bb_topic.leading_action}]"
+                self._ensure_token("📋:BLACKBOARD_CONSENSUS", "CONSENSUS", "Dezentraler A2A-Konsens über das Swarm Blackboard erzielt")
+                tokens_used.append(t)
+        except Exception:
+            pass
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
