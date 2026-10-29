@@ -394,7 +394,7 @@ class MultiAssetExecutionEngine:
                 # 2. Climax / Überkauft-Gewinnmitnahme: Wenn RSI >= 74 im Gewinn erreicht wird, auf dem Peak verkaufen!
                 symbols_to_close.append((sym, snap.current_price, "OVERBOUGHT_CLIMAX_TAKE_PROFIT"))
             elif (
-                holding_days >= 2
+                2 <= holding_days < max_days_allowed
                 and snap.current_price < snap.sma_20
                 and snap.macd_hist < 0
                 and pos.unrealized_pnl_pct < 0.5
@@ -413,8 +413,10 @@ class MultiAssetExecutionEngine:
                 holding_days >= max_days_allowed
                 and pos.unrealized_pnl_pct < 1.5
                 and snap.macd_hist <= 0
+                and getattr(pos, "horizon", "TACTICAL") != "CORE_ETF"
+                and pos.cluster != "CORE_ETF"
             ):
-                # 4. Regulärer Time-Stop (3 Tage für 3x-ETFs / 5 Tage für 2x-Assets)
+                # 4. Regulärer Time-Stop (3 Tage für 3x-ETFs / 5 Tage für 2x-Assets) – gilt für taktische Trades, NICHT für langfristige Core-ETFs!
                 symbols_to_close.append((sym, snap.current_price, f"TIME_STOP_STALE_{holding_days}D"))
             else:
                 # Proaktiver Breakeven-Schutz bei Volatilitäts-Spike / ungünstiger Kursgeschwindigkeit
@@ -903,6 +905,7 @@ class MultiAssetExecutionEngine:
                     partial_tp_done=False,
                     take_profit_price=signal.take_profit_price,
                     opened_at=now_iso,
+                    horizon=getattr(signal, "horizon", "TACTICAL"),
                 )
 
             eff_lev = round(lev * signal.intrinsic_leverage, 1)

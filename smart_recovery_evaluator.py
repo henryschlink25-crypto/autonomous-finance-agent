@@ -99,13 +99,14 @@ class SmartRecoveryEvaluator:
             elif snap.sma_50 > 0 and snap.current_price >= snap.sma_50 * 0.990 and snap.current_price <= snap.sma_50 * 1.015:
                 score += 0.7
                 reasons.append(f"Institutionelle 50-Tage-Linie SMA50 (${snap.sma_50:,.2f}) intakt")
-            elif snap.sma_200 > 0 and snap.current_price >= snap.sma_200 * 0.990 and snap.current_price <= snap.sma_200 * 1.015:
+            sma200_val = getattr(snap, "sma_200", 0.0) or 0.0
+            if sma200_val > 0 and snap.current_price >= sma200_val * 0.990 and snap.current_price <= sma200_val * 1.015:
                 score += 0.7
-                reasons.append(f"Strategischer 200-Tage-Support SMA200 (${snap.sma_200:,.2f}) intakt")
+                reasons.append(f"Strategischer 200-Tage-Support SMA200 (${sma200_val:,.2f}) intakt")
 
             # C) Quantitativer Faktor-Rückenwind (Qlib Alpha158 & Dark Pool) (bis 1.2 Pt)
-            qlib_sc = getattr(snap, "qlib_alpha158_score", 0.0)
-            if qlib_sc >= 0.10:
+            qlib_sc = getattr(snap, "qlib_alpha158_score", None)
+            if qlib_sc is not None and qlib_sc >= 0.10:
                 score += 1.0
                 reasons.append(f"Microsoft Qlib Alpha158 Matrix quantitativ positiv ({qlib_sc:+.2f})")
 
@@ -116,7 +117,7 @@ class SmartRecoveryEvaluator:
 
             # D) Volumen-Qualität: Rücksetzer ohne Panik-Volumen (bis 0.5 Pt)
             vol_r = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
-            if vol_r <= 1.25:
+            if vol_r is not None and vol_r <= 1.25:
                 score += 0.5
                 reasons.append(f"Rücksetzer auf moderatem Volumen ({vol_r:.1f}x vs 20d Avg, kein Panik-Ausverkauf)")
 
@@ -133,8 +134,8 @@ class SmartRecoveryEvaluator:
                 score += 0.7
                 reasons.append("Kurs am oberen Bollinger-Band (Widerstand)")
 
-            qlib_sc = getattr(snap, "qlib_alpha158_score", 0.0)
-            if qlib_sc <= -0.10:
+            qlib_sc = getattr(snap, "qlib_alpha158_score", None)
+            if qlib_sc is not None and qlib_sc <= -0.10:
                 score += 1.0
                 reasons.append(f"Microsoft Qlib Alpha158 Matrix quantitativ negativ ({qlib_sc:+.2f})")
 

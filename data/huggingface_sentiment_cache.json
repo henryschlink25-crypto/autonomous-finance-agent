@@ -1,6 +1,6 @@
 {
   "WHALE": {
-    "timestamp": 1793308198.1576352,
+    "timestamp": 1793310417.7683475,
     "data": {
       "symbol": "WHALE",
       "sentiment_label": "NEUTRAL",
@@ -15,11 +15,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:09:58Z"
+      "analyzed_at": "2026-10-29T21:46:57Z"
     }
   },
   "AMD": {
-    "timestamp": 1793308202.7756248,
+    "timestamp": 1793310419.6610785,
     "data": {
       "symbol": "AMD",
       "sentiment_label": "VERY_BULLISH",
@@ -36,11 +36,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:10:02Z"
+      "analyzed_at": "2026-10-29T21:46:59Z"
     }
   },
   "TECH": {
-    "timestamp": 1793308204.931582,
+    "timestamp": 1793310420.3270538,
     "data": {
       "symbol": "TECH",
       "sentiment_label": "NEUTRAL",
@@ -57,11 +57,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:10:04Z"
+      "analyzed_at": "2026-10-29T21:47:00Z"
     }
   },
   "NVDA": {
-    "timestamp": 1793308206.9167113,
+    "timestamp": 1793310421.0700333,
     "data": {
       "symbol": "NVDA",
       "sentiment_label": "NEUTRAL",
@@ -71,18 +71,18 @@
       "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
-        "GATX Corporation Q3 2026 Earnings Call Summary",
-        "Builders FirstSource, Inc. Q3 2026 Earnings Call Summary",
-        "AGCO Corporation Q3 2026 Earnings Call Summary"
+        "Altisource Portfolio Solutions S.A. Q3 2026 Earnings Call Summary",
+        "Xcel Energy Inc. Q3 2026 Earnings Call Summary",
+        "FTI Consulting, Inc. Q3 2026 Earnings Call Summary"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:10:06Z"
+      "analyzed_at": "2026-10-29T21:47:01Z"
     }
   },
   "PUMPBULL": {
-    "timestamp": 1793308209.325477,
+    "timestamp": 1793310422.0821412,
     "data": {
       "symbol": "PUMPBULL",
       "sentiment_label": "NEUTRAL",
@@ -97,11 +97,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:10:09Z"
+      "analyzed_at": "2026-10-29T21:47:02Z"
     }
   },
   "BHC": {
-    "timestamp": 1793308321.354655,
+    "timestamp": 1793310355.796259,
     "data": {
       "symbol": "BHC",
       "sentiment_label": "VERY_BULLISH",
@@ -118,7 +118,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:12:01Z"
+      "analyzed_at": "2026-10-29T21:45:55Z"
     }
   },
   "AAPL": {
@@ -185,7 +185,7 @@
     }
   },
   "GKOS": {
-    "timestamp": 1793308319.4678037,
+    "timestamp": 1793310355.2087219,
     "data": {
       "symbol": "GKOS",
       "sentiment_label": "NEUTRAL",
@@ -202,7 +202,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:11:59Z"
+      "analyzed_at": "2026-10-29T21:45:55Z"
     }
   },
   "ADT": {
@@ -248,7 +248,7 @@
     }
   },
   "NOW": {
-    "timestamp": 1793307720.4249868,
+    "timestamp": 1793309668.521993,
     "data": {
       "symbol": "NOW",
       "sentiment_label": "NEUTRAL",
@@ -265,11 +265,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:02:00Z"
+      "analyzed_at": "2026-10-29T21:34:28Z"
     }
   },
   "PRCH": {
-    "timestamp": 1793308175.2075677,
+    "timestamp": 1793310017.2455873,
     "data": {
       "symbol": "PRCH",
       "sentiment_label": "NEUTRAL",
@@ -286,11 +286,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:09:35Z"
+      "analyzed_at": "2026-10-29T21:40:17Z"
     }
   },
   "MESO": {
-    "timestamp": 1793307719.242949,
+    "timestamp": 1793309666.1811845,
     "data": {
       "symbol": "MESO",
       "sentiment_label": "VERY_BULLISH",
@@ -307,7 +307,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:01:59Z"
+      "analyzed_at": "2026-10-29T21:34:26Z"
     }
   },
   "INSM": {
@@ -332,7 +332,7 @@
     }
   },
   "CVNA": {
-    "timestamp": 1793307722.086454,
+    "timestamp": 1793309668.924624,
     "data": {
       "symbol": "CVNA",
       "sentiment_label": "NEUTRAL",
@@ -342,18 +342,18 @@
       "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
+        "Carvana (CVNA) Q3 Results Reignite The Valuation Debate",
         "Carvana Soars: A Key Metric Jumped Around 40% For The Eighth Quarter In A Row",
-        "Carvana Soars 9% on Record 217,000-Unit Quarter, Top-End EBITDA Outlook: “The Moat Is Widening”",
-        "Why Carvana (CVNA) stock is up today"
+        "Carvana Soars 9% on Record 217,000-Unit Quarter, Top-End EBITDA Outlook: “The Moat Is Widening”"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:02:02Z"
+      "analyzed_at": "2026-10-29T21:34:28Z"
     }
   },
   "NCLH": {
-    "timestamp": 1793307789.9824228,
+    "timestamp": 1793309668.1464798,
     "data": {
       "symbol": "NCLH",
       "sentiment_label": "VERY_BULLISH",
@@ -363,18 +363,18 @@
       "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
+        "Stock Market Today, Oct. 29: Norwegian Cruise Line Holdings Beats Q3 Estimates, Raises Full-Year Guidance",
         "Norwegian Cruise Line Soars After Beat-And-Raise Quarter",
-        "Norwegian Cruise Line (NCLH) Q3 2026 Earnings Call Transcript",
-        "Norwegian Cruise Lifts Outlook as Fares Slide: Rapid Earnings Reaction"
+        "Norwegian Cruise Line (NCLH) Q3 2026 Earnings Call Transcript"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:09Z"
+      "analyzed_at": "2026-10-29T21:34:28Z"
     }
   },
   "FTAI": {
-    "timestamp": 1793307721.176289,
+    "timestamp": 1793309666.6890826,
     "data": {
       "symbol": "FTAI",
       "sentiment_label": "NEUTRAL",
@@ -391,7 +391,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:02:01Z"
+      "analyzed_at": "2026-10-29T21:34:26Z"
     }
   },
   "TXT": {
@@ -458,24 +458,24 @@
     }
   },
   "GOOGL": {
-    "timestamp": 1793307800.4401085,
+    "timestamp": 1793309674.7211003,
     "data": {
       "symbol": "GOOGL",
-      "sentiment_label": "NEUTRAL",
-      "compound_score": 0.0,
-      "positive_prob": 0.2,
-      "negative_prob": 0.2,
-      "neutral_prob": 0.6,
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
       "headline_count": 5,
       "top_headlines": [
-        "Amazon's mixed Q3 earnings raises some questions",
+        "Amazon shares sink as it spends heavily on AI",
         "Dow Jones Futures: Amazon, Intel Lead Earnings Losers After Google, ServiceNow, Fortinet Hit Nasdaq",
-        "Stock Market Today: Nasdaq Breaks Streak On Alphabet's $500B Drop; Amazon Earnings Next"
+        "Amazon Third-Quarter Results Miss Views as AI Spending Drives Negative Cash Flow"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
-      "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:20Z"
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T21:34:34Z"
     }
   },
   "DRS": {
@@ -521,7 +521,7 @@
     }
   },
   "GEN": {
-    "timestamp": 1793307790.6150243,
+    "timestamp": 1793309667.1080284,
     "data": {
       "symbol": "GEN",
       "sentiment_label": "VERY_BULLISH",
@@ -538,11 +538,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:10Z"
+      "analyzed_at": "2026-10-29T21:34:27Z"
     }
   },
   "BOOT": {
-    "timestamp": 1793307792.3752928,
+    "timestamp": 1793309669.7798352,
     "data": {
       "symbol": "BOOT",
       "sentiment_label": "NEUTRAL",
@@ -559,7 +559,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:12Z"
+      "analyzed_at": "2026-10-29T21:34:29Z"
     }
   },
   "GVA": {
@@ -752,7 +752,7 @@
     }
   },
   "CAVA": {
-    "timestamp": 1793307799.7364645,
+    "timestamp": 1793309675.0625134,
     "data": {
       "symbol": "CAVA",
       "sentiment_label": "NEUTRAL",
@@ -769,7 +769,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:19Z"
+      "analyzed_at": "2026-10-29T21:34:35Z"
     }
   },
   "EPAC": {
@@ -836,7 +836,7 @@
     }
   },
   "IOVA": {
-    "timestamp": 1793307717.8300452,
+    "timestamp": 1793309665.4697177,
     "data": {
       "symbol": "IOVA",
       "sentiment_label": "NEUTRAL",
@@ -853,11 +853,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:01:57Z"
+      "analyzed_at": "2026-10-29T21:34:25Z"
     }
   },
   "DKI": {
-    "timestamp": 1793307793.2189798,
+    "timestamp": 1793309670.2590382,
     "data": {
       "symbol": "DKI",
       "sentiment_label": "VERY_BEARISH",
@@ -874,11 +874,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:13Z"
+      "analyzed_at": "2026-10-29T21:34:30Z"
     }
   },
   "GOOG": {
-    "timestamp": 1793307799.2021108,
+    "timestamp": 1793309673.9687204,
     "data": {
       "symbol": "GOOG",
       "sentiment_label": "NEUTRAL",
@@ -890,16 +890,16 @@
       "top_headlines": [
         "Alphabet drops 12% in deepening tech and semiconductor rout",
         "Dow Jones Futures: Amazon, Intel Lead Earnings Losers After Google, ServiceNow, Fortinet Hit Nasdaq",
-        "Stock Market Today: Nasdaq Breaks Streak On Alphabet's $500B Drop; Amazon Earnings Next"
+        "Update: US Equity Indexes Decline as Alphabet's Disappointing Earnings Decimate Communication Services"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:19Z"
+      "analyzed_at": "2026-10-29T21:34:33Z"
     }
   },
   "SES": {
-    "timestamp": 1793307796.317617,
+    "timestamp": 1793309672.3764806,
     "data": {
       "symbol": "SES",
       "sentiment_label": "VERY_BULLISH",
@@ -916,7 +916,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:16Z"
+      "analyzed_at": "2026-10-29T21:34:32Z"
     }
   },
   "BLDR": {
@@ -941,7 +941,7 @@
     }
   },
   "SOXS": {
-    "timestamp": 1793308320.6696973,
+    "timestamp": 1793310356.2399523,
     "data": {
       "symbol": "SOXS",
       "sentiment_label": "VERY_BULLISH",
@@ -958,7 +958,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:12:00Z"
+      "analyzed_at": "2026-10-29T21:45:56Z"
     }
   },
   "TDOC": {
@@ -983,7 +983,7 @@
     }
   },
   "LUNG": {
-    "timestamp": 1793308176.292525,
+    "timestamp": 1793310017.7651036,
     "data": {
       "symbol": "LUNG",
       "sentiment_label": "NEUTRAL",
@@ -1000,11 +1000,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:09:36Z"
+      "analyzed_at": "2026-10-29T21:40:17Z"
     }
   },
   "ALNY": {
-    "timestamp": 1793307788.74245,
+    "timestamp": 1793309667.7724762,
     "data": {
       "symbol": "ALNY",
       "sentiment_label": "NEUTRAL",
@@ -1014,18 +1014,18 @@
       "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
+        "Alnylam Pharmaceuticals, Inc. Q3 2026 Earnings Call Summary",
         "ALNY Stock Hits Fresh 52-Week Low On Medicare Access Worries And Pipeline Delays",
-        "Alnylam (ALNY) Q3 2026 Earnings Call Transcript",
-        "Alnylam Pharmaceuticals Q3 Earnings Call Highlights"
+        "Alnylam (ALNY) Q3 2026 Earnings Call Transcript"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:08Z"
+      "analyzed_at": "2026-10-29T21:34:27Z"
     }
   },
   "SFM": {
-    "timestamp": 1793307791.40233,
+    "timestamp": 1793309669.280242,
     "data": {
       "symbol": "SFM",
       "sentiment_label": "VERY_BEARISH",
@@ -1042,11 +1042,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:11Z"
+      "analyzed_at": "2026-10-29T21:34:29Z"
     }
   },
   "FTNT": {
-    "timestamp": 1793307795.5901666,
+    "timestamp": 1793309670.8804202,
     "data": {
       "symbol": "FTNT",
       "sentiment_label": "VERY_BEARISH",
@@ -1063,7 +1063,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:15Z"
+      "analyzed_at": "2026-10-29T21:34:30Z"
     }
   },
   "REPL": {
@@ -1088,7 +1088,7 @@
     }
   },
   "HLN": {
-    "timestamp": 1793307794.8809009,
+    "timestamp": 1793309672.8446352,
     "data": {
       "symbol": "HLN",
       "sentiment_label": "VERY_BEARISH",
@@ -1105,32 +1105,32 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:14Z"
+      "analyzed_at": "2026-10-29T21:34:32Z"
     }
   },
   "HAPN": {
-    "timestamp": 1793307798.7132347,
+    "timestamp": 1793309671.2437673,
     "data": {
       "symbol": "HAPN",
-      "sentiment_label": "VERY_BEARISH",
-      "compound_score": -0.72,
-      "positive_prob": 0.05,
-      "negative_prob": 0.77,
-      "neutral_prob": 0.18,
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
+        "Happen Bank ties 26% credit growth to home improvement loans",
         "Why Happen Bank (HAPN) stock is up today",
-        "Happen (HAPN) Q3 2026 Earnings Call Transcript",
-        "What LendingClub (LC) Said on Its Q3 Earnings Call"
+        "Happen (HAPN) Q3 2026 Earnings Call Transcript"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
-      "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:18Z"
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:34:31Z"
     }
   },
   "TE": {
-    "timestamp": 1793307793.9132,
+    "timestamp": 1793309671.735118,
     "data": {
       "symbol": "TE",
       "sentiment_label": "NEUTRAL",
@@ -1147,11 +1147,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:13Z"
+      "analyzed_at": "2026-10-29T21:34:31Z"
     }
   },
   "ADS.DE": {
-    "timestamp": 1793307807.830014,
+    "timestamp": 1793309679.0716176,
     "data": {
       "symbol": "ADS.DE",
       "sentiment_label": "VERY_BULLISH",
@@ -1168,11 +1168,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:27Z"
+      "analyzed_at": "2026-10-29T21:34:39Z"
     }
   },
   "BBAI": {
-    "timestamp": 1793307797.854127,
+    "timestamp": 1793309674.301152,
     "data": {
       "symbol": "BBAI",
       "sentiment_label": "NEUTRAL",
@@ -1189,11 +1189,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:17Z"
+      "analyzed_at": "2026-10-29T21:34:34Z"
     }
   },
   "PCT": {
-    "timestamp": 1793307804.751933,
+    "timestamp": 1793309678.2030394,
     "data": {
       "symbol": "PCT",
       "sentiment_label": "NEUTRAL",
@@ -1210,7 +1210,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:24Z"
+      "analyzed_at": "2026-10-29T21:34:38Z"
     }
   },
   "BLMN": {
@@ -1235,7 +1235,7 @@
     }
   },
   "CAPR": {
-    "timestamp": 1793307801.0154734,
+    "timestamp": 1793309675.8801997,
     "data": {
       "symbol": "CAPR",
       "sentiment_label": "NEUTRAL",
@@ -1252,11 +1252,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:21Z"
+      "analyzed_at": "2026-10-29T21:34:35Z"
     }
   },
   "JBLU": {
-    "timestamp": 1793307802.4456298,
+    "timestamp": 1793309676.7209554,
     "data": {
       "symbol": "JBLU",
       "sentiment_label": "VERY_BEARISH",
@@ -1273,7 +1273,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:22Z"
+      "analyzed_at": "2026-10-29T21:34:36Z"
     }
   },
   "VG": {
@@ -1319,7 +1319,7 @@
     }
   },
   "KLAC": {
-    "timestamp": 1793307803.6568062,
+    "timestamp": 1793309677.8067076,
     "data": {
       "symbol": "KLAC",
       "sentiment_label": "VERY_BULLISH",
@@ -1336,11 +1336,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:23Z"
+      "analyzed_at": "2026-10-29T21:34:37Z"
     }
   },
   "LLY": {
-    "timestamp": 1793307806.37468,
+    "timestamp": 1793309677.4652066,
     "data": {
       "symbol": "LLY",
       "sentiment_label": "NEUTRAL",
@@ -1357,11 +1357,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:26Z"
+      "analyzed_at": "2026-10-29T21:34:37Z"
     }
   },
   "WHR": {
-    "timestamp": 1793307801.8242,
+    "timestamp": 1793309676.328838,
     "data": {
       "symbol": "WHR",
       "sentiment_label": "VERY_BEARISH",
@@ -1378,11 +1378,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:21Z"
+      "analyzed_at": "2026-10-29T21:34:36Z"
     }
   },
   "UNIT": {
-    "timestamp": 1793307807.132861,
+    "timestamp": 1793309679.4557214,
     "data": {
       "symbol": "UNIT",
       "sentiment_label": "NEUTRAL",
@@ -1399,7 +1399,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:27Z"
+      "analyzed_at": "2026-10-29T21:34:39Z"
     }
   },
   "MRVL": {
@@ -1424,7 +1424,7 @@
     }
   },
   "FTRE": {
-    "timestamp": 1793307809.0957956,
+    "timestamp": 1793309679.9648535,
     "data": {
       "symbol": "FTRE",
       "sentiment_label": "NEUTRAL",
@@ -1441,11 +1441,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:29Z"
+      "analyzed_at": "2026-10-29T21:34:39Z"
     }
   },
   "FORM": {
-    "timestamp": 1793306789.2058334,
+    "timestamp": 1793309332.8300765,
     "data": {
       "symbol": "FORM",
       "sentiment_label": "VERY_BULLISH",
@@ -1455,14 +1455,14 @@
       "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
+        "FormFactor Sinks 12% Despite Record Quarter as Factory Nears “Capacity Limits”",
         "FormFactor's Q3 Earnings Beat Estimates, Revenues Increase Y/Y",
-        "FormFactor (FORM) Q3 2026 Earnings Call Transcript",
-        "What FormFactor (FORM) Said on Its Q3 Earnings Call"
+        "FormFactor (FORM) Q3 2026 Earnings Call Transcript"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:46:29Z"
+      "analyzed_at": "2026-10-29T21:28:52Z"
     }
   },
   "HONA": {
@@ -1529,7 +1529,7 @@
     }
   },
   "KPTI": {
-    "timestamp": 1793307797.0450723,
+    "timestamp": 1793309673.2647007,
     "data": {
       "symbol": "KPTI",
       "sentiment_label": "NEUTRAL",
@@ -1546,7 +1546,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:17Z"
+      "analyzed_at": "2026-10-29T21:34:33Z"
     }
   },
   "DBK.DE": {
@@ -1571,7 +1571,7 @@
     }
   },
   "ULCC": {
-    "timestamp": 1793307802.9984424,
+    "timestamp": 1793309675.5065475,
     "data": {
       "symbol": "ULCC",
       "sentiment_label": "NEUTRAL",
@@ -1588,7 +1588,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:22Z"
+      "analyzed_at": "2026-10-29T21:34:35Z"
     }
   },
   "AUR": {
@@ -1613,7 +1613,7 @@
     }
   },
   "SHOE": {
-    "timestamp": 1793307805.540118,
+    "timestamp": 1793309677.056126,
     "data": {
       "symbol": "SHOE",
       "sentiment_label": "NEUTRAL",
@@ -1630,11 +1630,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:25Z"
+      "analyzed_at": "2026-10-29T21:34:37Z"
     }
   },
   "FMC": {
-    "timestamp": 1793307809.8839924,
+    "timestamp": 1793310019.642558,
     "data": {
       "symbol": "FMC",
       "sentiment_label": "NEUTRAL",
@@ -1644,18 +1644,18 @@
       "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
+        "FMC: Q3 Earnings Snapshot",
         "FMC Corporation Reports Third-Quarter 2026 Results and Revised Fourth-Quarter Outlook",
-        "FMC Slashed Its Dividend Last Year. Why I Think Another Cut Is Coming in 2026.",
-        "Earnings Preview: FMC (FMC) Q3 Earnings Expected to Decline"
+        "FMC Slashed Its Dividend Last Year. Why I Think Another Cut Is Coming in 2026."
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:03:29Z"
+      "analyzed_at": "2026-10-29T21:40:19Z"
     }
   },
   "PINS": {
-    "timestamp": 1793307808.3807976,
+    "timestamp": 1793309678.662945,
     "data": {
       "symbol": "PINS",
       "sentiment_label": "VERY_BEARISH",
@@ -1665,14 +1665,14 @@
       "neutral_prob": 0.18,
       "headline_count": 5,
       "top_headlines": [
+        "Pinterest: Q3 Earnings Snapshot",
         "Pinterest (NYSE:PINS) misses Q3 2026 sales expectations, stock drops 14.2%",
-        "Pinterest Announces Third Quarter 2026 Results, Delivers 12% Revenue Growth and Record Users",
-        "35% Upside for Pinterest? KeyBanc Thinks So, and Here’s How"
+        "Pinterest Announces Third Quarter 2026 Results, Delivers 12% Revenue Growth and Record Users"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T21:03:28Z"
+      "analyzed_at": "2026-10-29T21:34:38Z"
     }
   }
 }

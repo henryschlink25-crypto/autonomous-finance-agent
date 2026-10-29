@@ -511,16 +511,36 @@ class DeterministicRiskManager:
         if is_penny:
             allowed_margin = min(allowed_margin, 500.0)
 
-        # 5c. Riskfolio-Lib Hierarchical Risk Parity (HRP) Allokations-Deckel
+        # 5c. Riskfolio-Lib Hierarchical Risk Parity (HRP) Allokations-Deckel & Autonome Überzeugungs-Allokation
         hrp_w = None
         hrp_cap = None
         try:
             from hrp_portfolio_optimizer import get_hrp_optimizer
             vol = getattr(snapshot, "volatility_annualized_pct", 25.0) or 25.0
-            hrp_w = round(float(np.clip((25.0 / max(10.0, vol)) * 0.18, 0.05, 0.30)), 4)
+            is_core = (
+                getattr(signal, "horizon", "") == "CORE_ETF"
+                or snapshot.cluster == "CORE_ETF"
+                or signal.symbol in ("SPY", "QQQ")
+            )
+            if is_core:
+                signal.horizon = "CORE_ETF"
+                signal.allocation_tier = "CORE_ANCHOR"
+
+            # Autonomer Überzeugungs-Multiplikator: Verhindert künstliche Kleinst-Allokationen ($40)
+            conv_boost = 1.0 + max(0.0, (signal.confidence - 0.70) * 1.5)
+            if is_core:
+                conv_boost *= 1.35  # Core-ETFs dürfen als stabiles Rückgrat größer allokiert werden (bis 35%)
+
+            # Autonome Allokations-Bandbreite: 15% bis 35% des Portfolios (auf $1.000 Konto: $150 bis $350)
+            hrp_w = round(float(np.clip((25.0 / max(10.0, vol)) * 0.22 * conv_boost, 0.15, 0.35)), 4)
             hrp_cap = round(total_equity_usd * hrp_w, 2)
             if hrp_cap > min_order:
+                target_alloc = min(hrp_cap, deployable_cash_usd, remaining_pos_capacity)
+                if not is_penny:
+                    allowed_margin = max(allowed_margin, target_alloc)
                 allowed_margin = min(allowed_margin, hrp_cap)
+            if is_penny:
+                allowed_margin = min(allowed_margin, 500.0)
             signal.hrp_recommended_weight = hrp_w
         except Exception:
             pass

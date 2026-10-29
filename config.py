@@ -99,6 +99,10 @@ class AgentConfig:
     min_activity_score_to_keep: float = 0.25
     dynamic_watchlist_file: str = os.path.join(os.path.dirname(__file__), "data", "dynamic_watchlist.json")
     watchlist: List[WatchlistItem] = field(default_factory=lambda: [
+        # 0. Langfristige Core-ETFs & Makro-Anker (Diversifikation & stetiger Vermögensaufbau)
+        WatchlistItem(symbol="SPY", yf_ticker="SPY", asset_class="EQUITY", cluster="CORE_ETF", name="SPDR S&P 500 ETF Trust (Core Anchor)"),
+        WatchlistItem(symbol="QQQ", yf_ticker="QQQ", asset_class="EQUITY", cluster="CORE_ETF", name="Invesco QQQ Trust (Nasdaq-100 Core Anchor)"),
+        WatchlistItem(symbol="TLT", yf_ticker="TLT", asset_class="EQUITY", cluster="SAFE_HAVEN", name="iShares 20+ Year Treasury Bond ETF", is_safe_haven=True),
         # 1. 3x Gehebelte Long- & Short-ETFs (US, Halbleiter, S&P 500, Biotech, China & Crash-Hedges)
         WatchlistItem(symbol="SOXL", yf_ticker="SOXL", asset_class="EQUITY", cluster="LEVERAGED_3X", name="3x Long Semiconductor ETF", intrinsic_leverage=3.0),
         WatchlistItem(symbol="TQQQ", yf_ticker="TQQQ", asset_class="EQUITY", cluster="LEVERAGED_3X", name="3x Long Nasdaq-100 ETF", intrinsic_leverage=3.0),

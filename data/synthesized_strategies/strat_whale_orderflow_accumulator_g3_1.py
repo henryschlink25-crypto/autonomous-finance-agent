@@ -2,7 +2,7 @@
 Synthetisierte Handelsstrategie: WhaleOrderflowAccumulator_Gen3_1
 Archetyp: WHALE_ORDERFLOW_ACCUMULATOR
 Hypothese: Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.
-Generiert am: 2026-10-29T20:42:20.828326
+Generiert am: 2026-10-29T22:44:47.785242
 """
 
 class WhaleOrderflowAccumulator_Gen3_1:
@@ -15,14 +15,14 @@ class WhaleOrderflowAccumulator_Gen3_1:
     
     def __init__(self):
         self.genes = {
-        "min_rvol": 1.567,
-        "min_change_pct": 1.017,
-        "max_rsi": 66.65,
-        "min_edge_score": 1.476,
-        "atr_sl_mult": 2.405,
-        "atr_tp_mult": 4.66,
+        "min_rvol": 1.659,
+        "min_change_pct": 1.103,
+        "max_rsi": 67.772,
+        "min_edge_score": 1.461,
+        "atr_sl_mult": 2.232,
+        "atr_tp_mult": 4.591,
         "time_stop_days": 6,
-        "penny_max_price": 836.054
+        "penny_max_price": 1048.918
 }
 
     def evaluate_entry(self, snapshot, macro=None) -> dict:

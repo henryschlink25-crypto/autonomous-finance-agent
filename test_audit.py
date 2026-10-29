@@ -2669,7 +2669,93 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 56 bestanden: Smart Recovery Evaluator, Rebound Defense, Hard Emergency Stop, Sub-Agent #42 & Dialekt-Token.")
 
-    print("=== Alle 56 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158- & Smart-Recovery-Evaluator-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 57: Autonome Diversifikation, Core-ETF Vermögensanker, Dynamische Allokation & Sub-Agent #43
+        # ============================================================================
+        # 1. Teste Watchlist-Erweiterung (SPY, QQQ, TLT vorhanden)
+        cfg_dyn = AgentConfig()
+        cfg_dyn.execution_mode = "LOCAL_PAPER"
+        cfg_dyn.enforce_market_hours = False
+        symbols_in_wl = [w.symbol for w in cfg_dyn.watchlist]
+        assert "SPY" in symbols_in_wl, "SPY muss als Core-ETF in der Watchlist sein"
+        assert "QQQ" in symbols_in_wl, "QQQ muss als Core-ETF in der Watchlist sein"
+        assert "TLT" in symbols_in_wl, "TLT muss als Safe-Haven-Anker in der Watchlist sein"
+
+        # 2. Teste dynamische Allokation auf 1.000$ Konto (Verhindert starre 40$-Kleinst-Deckel)
+        rm_dyn = DeterministicRiskManager(cfg_dyn)
+        snap_spy = dummy_snap.model_copy(update={
+            "symbol": "SPY",
+            "name": "SPDR S&P 500 ETF",
+            "cluster": "CORE_ETF",
+            "current_price": 580.0,
+            "volatility_annualized_pct": 14.0,  # Geringe Volatilität
+            "change_24h_pct": 0.5,
+            "rsi_14": 52.0,
+            "sma_20": 575.0,
+            "sma_50": 565.0,
+        })
+        sig_spy = sig_apex_high.model_copy(update={
+            "symbol": "SPY",
+            "action": "BUY",
+            "confidence": 0.88,
+            "entry_price": 580.0,
+            "stop_loss_price": 565.0,
+            "take_profit_price": 610.0,
+            "thesis": "Core-ETF Vermögensanker im gesunden Aufwärtstrend",
+            "asset_class": "EQUITY",
+            "cluster": "CORE_ETF",
+            "horizon": "CORE_ETF",
+        })
+        eval_spy = rm_dyn.evaluate_signal(
+            signal=sig_spy,
+            snapshot=snap_spy,
+            macro=green_macro,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_spy.approved, f"Core-ETF muss genehmigt werden: {eval_spy.reason}"
+        # Allokation muss autonom im substanziellen Bereich liegen (mind. 150$, bis 350$), niemals auf 40$ kastriert
+        assert eval_spy.margin_required_usd >= 150.0, f"Margin für Core-ETF muss >= 150$ sein, erhalten: {eval_spy.margin_required_usd}$"
+        assert eval_spy.margin_required_usd <= 350.0, f"Margin für Core-ETF muss <= 350$ sein, erhalten: {eval_spy.margin_required_usd}$"
+
+        # 3. Teste Core-ETF Haltedauer (Kein vorzeitiger 5-Tage Time-Stop für langfristige Core-Holdings)
+        pos_core_spy = Position(
+            symbol="SPY",
+            asset_class="EQUITY",
+            cluster="CORE_ETF",
+            quantity=0.5,
+            avg_entry_price=580.0,
+            current_price=582.0,
+            stop_loss_price=555.0,
+            take_profit_price=620.0,
+            opened_at="2026-10-01T14:00:00",  # Vor > 25 Tagen eröffnet
+            horizon="CORE_ETF",
+        )
+        engine_core = MultiAssetExecutionEngine(cfg_dyn)
+        engine_core.positions["SPY"] = pos_core_spy
+        snap_spy_stale = snap_spy.model_copy(update={"macd_hist": -0.2})
+        events_core = engine_core.update_prices_and_check_stops({"SPY": snap_spy_stale})
+        assert "SPY" in engine_core.positions, "Core-ETF darf nicht durch 5-Tage Time-Stop liquidiert werden!"
+        assert not any("TIME_STOP_STALE" in e for e in events_core)
+
+        # 4. Teste Sub-Agent #43 (autonomous_portfolio_rebalancer) & Dialekt
+        adas_dyn = ADASMetaAgent()
+        assert "autonomous_portfolio_rebalancer" in adas_dyn.state.active_subagents, "Sub-Agent #43 muss aktiv sein"
+        assert len(adas_dyn.state.active_subagents) >= 43, f"Schwarm muss mindestens 43 Spezialisten umfassen, aktuell: {len(adas_dyn.state.active_subagents)}"
+
+        deal_core = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_spy,
+            signal=sig_spy,
+            macro=green_macro,
+            risk_evaluation=eval_spy,
+        )
+        assert "🏛️:CORE_ETF_ANCHOR" in deal_core.dialect_sentence, f"Dialekt muss 🏛️:CORE_ETF_ANCHOR enthalten: {deal_core.dialect_sentence}"
+
+        print(f"[OK] Test 57 bestanden: Autonome Diversifikation, Core-ETF Vermögensanker, Dynamische Allokation & Sub-Agent #43.")
+
+    print("=== Alle 57 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator- & Autonomous-Diversification-Tests erfolgreich bestanden! ===")
 
 
 

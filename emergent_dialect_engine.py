@@ -396,6 +396,17 @@ class EmergentDialectEngine:
             self._ensure_token("🛡️:SMART_RECOVERY_DEFENSE", "DEFENSE", f"Hohes Erholungspotenzial – Rebound-Zone aktiv (RSI {rsi_val:.1f})")
             tokens_used.append(t)
 
+        # X. Autonomous Horizon & Dynamic Allocation (Sub-Agent #43)
+        is_core = snapshot.cluster in ("CORE_ETF", "SAFE_HAVEN") or snapshot.symbol in ("SPY", "QQQ", "GLD", "TLT")
+        if is_core:
+            t = f"🏛️:CORE_ETF_ANCHOR[{snapshot.symbol}]"
+            self._ensure_token("🏛️:CORE_ETF_ANCHOR", "ALLOCATION", f"Langfristiger Core-ETF Vermögensanker ({snapshot.symbol})")
+            tokens_used.append(t)
+        elif snapshot.change_24h_pct >= 1.5:
+            t = f"⚡:TACTICAL_ALPHA_MOMENTUM[{snapshot.symbol}]"
+            self._ensure_token("⚡:TACTICAL_ALPHA_MOMENTUM", "ALLOCATION", f"Kurzfristige Alpha-Opportunität ({snapshot.symbol})")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

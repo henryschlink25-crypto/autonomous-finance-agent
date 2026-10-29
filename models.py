@@ -236,6 +236,8 @@ class TradingSignal(BaseModel):
     # Externe Bestätigungen & Riskfolio HRP
     tradingview_confirmed: bool = False
     hrp_recommended_weight: Optional[float] = None
+    horizon: str = "TACTICAL"  # "TACTICAL" (kurzfristig) oder "CORE_ETF" (langfristig)
+    allocation_tier: str = "DYNAMIC"
 
     def model_post_init(self, __context) -> None:
         if self.partial_take_profit_price <= 0 and self.take_profit_price > self.entry_price:
@@ -286,6 +288,7 @@ class Position(BaseModel):
     hard_stop_loss_price: float = 0.0
     recovery_shield_active: bool = False
     recovery_score: float = 0.0
+    horizon: str = "TACTICAL"  # "TACTICAL" (kurzfristig) oder "CORE_ETF" (langfristig)
 
     def model_post_init(self, __context) -> None:
         if self.hard_stop_loss_price <= 0:

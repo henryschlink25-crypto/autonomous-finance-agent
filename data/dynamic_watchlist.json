@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-29T21:27:49",
-  "scan_cycle": 240,
-  "total_scanned_count": 85,
+  "updated_at": "2026-10-29T21:47:20",
+  "scan_cycle": 248,
+  "total_scanned_count": 90,
   "hot_action_count": 2,
-  "watch_closely_count": 11,
+  "watch_closely_count": 16,
   "discarded_count": 0,
   "hot_action_highlights": [
     "ADT (Live-Screener, Move +33.2%, Vol 10.8x, 5d +41.2%, RS +33.6% vs SPY)",
@@ -16,6 +16,7 @@
     "CROX (🚀 Aus Watch-Queue gezündet, Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY)"
   ],
   "promoted_from_watch": [
+    "NOW (🚀 Aus 'Weiterbeobachten' gezündet: Move -26.9%, Vol 4.8x, 5d -30.1%)",
     "IOVA (🚀 Aus 'Weiterbeobachten' gezündet: Move -35.4%, Vol 4.2x, 5d -32.4%)",
     "PURR (🚀 Aus 'Weiterbeobachten' gezündet: Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)",
     "BHC (🚀 Aus 'Weiterbeobachten' gezündet: Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY)",
@@ -24,8 +25,7 @@
     "FTAI (🚀 Aus 'Weiterbeobachten' gezündet: Move +17.3%, Vol 1.8x, 5d +24.5%, RS +17.7% vs SPY)",
     "MESO (🚀 Aus 'Weiterbeobachten' gezündet: Move +17.0%, Vol 2.3x, 5d +24.9%, RS +17.4% vs SPY)",
     "TDOC (🚀 Aus 'Weiterbeobachten' gezündet: Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY)",
-    "LUNG (🚀 Aus 'Weiterbeobachten' gezündet: Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)",
-    "ALNY (🚀 Aus 'Weiterbeobachten' gezündet: Move -25.1%, Vol 6.2x, 5d -23.4%)"
+    "LUNG (🚀 Aus 'Weiterbeobachten' gezündet: Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)"
   ],
   "watch_closely_queue": {
     "BHC": {
@@ -37,7 +37,7 @@
       "activity_score": 58.6,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "LUNG": {
       "symbol": "LUNG",
@@ -48,7 +48,7 @@
       "activity_score": 56.52,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "TDOC": {
       "symbol": "TDOC",
@@ -59,7 +59,7 @@
       "activity_score": 49.94,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "PRCH": {
       "symbol": "PRCH",
@@ -70,7 +70,7 @@
       "activity_score": 46.72,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "PURR": {
       "symbol": "PURR",
@@ -81,7 +81,7 @@
       "activity_score": 45.6,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "CROX": {
       "symbol": "CROX",
@@ -92,7 +92,7 @@
       "activity_score": 44.9,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "IOVA": {
       "symbol": "IOVA",
@@ -103,7 +103,7 @@
       "activity_score": 34.22,
       "reason": "🚀 Aus Watch-Queue gezündet, Move -35.4%, Vol 4.2x, 5d -32.4%",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "MESO": {
       "symbol": "MESO",
@@ -114,7 +114,7 @@
       "activity_score": 31.15,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +17.0%, Vol 2.3x, 5d +24.9%, RS +17.4% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "FTAI": {
       "symbol": "FTAI",
@@ -125,18 +125,73 @@
       "activity_score": 30.63,
       "reason": "🚀 Aus Watch-Queue gezündet, Move +17.3%, Vol 1.8x, 5d +24.5%, RS +17.7% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
-    "NOW": {
-      "symbol": "NOW",
-      "yf_ticker": "NOW",
+    "ALNY": {
+      "symbol": "ALNY",
+      "yf_ticker": "ALNY",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "ServiceNow, Inc. (⚡ Reversal/Short)",
-      "activity_score": 30.23,
-      "reason": "Live-Screener, Move -26.9%, Vol 4.8x, 5d -30.1%",
+      "name": "Alnylam Pharmaceuticals, Inc (⚡ Reversal/Short)",
+      "activity_score": 29.78,
+      "reason": "Live-Screener, Move -25.1%, Vol 6.2x, 5d -23.4%",
       "last_price": 0.0,
       "cycles_watched": 1
+    },
+    "ALV.DE": {
+      "symbol": "ALV.DE",
+      "yf_ticker": "ALV.DE",
+      "asset_class": "EQUITY",
+      "cluster": "EU_LEADERS",
+      "name": "Allianz SE (Xetra Insurance)",
+      "activity_score": 1.08,
+      "reason": "Aufbau +1.0%, Vol-Anstieg 1.25x, Knapp unter 20d-High",
+      "last_price": 439.6,
+      "cycles_watched": 3
+    },
+    "HOOD": {
+      "symbol": "HOOD",
+      "yf_ticker": "HOOD",
+      "asset_class": "EQUITY",
+      "cluster": "HIGH_BETA",
+      "name": "Robinhood Markets",
+      "activity_score": 1.03,
+      "reason": "5d -5.2%",
+      "last_price": 91.59,
+      "cycles_watched": 3
+    },
+    "UBER": {
+      "symbol": "UBER",
+      "yf_ticker": "UBER",
+      "asset_class": "EQUITY",
+      "cluster": "HIGH_BETA",
+      "name": "Uber Technologies",
+      "activity_score": 0.96,
+      "reason": "5d -4.8%",
+      "last_price": 65.74,
+      "cycles_watched": 3
+    },
+    "ISRG": {
+      "symbol": "ISRG",
+      "yf_ticker": "ISRG",
+      "asset_class": "EQUITY",
+      "cluster": "VALUE_CYCLICAL",
+      "name": "Intuitive Surgical (MedTech Robotics)",
+      "activity_score": 0.84,
+      "reason": "Aufbau +1.0%, Knapp unter 20d-High",
+      "last_price": 448.76,
+      "cycles_watched": 3
+    },
+    "USO": {
+      "symbol": "USO",
+      "yf_ticker": "USO",
+      "asset_class": "EQUITY",
+      "cluster": "VALUE_CYCLICAL",
+      "name": "United States Oil Fund (WTI Crude)",
+      "activity_score": 0.82,
+      "reason": "Aufbau +1.0%, Knapp unter 20d-High",
+      "last_price": 168.19,
+      "cycles_watched": 3
     },
     "XOM": {
       "symbol": "XOM",
@@ -147,7 +202,7 @@
       "activity_score": 0.45,
       "reason": "Knapp unter 20d-High",
       "last_price": 183.29,
-      "cycles_watched": 3
+      "cycles_watched": 2
     }
   },
   "discarded_symbols": []

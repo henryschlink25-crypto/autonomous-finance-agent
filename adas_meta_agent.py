@@ -843,6 +843,16 @@ class ADASMetaArchitect:
                 trust_weight=1.30,
             ))
 
+        # 30. Autonomous Portfolio Allocator & Horizon Strategist (Sub-Agent #43)
+        if "autonomous_portfolio_rebalancer" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="autonomous_portfolio_rebalancer",
+                name="🌐 Autonomous Portfolio Allocator & Horizon Strategist",
+                role="Entscheidet autonom über Diversifikation und Allokation (langfristige Core-ETFs wie SPY/QQQ/GLD vs. kurzfristige Momentum-Chancen) und steuert dynamische Verkäufe ohne starre Grenzen.",
+                specialty_focus="DYNAMIC_ALLOCATION",
+                trust_weight=1.35,
+            ))
+
         return new_specs
 
 
@@ -2058,6 +2068,40 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.40
                 rationale = f"Smart Recovery Auditor neutral ({e})"
+
+        elif focus == "DYNAMIC_ALLOCATION":
+            try:
+                is_core = snap.cluster in ("CORE_ETF", "SAFE_HAVEN") or snap.symbol in ("SPY", "QQQ", "GLD", "TLT")
+                is_bullish_trend = snap.current_price >= getattr(snap, "sma_50", 0.0) and snap.sma_50 >= getattr(snap, "sma_200", 0.0)
+                is_overheated = getattr(snap, "rsi_14", 50.0) >= 76.0
+
+                s_core_anchor = rec.flag("Core ETF Anchor Bullish", is_core and is_bullish_trend, "bull")
+                s_tactical_momentum = rec.flag("Tactical Momentum", not is_core and snap.macd_hist > 0 and snap.change_24h_pct > 0, "bull")
+                s_take_profit = rec.flag("Overheated Exit Signal", is_overheated, "bear")
+
+                if s_take_profit.passed:
+                    score = -0.70
+                    conf = 0.85
+                    rationale = f"🌐 Autonomer Exit: {snap.symbol} überhitzt (RSI {snap.rsi_14:.1f}) – Gewinne sichern / umschichten."
+                    decisive_idx = rec.idx(s_take_profit)
+                elif s_core_anchor.passed:
+                    score = 0.85
+                    conf = 0.90
+                    rationale = f"🌐 Core-ETF Allokation: {snap.symbol} als langfristiger Vermögensanker im Aufwärtstrend empfohlen."
+                    decisive_idx = rec.idx(s_core_anchor)
+                elif s_tactical_momentum.passed:
+                    score = 0.72
+                    conf = 0.82
+                    rationale = f"🌐 Taktische Allokation: {snap.symbol} bietet kurzfristiges Alpha-Momentum."
+                    decisive_idx = rec.idx(s_tactical_momentum)
+                else:
+                    score = 0.15
+                    conf = 0.60
+                    rationale = "Ausgewogene Allokation – Marktneutral."
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Allokations-Stratege neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

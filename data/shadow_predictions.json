@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T21:23:21",
+  "updated_at": "2026-10-29T21:46:05",
   "active": {
     "NOW": {
       "prediction_id": "NOW_2026-10-29T21:17:40",
@@ -611,18 +611,18 @@
       }
     },
     "TDOC": {
-      "prediction_id": "TDOC_2026-10-29T21:09:40",
-      "opened_at": "2026-10-29T21:09:40",
+      "prediction_id": "TDOC_2026-10-29T21:28:56",
+      "opened_at": "2026-10-29T21:28:56",
       "symbol": "TDOC",
       "asset_class": "EQUITY",
-      "predicted_action": "SELL",
-      "confidence": 0.79,
+      "predicted_action": "HOLD",
+      "confidence": 0.55,
       "was_executed": false,
-      "execution_note": "SKIPPED (BÖRSENZEITEN-SCHUTZ: NYSE/Nasdaq geschlossen (NY: 17:09 ",
+      "execution_note": "SKIPPED (⏸️ ABWARTEN: Kein erstklassiges A+ Setup – Cash bleibt g",
       "entry_price": 8.73,
       "current_price": 8.73,
-      "target_price": 7.895,
-      "invalidation_price": 9.6485,
+      "target_price": 9.6485,
+      "invalidation_price": 7.8115,
       "directional_return_pct": -0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
@@ -634,7 +634,7 @@
         "volume": 0.134,
         "fundamentals": -0.167,
         "news_sentiment": -0.252,
-        "options_flow": 0.0,
+        "options_flow": 0.212,
         "cross_asset_lead_lag": 0.27,
         "intraday_vwap_rs": -0.166
       }
@@ -1104,8 +1104,8 @@
       }
     },
     "KPTI": {
-      "prediction_id": "KPTI_2026-10-29T20:28:09",
-      "opened_at": "2026-10-29T20:28:09",
+      "prediction_id": "KPTI_2026-10-29T21:46:02",
+      "opened_at": "2026-10-29T21:46:02",
       "symbol": "KPTI",
       "asset_class": "EQUITY",
       "predicted_action": "HOLD",
@@ -1116,18 +1116,18 @@
       "current_price": 0.8798,
       "target_price": 1.1447,
       "invalidation_price": 0.6149,
-      "directional_return_pct": -0.0,
+      "directional_return_pct": 0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",
       "lesson_learned": "",
       "factor_contributions": {
         "trend": 0.0,
-        "momentum": 0.228,
+        "momentum": 0.234,
         "volume": 0.134,
-        "fundamentals": -0.174,
+        "fundamentals": -0.167,
         "news_sentiment": 0.0,
-        "options_flow": 0.166,
+        "options_flow": 0.159,
         "cross_asset_lead_lag": 0.0,
         "intraday_vwap_rs": 0.147
       }
@@ -1220,19 +1220,19 @@
       }
     },
     "FMC": {
-      "prediction_id": "FMC_2026-10-29T21:23:15",
-      "opened_at": "2026-10-29T21:23:15",
+      "prediction_id": "FMC_2026-10-29T21:40:20",
+      "opened_at": "2026-10-29T21:40:20",
       "symbol": "FMC",
       "asset_class": "EQUITY",
       "predicted_action": "SELL",
       "confidence": 0.89,
       "was_executed": false,
-      "execution_note": "SKIPPED (BÖRSENZEITEN-SCHUTZ: NYSE/Nasdaq geschlossen (NY: 17:23 ",
+      "execution_note": "SKIPPED (BÖRSENZEITEN-SCHUTZ: NYSE/Nasdaq geschlossen (NY: 17:40 ",
       "entry_price": 4.75,
       "current_price": 4.75,
       "target_price": 3.5664,
       "invalidation_price": 6.052,
-      "directional_return_pct": 0.0,
+      "directional_return_pct": -0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",
@@ -1248,19 +1248,19 @@
         "intraday_vwap_rs": 0.0
       }
     },
-    "BBD": {
-      "prediction_id": "BBD_2026-10-29T21:23:15",
-      "opened_at": "2026-10-29T21:23:15",
-      "symbol": "BBD",
+    "FORM": {
+      "prediction_id": "FORM_2026-10-29T21:46:04",
+      "opened_at": "2026-10-29T21:46:04",
+      "symbol": "FORM",
       "asset_class": "EQUITY",
-      "predicted_action": "SELL",
-      "confidence": 0.83,
+      "predicted_action": "HOLD",
+      "confidence": 0.52,
       "was_executed": false,
-      "execution_note": "SKIPPED (BÖRSENZEITEN-SCHUTZ: NYSE/Nasdaq geschlossen (NY: 17:23 ",
-      "entry_price": 2.63,
-      "current_price": 2.63,
-      "target_price": 2.1866,
-      "invalidation_price": 3.1177,
+      "execution_note": "SKIPPED (⏸️ ABWARTEN: Kein erstklassiges A+ Setup – Cash bleibt g",
+      "entry_price": 97.46,
+      "current_price": 97.46,
+      "target_price": 117.4279,
+      "invalidation_price": 77.4921,
       "directional_return_pct": 0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
@@ -1270,11 +1270,11 @@
         "trend": 0.0,
         "momentum": -0.195,
         "volume": 0.0,
-        "fundamentals": 0.149,
-        "news_sentiment": -0.252,
-        "options_flow": -0.177,
+        "fundamentals": 0.0,
+        "news_sentiment": 0.233,
+        "options_flow": 0.0,
         "cross_asset_lead_lag": 0.0,
-        "intraday_vwap_rs": -0.147
+        "intraday_vwap_rs": -0.166
       }
     }
   },
