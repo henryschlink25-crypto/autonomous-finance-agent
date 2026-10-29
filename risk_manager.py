@@ -281,13 +281,19 @@ class DeterministicRiskManager:
         # Im Paper-Trading wird experimentiert; im Live-Trading werden NUR die gewinnreichsten A+ Spitzen-Aktionen gestartet!
         if self.config.is_live_trading:
             min_conf = max(min_conf, 0.80)
-            min_edge = max(min_edge, 1.55)
-            min_rr = max(min_rr, 2.2)
+            min_edge = max(min_edge, 1.50)
 
-            # 1. Tier 1 Alpha oder außergewöhnliche Schwarm-Konvergenz verpflichtend
+            # Dynamisches R:R: Bei extrem hoher Schwarm-Konfidenz (>= 92%) reicht R:R >= 1.65:1,
+            # da die empirische Win-Rate überproportional hoch ist; ansonsten gilt strenges R:R >= 2.0:1
+            if signal.confidence >= 0.92:
+                min_rr = max(min_rr, 1.65)
+            else:
+                min_rr = max(min_rr, 2.0)
+
+            # 1. Tier 1 Alpha oder außergewöhnliche Schwarm-Konvergenz (Apex-Setup)
             cio_tier = getattr(signal, "cio_conviction_tier", "")
             is_tier_1 = cio_tier == "TIER_1_ALPHA_HIGH_CONVICTION"
-            is_apex = (signal.confidence >= 0.82 and signal.expected_edge_score >= 1.60)
+            is_apex = (signal.confidence >= 0.85 and signal.expected_edge_score >= 1.50)
             if not (is_tier_1 or is_apex):
                 return RiskEvaluation(
                     approved=False,

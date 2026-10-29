@@ -859,7 +859,13 @@ class TelegramCommandListener:
     def _handle_update(self) -> None:
         self.send_message("🔄 <i>Starte autonomes Update: Ziehe neusten Code von GitHub (origin/main)...</i>")
         try:
-            # 1. Sicherheitskonfiguration für git in Docker
+            import os
+            import sys
+            import subprocess
+            import time
+            from pathlib import Path
+
+            # 1. Sicherheitskonfiguration für git in Docker / Windows
             subprocess.run(["git", "config", "--global", "--add", "safe.directory", "*"], capture_output=True, text=True, timeout=10)
 
             # 2. Lokale dynamische Änderungen an getrackten Dateien verwerfen, damit merge niemals blockiert
@@ -881,12 +887,20 @@ class TelegramCommandListener:
                     f"🔄 <i>Der Bot führt jetzt einen sofortigen Neustart durch...</i>"
                 )
                 time.sleep(2.0)
-                # WICHTIG: os._exit(0) / os.execv beendet den gesamten Python-Prozess (nicht nur den Thread!),
-                # sodass Docker Compose (restart: unless-stopped) oder systemd sofort neu startet.
+
+                # Wenn unter Watchdog-Aufsicht: Exit-Code 42 signalisiert dem Watchdog sofortigen Neustart mit neuem Code
+                if os.environ.get("SUPERVISED_BY_WATCHDOG") == "1":
+                    os._exit(42)
+
+                # Standalone-Betrieb: Starte neuen Prozess und beende alten sauber
                 try:
-                    os.execv(sys.executable, [sys.executable] + sys.argv)
-                except Exception:
+                    subprocess.Popen([sys.executable] + sys.argv, cwd=str(Path(__file__).resolve().parent))
                     os._exit(0)
+                except Exception:
+                    try:
+                        os.execv(sys.executable, [sys.executable] + sys.argv)
+                    except Exception:
+                        os._exit(0)
             else:
                 self.send_message(
                     f"⚠️ <b>Git Pull mit Warnung / Fehler beendet (Exit-Code {res.returncode}):</b>\n\n"

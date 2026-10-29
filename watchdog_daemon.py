@@ -57,9 +57,21 @@ def main() -> None:
     while True:
         try:
             print(f"\n[Watchdog] Starte Trading-Agent (Lauf #{restart_count + 1})...")
-            proc = subprocess.Popen(cmd, cwd=str(project_dir))
+            env = os.environ.copy()
+            env["SUPERVISED_BY_WATCHDOG"] = "1"
+            proc = subprocess.Popen(cmd, cwd=str(project_dir), env=env)
             proc.wait()
             rc = proc.returncode
+
+            # Wenn ein Update angefordert wurde (Exit-Code 42), sofort neu starten
+            if rc == 42:
+                print(f"[Watchdog] Code-Update erfolgreich eingespielt. Starte Agent sofort mit neuem Code neu...")
+                send_telegram_alert(
+                    "🔄 <b>Watchdog Supervisor:</b>\n\n"
+                    "Neuer Code von GitHub wurde erfolgreich geladen. Der Trading-Agent startet jetzt frisch neu!"
+                )
+                time.sleep(1.0)
+                continue
 
             # Wenn der Prozess manuell mit Exit 0 beendet wurde, respektieren wir das
             if rc == 0:

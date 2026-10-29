@@ -86,8 +86,8 @@ class AgentConfig:
     # - Aktien ohne interessante Aktivität (kein Volumen-Schub, kein Momentum, keine News) werden automatisch aussortiert!
     # - Dafür scannt der Agent live den Gesamtmarkt nach aktuellen Ausbrechern (" Stocks in Play").
     enable_dynamic_anomaly_scanner: bool = True
-    max_dynamic_anomaly_tickers: int = 25
-    max_active_watchlist_size: int = int(os.getenv("MAX_ACTIVE_WATCHLIST_SIZE", "24"))
+    max_dynamic_anomaly_tickers: int = 36
+    max_active_watchlist_size: int = int(os.getenv("MAX_ACTIVE_WATCHLIST_SIZE", "28"))
     min_activity_score_to_keep: float = 0.25
     dynamic_watchlist_file: str = os.path.join(os.path.dirname(__file__), "data", "dynamic_watchlist.json")
     watchlist: List[WatchlistItem] = field(default_factory=lambda: [
@@ -179,6 +179,8 @@ class AgentConfig:
         WatchlistItem(symbol="CCJ", yf_ticker="CCJ", asset_class="EQUITY", cluster="VALUE_CYCLICAL", name="Cameco Corp. (Uranium & Nuclear)"),
         WatchlistItem(symbol="FCX", yf_ticker="FCX", asset_class="EQUITY", cluster="VALUE_CYCLICAL", name="Freeport-McMoRan (Copper)"),
         WatchlistItem(symbol="XOM", yf_ticker="XOM", asset_class="EQUITY", cluster="VALUE_CYCLICAL", name="Exxon Mobil Corp. (Energy)"),
+        WatchlistItem(symbol="CVX", yf_ticker="CVX", asset_class="EQUITY", cluster="VALUE_CYCLICAL", name="Chevron Corp. (Energy)"),
+        WatchlistItem(symbol="XLE", yf_ticker="XLE", asset_class="EQUITY", cluster="VALUE_CYCLICAL", name="Energy Select Sector SPDR Fund"),
         # 7. Rohstoffe & Safe-Haven Hedges (3)
         WatchlistItem(symbol="GLD", yf_ticker="GLD", asset_class="EQUITY", cluster="SAFE_HAVEN", name="SPDR Gold Trust (Safe Haven)", is_safe_haven=True),
         WatchlistItem(symbol="SLV", yf_ticker="SLV", asset_class="EQUITY", cluster="SAFE_HAVEN", name="iShares Silver Trust", is_safe_haven=True),

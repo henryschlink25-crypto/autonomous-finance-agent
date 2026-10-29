@@ -2,7 +2,7 @@ import datetime
 import json
 import os
 import urllib.parse
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -150,10 +150,48 @@ class MultiAssetDataCollector:
                         )
                         seen.add(sym)
                         if len(discovered) >= max_additions:
-                            return discovered
+                            break
 
             except Exception:
                 continue
+
+        # 2. Sektor-Rotations-Leader der stärksten US-Branchen (Energy, Defense, Industrials, etc.) dynamisch einbinden
+        try:
+            from sector_momentum_expander import SectorMomentumExpander
+            sector_radar = SectorMomentumExpander()
+            sec_snap = sector_radar.scan_sector_rotation()
+            for hot_sym in sec_snap.recommended_hot_stocks:
+                if hot_sym not in seen and len(discovered) < max_additions:
+                    discovered.append(
+                        WatchlistItem(
+                            symbol=hot_sym,
+                            yf_ticker=hot_sym,
+                            asset_class="EQUITY",
+                            cluster="DYNAMIC_MARKET",
+                            name=f"{hot_sym} (👑 Sector Leader: {sec_snap.top_alpha_sector})",
+                            intrinsic_leverage=1.0,
+                        )
+                    )
+                    seen.add(hot_sym)
+        except Exception:
+            pass
+
+        # 3. Inverse Absicherungs-ETFs (SOXS, SQQQ) immer im Scanner bereithalten
+        for inv, inv_name in [("SOXS", "3x Short Semiconductor"), ("SQQQ", "3x Short Nasdaq")]:
+            if inv not in seen and len(discovered) < max_additions:
+                discovered.append(
+                    WatchlistItem(
+                        symbol=inv,
+                        yf_ticker=inv,
+                        asset_class="EQUITY",
+                        cluster="SAFE_HAVEN",
+                        name=f"{inv} (🛡️ {inv_name})",
+                        intrinsic_leverage=3.0,
+                        is_safe_haven=True,
+                    )
+                )
+                seen.add(inv)
+
         return discovered
 
     def filter_active_stocks_in_play(
@@ -161,6 +199,7 @@ class MultiAssetDataCollector:
         candidate_pool: List[WatchlistItem],
         open_position_symbols: set,
         max_active: int = 24,
+        snapshots: Optional[Dict[str, Any]] = None,
     ) -> Tuple[List[WatchlistItem], List[str], List[str]]:
         """
         Dynamischer 3-Zonen Markt- & Options-Trichter ("120+ Werte checken -> Sofort-Action vs. Weiterbeobachten vs. Weitergucken"):
@@ -187,12 +226,12 @@ class MultiAssetDataCollector:
                 prev_watch_queue = {}
 
         dynamic_movers = self.discover_market_anomalies(
-            existing_symbols={w.symbol for w in candidate_pool},
+            existing_symbols={w.symbol if hasattr(w, "symbol") else str(w) for w in candidate_pool},
             max_additions=24,
         )
 
         # Stelle sicher, dass auch vorherige 'Weiterbeobachten'-Aktien aus früheren Screener-Läufen wieder mitgeprüft werden
-        known_syms = {w.symbol for w in candidate_pool} | {w.symbol for w in dynamic_movers}
+        known_syms = {w.symbol if hasattr(w, "symbol") else str(w) for w in candidate_pool} | {w.symbol if hasattr(w, "symbol") else str(w) for w in dynamic_movers}
         stalked_extras: List[WatchlistItem] = []
         for w_sym, w_info in prev_watch_queue.items():
             if w_sym not in known_syms and int(w_info.get("cycles_watched", 0)) < 3:
@@ -227,6 +266,17 @@ class MultiAssetDataCollector:
             )
         except Exception:
             batch_df = None
+
+        spy_24h = 0.0
+        if batch_df is not None and "SPY" in batch_df:
+            try:
+                spy_sub = batch_df["SPY"].dropna(subset=["Close"])
+                if len(spy_sub) >= 2:
+                    p1 = float(spy_sub["Close"].iloc[-1])
+                    p0 = float(spy_sub["Close"].iloc[-2])
+                    spy_24h = ((p1 - p0) / p0) * 100.0 if p0 > 0 else 0.0
+            except Exception:
+                pass
 
         for item in all_candidates:
             if item.symbol in open_position_symbols:
@@ -277,15 +327,38 @@ class MultiAssetDataCollector:
                         chg_5d = ((curr_p - p_5d) / p_5d) * 100.0 if p_5d > 0 else 0.0
                         high_20d = float(close_s.tail(20).max())
                         near_breakout = high_20d > 0 and curr_p >= high_20d * 0.985
-
                         if abs(chg_5d) >= 4.5:
                             activity_score += abs(chg_5d) * 0.20
                             reasons.append(f"5d {chg_5d:+.1f}%")
                         elif near_breakout and chg_24h > 0:
                             activity_score += 0.45
                             reasons.append("Knapp unter 20d-High")
+
+                        # 4. Relative Stärke (RS) vs. SPY (Alpha-Selektion)
+                        rs_vs_spy = chg_24h - spy_24h
+                        if rs_vs_spy >= 1.5:
+                            activity_score += rs_vs_spy * 0.70
+                            reasons.append(f"RS {rs_vs_spy:+.1f}% vs SPY")
+                        elif rs_vs_spy <= -3.0 and item.cluster != "SAFE_HAVEN":
+                            activity_score -= 1.0
+
+                        # 5. Sektor-Leader & Inverse-Hedge Boni
+                        if "Sector Leader" in item.name:
+                            activity_score += 2.0
+                            reasons.append("Sektor-Leader")
+                        elif item.cluster == "SAFE_HAVEN" and spy_24h < 0:
+                            activity_score += 1.8
+                            reasons.append("Markt-Hedge")
+
             except Exception:
                 pass
+
+            # 6. Earnings-Blackout Vorfilter: Sperre keine wertvollen Zone-1 Plätze für Aktien mit Zahlen heute/morgen
+            snap_item = snapshots.get(item.symbol) if snapshots else None
+            earn_rel = getattr(snap_item, "earnings_date_relative", "") if snap_item else ""
+            if item.symbol in ("BOOT", "CVNA", "GEN", "GOOGL") or earn_rel in ("TODAY", "TOMORROW"):
+                activity_score -= 4.0
+                reasons.append("Earnings-Blackout")
 
             was_stalked = item.symbol in prev_watch_queue
             # Prüfe: Ist ein Kandidat aus der 'Weiterbeobachten'-Liste jetzt ausgebrochen (Zone 2 -> Zone 1)?

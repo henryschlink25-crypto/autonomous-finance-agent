@@ -1949,9 +1949,111 @@ def test_all_audit_fixes() -> None:
         tg_test._handle_resume()
         assert exec_unattended.is_trading_paused is False
 
-        print(f"[OK] Test 45 bestanden: Unattended Multi-Day Travel Fortress (Emergency Panic Button, Pause/Resume, Weekend Gap Protection & Health Monitoring).")
+        # --- Test 46: Dynamic US Market Screener, Relative Strength vs. SPY & Adaptive Live Capital Protection ---
+        from data_collector import MultiAssetDataCollector
+        from config import WatchlistItem
+        collector = MultiAssetDataCollector()
 
-    print("=== Alle 45 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing- & Unattended-Travel-Fortress-Tests erfolgreich bestanden! ===")
+        def _build_test_snap(sym: str, price: float, chg: float, vol: float = 1.0, earn: str = "") -> MarketSnapshot:
+            return MarketSnapshot(
+                symbol=sym,
+                name=sym,
+                asset_class="EQUITY",
+                current_price=price,
+                change_24h_pct=chg,
+                change_7d_pct=chg * 1.5,
+                rsi_14=55.0,
+                sma_20=price * 0.98,
+                sma_50=price * 0.95,
+                sma_50_slope=1.0,
+                macd_hist=0.5,
+                atr_14=price * 0.02,
+                volatility_annualized_pct=25.0,
+                volume_ratio_vs_20d=vol,
+                earnings_date_relative=earn,
+            )
+
+        # 1. Teste Relative Strength (RS) vs SPY & Earnings Pre-Filter
+        snap_spy = _build_test_snap("SPY", 580.0, -0.5, 1.0)
+        snap_leader = _build_test_snap("XOM", 120.0, +2.5, 2.2)  # RS = +3.0% vs SPY
+        snap_earnings = _build_test_snap("BOOT", 50.0, +4.0, 3.0, earn="TODAY")
+
+        w_spy = WatchlistItem(symbol="SPY", yf_ticker="SPY", asset_class="EQUITY", cluster="SAFE_HAVEN", name="SPDR S&P 500 ETF")
+        w_leader = WatchlistItem(symbol="XOM", yf_ticker="XOM", asset_class="EQUITY", cluster="VALUE_CYCLICAL", name="Exxon Mobil Corp.")
+        w_earn = WatchlistItem(symbol="BOOT", yf_ticker="BOOT", asset_class="EQUITY", cluster="US_TECH", name="Boot Barn Earnings Today")
+
+        test_items = [w_spy, w_leader, w_earn]
+
+        active_items, _, _ = collector.filter_active_stocks_in_play(
+            candidate_pool=test_items,
+            open_position_symbols=set(),
+            max_active=2,
+        )
+        active_symbols = [w.symbol for w in active_items]
+        assert "BOOT" not in active_symbols, "BOOT muss wegen Earnings-Blackout (Penalisierung) aus Zone-1 herausgefiltert werden"
+
+        # 2. Teste adaptiven Live-Trading Filter
+        cfg_live = AgentConfig()
+        cfg_live.broker_type = "ALPACA"
+        cfg_live.alpaca_endpoint = "https://api.alpaca.markets"  # Live
+        cfg_live.enforce_market_hours = False  # Deterministischer Unit-Test
+        risk_live = DeterministicRiskManager(cfg_live)
+
+        sig_apex = TradingSignal(
+            symbol="XOM",
+            asset_class="EQUITY",
+            action="BUY",
+            confidence=0.93,
+            expected_edge_score=1.55,
+            sentiment_score=0.5,
+            entry_price=120.0,
+            stop_loss_price=117.0,   # Risk = 3.0
+            take_profit_price=125.4, # Reward = 5.4 -> R:R = 1.80:1
+            risk_reward_ratio=1.80,
+            catalyst_summary="High Conviction RS Leader",
+            thesis="Sektor-Ausbruch mit starker relativer Stärke vs SPY",
+            cio_conviction_tier="TIER_2_SOLID",
+        )
+        eval_apex = risk_live.evaluate_signal(
+            signal=sig_apex,
+            snapshot=snap_leader,
+            macro=None,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_apex.approved is True, f"Apex-Setup mit 93% Konfidenz und R:R 1.80:1 muss im Live-Trading freigegeben werden: {eval_apex.reason}"
+
+        # 3. Teste Schutz vor schwachen Setups im Live-Trading
+        sig_weak = TradingSignal(
+            symbol="WEAK",
+            asset_class="EQUITY",
+            action="BUY",
+            confidence=0.72,
+            expected_edge_score=1.10,
+            sentiment_score=0.1,
+            entry_price=10.0,
+            stop_loss_price=9.0,
+            take_profit_price=12.0,
+            risk_reward_ratio=2.0,
+            catalyst_summary="Weak",
+            thesis="Weak",
+        )
+        eval_weak = risk_live.evaluate_signal(
+            signal=sig_weak,
+            snapshot=snap_leader,
+            macro=None,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_weak.approved is False, "Schwaches Signal darf im Live-Trading keinesfalls freigegeben werden"
+
+        print(f"[OK] Test 46 bestanden: Dynamic US Market Screener, Relative Strength vs. SPY & Adaptive Live Capital Protection.")
+
+    print("=== Alle 46 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, Unattended-Travel-Fortress- & Dynamic-US-Market-Screener-Tests erfolgreich bestanden! ===")
 
 
 
