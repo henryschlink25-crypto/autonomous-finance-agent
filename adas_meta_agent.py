@@ -603,6 +603,16 @@ class ADASMetaArchitect:
                 trust_weight=1.15,
             ))
 
+        # 11. Sector Rotation & Relative-Strength Leader Hunter
+        if "sector_rotation_hunter" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="sector_rotation_hunter",
+                name="🚀 Sector Momentum & Relative-Strength Hunter",
+                role="Scannt die 11 SPDR-Sektoren und allokiert in führende Alpha-Sektoren mit relativer Stärke vs. SPY.",
+                specialty_focus="SECTOR_ROTATION",
+                trust_weight=1.22,
+            ))
+
         return new_specs
 
 
@@ -1110,6 +1120,27 @@ class ADASMetaArchitect:
                 conf = 0.80
                 rationale = f"🎯 Enge Spreads ({spread:.2f}%) & tiefe institutionelle Liquidität"
                 decisive_idx = rec.idx(s_tight)
+
+        elif focus == "SECTOR_ROTATION":
+            try:
+                from sector_momentum_expander import SectorMomentumExpander
+                sec_exp = SectorMomentumExpander()
+                sec_res = sec_exp.scan_sector_rotation()
+                is_hot_stock = snap.symbol in sec_res.recommended_hot_stocks
+                s_sector_lead = rec.flag("Sector Leader Stock", is_hot_stock, "bull")
+                if s_sector_lead.passed:
+                    score = 0.84
+                    conf = 0.86
+                    rationale = f"🚀 Sektor-Alpha Leader: Gehört zu den Top-Aktien des führenden Sektors ({sec_res.top_alpha_sector})"
+                    decisive_idx = rec.idx(s_sector_lead)
+                else:
+                    score = 0.20
+                    conf = 0.65
+                    rationale = f"Sektor im neutralen Mittelfeld (Leader: {sec_res.top_alpha_sector})"
+            except Exception:
+                score = 0.0
+                conf = 0.50
+                rationale = "Sektor-Rotations-Daten temporär nicht verfügbar"
 
 
 

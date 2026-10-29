@@ -156,6 +156,7 @@ class TelegramCommandListener:
                 "📈 <b>/options &lt;SYM&gt;</b> - Optionen-Flow (z.B. <code>/options NVDA</code>)\n"
                 "🔍 <b>/fund &lt;SYM&gt;</b> - Fundamental-Check (z.B. <code>/fund AAPL</code>)\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
+                "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
                 "─────────────────────────────"
             )
@@ -178,7 +179,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/pairs", "/arb", "/arbitrage"]:
             self._handle_pairs()
-            self._handle_whales()
+
+        elif cmd in ["/sectors", "/sector", "/sektoren"]:
+            self._handle_sectors()
 
         elif cmd == "/options":
             if not args:
@@ -493,6 +496,29 @@ class TelegramCommandListener:
             self.send_message("\n".join(lines))
         except Exception as e:
             self.send_message(f"❌ Fehler bei Pairs-Arbitrage Scan: {e}")
+
+    def _handle_sectors(self) -> None:
+        self.send_message("🚀 <i>Analysiere 11 US-Sektoren & relative Stärke vs. S&P 500...</i>")
+        try:
+            from sector_momentum_expander import SectorMomentumExpander
+            exp = SectorMomentumExpander()
+            snap = exp.scan_sector_rotation()
+
+            lines = ["🚀 <b>Sektor-Rotations-Radar & Relative Stärke (vs SPY):</b>\n─────────────────────────────"]
+            lines.append("🏆 <b>Top Alpha-Sektoren (Geldzufluss):</b>")
+            for s in snap.leading_sectors:
+                lines.append(f"🟢 <b>{s.ticker}</b> ({s.name}): 5d <b>{s.return_5d_pct:+.1f}%</b> (RS {s.relative_strength_vs_spy:+.1f}%)")
+                lines.append(f"   <i>Top-Aktien: {', '.join(s.top_stocks[:3])}</i>")
+
+            lines.append("\n🌧️ <b>Schwächste Sektoren (Geldabfluss):</b>")
+            for s in snap.lagging_sectors:
+                lines.append(f"🔴 <b>{s.ticker}</b> ({s.name}): 5d <b>{s.return_5d_pct:+.1f}%</b> (RS {s.relative_strength_vs_spy:+.1f}%)")
+
+            lines.append("─────────────────────────────")
+            lines.append(f"🔥 <b>Führende Momentum-Aktien:</b> {', '.join(snap.recommended_hot_stocks)}")
+            self.send_message("\n".join(lines))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Sektor-Scan: {e}")
 
     def _run_breed_task(self) -> None:
         try:

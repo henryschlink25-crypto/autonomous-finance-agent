@@ -718,7 +718,72 @@ def test_all_audit_fixes() -> None:
         assert "Credit" in tribunal_res.cio_reasoning or "Credit" in tribunal_res.bear_rebuttal, "Begründung muss Credit Crunch enthalten"
         print(f"[OK] Test 25 bestanden: Intermarket Credit Sentinel votiert {credit_vote.vote_action} ({credit_vote.score:+.2f}) & Red Team legt VETO ein ({tribunal_res.cio_reasoning[:60]}...).")
 
-    print("=== Alle 25 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket- & Microstructure-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 26: Mathematisches Fractional Kelly Kriterium & Volatilitäts-Targeting
+        # ============================================================================
+        from fractional_kelly_sizing import FractionalKellyPositionSizer
+        kelly_sizer = FractionalKellyPositionSizer(kelly_fraction_multiplier=0.25, target_annual_vol=0.16)
+        # Setup: 75% Win-Chance, CRV 2.5:1, Vola 20%
+        k_res = kelly_sizer.compute_size(
+            total_equity_usd=100_000.0,
+            available_cash_usd=80_000.0,
+            entry_price=100.0,
+            stop_loss_price=95.0,
+            take_profit_price=112.5,
+            confidence=0.75,
+            annualized_vol_pct=20.0,
+        )
+        assert k_res.kelly_fraction_raw > 0.50, f"Raw Kelly muss bei 75% Konfidenz und 2.5 CRV stark positiv sein! Erhalten: {k_res.kelly_fraction_raw}"
+        assert 0.02 <= k_res.recommended_position_pct <= 0.25
+        assert k_res.recommended_position_usd > 1000.0
+        print(f"[OK] Test 26 bestanden: Fractional Kelly berechnet mathematisch optimale Allokation ({k_res.recommended_position_pct*100:.1f}% = ${k_res.recommended_position_usd:,.0f}, Raw f*={k_res.kelly_fraction_raw*100:.1f}%).")
+
+        # ============================================================================
+        # TEST 27: Sektor-Rotations-Radar & Spezialist #24 (Sector Alpha Hunter)
+        # ============================================================================
+        from sector_momentum_expander import SectorMomentumExpander
+        sec_scanner = SectorMomentumExpander()
+        sec_snap = sec_scanner.scan_sector_rotation()
+        assert len(sec_snap.leading_sectors) >= 1
+        assert len(sec_snap.recommended_hot_stocks) >= 2
+        # Teste Schwarm-Votum für eine Aktie aus dem Gewinner-Sektor
+        top_sec_stock = sec_snap.recommended_hot_stocks[0]
+        leader_snap = MarketSnapshot(
+            symbol=top_sec_stock,
+            name="Sector Leader",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=120.0,
+            change_24h_pct=2.5,
+            change_7d_pct=5.0,
+            rsi_14=58.0,
+            sma_20=115.0,
+            sma_50=110.0,
+            macd_hist=0.2,
+            atr_14=2.0,
+            volatility_annualized_pct=22.0,
+            volume_ratio_vs_20d=1.6,
+        )
+        leader_sig = TradingSignal(
+            symbol=top_sec_stock,
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="BUY",
+            confidence=0.80,
+            sentiment_score=0.75,
+            entry_price=120.0,
+            stop_loss_price=114.0,
+            take_profit_price=135.0,
+            risk_reward_ratio=2.5,
+            catalyst_summary="Sektor-Rotation",
+            thesis="Sector Alpha Momentum",
+        )
+        _, votes_sec, _ = adas.evaluate_symbol_with_swarm(leader_snap, leader_sig, green_macro)
+        sec_vote = next(v for v in votes_sec if v.agent_id == "sector_rotation_hunter")
+        assert sec_vote.score >= 0.70, f"Sector Hunter muss Sektor-Leader stark befürworten! Score: {sec_vote.score}"
+        print(f"[OK] Test 27 bestanden: Sektor-Rotations-Radar identifiziert {sec_snap.top_alpha_sector} & Specialist #24 votiert {sec_vote.vote_action} ({sec_vote.score:+.2f}) für {top_sec_stock}.")
+
+    print("=== Alle 27 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly- & Sector-Rotation-Tests erfolgreich bestanden! ===")
 
 
 
