@@ -560,7 +560,61 @@ def test_all_audit_fixes() -> None:
         assert calib_crisis.min_confidence_cutoff > calib_bull.min_confidence_cutoff, "Im Crash muss Konfidenz-Hürde steigen"
         print(f"[OK] Test 20 bestanden: Hyperparameter-AutoTuner kalibriert Stop-Loss dynamisch (Bull {calib_bull.atr_stop_loss_mult}x ATR vs Crash {calib_crisis.atr_stop_loss_mult}x ATR).")
 
-    print("=== Alle 20 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental- & AutoTuner-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 21: Statistische Arbitrage & Kointegrations-Pairs Trading
+        # ============================================================================
+        from pairs_stat_arb import StatisticalArbitrageScanner, PairArbitrageOpportunity
+        pairs_scanner = StatisticalArbitrageScanner()
+        all_opps = pairs_scanner.scan_all_pairs()
+        assert len(all_opps) >= 4, f"Mindestens 4 Paare müssen gescannt werden! Gefunden: {len(all_opps)}"
+        for o in all_opps:
+            assert -10.0 <= o.z_score <= 10.0
+            assert -1.0 <= o.correlation_60d <= 1.0
+
+        # Simuliere Extrem-Divergenz Z = -2.4 auf NVDA in NVDA_AMD
+        stat_snap = MarketSnapshot(
+            symbol="AMD",
+            name="Advanced Micro Devices",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=150.0,
+            change_24h_pct=1.2,
+            change_7d_pct=-3.0,
+            rsi_14=48.0,
+            sma_20=152.0,
+            sma_50=155.0,
+            macd_hist=0.02,
+            atr_14=3.5,
+            volatility_annualized_pct=38.0,
+            volume_ratio_vs_20d=1.4,
+            stat_arb_pair="NVDA_AMD",
+            stat_arb_z_score=2.35,  # AMD ist stark unterbewertet ggü NVDA
+            stat_arb_thesis="AMD hinkt NVDA 2.35σ hinterher",
+        )
+        assert stat_snap.stat_arb_z_score == 2.35
+
+        # ADAS Pairs-Trading Specialist muss Votum abgeben
+        base_amd_sig = TradingSignal(
+            symbol="AMD",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="HOLD",
+            confidence=0.50,
+            sentiment_score=0.50,
+            entry_price=150.0,
+            stop_loss_price=142.0,
+            take_profit_price=165.0,
+            risk_reward_ratio=1.87,
+            catalyst_summary="Pairs Trading",
+            thesis="Neutral Baseline",
+        )
+        up_sig, v_list, sum_txt = adas.evaluate_symbol_with_swarm(stat_snap, base_amd_sig, green_macro)
+        arb_votes = [v for v in v_list if v.agent_id == "pairs_stat_arb_specialist"]
+        assert len(arb_votes) == 1, "pairs_stat_arb_specialist muss im Schwarm aktiv sein"
+        assert arb_votes[0].score >= 0.70, f"Specialist muss bei Z >= 2.0 stark bullisch votieren! Score: {arb_votes[0].score}"
+        print(f"[OK] Test 21 bestanden: Statistische Arbitrage erkennt Z=+2.35σ Divergenz in NVDA_AMD & Specialist votiert {arb_votes[0].vote_action} ({arb_votes[0].score:+.2f}).")
+
+    print("=== Alle 21 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner- & StatArb-Pairs-Tests erfolgreich bestanden! ===")
 
 
 

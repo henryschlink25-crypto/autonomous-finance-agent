@@ -563,6 +563,16 @@ class ADASMetaArchitect:
                 trust_weight=1.20,
             ))
 
+        # 7. Statistical Arbitrage & Pairs-Trading Specialist
+        if "pairs_stat_arb_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="pairs_stat_arb_specialist",
+                name="🔀 Statistical Arbitrage & Cointegration Specialist",
+                role="Scannt hochkorrelierte Paare auf Z-Score Extremabweichungen (|Z| >= 2.0) und handelt statistische Mean-Reversion.",
+                specialty_focus="STATISTICAL_ARBITRAGE",
+                trust_weight=1.22,
+            ))
+
         return new_specs
 
 
@@ -991,6 +1001,26 @@ class ADASMetaArchitect:
                 conf = 0.75
                 rationale = f"Solide Bilanz & Cashflow (Score {f_score:+.2f})"
                 decisive_idx = rec.idx(s_elite)
+
+        elif focus == "STATISTICAL_ARBITRAGE":
+            z = getattr(snap, "stat_arb_z_score", None)
+            pair = getattr(snap, "stat_arb_pair", "")
+            thesis_txt = getattr(snap, "stat_arb_thesis", "")
+            if z is not None:
+                s_stat_arb = rec.num("StatArb Z-Divergenz", abs(z), ">=", "min_z_score", 1.8, "bull")
+                if s_stat_arb.passed:
+                    score = min(0.95, 0.50 + abs(z) * 0.18)
+                    conf = 0.88
+                    rationale = f"🔀 StatArb Mean-Reversion Opportunity in Paar {pair} (Z: {z:+.2f})"
+                    decisive_idx = rec.idx(s_stat_arb)
+                else:
+                    score = 0.10
+                    conf = 0.60
+                    rationale = f"Paar {pair} im neutralen Z-Bereich ({z:+.2f})"
+            else:
+                score = 0.0
+                conf = 0.50
+                rationale = "Keine aktive Pairs-Trading Kointegration für dieses Symbol"
 
 
 

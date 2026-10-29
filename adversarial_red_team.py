@@ -112,6 +112,8 @@ class AdversarialRedTeamTribunal:
             points.append(f"💎 Elite-Wachstum: {snapshot.revenue_growth_pct or 20.0:.1f}% Umsatzwachstum bei solider Bilanz")
         if getattr(snapshot, "options_flow_score", 0.0) >= 0.35:
             points.append(f"🌊 Bullischer Smart-Money Flow (Score {snapshot.options_flow_score:+.2f})")
+        if getattr(snapshot, "stat_arb_z_score", None) is not None and abs(snapshot.stat_arb_z_score) >= 1.8:
+            points.append(f"🔀 StatArb Mean-Reversion Edge ({snapshot.stat_arb_pair}, Z: {snapshot.stat_arb_z_score:+.2f})")
         if snapshot.options_flow_sentiment == "BULLISH_CALL_FLOW":
             points.append(f"Institutioneller Call-Whale Flow (Put/Call {snapshot.options_put_call_ratio or 0.5:.2f})")
         if snapshot.supertrend_direction == "BULLISH":

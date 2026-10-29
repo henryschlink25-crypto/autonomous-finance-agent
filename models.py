@@ -89,6 +89,10 @@ class MarketSnapshot(BaseModel):
     fundamental_health_grade: str = "SOLID_VALUE"
     is_fundamentally_distressed: bool = False
     fundamental_score: float = 0.0
+    # Statistische Arbitrage & Pairs Trading Felder
+    stat_arb_pair: str = ""
+    stat_arb_z_score: Optional[float] = None
+    stat_arb_thesis: str = ""
     supertrend_direction: str = "NEUTRAL"  # "BULLISH", "BEARISH", "NEUTRAL"
     supertrend_val: float = 0.0
     supertrend_flipped: bool = False

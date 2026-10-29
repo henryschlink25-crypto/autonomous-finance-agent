@@ -827,6 +827,21 @@ class MultiAssetDataCollector:
                 except Exception:
                     pass
 
+            # Statistische Arbitrage & Pairs-Trading-Chance ermitteln
+            stat_arb_pair = ""
+            stat_arb_z = None
+            stat_arb_thesis = ""
+            try:
+                from pairs_stat_arb import StatisticalArbitrageScanner
+                pairs_scanner = StatisticalArbitrageScanner()
+                pair_opp = pairs_scanner.get_pair_opportunity_for_symbol(item.symbol)
+                if pair_opp:
+                    stat_arb_pair = pair_opp.pair_name
+                    stat_arb_z = pair_opp.z_score
+                    stat_arb_thesis = pair_opp.thesis
+            except Exception:
+                pass
+
             # Dynamisch synthetisierte Werkzeuge (ADAS AI Scientist) anwenden
             synth_metrics = QuantitativeToolbox.execute_synthesized_tools(df)
 
@@ -882,6 +897,9 @@ class MultiAssetDataCollector:
                 fundamental_health_grade=fund_grade,
                 is_fundamentally_distressed=is_distressed,
                 fundamental_score=fund_score,
+                stat_arb_pair=stat_arb_pair,
+                stat_arb_z_score=stat_arb_z,
+                stat_arb_thesis=stat_arb_thesis,
                 supertrend_direction=supertrend_info.get("trend", "NEUTRAL"),
                 supertrend_val=supertrend_info.get("supertrend_val", 0.0),
                 supertrend_flipped=supertrend_info.get("trend_flipped", False),

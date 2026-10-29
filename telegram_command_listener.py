@@ -155,6 +155,7 @@ class TelegramCommandListener:
                 "🐋 <b>/whales</b> - Letzte SEC Form 4 Insider-Käufe\n"
                 "📈 <b>/options &lt;SYM&gt;</b> - Optionen-Flow (z.B. <code>/options NVDA</code>)\n"
                 "🔍 <b>/fund &lt;SYM&gt;</b> - Fundamental-Check (z.B. <code>/fund AAPL</code>)\n"
+                "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
                 "─────────────────────────────"
             )
@@ -173,6 +174,10 @@ class TelegramCommandListener:
             self._handle_debates()
 
         elif cmd == "/whales":
+            self._handle_whales()
+
+        elif cmd in ["/pairs", "/arb", "/arbitrage"]:
+            self._handle_pairs()
             self._handle_whales()
 
         elif cmd == "/options":
@@ -460,6 +465,34 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei Fundamentalanalyse für {sym}: {e}")
+
+    def _handle_pairs(self) -> None:
+        self.send_message("🔀 <i>Scanne statistische Arbitrage & Kointegrations-Spreads aller Paare...</i>")
+        try:
+            from pairs_stat_arb import StatisticalArbitrageScanner
+            scanner = StatisticalArbitrageScanner()
+            opps = scanner.scan_all_pairs()
+            if not opps:
+                self.send_message("🔀 Keine Pairs-Daten verfügbar.")
+                return
+
+            lines = ["🔀 <b>Statistische Arbitrage & Pairs-Spreads:</b>\n─────────────────────────────"]
+            for o in opps:
+                z = o.z_score
+                action = o.signal_action
+                icon = "🔥" if action != "NEUTRAL" else ("🟡" if abs(z) >= 1.5 else "⚪")
+                sig_text = f" ➜ <b>KAUF {o.target_asset}</b> (Edge {o.expected_edge_score:+.2f})" if action != "NEUTRAL" else ""
+
+                lines.append(
+                    f"{icon} <b>{o.pair_name}</b> ({o.description[:24]})\n"
+                    f"   Z-Score: <b>{z:+.2f}σ</b> | Abweichung: {o.divergence_pct:+.1f}%\n"
+                    f"   Korr: {o.correlation_60d:.2f} | Halbwertszeit: {o.half_life_days:.1f}d{sig_text}\n"
+                )
+
+            lines.append("─────────────────────────────\n<i>Tipp: Bei |Z| &ge; 2.0σ löst der Schwarm automatisch Mean-Reversion Orders aus!</i>")
+            self.send_message("\n".join(lines))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Pairs-Arbitrage Scan: {e}")
 
     def _run_breed_task(self) -> None:
         try:
