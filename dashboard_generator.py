@@ -433,6 +433,26 @@ class DashboardGenerator:
                     synth_registry = json.load(f)
             except Exception:
                 pass
+        strat_registry = {}
+        strat_file = os.path.join(self.data_dir, "strategy_registry.json")
+        if os.path.exists(strat_file):
+            try:
+                with open(strat_file, "r", encoding="utf-8") as f:
+                    strat_registry = json.load(f)
+            except Exception:
+                pass
+        active_strats = strat_registry.get("active_strategies", {})
+        strat_cards_html = "".join(
+            f"""<div class="lesson-item" style="border-left-color:#10b981;margin-bottom:8px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+                    <strong>🧬 {s.get('class_name')} <span style="font-size:11px;color:var(--muted);">({s.get('archetype')})</span></strong>
+                    <span class="pill pill-green">⭐️ Sharpe: {s.get('performance', {}).get('sharpe_ratio', 0):.2f} · PF: {s.get('performance', {}).get('profit_factor', 0):.2f}x · Win: {s.get('performance', {}).get('win_rate_pct', 0):.1f}% · Max DD: {s.get('performance', {}).get('max_drawdown_pct', 0):.1f}%</span>
+                </div>
+                <div style="font-size:12px;color:var(--muted);margin-top:4px;">{s.get('hypothesis', '')}</div>
+            </div>"""
+            for s in active_strats.values()
+        ) or '<div class="lesson-item"><span class="muted">Noch keine gezüchteten Strategien aktiv.</span></div>'
+
         active_synths = synth_registry.get("active_tools", {})
         synth_badges = "".join(f'<span class="pill pill-cyan">⚡ {v.get("name", k)}</span> ' for k, v in active_synths.items()) or '<span class="pill pill-muted">Keine</span>'
 
@@ -480,9 +500,14 @@ class DashboardGenerator:
             <span class="pill pill-indigo">📐 Kelly-Kriterium & Volatilitäts-Parität aktiv</span>
             <span class="pill pill-green">⚔️ AlphaZero Monte-Carlo Simulator</span>
             <span class="pill pill-green">📱 Telegram Alerts: @Henry_trading_agent_bot (Live)</span>
+            <span class="pill pill-green">🧬 {len(active_strats)} Elite-Strategien gezüchtet</span>
         </div>
 
         {adas_evo_html}
+        <div style="margin: 14px 0 10px 0; font-size:13px; font-weight:700; color:var(--green);">
+            🧬 Autonom gezüchtete & krisengeprüfte Handelsstrategien (Genetic Strategy Breeding):
+        </div>
+        {strat_cards_html}
         <table>
             <thead>
                 <tr>

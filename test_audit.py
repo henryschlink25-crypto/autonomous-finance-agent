@@ -357,7 +357,32 @@ def test_all_audit_fixes() -> None:
         assert risk_eval_penny.notional_value_usd <= 505.0, f"Penny-Stock Orderwert darf max 500$ sein, war {risk_eval_penny.notional_value_usd}$"
         print(f"[OK] Test 13 bestanden: Penny Stock SOUN @ 2.45$ von Spezialisten bewertet, auf {risk_eval_penny.notional_value_usd}$ Margin gedeckelt (1.0x Hebel) & Swarm umfasst {len(adas.state.active_subagents)} Sub-Agenten.")
 
-    print("=== Alle 13 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge- & ADAS-Swarm-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 14: Genetische Strategie-Zucht (Sakana AI / AlphaZero Breeding Sandbox)
+        # ============================================================================
+        from genetic_strategy_breeder import GeneticStrategyBreeder, STRATEGY_ARCHETYPES
+        cfg_breed = AgentConfig()
+        breeder = GeneticStrategyBreeder(cfg_breed)
+        test_genes = {
+            "min_rvol": 1.8,
+            "min_change_pct": 2.5,
+            "max_rsi": 72.0,
+            "min_edge_score": 1.40,
+            "atr_sl_mult": 2.0,
+            "atr_tp_mult": 4.5,
+            "time_stop_days": 5,
+            "penny_max_price": 999.0,
+        }
+        res = breeder._simulate_strategy_backtest(test_genes, "VOLATILITY_SQUEEZE_EXPLOSION")
+        assert "sharpe_ratio" in res and "profit_factor" in res and "win_rate_pct" in res
+        assert res["total_trades"] >= 10
+        ast_ok, ast_msg = breeder._verify_code_ast("class TestStrategy:\n    def evaluate_entry(self, s):\n        return True\n")
+        assert ast_ok, "AST-Sicherheitsprüfung muss gültigen Code akzeptieren"
+        ast_bad, _ = breeder._verify_code_ast("import os\nos.system('echo dangerous')\n")
+        assert not ast_bad, "AST-Sicherheitsprüfung muss gefährliche os.system Calls abfangen!"
+        print(f"[OK] Test 14 bestanden: Genetische Strategie-Zucht simuliert Backtest (Sharpe {res['sharpe_ratio']}, Win-Rate {res['win_rate_pct']}%) & AST-Sicherheitsprüfung schützt Codebase.")
+
+    print("=== Alle 14 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm- & Strategie-Zucht-Tests erfolgreich bestanden! ===")
 
 
 

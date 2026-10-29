@@ -514,6 +514,7 @@ def main() -> None:
     parser.add_argument("--loop", type=int, default=0, metavar="SECONDS", help="Läuft dauerhaft im Intervall (z.B. --loop 900 für alle 15 Min)")
     parser.add_argument("--status", action="store_true", help="Zeigt nur den aktuellen Portfolio-Status an")
     parser.add_argument("--backtest", type=str, nargs="?", const="1y", metavar="PERIOD", help="Startet Walk-Forward Backtest (z.B. 6mo, 1y, 2y)")
+    parser.add_argument("--breed", type=int, nargs="?", const=2, metavar="GENERATIONS", help="Startet genetische Strategie-Zucht (z.B. --breed 2)")
     parser.add_argument("--dashboard", action="store_true", help="Generiert das interaktive HTML Web-Dashboard (data/dashboard.html)")
     args = parser.parse_args()
 
@@ -529,6 +530,14 @@ def main() -> None:
         dash = DashboardGenerator(config)
         path = dash.generate(open_browser=args.dashboard)
         console.print(f"[bold green]✔ Interaktives Web-Dashboard aktualisiert:[/bold green] {path}")
+        return
+
+    if args.breed:
+        from genetic_strategy_breeder import run_strategy_breeding_cycle
+        run_strategy_breeding_cycle(num_generations=args.breed, pop_per_gen=6)
+        dash = DashboardGenerator(config)
+        path = dash.generate(open_browser=args.dashboard)
+        console.print(f"[bold green]✔ Zucht abgeschlossen & Web-Dashboard aktualisiert:[/bold green] {path}")
         return
 
     if args.dashboard:

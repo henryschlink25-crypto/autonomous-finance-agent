@@ -1,0 +1,108 @@
+{
+  "active_strategies": {
+    "strat_supertrend_regime_rider_g1_1": {
+      "strategy_id": "strat_supertrend_regime_rider_g1_1",
+      "class_name": "SuperTrendRegimeRider_Gen1_1",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 8.37,
+        "max_drawdown_pct": 9.75,
+        "win_rate_pct": 66.7,
+        "profit_factor": 3.5,
+        "total_trades": 42,
+        "net_return_pct": 167.6
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g1_1.py",
+      "deployed_at": "2026-10-29T11:39:40.846538"
+    },
+    "strat_supertrend_regime_rider_g1_3": {
+      "strategy_id": "strat_supertrend_regime_rider_g1_3",
+      "class_name": "SuperTrendRegimeRider_Gen1_3",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 8.74,
+        "max_drawdown_pct": 7.09,
+        "win_rate_pct": 72.2,
+        "profit_factor": 3.58,
+        "total_trades": 36,
+        "net_return_pct": 130.86
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g1_3.py",
+      "deployed_at": "2026-10-29T11:39:41.097405"
+    },
+    "strat_supertrend_regime_rider_g2_2": {
+      "strategy_id": "strat_supertrend_regime_rider_g2_2",
+      "class_name": "SuperTrendRegimeRider_Gen2_2",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 2,
+      "performance": {
+        "sharpe_ratio": 8.77,
+        "max_drawdown_pct": 8.96,
+        "win_rate_pct": 73.0,
+        "profit_factor": 3.55,
+        "total_trades": 37,
+        "net_return_pct": 146.92
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g2_2.py",
+      "deployed_at": "2026-10-29T11:39:45.365948"
+    }
+  },
+  "history": [
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g1_1",
+      "class_name": "SuperTrendRegimeRider_Gen1_1",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 8.37,
+        "max_drawdown_pct": 9.75,
+        "win_rate_pct": 66.7,
+        "profit_factor": 3.5,
+        "total_trades": 42,
+        "net_return_pct": 167.6
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g1_1.py",
+      "deployed_at": "2026-10-29T11:39:40.846538"
+    },
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g1_3",
+      "class_name": "SuperTrendRegimeRider_Gen1_3",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 8.74,
+        "max_drawdown_pct": 7.09,
+        "win_rate_pct": 72.2,
+        "profit_factor": 3.58,
+        "total_trades": 36,
+        "net_return_pct": 130.86
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g1_3.py",
+      "deployed_at": "2026-10-29T11:39:41.097405"
+    },
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g2_2",
+      "class_name": "SuperTrendRegimeRider_Gen2_2",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 2,
+      "performance": {
+        "sharpe_ratio": 8.77,
+        "max_drawdown_pct": 8.96,
+        "win_rate_pct": 73.0,
+        "profit_factor": 3.55,
+        "total_trades": 37,
+        "net_return_pct": 146.92
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g2_2.py",
+      "deployed_at": "2026-10-29T11:39:45.365948"
+    }
+  ]
+}
