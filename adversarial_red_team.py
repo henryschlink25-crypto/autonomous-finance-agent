@@ -106,6 +106,8 @@ class AdversarialRedTeamTribunal:
             points.append(f"Starkes 24h-Momentum (+{snapshot.change_24h_pct:.1f}%)")
         if snapshot.sec_form8k_catalyst:
             points.append(f"SEC 8-K Katalysator: {snapshot.sec_form8k_catalyst}")
+        if getattr(snapshot, "insider_sentiment", "") == "STRONG_INSIDER_BUY" or getattr(snapshot, "form4_cluster_buy", False):
+            points.append(f"🐋 SEC Form 4 Whale/Cluster-Kauf: {snapshot.insider_summary}")
         if snapshot.options_flow_sentiment == "BULLISH_CALL_FLOW":
             points.append(f"Institutioneller Call-Whale Flow (Put/Call {snapshot.options_put_call_ratio or 0.5:.2f})")
         if snapshot.supertrend_direction == "BULLISH":
@@ -177,6 +179,11 @@ class AdversarialRedTeamTribunal:
             rebuttals.append(msg)
             fatal_risks.append(f"Klumpenrisiko ({snapshot.cluster})")
             risk_score += 2.0
+
+        # 7. Form 4 Insider-Verkäufe
+        if getattr(snapshot, "insider_sentiment", "") == "INSIDER_SELLING":
+            rebuttals.append(f"Erhebliche Vorstand-Verkäufe ({snapshot.insider_summary})")
+            risk_score += 1.5
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)

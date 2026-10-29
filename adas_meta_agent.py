@@ -888,14 +888,22 @@ class ADASMetaArchitect:
                 decisive_idx = rec.idx(s_comp)
 
         elif focus == "INSIDER_ACCUMULATION":
-            has_buys = snap.insider_sentiment == "STRONG_INSIDER_BUY"
+            has_strong_buys = snap.insider_sentiment == "STRONG_INSIDER_BUY" or getattr(snap, "form4_cluster_buy", False)
+            has_mod_buys = snap.insider_sentiment == "MODERATE_INSIDER_BUY" or getattr(snap, "form4_net_usd_90d", 0.0) > 50000.0
             has_sells = snap.insider_sentiment == "INSIDER_SELLING"
-            s_buy = rec.flag("Form-4 Insider Buy", has_buys, "bull")
+            s_cluster = rec.flag("Form-4 Cluster Buy", getattr(snap, "form4_cluster_buy", False), "bull")
+            s_buy = rec.flag("Form-4 Whale Buy", has_strong_buys, "bull")
             s_sell = rec.flag("Form-4 Insider Sell", has_sells, "bear")
-            if has_buys:
-                score = 0.75
-                conf = 0.82
-                rationale = f"👔 Top-Insider kaufen netto: {snap.insider_summary}"
+            if has_strong_buys:
+                score = 0.88 if getattr(snap, "form4_cluster_buy", False) else 0.80
+                conf = 0.90
+                cluster_tag = " [👥 Cluster-Buying]" if getattr(snap, "form4_cluster_buy", False) else ""
+                rationale = f"👔 Top-Insider & Whales kaufen netto: {snap.insider_summary}{cluster_tag}"
+                decisive_idx = rec.idx(s_cluster if getattr(snap, "form4_cluster_buy", False) else s_buy)
+            elif has_mod_buys:
+                score = 0.50
+                conf = 0.72
+                rationale = f"Insider-Käufe vorhanden: {snap.insider_summary}"
                 decisive_idx = rec.idx(s_buy)
             elif has_sells:
                 score = -0.65

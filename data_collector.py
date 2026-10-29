@@ -785,8 +785,18 @@ class MultiAssetDataCollector:
             supertrend_info = QuantitativeToolbox.calculate_supertrend(df)
             insider_info = {"insider_signal": "NEUTRAL", "summary": ""}
             sec_8k = {"summary": ""}
+            form4_data = {"net_usd_90d": 0.0, "cluster_buy_detected": False, "recent_whale_buys": []}
             if item.asset_class == "EQUITY" and not item.symbol.endswith(".DE"):
-                insider_info = QuantitativeToolbox.get_sec_insider_activity(item.symbol)
+                try:
+                    from sec_form4_tracker import SECForm4Tracker
+                    f4_tracker = SECForm4Tracker()
+                    form4_data = f4_tracker.get_insider_activity(item.symbol)
+                    insider_info = {
+                        "insider_signal": form4_data.get("insider_sentiment", "NEUTRAL"),
+                        "summary": form4_data.get("insider_summary", ""),
+                    }
+                except Exception:
+                    insider_info = QuantitativeToolbox.get_sec_insider_activity(item.symbol)
                 sec_8k = QuantitativeToolbox.get_sec_form8k_events(item.symbol)
 
             # Dynamisch synthetisierte Werkzeuge (ADAS AI Scientist) anwenden
@@ -836,6 +846,9 @@ class MultiAssetDataCollector:
                 ttm_squeeze_momentum=squeeze_info.get("momentum_hist", 0.0),
                 insider_sentiment=insider_info.get("insider_signal", "NEUTRAL"),
                 insider_summary=insider_info.get("summary", ""),
+                form4_net_usd_90d=float(form4_data.get("net_usd_90d", 0.0)),
+                form4_cluster_buy=bool(form4_data.get("cluster_buy_detected", False)),
+                form4_recent_whale_buys=form4_data.get("recent_whale_buys", []),
                 supertrend_direction=supertrend_info.get("trend", "NEUTRAL"),
                 supertrend_val=supertrend_info.get("supertrend_val", 0.0),
                 supertrend_flipped=supertrend_info.get("trend_flipped", False),

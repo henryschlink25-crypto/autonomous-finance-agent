@@ -438,7 +438,60 @@ def test_all_audit_fixes() -> None:
         assert "RED-TEAM-VETO" in risk_eval_trap.reason, f"Begründung muss RED-TEAM-VETO enthalten! Erhalten: {risk_eval_trap.reason}"
         print(f"[OK] Test 15 bestanden: Adversarial Red-Team Tribunal entlarvt Bullenfalle & verhindert Fehlkauf (Score {debate_trap.risk_score}/10 -> {debate_trap.verdict}).")
 
-    print("=== Alle 15 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht- & Red-Team-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 16: SEC Form 4 Insider- & Whale-Tracking
+        # ============================================================================
+        from sec_form4_tracker import SECForm4Tracker
+        f4_tracker = SECForm4Tracker()
+        f4_res = f4_tracker.get_insider_activity("NVDA")
+        assert "insider_sentiment" in f4_res and "net_shares_90d" in f4_res
+        
+        # Teste Snapshot-Integration mit simuliertem Whale Cluster-Kauf
+        whale_snap = MarketSnapshot(
+            symbol="WHALE",
+            name="Whale Microcap",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            current_price=3.50,
+            change_24h_pct=5.5,
+            change_7d_pct=8.0,
+            rsi_14=62.0,
+            sma_20=3.20,
+            sma_50=2.90,
+            macd_hist=0.08,
+            atr_14=0.20,
+            volatility_annualized_pct=65.0,
+            volume_ratio_vs_20d=2.4,
+            insider_sentiment="STRONG_INSIDER_BUY",
+            insider_summary="CEO & CFO kauften 75.000 Stk. für $260.000",
+            form4_net_usd_90d=260_000.0,
+            form4_cluster_buy=True,
+            form4_recent_whale_buys=[{"insider": "CEO", "shares": 50000, "value_usd": 175000}],
+        )
+        assert whale_snap.form4_cluster_buy is True
+        assert whale_snap.insider_sentiment == "STRONG_INSIDER_BUY"
+        
+        # Prüfe ADAS Specialist Votum mit baseline_signal und green_macro
+        whale_sig = TradingSignal(
+            symbol="WHALE",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            action="BUY",
+            confidence=0.82,
+            sentiment_score=0.80,
+            entry_price=3.50,
+            stop_loss_price=3.10,
+            take_profit_price=4.60,
+            risk_reward_ratio=2.75,
+            catalyst_summary="Whale Cluster-Kauf",
+            thesis="Form 4 Zukäufe",
+        )
+        updated_sig, votes, summary = adas.evaluate_symbol_with_swarm(whale_snap, whale_sig, green_macro)
+        assert updated_sig.action == "BUY"
+        assert len(votes) >= 1
+        print(f"[OK] Test 16 bestanden: SEC Form 4 Insider- & Whale-Tracker erkennt Cluster-Kauf ({whale_snap.insider_summary}) & ADAS-Schwarm bestätigt BUY ({summary}).")
+
+    print("=== Alle 16 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team- & SEC-Form-4-Tests erfolgreich bestanden! ===")
 
 
 

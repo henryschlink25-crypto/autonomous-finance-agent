@@ -80,6 +80,9 @@ class MarketSnapshot(BaseModel):
     ttm_squeeze_momentum: float = 0.0
     insider_sentiment: str = "NEUTRAL"  # "STRONG_INSIDER_BUY", "INSIDER_SELLING", "NEUTRAL"
     insider_summary: str = ""
+    form4_net_usd_90d: float = 0.0
+    form4_cluster_buy: bool = False
+    form4_recent_whale_buys: List[Dict[str, Any]] = Field(default_factory=list)
     supertrend_direction: str = "NEUTRAL"  # "BULLISH", "BEARISH", "NEUTRAL"
     supertrend_val: float = 0.0
     supertrend_flipped: bool = False
