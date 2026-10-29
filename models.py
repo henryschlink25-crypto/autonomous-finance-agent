@@ -36,6 +36,11 @@ class MacroRegime(BaseModel):
     macro_event_horizon_name: str = ""
     macro_minutes_to_event: int = 9999
     macro_event_protective_action: str = "UNRESTRICTED"  # "BLOCK_NEW_TRADES", "HALF_SIZE_ONLY", "UNRESTRICTED"
+    # Dynamic Correlation Breakdown Shield (Citadel / Risk Parity Crisis Alpha)
+    correlation_breakdown_active: bool = False
+    average_portfolio_correlation: float = 0.0
+    correlation_shield_regime: str = "HEALTHY_DIVERSIFICATION"  # "HEALTHY_DIVERSIFICATION", "ELEVATED_CO_MOVEMENT", "SYSTEMIC_CORRELATION_BREAKDOWN"
+    correlation_protective_action: str = "NORMAL_ALLOCATION"    # "NORMAL_ALLOCATION", "BLOCK_NEW_LONGS", "EMERGENCY_CASH_PRESERVATION"
     summary: str
 
 
@@ -189,6 +194,9 @@ class TradingSignal(BaseModel):
     thesis: str = Field(description="Begründung für die Handelsentscheidung")
     best_option_contract: str = ""
     analysis_source: str = "AI_HYBRID"
+    cio_conviction_tier: str = "TIER_2_SOLID_OPPORTUNITY"
+    cio_conviction_score: float = 0.50
+    cio_committee_consensus: str = ""
     debate_result: Optional[AdversarialDebateResult] = None
 
     def model_post_init(self, __context) -> None:

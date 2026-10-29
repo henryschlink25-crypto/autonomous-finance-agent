@@ -758,6 +758,28 @@ class ADASMetaArchitect:
                 new_conf = round(max(0.80, min(0.93, 0.55 + swarm_consensus * 0.45)), 2)
                 swarm_tag = f" 🚀 [Sakana-Alpha-Entdeckung ({len(bull_supporters)} Agenten): {', '.join(bull_supporters[:3])}]"
 
+        # 🏛️ CIO Conviction Synthesis (virattt / TradingAgents Komitee-Hierarchie)
+        cio_tier = "TIER_2_SOLID_OPPORTUNITY"
+        cio_score = 0.50
+        cio_summary = ""
+        try:
+            from cio_conviction_synthesizer import get_cio_synthesizer
+            cio = get_cio_synthesizer()
+            cio_res = cio.synthesize_conviction(
+                snap.symbol, votes, self.state.active_subagents, baseline_signal, macro, snap
+            )
+            cio_tier = cio_res.conviction_tier
+            cio_score = cio_res.overall_conviction_score
+            cio_summary = cio_res.executive_summary
+            if cio_res.synthesized_action == "HOLD" and new_action == "BUY":
+                new_action = "HOLD"
+                swarm_tag += f" 🏛️ [{cio_tier}: CIO schützt Kapital]"
+            elif cio_tier == "TIER_1_ALPHA_HIGH_CONVICTION":
+                new_conf = round(min(0.98, new_conf + 0.05), 2)
+                swarm_tag += " 🏛️ [CIO: TIER 1 ALPHA]"
+        except Exception as e:
+            cio_summary = f"CIO-Synthesizer Fallback ({e})"
+
         updated_signal = TradingSignal(
             symbol=baseline_signal.symbol,
             asset_class=baseline_signal.asset_class,
@@ -775,6 +797,9 @@ class ADASMetaArchitect:
             thesis=baseline_signal.thesis + swarm_tag,
             best_option_contract=baseline_signal.best_option_contract,
             analysis_source=f"SAKANA_SWARM_GEN{self.state.evolution_generation}",
+            cio_conviction_tier=cio_tier,
+            cio_conviction_score=cio_score,
+            cio_committee_consensus=cio_summary,
         )
         return updated_signal, votes, swarm_tag
 

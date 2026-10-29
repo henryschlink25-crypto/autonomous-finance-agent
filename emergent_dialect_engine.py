@@ -221,7 +221,19 @@ class EmergentDialectEngine:
             self._ensure_token(t, "RISK", f"Ungünstiges Downside-Risiko im Quantil-Trichter ({asym:.1f}x)")
             tokens_used.append(t)
 
-        # K. Confluence-Grad (Güteklasse des Setups)
+        # K. CIO Conviction Tier & Correlation Breakdown Shield
+        if getattr(signal, "cio_conviction_tier", "") == "TIER_1_ALPHA_HIGH_CONVICTION":
+            t = "🏛️:CIO_TIER1_ALPHA"
+            self._ensure_token(t, "CONFLUENCE", "Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction")
+            tokens_used.append(t)
+
+        if macro is not None and getattr(macro, "correlation_breakdown_active", False):
+            avg_c = getattr(macro, "average_portfolio_correlation", 0.8)
+            t = f"🛑:CORRELATION_BREAKDOWN_PANIC[ρ={avg_c:.2f}]"
+            self._ensure_token(t, "RISK", f"Systemischer Korrelations-Kollaps (ρ={avg_c:.2f}): Alle Assets stürzen synchron ab")
+            tokens_used.append(t)
+
+        # L. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
         if conf_len >= 4:

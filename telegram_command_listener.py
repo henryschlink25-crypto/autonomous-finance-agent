@@ -161,6 +161,7 @@ class TelegramCommandListener:
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
                 "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
                 "📈 <b>/forecast &lt;SYM&gt;</b> - Probabilistischer Kurs-Trichter (P10/P50/P90)\n"
+                "🚨 <b>/shield</b> - Dynamic Correlation Breakdown Shield (Marktpanik & Gleichlauf)\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
@@ -232,6 +233,9 @@ class TelegramCommandListener:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/forecast NVDA</code>")
             else:
                 self._handle_forecast(args[0])
+
+        elif cmd in ["/shield", "/correlation", "/corr", "/gleichlauf"]:
+            self._handle_correlation_shield()
 
         elif cmd in ["/geopolitics", "/geo", "/war", "/peace"]:
             self._handle_geopolitics()
@@ -642,6 +646,19 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei Forecast-Analyse für {sym}: {e}")
+
+    def _handle_correlation_shield(self) -> None:
+        self.send_message("🚨 <i>Analysiere systemischen Gleichlauf & Dynamic Correlation Breakdown Shield...</i>")
+        try:
+            import pandas as pd
+            from correlation_breakdown_shield import get_correlation_shield
+            shield = get_correlation_shield()
+            st = shield._last_status
+            if st is None:
+                st = shield.evaluate_returns_matrix(pd.DataFrame())
+            self.send_message(shield.format_telegram_summary(st))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Correlation Shield Abfrage: {e}")
 
     def _handle_geopolitics(self) -> None:
         self.send_message("🌐 <i>Analysiere globale Konflikt- und Rohstoffrisiken (GCI-Index)...</i>")

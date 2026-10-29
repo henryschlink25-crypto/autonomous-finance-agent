@@ -1423,7 +1423,112 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 38 bestanden: Probabilistic Forecast Quantile Sentinel (Sub-Agent #30) – P10/P50/P90 Trichter berechnet ({q_bull.asymmetry_ratio:.2f}x Asymmetrie), Downside Skew Veto aktiv, Red-Team & Dialect integriert.")
 
-    print("=== Alle 38 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon- & Probabilistic-Forecast-Tests erfolgreich bestanden! ===")
+        # --- Test 39: Chief Investment Officer (CIO) Conviction Synthesizer (virattt / TradingAgents Komitee-Synthese) ---
+        from cio_conviction_synthesizer import CIOConvictionSynthesizer, get_cio_synthesizer
+        from adas_meta_agent import SubAgentVote
+        cio_syn = get_cio_synthesizer()
+
+        # 1. Synthetisiere harmonischen Bullen-Konsens über alle 4 Komitees
+        mock_votes_bull = [
+            SubAgentVote(agent_id="fundamental_health_guardian", agent_name="Fundamental Sentinel", symbol="NVDA", score=0.85, confidence=0.90, vote_action="BUY", rationale="Solid Value"),
+            SubAgentVote(agent_id="intermarket_credit_sentinel", agent_name="Credit Sentinel", symbol="NVDA", score=0.70, confidence=0.85, vote_action="BUY", rationale="Credit Tailwind"),
+            SubAgentVote(agent_id="probabilistic_forecast_sentinel", agent_name="Forecast Sentinel", symbol="NVDA", score=0.80, confidence=0.88, vote_action="BUY", rationale="Favorable Asymmetry"),
+            SubAgentVote(agent_id="microstructure_liquidity_sniper", agent_name="Microstructure Sentinel", symbol="NVDA", score=0.40, confidence=0.80, vote_action="BUY", rationale="Tight Spread"),
+        ]
+        res_t1 = cio_syn.synthesize_conviction("NVDA", mock_votes_bull, arch_fc.state.active_subagents, fake_buy_sig, green_macro, snap_fav)
+        assert res_t1.conviction_tier == "TIER_1_ALPHA_HIGH_CONVICTION", f"Muss TIER_1_ALPHA sein, erhalten: {res_t1.conviction_tier}"
+        assert res_t1.size_multiplier == 1.25, "TIER 1 Alpha erhält +25% Größenskalierung"
+        assert res_t1.overall_conviction_score >= 0.70
+        assert not res_t1.committee_conflict_detected
+        assert len(res_t1.committees) == 4
+
+        # 2. Konflikt-Erkennung: Quant-Bulle vs. Risk-Bär (Bullenfalle)
+        mock_votes_conflict = [
+            SubAgentVote(agent_id="probabilistic_forecast_sentinel", agent_name="Forecast Sentinel", symbol="RISKY", score=0.85, confidence=0.90, vote_action="BUY", rationale="Quant Breakout"),
+            SubAgentVote(agent_id="microstructure_liquidity_sniper", agent_name="Microstructure Sentinel", symbol="RISKY", score=-0.80, confidence=0.95, vote_action="SELL", rationale="Illiquidity Trap"),
+        ]
+        res_conf = cio_syn.synthesize_conviction("RISKY", mock_votes_conflict, arch_fc.state.active_subagents, fake_buy_sig, green_macro, snap_fav)
+        assert res_conf.committee_conflict_detected is True, "Konflikt zwischen Quant & Risk muss erkannt werden"
+        assert res_conf.size_multiplier <= 0.50, "Bei Komitee-Konflikt muss die Positionsgröße gedrosselt werden"
+
+        # 3. ADAS-Meta-Architect End-to-End Test mit CIO-Synthese
+        sig_evaluated, _, _ = arch_fc.evaluate_symbol_with_swarm(snap_fav, fake_buy_sig, green_macro)
+        assert sig_evaluated.cio_conviction_tier != "", "Signal muss CIO Conviction Tier tragen"
+        assert sig_evaluated.cio_conviction_score > 0.0
+
+        # 4. Emergent Dialect Integration: TIER 1 Alpha Token
+        sig_t1 = fake_buy_sig.model_copy(update={"cio_conviction_tier": "TIER_1_ALPHA_HIGH_CONVICTION", "cio_conviction_score": 0.88})
+        deal_cio = dialect_engine.compose_and_negotiate_deal(snap_fav, sig_t1, green_macro, dummy_risk)
+        assert "🏛️:CIO_TIER1_ALPHA" in deal_cio.dialect_sentence
+
+        print(f"[OK] Test 39 bestanden: CIO Conviction Synthesizer – hierarchische Komitees (Fundamental, Makro, Quant, Risk), Tier 1 Alpha ({res_t1.overall_conviction_score*100:.0f}% Conviction) & Konfliktlösung verifiziert.")
+
+        # --- Test 40: Dynamic Correlation Breakdown Shield (Citadel / Risk Parity Crisis Alpha) ---
+        from correlation_breakdown_shield import CorrelationBreakdownShield
+        test_shield_cache = Path(tmpdir) / "test_shield_cache.json"
+        shield = CorrelationBreakdownShield(cache_file=test_shield_cache)
+
+        # 1. Gesunde Diversifikation (unkorrelierte Zufalls-Renditen)
+        np.random.seed(123)
+        df_healthy = pd.DataFrame({
+            "ASSET_A": np.random.normal(0.001, 0.015, 30),
+            "ASSET_B": np.random.normal(0.001, 0.012, 30),
+            "ASSET_C": np.random.normal(0.001, 0.018, 30),
+        })
+        st_h = shield.evaluate_returns_matrix(df_healthy)
+        assert st_h.shield_active is False
+        assert st_h.market_regime == "HEALTHY_DIVERSIFICATION"
+        assert st_h.required_cash_buffer_pct == 15.0
+
+        # 2. Systemic Correlation Breakdown ("All correlations go to 1.0" Marktpanik)
+        panic_shock = np.random.normal(-0.025, 0.01, 30)
+        df_breakdown = pd.DataFrame({
+            "TECH": panic_shock + np.random.normal(0, 0.001, 30),
+            "CRYPTO": panic_shock + np.random.normal(0, 0.001, 30),
+            "SMALLCAP": panic_shock + np.random.normal(0, 0.001, 30),
+        })
+        st_b = shield.evaluate_returns_matrix(df_breakdown)
+        assert st_b.shield_active is True, "Shield muss bei Gleichlauf >= 0.75 aktiv werden"
+        assert st_b.market_regime == "SYSTEMIC_CORRELATION_BREAKDOWN"
+        assert st_b.average_pairwise_correlation >= 0.75
+        assert st_b.required_cash_buffer_pct >= 40.0
+
+        # 3. Risk-Manager Blockierung bei aktivem Correlation Breakdown
+        macro_breakdown = green_macro.model_copy(update={
+            "correlation_breakdown_active": True,
+            "average_portfolio_correlation": st_b.average_pairwise_correlation,
+            "correlation_shield_regime": "SYSTEMIC_CORRELATION_BREAKDOWN",
+        })
+        risk_mgr_shield = DeterministicRiskManager(cfg)
+        r_eval_shield = risk_mgr_shield.evaluate_signal(
+            signal=fake_buy_sig,
+            snapshot=snap_fav,
+            macro=macro_breakdown,
+            cash_usd=50000.0,
+            total_equity_usd=100000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert r_eval_shield.approved is False, "Neukäufe müssen im Korrelations-Kollaps blockiert sein"
+        assert "CORRELATION BREAKDOWN SHIELD" in r_eval_shield.reason
+
+        # 4. Red-Team VETO im Korrelations-Kollaps
+        tribunal_breakdown = red_tribunal_hf.convene_tribunal(fake_buy_sig, snap_fav, macro_breakdown, {})
+        assert "Systemic Correlation Breakdown" in tribunal_breakdown.bear_rebuttal
+        assert tribunal_breakdown.verdict == "REJECTED_VETO"
+
+        # 5. Emergent Dialect Token
+        deal_breakdown = dialect_engine.compose_and_negotiate_deal(snap_fav, fake_buy_sig, macro_breakdown, dummy_risk)
+        assert "🛑:CORRELATION_BREAKDOWN_PANIC" in deal_breakdown.dialect_sentence
+
+        # 6. Telegram Zusammenfassung
+        tg_shield = shield.format_telegram_summary(st_b)
+        assert "Dynamic Correlation Breakdown Shield" in tg_shield
+        assert "SYSTEMIC_CORRELATION_BREAKDOWN" in tg_shield
+
+        print(f"[OK] Test 40 bestanden: Dynamic Correlation Breakdown Shield – Gleichlauf-Erkennung (ρ={st_b.average_pairwise_correlation:.2f} >= 0.75), Kauf-Sperre im Risk-Manager & Red-Team Veto aktiv.")
+
+    print("=== Alle 40 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction- & Correlation-Breakdown-Tests erfolgreich bestanden! ===")
 
 
 

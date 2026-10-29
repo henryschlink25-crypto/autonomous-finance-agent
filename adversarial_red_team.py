@@ -133,6 +133,8 @@ class AdversarialRedTeamTribunal:
             points.append(f"🎯 Bullischer Liquidity-Sweep am -2σ VWAP-Band absorbiert{poc_txt}")
         if getattr(snapshot, "forecast_asymmetry_ratio", 1.0) >= 1.6:
             points.append(f"📈 Probabilistischer Trichter: {snapshot.forecast_asymmetry_ratio:.1f}x Upside-Asymmetrie")
+        if getattr(signal, "cio_conviction_tier", "") == "TIER_1_ALPHA_HIGH_CONVICTION":
+            points.append(f"🏛️ CIO Überzeugung: TIER 1 ALPHA Konsens ({getattr(signal, 'cio_conviction_score', 0.85)*100:.0f}%)")
         if macro is not None and getattr(macro, "geopolitical_regime_mode", "") == "PEACE_DIVIDEND":
             points.append("🕊️ Globale Friedensdividende (GCI ruhig)")
         if getattr(snapshot, "supertrend_direction", "") == "BULLISH":
@@ -288,6 +290,14 @@ class AdversarialRedTeamTribunal:
             rebuttals.append(msg)
             fatal_risks.append("Unfavorable Probabilistic Skew")
             risk_score += 3.5
+
+        # 18. Dynamic Correlation Breakdown Shield (Citadel / Risk Parity Crisis Alpha)
+        if macro is not None and getattr(macro, "correlation_breakdown_active", False):
+            avg_corr = getattr(macro, "average_portfolio_correlation", 0.80)
+            msg = f"🚨 Systemic Correlation Breakdown aktiv (ρ={avg_corr:.2f} >= 0.75) – 'All correlations go to 1.0', Diversifikation versagt"
+            rebuttals.append(msg)
+            fatal_risks.append("Systemic Correlation Breakdown")
+            risk_score += 7.0
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)

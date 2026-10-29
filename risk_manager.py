@@ -244,9 +244,15 @@ class DeterministicRiskManager:
                 adjusted_action="HOLD",
             )
 
-        # 3b. Makro-Ampel Prüfung (VIX, SPY, Zinsen, Dollar)
+        # 3b. Makro-Ampel & Dynamic Correlation Breakdown Shield
         macro_mult = 1.0
         if macro is not None:
+            if getattr(macro, "correlation_breakdown_active", False) and not snapshot.is_safe_haven:
+                return RiskEvaluation(
+                    approved=False,
+                    reason=f"CORRELATION BREAKDOWN SHIELD AKTIV: Systemischer Gleichlauf (ρ={getattr(macro, 'average_portfolio_correlation', 0.8):.2f} >= 0.75). Alle Neukäufe blockiert – nur Safe-Haven (GLD) erlaubt.",
+                    adjusted_action="HOLD",
+                )
             if macro.regime_state == "RED_DEFENSIVE" and not snapshot.is_safe_haven:
                 return RiskEvaluation(
                     approved=False,
@@ -336,8 +342,11 @@ class DeterministicRiskManager:
                 adjusted_action="HOLD",
             )
 
-        # 3j. Eiserne Cash-Reserve prüfen (mind. 8% Cash-Puffer behalten)
-        min_cash_reserve_usd = total_equity_usd * self.config.min_cash_reserve_pct
+        # 3j. Eiserne Cash-Reserve prüfen (mind. 8% Cash-Puffer behalten, bei Correlation Breakdown mind. 40%)
+        cash_res_pct = self.config.min_cash_reserve_pct
+        if macro is not None and getattr(macro, "correlation_breakdown_active", False):
+            cash_res_pct = max(cash_res_pct, 0.40)
+        min_cash_reserve_usd = total_equity_usd * cash_res_pct
         deployable_cash_usd = max(0.0, (cash_usd - min_cash_reserve_usd) * 0.99)
         if deployable_cash_usd < min_order:
             return RiskEvaluation(

@@ -1184,6 +1184,14 @@ class MultiAssetDataCollector:
             ((undiv_var_usd - daily_var_95_usd) / undiv_var_usd) * 100.0 if undiv_var_usd > 0 else 0.0
         )
 
+        # Dynamic Correlation Breakdown Shield (Citadel Crisis Alpha)
+        try:
+            from correlation_breakdown_shield import get_correlation_shield
+            shield = get_correlation_shield()
+            shield.evaluate_returns_matrix(ret_df, held_symbols=held_symbols)
+        except Exception:
+            pass
+
         return PortfolioRiskMetrics(
             portfolio_beta=round(portfolio_beta, 2),
             daily_var_95_usd=round(daily_var_95_usd, 2),
