@@ -565,11 +565,14 @@ class MultiAssetExecutionEngine:
 
         if self.config.telegram_bot_token and self.config.telegram_chat_id:
             try:
+                import html
                 url = f"https://api.telegram.org/bot{self.config.telegram_bot_token}/sendMessage"
                 cid = int(self.config.telegram_chat_id) if self.config.telegram_chat_id.isdigit() else self.config.telegram_chat_id
+                safe_title = html.escape(title)
+                safe_msg = html.escape(message)
                 payload = json.dumps({
                     "chat_id": cid,
-                    "text": f"🤖 <b>{title}</b>\n{message}",
+                    "text": f"🤖 <b>{safe_title}</b>\n{safe_msg}",
                     "parse_mode": "HTML",
                 }).encode("utf-8")
                 req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})

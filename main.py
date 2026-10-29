@@ -1,6 +1,13 @@
 import argparse
+import sys
 import time
 from typing import Dict, List, Optional, Tuple
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
+
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
@@ -17,7 +24,7 @@ from self_improver import SelfLearningShadowTracker
 from adas_meta_agent import ADASMetaArchitect
 from models import MarketSnapshot, PortfolioRiskMetrics, TradingSignal
 
-console = Console(width=152)
+console = Console(width=152, legacy_windows=False)
 
 
 def render_portfolio_summary(

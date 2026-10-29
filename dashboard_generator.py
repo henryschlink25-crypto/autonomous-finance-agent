@@ -479,6 +479,7 @@ class DashboardGenerator:
             {synth_badges}
             <span class="pill pill-indigo">📐 Kelly-Kriterium & Volatilitäts-Parität aktiv</span>
             <span class="pill pill-green">⚔️ AlphaZero Monte-Carlo Simulator</span>
+            <span class="pill pill-green">📱 Telegram Alerts: @Henry_trading_agent_bot (Live)</span>
         </div>
 
         {adas_evo_html}
