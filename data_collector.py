@@ -459,18 +459,39 @@ class MultiAssetDataCollector:
                 f"⚖️ Zinsen (10Y: {us10y_yield:.2f}%, {us10y_change_5d_bps:+.0f} bps) & US-Dollar (DXY: {dxy_level:.1f}, {dxy_change_5d_pct:+.2f}%) stabil"
             )
 
-        if vix_level >= 30.0 or (vix_level >= 26.0 and spy_price < spy_sma200):
+        # Geopolitisches Regime & Weltpolitische Risiko-Matrix
+        geo_risk_score = 3.0
+        geo_mode = "NEUTRAL_STABLE"
+        geo_mandate = "BALANCED_MULTI_ASSET"
+        geo_catalysts = []
+        try:
+            from geopolitical_regime_engine import GeopoliticalRegimeEngine
+            geo_engine = GeopoliticalRegimeEngine()
+            geo_snap = geo_engine.analyze_geopolitical_situation()
+            geo_risk_score = geo_snap.geopolitical_risk_score
+            geo_mode = geo_snap.regime_mode
+            geo_mandate = geo_snap.autonomous_strategy_mandate
+            geo_catalysts = geo_snap.active_conflict_hotspots
+            if geo_risk_score >= 6.5:
+                intermarket_penalty *= 0.60
+                intermarket_signals.append(f"🌐 Geopolitische Alarmstufe ({geo_mode}): {geo_mandate[:60]}")
+            elif geo_risk_score >= 5.0:
+                intermarket_penalty *= 0.85
+        except Exception:
+            pass
+
+        if vix_level >= 30.0 or (vix_level >= 26.0 and spy_price < spy_sma200) or geo_risk_score >= 7.5:
             state = "RED_DEFENSIVE"
             mult = 0.0
-            summary = f"🔴 ROTE AMPEL (Risk-Off / Crash-Schutz): VIX hoch ({vix_level:.1f}), nur Safe-Haven (GLD) erlaubt."
-        elif vix_level >= 22.5 or spy_price < spy_sma50 or intermarket_penalty < 0.80:
+            summary = f"🔴 ROTE AMPEL (Risk-Off / Geopolitische Eskalation): VIX ({vix_level:.1f}), Geo-Score ({geo_risk_score:.1f}/10) -> nur Safe-Haven (GLD) erlaubt."
+        elif vix_level >= 22.5 or spy_price < spy_sma50 or intermarket_penalty < 0.80 or geo_risk_score >= 5.5:
             state = "YELLOW_CAUTION"
             mult = round(0.5 * intermarket_penalty, 2)
-            summary = f"🟡 GELBE AMPEL (Erhöhte Vorsicht): VIX {vix_level:.1f} / Intermarket-Drosselung -> Risiko ({mult:.2f}x)."
+            summary = f"🟡 GELBE AMPEL (Erhöhte Vorsicht): VIX {vix_level:.1f} / Geo-Score {geo_risk_score:.1f} -> Risikobudget ({mult:.2f}x)."
         else:
             state = "GREEN_RISK_ON"
             mult = round(1.0 * intermarket_penalty, 2)
-            summary = f"🟢 GRÜNE AMPEL (Risk-On): VIX ruhig ({vix_level:.1f}) & S&P 500 im Aufwärtstrend -> Risikobudget ({mult:.2f}x)."
+            summary = f"🟢 GRÜNE AMPEL (Risk-On): VIX ruhig ({vix_level:.1f}), Weltpolitik stabil ({geo_mode}) -> Risikobudget ({mult:.2f}x)."
 
         return MacroRegime(
             vix_level=round(vix_level, 2),
@@ -488,6 +509,10 @@ class MultiAssetDataCollector:
             copper_gold_ratio=cg_ratio,
             intermarket_bias=bias_str,
             intermarket_signals=intermarket_signals,
+            geopolitical_risk_score=round(geo_risk_score, 1),
+            geopolitical_regime_mode=geo_mode,
+            geopolitical_strategy_mandate=geo_mandate,
+            geopolitical_catalysts=geo_catalysts,
             summary=summary,
         )
 
@@ -889,6 +914,33 @@ class MultiAssetDataCollector:
             except Exception:
                 pass
 
+            # Wall Street Analysten-Konsens & Bilanzkennzahlen
+            analyst_cons = "NEUTRAL"
+            analyst_upside = None
+            analyst_cnt = 0
+            debt_to_eq = None
+            fcf_val = None
+            if item.asset_class == "EQUITY":
+                try:
+                    from analyst_ratings_radar import AnalystRatingsRadar
+                    radar = AnalystRatingsRadar()
+                    ratings = radar.get_ratings(item.symbol, current_price=current_price)
+                    analyst_cons = ratings.consensus_rating
+                    analyst_upside = ratings.target_upside_pct
+                    analyst_cnt = ratings.analyst_count
+                except Exception:
+                    pass
+                try:
+                    info = ticker.info or {}
+                    debt_to_eq = info.get("debtToEquity")
+                    if debt_to_eq is not None:
+                        debt_to_eq = float(debt_to_eq)
+                    fcf_val = info.get("freeCashflow")
+                    if fcf_val is not None:
+                        fcf_val = float(fcf_val)
+                except Exception:
+                    pass
+
             # Dynamisch synthetisierte Werkzeuge (ADAS AI Scientist) anwenden
             synth_metrics = QuantitativeToolbox.execute_synthesized_tools(df)
 
@@ -960,6 +1012,11 @@ class MultiAssetDataCollector:
                 option_delta=opt_delta,
                 option_gamma=opt_gamma,
                 option_vega=opt_vega,
+                analyst_consensus=analyst_cons,
+                analyst_target_upside_pct=analyst_upside,
+                analyst_count=analyst_cnt,
+                balance_sheet_debt_to_equity=debt_to_eq,
+                free_cash_flow_usd=fcf_val,
                 forward_pe=f_pe,
                 revenue_growth_pct=rev_g,
                 profit_margin_pct=prof_m,

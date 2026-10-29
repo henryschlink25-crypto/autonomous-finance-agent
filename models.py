@@ -26,6 +26,11 @@ class MacroRegime(BaseModel):
     copper_gold_ratio: float = 0.12
     intermarket_bias: str = "NEUTRAL_STABLE"
     intermarket_signals: List[str] = Field(default_factory=list)
+    # Geopolitisches Regime & Weltpolitische Risiko-Matrix
+    geopolitical_risk_score: float = 3.5  # 0.0 bis 10.0
+    geopolitical_regime_mode: str = "NEUTRAL_STABLE"  # ESCALATION_CRISIS_REGIME, TRADE_WAR_TARIFF_TENSION, NEUTRAL_STABLE, PEACE_DIVIDEND_EXPANSION
+    geopolitical_strategy_mandate: str = "BALANCED_MULTI_ASSET"
+    geopolitical_catalysts: List[str] = Field(default_factory=list)
     summary: str
 
 
@@ -93,6 +98,13 @@ class MarketSnapshot(BaseModel):
     fundamental_health_grade: str = "SOLID_VALUE"
     is_fundamentally_distressed: bool = False
     fundamental_score: float = 0.0
+    # Wall Street Expertenmeinungen & Kursziele
+    analyst_consensus: str = "NEUTRAL"
+    analyst_target_upside_pct: Optional[float] = None
+    analyst_count: int = 0
+    # Bilanzen & Cashflow (Debt/Equity & FCF)
+    balance_sheet_debt_to_equity: Optional[float] = None
+    free_cash_flow_usd: Optional[float] = None
     # Statistische Arbitrage & Pairs Trading Felder
     stat_arb_pair: str = ""
     stat_arb_z_score: Optional[float] = None

@@ -155,6 +155,8 @@ class TelegramCommandListener:
                 "🐋 <b>/whales</b> - Letzte SEC Form 4 Insider-Käufe\n"
                 "📈 <b>/options &lt;SYM&gt;</b> - Optionen-Flow (z.B. <code>/options NVDA</code>)\n"
                 "🔍 <b>/fund &lt;SYM&gt;</b> - Fundamental-Check (z.B. <code>/fund AAPL</code>)\n"
+                "📊 <b>/analysts &lt;SYM&gt;</b> - Wall Street Analysten-Konsens & Kursziele\n"
+                "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
@@ -194,6 +196,15 @@ class TelegramCommandListener:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/fund AAPL</code>")
             else:
                 self._handle_fundamentals(args[0])
+
+        elif cmd in ["/analysts", "/analyst", "/ratings"]:
+            if not args:
+                self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/analysts NVDA</code>")
+            else:
+                self._handle_analysts(args[0])
+
+        elif cmd in ["/geopolitics", "/geo", "/war", "/peace"]:
+            self._handle_geopolitics()
 
         elif cmd == "/breed":
             self.send_message("🧬 <i>Starte autonome genetische Strategie-Zucht und Krisen-Stresstest im Hintergrund...</i>")
@@ -519,6 +530,58 @@ class TelegramCommandListener:
             self.send_message("\n".join(lines))
         except Exception as e:
             self.send_message(f"❌ Fehler bei Sektor-Scan: {e}")
+
+    def _handle_analysts(self, symbol: str) -> None:
+        sym = symbol.strip().upper()
+        self.send_message(f"📊 <i>Lade Wall Street Analysten-Ratings & Kursziele für {sym}...</i>")
+        try:
+            from analyst_ratings_radar import AnalystRatingsRadar
+            radar = AnalystRatingsRadar()
+            ratings = radar.get_ratings(sym)
+
+            icon = "🟢" if "BUY" in ratings.consensus_rating else ("🔴" if "SELL" in ratings.consensus_rating else "🟡")
+            lines = [f"📊 <b>Wall Street Analysten-Konsens: {sym}</b>\n─────────────────────────────"]
+            lines.append(f"• <b>Konsens-Rating:</b> {icon} <b>{ratings.consensus_rating}</b> ({ratings.analyst_count} Analysten)")
+            if ratings.target_mean_price:
+                ups = ratings.target_upside_pct or 0.0
+                lines.append(f"• <b>Kursziel (Mittelwert):</b> ${ratings.target_mean_price:.2f} (<b>{ups:+.1f}%</b>)")
+            if ratings.target_high_price:
+                lines.append(f"• <b>Kursziel (High / Bull-Case):</b> ${ratings.target_high_price:.2f}")
+            if ratings.target_low_price:
+                lines.append(f"• <b>Kursziel (Low / Bear-Case):</b> ${ratings.target_low_price:.2f}")
+            lines.append(f"• <b>Konsens-Score (-1.0 bis +1.0):</b> {ratings.consensus_score:+.2f}")
+
+            lines.append(f"\n💡 <i>Schwarm-Zusammenfassung: {ratings.summary}</i>")
+            self.send_message("\n".join(lines))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Analysten-Abfrage für {sym}: {e}")
+
+    def _handle_geopolitics(self) -> None:
+        self.send_message("🌐 <i>Analysiere globale Konflikt- und Rohstoffrisiken (GCI-Index)...</i>")
+        try:
+            from geopolitical_regime_engine import GeopoliticalRegimeEngine
+            geo_engine = GeopoliticalRegimeEngine()
+            snap = geo_engine.analyze_geopolitical_situation()
+
+            icon = "🟢" if snap.geopolitical_risk_score < 4.0 else ("🔴" if snap.geopolitical_risk_score >= 6.5 else "🟡")
+            lines = ["🌐 <b>Geopolitisches Lagezentrum & Strategie-Mandat:</b>\n─────────────────────────────"]
+            lines.append(f"• <b>Geopolitischer Konflikt-Index (GCI):</b> {icon} <b>{snap.geopolitical_risk_score:.1f} / 10.0</b>")
+            lines.append(f"• <b>Regime-Modus:</b> <b>{snap.regime_mode}</b>")
+            lines.append(f"• <b>Strategie-Mandat:</b> <code>{snap.autonomous_strategy_mandate}</code>\n")
+
+            lines.append("⚡ <b>Relative Dynamik vs. S&P 500 (5 Tage):</b>")
+            lines.append(f"• Verteidigung (LMT vs SPY): {snap.defense_outperformance_5d_pct:+.1f}%")
+            lines.append(f"• Energie / Öl-Schock (USO vs SPY): {snap.energy_oil_shock_5d_pct:+.1f}%")
+            lines.append(f"• Gold Safe-Haven Flow (GLD vs SPY): {snap.gold_safe_haven_flow_5d_pct:+.1f}%\n")
+
+            if snap.active_conflict_hotspots:
+                lines.append("🛡️ <b>Geopolitische Brennpunkte & Treiber:</b>")
+                for c in snap.active_conflict_hotspots:
+                    lines.append(f"• {c}")
+
+            self.send_message("\n".join(lines))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Geopolitik-Analyse: {e}")
 
     def _run_breed_task(self) -> None:
         try:

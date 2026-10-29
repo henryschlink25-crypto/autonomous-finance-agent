@@ -613,6 +613,26 @@ class ADASMetaArchitect:
                 trust_weight=1.22,
             ))
 
+        # 12. Wall Street Analyst Consensus & Price Target Hunter
+        if "wall_street_consensus_analyst" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="wall_street_consensus_analyst",
+                name="📊 Wall Street Consensus & Analyst Target Hunter",
+                role="Analysiert Konsens-Ratings (Strong Buy / Buy) und Kursziel-Aufwärtspotenziale renommierter Investmentbanken.",
+                specialty_focus="WALL_STREET_CONSENSUS",
+                trust_weight=1.24,
+            ))
+
+        # 13. Geopolitical Crisis & Defense Strategist
+        if "geopolitical_crisis_strategist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="geopolitical_crisis_strategist",
+                name="🌐 Geopolitical Regime & Defense Strategist",
+                role="Überwacht globale Konflikt- und Energie-Risiken, steuert Defense-/Rohstoff-Hedges und schützt vor geopolitischen Schocks.",
+                specialty_focus="GEOPOLITICAL_STRATEGY",
+                trust_weight=1.25,
+            ))
+
         return new_specs
 
 
@@ -1141,6 +1161,60 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = "Sektor-Rotations-Daten temporär nicht verfügbar"
+
+        elif focus == "WALL_STREET_CONSENSUS":
+            cons = getattr(snap, "analyst_consensus", "NEUTRAL")
+            upside = getattr(snap, "analyst_target_upside_pct", None)
+            cnt = getattr(snap, "analyst_count", 0)
+            s_strong_buy = rec.flag("Analyst Strong Buy", cons in ("STRONG_BUY", "BUY"), "bull")
+            s_upside = rec.num("Analyst Upside %", upside or 0.0, ">=", "min_analyst_upside", 15.0, "bull")
+            s_bear_rating = rec.flag("Analyst Underperform", cons in ("UNDERPERFORM", "SELL"), "bear")
+            if s_bear_rating.passed:
+                score = -0.75
+                conf = 0.85
+                rationale = f"⚠️ Wall Street Analysten warnen: Konsens ist {cons}"
+                decisive_idx = rec.idx(s_bear_rating)
+            elif s_strong_buy.passed and s_upside.passed:
+                score = min(0.92, 0.60 + min(30.0, upside or 0.0) * 0.01)
+                conf = min(0.95, 0.75 + min(30, cnt) * 0.005)
+                rationale = f"📊 Starker Wall Street Konsens ({cons}, {cnt} Analysten): +{upside:.1f}% Kurspotenzial"
+                decisive_idx = rec.idx(s_strong_buy, s_upside)
+            elif s_strong_buy.passed:
+                score = 0.45
+                conf = 0.70
+                rationale = f"Wall Street Konsens {cons} ({cnt} Analysten)"
+                decisive_idx = rec.idx(s_strong_buy)
+            else:
+                score = 0.0
+                conf = 0.50
+                rationale = f"Analysten-Meinung unauffällig ({cons})"
+
+        elif focus == "GEOPOLITICAL_STRATEGY":
+            geo_score = getattr(macro, "geopolitical_risk_score", 3.5)
+            geo_mode = getattr(macro, "geopolitical_regime_mode", "NEUTRAL_STABLE")
+            geo_mandate = getattr(macro, "geopolitical_strategy_mandate", "BALANCED_MULTI_ASSET")
+            is_def_or_energy = snap.cluster in ("DEFENSE", "ENERGY") or snap.symbol in ("LMT", "XLE", "USO", "GLD", "RHM.DE")
+            s_escalation = rec.flag("Geopolitische Eskalation", geo_score >= 6.0 or geo_mode == "ESCALATION_CRISIS_REGIME", "bear")
+            s_def_hedge = rec.flag("Defense Hedge Asset", is_def_or_energy and geo_score >= 5.0, "bull")
+            if s_def_hedge.passed:
+                score = 0.86
+                conf = 0.90
+                rationale = f"🛡️ Geopolitischer Krisen-Profiteur ({geo_mode}): Safe-Haven / Rüstung / Rohstoff-Absicherung aktiv"
+                decisive_idx = rec.idx(s_def_hedge)
+            elif s_escalation.passed and not snap.is_safe_haven:
+                score = -0.80
+                conf = 0.88
+                rationale = f"🌐 VETO: Hohes weltpolitisches Risiko (GCI {geo_score:.1f}/10, {geo_mode}) – Mandat: {geo_mandate[:50]}"
+                decisive_idx = rec.idx(s_escalation)
+            elif geo_mode == "PEACE_DIVIDEND_EXPANSION":
+                score = 0.65
+                conf = 0.78
+                rationale = f"🕊️ Friedensdividende / Geopolitische Entspannung (GCI {geo_score:.1f}/10) begünstigt globales Wachstum"
+                decisive_idx = rec.idx(rec.flag("Peace Dividend", True, "bull"))
+            else:
+                score = 0.10
+                conf = 0.60
+                rationale = f"Geopolitische Lage kontrolliert (GCI {geo_score:.1f}/10, {geo_mode})"
 
 
 

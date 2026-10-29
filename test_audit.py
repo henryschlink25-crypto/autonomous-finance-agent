@@ -783,7 +783,93 @@ def test_all_audit_fixes() -> None:
         assert sec_vote.score >= 0.70, f"Sector Hunter muss Sektor-Leader stark befürworten! Score: {sec_vote.score}"
         print(f"[OK] Test 27 bestanden: Sektor-Rotations-Radar identifiziert {sec_snap.top_alpha_sector} & Specialist #24 votiert {sec_vote.vote_action} ({sec_vote.score:+.2f}) für {top_sec_stock}.")
 
-    print("=== Alle 27 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly- & Sector-Rotation-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 28: Wall Street Analysten-Radar & Kursziel-Potenzial
+        # ============================================================================
+        from analyst_ratings_radar import AnalystRatingsRadar
+        radar = AnalystRatingsRadar()
+        ratings = radar.get_ratings("NVDA")
+        assert ratings.symbol == "NVDA"
+        assert ratings.analyst_count >= 10, f"NVDA sollte von vielen Analysten gecovert werden, erhalten: {ratings.analyst_count}"
+        assert ratings.consensus_rating in ("STRONG_BUY", "BUY", "HOLD", "UNDERPERFORM", "SELL")
+        assert ratings.target_mean_price is not None and ratings.target_mean_price > 50.0
+        print(f"[OK] Test 28 bestanden: Wall Street Analysten-Radar analysiert {ratings.analyst_count} Analysten für NVDA (Konsens: {ratings.consensus_rating}, Kursziel: ${ratings.target_mean_price:.2f}, Upside: {ratings.target_upside_pct:+.1f}%).")
+
+        # ============================================================================
+        # TEST 29: Geopolitischer Regime-Index (GCI) & Krisen-Mandat
+        # ============================================================================
+        from geopolitical_regime_engine import GeopoliticalRegimeEngine
+        geo_engine = GeopoliticalRegimeEngine()
+        geo_snap = geo_engine.analyze_geopolitical_situation()
+        assert 0.0 <= geo_snap.geopolitical_risk_score <= 10.0
+        assert geo_snap.regime_mode in ("ESCALATION_CRISIS_REGIME", "TRADE_WAR_TARIFF_TENSION", "NEUTRAL_STABLE", "PEACE_DIVIDEND_EXPANSION")
+        assert len(geo_snap.autonomous_strategy_mandate) > 0
+        print(f"[OK] Test 29 bestanden: Geopolitisches Krisenzentrum berechnet GCI {geo_snap.geopolitical_risk_score:.1f}/10.0 (Regime: {geo_snap.regime_mode}, Mandat: {geo_snap.autonomous_strategy_mandate[:50]}...).")
+
+        # ============================================================================
+        # TEST 30: ADAS Swarm Spezialist #25 (Wall Street) & #26 (Geopolitics) & Red-Team Veto
+        # ============================================================================
+        # Erstelle ein Snapshot mit starkem Analysten-Konsens und Geopolitik-Mandat
+        analyst_snap = MarketSnapshot(
+            symbol="NVDA",
+            name="NVIDIA Corporation",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=140.0,
+            change_24h_pct=2.1,
+            change_7d_pct=4.5,
+            rsi_14=56.0,
+            sma_20=135.0,
+            sma_50=128.0,
+            macd_hist=0.4,
+            atr_14=3.5,
+            volatility_annualized_pct=28.0,
+            volume_ratio_vs_20d=1.4,
+            analyst_consensus="STRONG_BUY",
+            analyst_target_upside_pct=32.5,
+            analyst_count=52,
+        )
+        analyst_sig = TradingSignal(
+            symbol="NVDA",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="BUY",
+            confidence=0.82,
+            sentiment_score=0.80,
+            entry_price=140.0,
+            stop_loss_price=133.0,
+            take_profit_price=160.0,
+            risk_reward_ratio=2.85,
+            catalyst_summary="Wall Street Konsens & AI Momentum",
+            thesis="Analyst Target Expansion",
+        )
+        _, votes_wallst, _ = adas.evaluate_symbol_with_swarm(analyst_snap, analyst_sig, green_macro)
+        wallst_vote = next(v for v in votes_wallst if v.agent_id == "wall_street_consensus_analyst")
+        assert wallst_vote.score >= 0.70, f"Wall Street Hunter muss bei STRONG_BUY und +32% Upside stark bullisch votieren! Score: {wallst_vote.score}"
+
+        # Teste geopolitisches Red-Team Veto bei extremer Kriegseskalation (GCI >= 6.5)
+        war_macro = MacroRegime(
+            vix_level=24.0,
+            spy_price=520.0,
+            spy_sma_50=515.0,
+            spy_sma_200=500.0,
+            us10y_yield=4.3,
+            us10y_change_5d_bps=5.0,
+            dxy_level=104.0,
+            dxy_change_5d_pct=0.5,
+            regime_state="YELLOW_CAUTION",
+            risk_multiplier=0.5,
+            geopolitical_risk_score=8.5,
+            geopolitical_regime_mode="ESCALATION_CRISIS_REGIME",
+            geopolitical_strategy_mandate="DEFENSIVE_CAPITAL_PRESERVATION",
+            summary="Geopolitischer Schock",
+        )
+        tribunal_war = tribunal.convene_tribunal(analyst_sig, analyst_snap, war_macro, {})
+        assert tribunal_war.verdict == "REJECTED_VETO", f"Red-Team muss riskante Tech-Aktie bei Kriegseskalation vetoen! Erhalten: {tribunal_war.verdict}"
+        assert "Geopolitical" in tribunal_war.bear_rebuttal or "Weltpolitisch" in tribunal_war.bear_rebuttal or "Geopolitical" in tribunal_war.cio_reasoning
+        print(f"[OK] Test 30 bestanden: Wall Street Specialist #25 votiert {wallst_vote.vote_action} ({wallst_vote.score:+.2f}) & Red-Team verhängt VETO bei Geopolitik-Eskalation.")
+
+    print("=== Alle 30 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings- & Geopolitik-Tests erfolgreich bestanden! ===")
 
 
 

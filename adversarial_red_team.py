@@ -122,7 +122,12 @@ class AdversarialRedTeamTribunal:
             points.append("🟢 Entspannte Kreditmärkte (HYG/LQD Rückenwind)")
         if snapshot.options_flow_sentiment == "BULLISH_CALL_FLOW":
             points.append(f"Institutioneller Call-Whale Flow (Put/Call {snapshot.options_put_call_ratio or 0.5:.2f})")
-        if snapshot.supertrend_direction == "BULLISH":
+        if getattr(snapshot, "analyst_consensus", "") in ("STRONG_BUY", "BUY"):
+            ups = getattr(snapshot, "analyst_target_upside_pct", 0.0) or 0.0
+            points.append(f"📊 Wall Street Konsens ({snapshot.analyst_consensus}): +{ups:.1f}% Kurspotenzial ({snapshot.analyst_count} Analysten)")
+        if macro is not None and getattr(macro, "geopolitical_regime_mode", "") == "PEACE_DIVIDEND":
+            points.append("🕊️ Globale Friedensdividende (GCI ruhig)")
+        if getattr(snapshot, "supertrend_direction", "") == "BULLISH":
             points.append("SuperTrend im Bullen-Regime")
         if signal.thesis:
             points.append(f"These: {signal.thesis}")
@@ -223,6 +228,21 @@ class AdversarialRedTeamTribunal:
             rebuttals.append(msg)
             fatal_risks.append("Severe Slippage / Thin Liquidity")
             risk_score += 3.0
+
+        # 12. Wall Street Analysten-Warnung / Downgrade
+        if getattr(snapshot, "analyst_consensus", "") in ("UNDERPERFORM", "SELL"):
+            msg = f"Wall Street Analysten warnen vor Abverkauf (Konsens: {snapshot.analyst_consensus})"
+            rebuttals.append(msg)
+            risk_score += 2.0
+
+        # 13. Weltpolitische Eskalation / Geopolitischer Schock
+        if macro is not None and getattr(macro, "geopolitical_risk_score", 0.0) >= 6.5:
+            if not snapshot.is_safe_haven and snapshot.cluster not in ("DEFENSE", "ENERGY"):
+                is_severe = getattr(macro, "geopolitical_risk_score", 0.0) >= 8.0 or macro.geopolitical_regime_mode in ("ESCALATION_CRISIS_REGIME", "CRITICAL_WAR_ESCALATION")
+                msg = f"Weltpolitisches Krisen-Regime ({macro.geopolitical_regime_mode}, GCI {macro.geopolitical_risk_score:.1f}/10)"
+                rebuttals.append(msg)
+                fatal_risks.append("Geopolitical Shock Risk")
+                risk_score += 6.5 if is_severe else 3.5
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)
