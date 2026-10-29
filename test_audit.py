@@ -18,6 +18,8 @@ if hasattr(sys.stdout, "reconfigure"):
 
 def test_all_audit_fixes() -> None:
     print("=== Starte automatisierten Code- & Logik-Audit-Test ===")
+    os.environ["EXECUTION_MODE"] = "LOCAL_PAPER"
+    os.environ["ALPACA_PAPER"] = "True"
 
     # 1. Test Wilder-RSI Grenzfall (14 steigende Tage ohne Verlust -> RSI muss ~100 sein, NICHT 50!)
     rising_prices = pd.Series([100.0 + i * 2.0 for i in range(25)])
@@ -27,7 +29,7 @@ def test_all_audit_fixes() -> None:
 
     # 2. Test Daily Drawdown Circuit Breaker vs. All-Time Return
     with tempfile.TemporaryDirectory() as tmpdir:
-        cfg = AgentConfig()
+        cfg = AgentConfig(execution_mode="LOCAL_PAPER", alpaca_paper=True)
         cfg.initial_capital_usd = 1000.0
         cfg.execution_mode = "LOCAL_PAPER"  # Isolierter Unit-Test ohne echte Broker-Orders
         cfg.enforce_market_hours = False  # Für deterministische Unit-Tests unabhängig von der Test-Uhrzeit
@@ -364,7 +366,7 @@ def test_all_audit_fixes() -> None:
         # TEST 14: Genetische Strategie-Zucht (Sakana AI / AlphaZero Breeding Sandbox)
         # ============================================================================
         from genetic_strategy_breeder import GeneticStrategyBreeder, STRATEGY_ARCHETYPES
-        cfg_breed = AgentConfig()
+        cfg_breed = AgentConfig(execution_mode="LOCAL_PAPER", alpaca_paper=True)
         breeder = GeneticStrategyBreeder(cfg_breed)
         test_genes = {
             "min_rvol": 1.8,

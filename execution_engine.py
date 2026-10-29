@@ -63,7 +63,7 @@ class MultiAssetExecutionEngine:
         # Synchronisiere Startkapital, Cash & Positionen mit Interactive Brokers (falls TWS/Gateway offen) oder Alpaca!
         if self.config.execution_mode in ("IBKR", "HYBRID") or self.config.ibkr_auto_connect:
             self._sync_from_ibkr_account()
-        if self.config.execution_mode == "ALPACA_PAPER" and self.config.alpaca_api_key and not self.ibkr_bridge.active_port:
+        if "ALPACA" in self.config.execution_mode and self.config.alpaca_api_key and not self.ibkr_bridge.active_port:
             self._sync_from_alpaca_account()
 
     def _sync_from_ibkr_account(self) -> None:
@@ -142,13 +142,19 @@ class MultiAssetExecutionEngine:
                         opened_at=datetime.datetime.now(datetime.timezone.utc).isoformat()[:19],
                     )
 
+            # Bereinige Positionen, die beim Broker nicht mehr existieren (z.B. Wechsel von Paper auf Live)
+            missing_on_broker = [s for s in list(self.positions.keys()) if s not in broker_symbols]
+            for s in missing_on_broker:
+                del self.positions[s]
+
             # WICHTIG: alpaca_equity enthält bereits den unrealisierten Gewinn/Verlust (market_value)!
             # Deshalb ziehen wir pos.market_value (NICHT nur pos.margin_used_usd) ab, damit total_equity_usd
             # auf den Cent genau mit alpaca_equity übereinstimmt und PnL niemals doppelt gezählt wird!
             pos_market_value = sum(p.market_value for p in self.positions.values())
             self.cash_usd = round(max(0.0, alpaca_equity - pos_market_value), 2)
+            self.config.initial_capital_usd = alpaca_equity
 
-            if abs(self.day_start_equity_usd - 1000.0) < 50.0 or abs(self.day_start_equity_usd - alpaca_last_equity) > 5.0:
+            if abs(self.day_start_equity_usd - 1000.0) < 50.0 or abs(self.day_start_equity_usd - alpaca_last_equity) > 5.0 or self.day_start_equity_usd > alpaca_equity * 2.0:
                 self.day_start_equity_usd = round(alpaca_last_equity, 2)
             self._save_state()
         except Exception:
@@ -224,7 +230,7 @@ class MultiAssetExecutionEngine:
         Aktualisiert Kurse offener Positionen, führt 50%-Teilgewinnmitnahmen (Scale-Out bei TP1) aus,
         zieht den Chandelier-Trailing-Stop nach und löst SL/TP2 inkl. Gebühren aus.
         """
-        if self.config.execution_mode == "ALPACA_PAPER" and self.config.alpaca_api_key:
+        if "ALPACA" in self.config.execution_mode and self.config.alpaca_api_key:
             self._sync_from_alpaca_account()
 
         triggered_events: List[str] = []
@@ -626,7 +632,7 @@ class MultiAssetExecutionEngine:
         elif symbol.endswith(".DE"):
             # Europäische Xetra-Ticker (.DE) sind bei US-Broker Alpaca nicht direkt gelistet -> lokales Paper-Execution-Tracking solange IBKR TWS geschlossen
             broker_note = "XETRA_LOCAL_PAPER (IBKR TWS wartet)"
-        elif self.config.execution_mode == "ALPACA_PAPER" and self.config.alpaca_api_key:
+        elif "ALPACA" in self.config.execution_mode and self.config.alpaca_api_key:
             broker_note = self._send_alpaca_order(signal, qty, risk_eval.adjusted_action)
             if broker_note.startswith("ALPACA_ERROR"):
                 return f"BROKER_ERROR ({broker_note})"
@@ -940,7 +946,7 @@ class MultiAssetExecutionEngine:
             )
             if ib_note:
                 notes.append(ib_note)
-        if self.config.execution_mode == "ALPACA_PAPER" and self.config.alpaca_api_key and not symbol.endswith(".DE"):
+        if "ALPACA" in self.config.execution_mode and self.config.alpaca_api_key and not symbol.endswith(".DE"):
             try:
                 from alpaca.trading.client import TradingClient
                 from alpaca.trading.requests import MarketOrderRequest, GetOrdersRequest, ReplaceOrderRequest
