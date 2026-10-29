@@ -757,11 +757,18 @@ class TelegramCommandListener:
     def _handle_update(self) -> None:
         self.send_message("🔄 <i>Starte autonomes Update: Ziehe neusten Code von GitHub (origin/main)...</i>")
         try:
-            # Sicherheitskonfiguration für git in Docker
+            # 1. Sicherheitskonfiguration für git in Docker
             subprocess.run(["git", "config", "--global", "--add", "safe.directory", "*"], capture_output=True, text=True, timeout=10)
 
-            # Neuesten Code von origin/main laden
-            res = subprocess.run(["git", "pull", "origin", "main"], capture_output=True, text=True, timeout=35)
+            # 2. Lokale dynamische Änderungen an getrackten Dateien verwerfen, damit merge niemals blockiert
+            subprocess.run(["git", "checkout", "--", "."], capture_output=True, text=True, timeout=10)
+
+            # 3. Neuesten Code von origin/main laden
+            res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], capture_output=True, text=True, timeout=35)
+            if res.returncode != 0:
+                subprocess.run(["git", "fetch", "origin", "main"], capture_output=True, text=True, timeout=20)
+                res = subprocess.run(["git", "reset", "--hard", "origin/main"], capture_output=True, text=True, timeout=15)
+
             output = (res.stdout or "") + ("\n" + res.stderr if res.stderr else "")
             output_clean = output.strip() or "Keine Ausgabe erhalten."
 
@@ -769,11 +776,15 @@ class TelegramCommandListener:
                 self.send_message(
                     f"✅ <b>Update erfolgreich geladen!</b>\n\n"
                     f"<code>{html.escape(output_clean[:500])}</code>\n\n"
-                    f"🔄 <i>Der Bot startet sich jetzt automatisch neu, um alle Änderungen live zu schalten...</i>"
+                    f"🔄 <i>Der Bot führt jetzt einen sofortigen Neustart durch...</i>"
                 )
                 time.sleep(2.0)
-                # Beende den Prozess sauber; Docker Compose (restart: unless-stopped) startet den Container sofort neu
-                sys.exit(0)
+                # WICHTIG: os._exit(0) / os.execv beendet den gesamten Python-Prozess (nicht nur den Thread!),
+                # sodass Docker Compose (restart: unless-stopped) oder systemd sofort neu startet.
+                try:
+                    os.execv(sys.executable, [sys.executable] + sys.argv)
+                except Exception:
+                    os._exit(0)
             else:
                 self.send_message(
                     f"⚠️ <b>Git Pull mit Warnung / Fehler beendet (Exit-Code {res.returncode}):</b>\n\n"
