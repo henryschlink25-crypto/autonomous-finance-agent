@@ -300,14 +300,22 @@ class MultiAssetExecutionEngine:
             non_zero_news = [n.sentiment_hint for n in snap.news if abs(n.sentiment_hint) > 0.05]
             avg_news_sent = float(sum(non_zero_news) / len(non_zero_news)) if non_zero_news else 0.0
 
-            # Spezifische Maximal-Haltedauer:
-            # - 3x Hebel-ETFs (SOXL, TQQQ, SQQQ): max. 3 Tage bei fehlendem Schwung (Schutz vor Volatility Drag!)
-            # - Standard-Assets (2x Margin): max. 5 Tage bei fehlendem Schwung
-            max_days_allowed = (
+            # Spezifische Maximal-Haltedauer & dynamische Verlängerung via Constraint Governor:
+            # - 3x Hebel-ETFs: Basis 3 Tage, Standard-Assets: Basis 5 Tage
+            # - Bei gesunder Trendstruktur (Kurs > SMA20, MACD steigend, profitabel) autonom verlängert (+2 bis +7 Tage)!
+            base_max_days = (
                 self.config.leveraged_etf_max_days
                 if pos.intrinsic_leverage > 1.0
                 else self.config.max_stale_holding_days
             )
+            dyn_ext_days = 0
+            try:
+                from dynamic_constraint_governor import DynamicConstraintGovernor
+                gov = DynamicConstraintGovernor(self.config)
+                dyn_ext_days = gov.calculate_time_stop_extension(pos, snap)
+            except Exception:
+                pass
+            max_days_allowed = base_max_days + dyn_ext_days
 
             if pos.side != "SHORT" and pos.recovery_shield_active and snap.current_price > pos.stop_loss_price:
                 pos.recovery_shield_active = False

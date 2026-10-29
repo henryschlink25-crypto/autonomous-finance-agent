@@ -461,6 +461,22 @@ class EmergentDialectEngine:
         except Exception:
             pass
 
+        # DD. Autonomous Constraint Regulator (Sub-Agent #49)
+        try:
+            from dynamic_constraint_governor import DynamicConstraintGovernor
+            gov = DynamicConstraintGovernor()
+            gov_eval = gov.evaluate_symbol_constraints(snapshot, macro)
+            if gov_eval.governance_mode == "EXPANDED_HIGH_ALPHA":
+                t = f"🔓:AUTONOMOUS_CONSTRAINT_EXPANSION[{snapshot.symbol}_EXTENDED]"
+                self._ensure_token("🔓:AUTONOMOUS_CONSTRAINT_EXPANSION", "GOVERNANCE", f"Autonome Begrenzungs-Lockerung freigegeben ({snapshot.symbol})")
+                tokens_used.append(t)
+            elif gov_eval.governance_mode == "TIGHTENED_DEFENSE":
+                t = f"🔒:AUTONOMOUS_CONSTRAINT_TIGHTENING[{snapshot.symbol}_DEFENSE]"
+                self._ensure_token("🔒:AUTONOMOUS_CONSTRAINT_TIGHTENING", "GOVERNANCE", f"Autonome Begrenzungs-Schärfung aktiv ({snapshot.symbol})")
+                tokens_used.append(t)
+        except Exception:
+            pass
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

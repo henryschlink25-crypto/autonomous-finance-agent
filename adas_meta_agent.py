@@ -903,6 +903,16 @@ class ADASMetaArchitect:
                 trust_weight=1.32,
             ))
 
+        # 36. Autonomous Constraint Regulator (Sub-Agent #49)
+        if "autonomous_constraint_regulator" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="autonomous_constraint_regulator",
+                name="🔓 Autonomous Constraint Regulator",
+                role="Reguliert Begrenzungen vollkommen eigenständig nach oben (Extended Hours ab 10:00 MEZ, Eröffnungs-ORB ab Minute 3, Time-Stop Verlängerung, 75s Scan) oder nach unten (Schärfung bei Markt-Crash und akuter Panik).",
+                specialty_focus="AUTONOMOUS_CONSTRAINT_GOVERNANCE",
+                trust_weight=1.35,
+            ))
+
         return new_specs
 
 
@@ -2292,6 +2302,31 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.40
                 rationale = f"Simple Arbitrage Hunter neutral ({e})"
+
+        elif focus == "AUTONOMOUS_CONSTRAINT_GOVERNANCE":
+            try:
+                from dynamic_constraint_governor import DynamicConstraintGovernor
+                gov = DynamicConstraintGovernor(self.config)
+                gov_eval = gov.evaluate_symbol_constraints(snap, macro, daily_pnl_pct=0.0)
+                if gov_eval.governance_mode == "EXPANDED_HIGH_ALPHA":
+                    score = 0.88
+                    conf = gov_eval.confidence
+                    v_act = "BUY"
+                    rationale = f"🔓 Constraint Regulator (Alpha-Lockerung): {gov_eval.rationale}"
+                elif gov_eval.governance_mode == "TIGHTENED_DEFENSE":
+                    score = -0.70
+                    conf = 0.95
+                    v_act = "VETO_BUY"
+                    rationale = f"🔒 Constraint Regulator (Notfall-Schärfung): {gov_eval.rationale}"
+                else:
+                    score = 0.30
+                    conf = 0.70
+                    v_act = "BUY" if snap.change_24h_pct > 0 else "HOLD"
+                    rationale = f"Constraint Regulator: {gov_eval.rationale}"
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Constraint Regulator neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

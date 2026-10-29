@@ -19,7 +19,7 @@
     "confidence": 0.52,
     "signal_recommendation": "NEUTRAL",
     "summary_text": "Qlib Alpha158 Neutral (+0.04)",
-    "timestamp": "2026-10-29T22:41:29"
+    "timestamp": "2026-10-29T22:50:50"
   },
   "TECH": {
     "symbol": "TECH",
@@ -41,7 +41,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:41:29"
+    "timestamp": "2026-10-29T22:50:50"
   },
   "NVDA": {
     "symbol": "NVDA",
@@ -63,7 +63,7 @@
     "confidence": 0.68,
     "signal_recommendation": "BUY",
     "summary_text": "Qlib Alpha158 Moderat Bullisch (+0.40)",
-    "timestamp": "2026-10-29T22:41:53"
+    "timestamp": "2026-10-29T22:51:33"
   },
   "GKOS": {
     "symbol": "GKOS",
@@ -85,7 +85,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "LUNG": {
     "symbol": "LUNG",
@@ -107,7 +107,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "TDOC": {
     "symbol": "TDOC",
@@ -129,7 +129,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "PRCH": {
     "symbol": "PRCH",
@@ -151,7 +151,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "PURR": {
     "symbol": "PURR",
@@ -173,7 +173,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "IOVA": {
     "symbol": "IOVA",
@@ -195,7 +195,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.67, 84% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:49"
   },
   "SOXS": {
     "symbol": "SOXS",
@@ -217,7 +217,7 @@
     "confidence": 0.59,
     "signal_recommendation": "SELL",
     "summary_text": "Qlib Alpha158 Moderat Bärisch (-0.20)",
-    "timestamp": "2026-10-29T22:42:01"
+    "timestamp": "2026-10-29T22:51:41"
   },
   "CROX": {
     "symbol": "CROX",
@@ -239,7 +239,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "BHC": {
     "symbol": "BHC",
@@ -261,7 +261,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "ADT": {
     "symbol": "ADT",
@@ -283,7 +283,7 @@
     "confidence": 0.85,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.78, 89% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:30:59"
+    "timestamp": "2026-10-29T22:42:50"
   },
   "MESO": {
     "symbol": "MESO",
@@ -305,7 +305,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:01"
+    "timestamp": "2026-10-29T22:42:52"
   },
   "ALNY": {
     "symbol": "ALNY",
@@ -327,7 +327,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-1.00, 100% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:01"
+    "timestamp": "2026-10-29T22:42:52"
   },
   "FTAI": {
     "symbol": "FTAI",
@@ -349,7 +349,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:02"
+    "timestamp": "2026-10-29T22:42:53"
   },
   "NOW": {
     "symbol": "NOW",
@@ -371,7 +371,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-1.00, 100% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:02"
+    "timestamp": "2026-10-29T22:42:52"
   },
   "CVNA": {
     "symbol": "CVNA",
@@ -393,7 +393,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:02"
+    "timestamp": "2026-10-29T22:42:53"
   },
   "SFM": {
     "symbol": "SFM",
@@ -415,7 +415,7 @@
     "confidence": 0.85,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.78, 89% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:01"
+    "timestamp": "2026-10-29T22:42:52"
   },
   "NCLH": {
     "symbol": "NCLH",
@@ -437,7 +437,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:02"
+    "timestamp": "2026-10-29T22:42:52"
   },
   "BOOT": {
     "symbol": "BOOT",
@@ -459,7 +459,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:03"
+    "timestamp": "2026-10-29T22:42:53"
   },
   "GEN": {
     "symbol": "GEN",
@@ -481,7 +481,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:02"
+    "timestamp": "2026-10-29T22:42:53"
   },
   "DKI": {
     "symbol": "DKI",
@@ -503,7 +503,7 @@
     "confidence": 0.73,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.52, 76% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:03"
+    "timestamp": "2026-10-29T22:42:53"
   },
   "FTNT": {
     "symbol": "FTNT",
@@ -525,7 +525,7 @@
     "confidence": 0.85,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.78, 89% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:04"
+    "timestamp": "2026-10-29T22:42:56"
   },
   "SES": {
     "symbol": "SES",
@@ -547,7 +547,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:05"
+    "timestamp": "2026-10-29T22:42:56"
   },
   "KPTI": {
     "symbol": "KPTI",
@@ -569,7 +569,7 @@
     "confidence": 0.77,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.61, 80% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:04"
+    "timestamp": "2026-10-29T22:42:55"
   },
   "HAPN": {
     "symbol": "HAPN",
@@ -591,7 +591,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:04"
+    "timestamp": "2026-10-29T22:42:55"
   },
   "BBAI": {
     "symbol": "BBAI",
@@ -613,7 +613,7 @@
     "confidence": 0.66,
     "signal_recommendation": "BUY",
     "summary_text": "Qlib Alpha158 Moderat Bullisch (+0.35)",
-    "timestamp": "2026-10-29T22:31:05"
+    "timestamp": "2026-10-29T22:42:57"
   },
   "GOOGL": {
     "symbol": "GOOGL",
@@ -635,7 +635,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-1.00, 100% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:06"
+    "timestamp": "2026-10-29T22:42:58"
   },
   "GOOG": {
     "symbol": "GOOG",
@@ -657,7 +657,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-1.00, 100% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:05"
+    "timestamp": "2026-10-29T22:42:57"
   },
   "TE": {
     "symbol": "TE",
@@ -679,7 +679,7 @@
     "confidence": 0.59,
     "signal_recommendation": "SELL",
     "summary_text": "Qlib Alpha158 Moderat Bärisch (-0.20)",
-    "timestamp": "2026-10-29T22:31:05"
+    "timestamp": "2026-10-29T22:42:56"
   },
   "CAVA": {
     "symbol": "CAVA",
@@ -701,7 +701,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:06"
+    "timestamp": "2026-10-29T22:42:57"
   },
   "HLN": {
     "symbol": "HLN",
@@ -723,7 +723,7 @@
     "confidence": 0.85,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.78, 89% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:05"
+    "timestamp": "2026-10-29T22:42:57"
   },
   "CAPR": {
     "symbol": "CAPR",
@@ -745,7 +745,7 @@
     "confidence": 0.56,
     "signal_recommendation": "NEUTRAL",
     "summary_text": "Qlib Alpha158 Neutral (+0.13)",
-    "timestamp": "2026-10-29T22:31:07"
+    "timestamp": "2026-10-29T22:42:59"
   },
   "WHR": {
     "symbol": "WHR",
@@ -767,7 +767,7 @@
     "confidence": 0.61,
     "signal_recommendation": "BUY",
     "summary_text": "Qlib Alpha158 Moderat Bullisch (+0.25)",
-    "timestamp": "2026-10-29T22:31:08"
+    "timestamp": "2026-10-29T22:42:59"
   },
   "ULCC": {
     "symbol": "ULCC",
@@ -789,7 +789,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:07"
+    "timestamp": "2026-10-29T22:42:59"
   },
   "LLY": {
     "symbol": "LLY",
@@ -811,7 +811,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:08"
+    "timestamp": "2026-10-29T22:43:01"
   },
   "PCT": {
     "symbol": "PCT",
@@ -833,7 +833,7 @@
     "confidence": 0.5,
     "signal_recommendation": "NEUTRAL",
     "summary_text": "Qlib Alpha158 Neutral (+0.00)",
-    "timestamp": "2026-10-29T22:31:08"
+    "timestamp": "2026-10-29T22:43:01"
   },
   "JBLU": {
     "symbol": "JBLU",
@@ -855,7 +855,7 @@
     "confidence": 0.67,
     "signal_recommendation": "SELL",
     "summary_text": "Qlib Alpha158 Moderat Bärisch (-0.38)",
-    "timestamp": "2026-10-29T22:31:08"
+    "timestamp": "2026-10-29T22:42:59"
   },
   "SHOE": {
     "symbol": "SHOE",
@@ -877,7 +877,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.67, 84% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:08"
+    "timestamp": "2026-10-29T22:43:01"
   },
   "UNIT": {
     "symbol": "UNIT",
@@ -899,7 +899,7 @@
     "confidence": 0.83,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.74, 87% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:09"
+    "timestamp": "2026-10-29T22:43:01"
   },
   "KLAC": {
     "symbol": "KLAC",
@@ -921,7 +921,7 @@
     "confidence": 0.71,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.46, 73% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:09"
+    "timestamp": "2026-10-29T22:43:01"
   },
   "PINS": {
     "symbol": "PINS",
@@ -943,7 +943,7 @@
     "confidence": 0.8,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.67, 84% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:10"
+    "timestamp": "2026-10-29T22:43:03"
   },
   "ADS": {
     "symbol": "ADS",
@@ -965,7 +965,7 @@
     "confidence": 0.95,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:31:09"
+    "timestamp": "2026-10-29T22:43:00"
   },
   "FMC": {
     "symbol": "FMC",
@@ -987,7 +987,7 @@
     "confidence": 0.73,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.52, 76% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:31:10"
+    "timestamp": "2026-10-29T22:43:03"
   },
   "FORM": {
     "symbol": "FORM",
@@ -1031,7 +1031,7 @@
     "confidence": 0.59,
     "signal_recommendation": "BUY",
     "summary_text": "Qlib Alpha158 Moderat Bullisch (+0.20)",
-    "timestamp": "2026-10-29T22:31:10"
+    "timestamp": "2026-10-29T22:43:03"
   },
   "MRVL": {
     "symbol": "MRVL",
@@ -1141,7 +1141,7 @@
     "confidence": 0.85,
     "signal_recommendation": "STRONG_SELL",
     "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.78, 89% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:26:30"
+    "timestamp": "2026-10-29T22:43:02"
   },
   "VRT": {
     "symbol": "VRT",
@@ -1163,7 +1163,7 @@
     "confidence": 0.77,
     "signal_recommendation": "STRONG_BUY",
     "summary_text": "Qlib Alpha158 STARK BULLISCH (+0.61, 80% Faktoren positiv)",
-    "timestamp": "2026-10-29T22:41:57"
+    "timestamp": "2026-10-29T22:51:37"
   },
   "GME": {
     "symbol": "GME",
@@ -1185,28 +1185,50 @@
     "confidence": 0.66,
     "signal_recommendation": "SELL",
     "summary_text": "Qlib Alpha158 Moderat Bärisch (-0.35)",
-    "timestamp": "2026-10-29T22:42:00"
+    "timestamp": "2026-10-29T22:51:40"
   },
   "BTC/USD": {
     "symbol": "BTC/USD",
-    "composite_alpha_score": -0.67,
-    "bullish_factors_pct": 16.3,
-    "bearish_factors_pct": 83.7,
+    "composite_alpha_score": -1.0,
+    "bullish_factors_pct": 0.0,
+    "bearish_factors_pct": 100.0,
     "top_alpha_factors": {
-      "ROC5": -0.0221,
-      "ROC10": -0.0348,
-      "ROC20": -0.0429,
-      "ROC60": 0.0172,
-      "KMID": -0.0278,
-      "CORR10": -0.38,
-      "RSQR10": 0.601,
-      "MA20": 0.034
+      "ROC5": -0.0247,
+      "ROC10": -0.0373,
+      "ROC20": -0.0454,
+      "ROC60": 0.0145,
+      "KMID": -0.0303,
+      "CORR10": -0.404,
+      "RSQR10": 0.608,
+      "MA20": 0.036
     },
-    "trend_quality_r2": 0.601,
-    "volume_price_correlation": -0.38,
-    "confidence": 0.8,
+    "trend_quality_r2": 0.608,
+    "volume_price_correlation": -0.404,
+    "confidence": 0.95,
     "signal_recommendation": "STRONG_SELL",
-    "summary_text": "Qlib Alpha158 STARK BÄRISCH (-0.67, 84% Faktoren negativ)",
-    "timestamp": "2026-10-29T22:42:02"
+    "summary_text": "Qlib Alpha158 STARK BÄRISCH (-1.00, 100% Faktoren negativ)",
+    "timestamp": "2026-10-29T22:51:42"
+  },
+  "SPY": {
+    "symbol": "SPY",
+    "composite_alpha_score": -0.38,
+    "bullish_factors_pct": 31.2,
+    "bearish_factors_pct": 68.8,
+    "top_alpha_factors": {
+      "ROC5": 0.0071,
+      "ROC10": -0.0031,
+      "ROC20": 0.007,
+      "ROC60": 0.0019,
+      "KMID": 0.0007,
+      "CORR10": -0.844,
+      "RSQR10": 0.099,
+      "MA20": 0.002
+    },
+    "trend_quality_r2": 0.099,
+    "volume_price_correlation": -0.844,
+    "confidence": 0.67,
+    "signal_recommendation": "SELL",
+    "summary_text": "Qlib Alpha158 Moderat Bärisch (-0.38)",
+    "timestamp": "2026-10-29T22:51:43"
   }
 }

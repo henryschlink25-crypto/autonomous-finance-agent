@@ -2693,6 +2693,7 @@ def test_all_audit_fixes() -> None:
             "rsi_14": 52.0,
             "sma_20": 575.0,
             "sma_50": 565.0,
+            "macd_hist": 0.45,
         })
         sig_spy = sig_apex_high.model_copy(update={
             "symbol": "SPY",
@@ -3069,7 +3070,67 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 62 bestanden: Einfache Arbitrage-Gewinne (Sub-Agent #48) analysiert {len(arb_opps)} Gelegenheiten (Dual-Listing, NAV-Disagio & Funding Yield).")
 
-    print("=== Alle 62 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter- & Simple-Arbitrage-Hunter-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 63: Autonome Begrenzungs-Regulierung (Sub-Agent #49 Autonomous Constraint Regulator)
+        #          Extended Hours (10:00-02:00 MEZ), 3-Min ORB Ausbruch, dynamischer Time-Stop
+        #          & Selbst-Schärfung bei Marktstress
+        # ============================================================================
+        from dynamic_constraint_governor import DynamicConstraintGovernor
+        gov = DynamicConstraintGovernor(cfg_dyn)
+
+        # 1. Teste Autonome Lockerung bei gesundem Markt (EXPANDED_HIGH_ALPHA)
+        eval_gov_green = gov.evaluate_symbol_constraints(snap_spy, green_macro, daily_pnl_pct=0.0)
+        assert eval_gov_green.governance_mode == "EXPANDED_HIGH_ALPHA"
+        assert eval_gov_green.extended_hours_allowed is True, "Extended Hours muss bei grünem Makro freigeschaltet sein"
+        assert eval_gov_green.early_breakout_allowed is True, "Eröffnungs-ORB Ausbruch muss bei Momentum freigegeben sein"
+        assert eval_gov_green.time_stop_extension_days >= 3, f"Time-Stop muss für intakten Trend verlängert werden: {eval_gov_green.time_stop_extension_days}"
+        assert eval_gov_green.recommended_loop_seconds <= 120, f"Loop-Geschwindigkeit muss beschleunigt werden: {eval_gov_green.recommended_loop_seconds}"
+
+        # 2. Teste Autonome Schärfung bei Notfall / Panik (TIGHTENED_DEFENSE)
+        panic_macro = green_macro.model_copy(update={"vix_level": 34.5, "regime_state": "RED_DEFENSIVE"})
+        eval_gov_panic = gov.evaluate_symbol_constraints(snap_spy, panic_macro, daily_pnl_pct=-4.2)
+        assert eval_gov_panic.governance_mode == "TIGHTENED_DEFENSE"
+        assert eval_gov_panic.extended_hours_allowed is False, "Extended Hours muss bei Panik zum Schutz gesperrt werden"
+        assert eval_gov_panic.early_breakout_allowed is False, "Eröffnungs-Ausbruch muss bei Panik gesperrt bleiben"
+        assert eval_gov_panic.time_stop_extension_days == 0, "Keine Time-Stop Verlängerung bei Panik"
+
+        # 3. Teste Extended-Hours Börsenzeiten-Prüfung (Pre-Market 08:00 ET / 14:00 MEZ)
+        pre_mkt_time = datetime.datetime(2026, 10, 29, 12, 0, tzinfo=datetime.timezone.utc)  # 08:00 ET
+        open_ext, stat_ext = is_us_equity_market_open(now_utc=pre_mkt_time, symbol="NVDA", allow_extended_hours=True)
+        assert open_ext is True, f"Pre-Market muss mit allow_extended_hours offen sein: {stat_ext}"
+        assert "EXTENDED OPEN" in stat_ext
+
+        # 4. Teste Flexibilisierung des Eröffnungs-Cooldowns (Minute 4 von 15)
+        mkt_open_time = datetime.datetime(2026, 10, 29, 13, 34, tzinfo=datetime.timezone.utc)  # 09:34 ET (4 Min nach Open)
+        in_cd_rigid, _ = is_opening_bell_cooldown(now_utc=mkt_open_time, symbol="NVDA", cooldown_minutes=15, allow_early_breakout=False)
+        assert in_cd_rigid is True, "Starrer 15-Min-Filter muss bei Minute 4 blockieren"
+        in_cd_flex, _ = is_opening_bell_cooldown(now_utc=mkt_open_time, symbol="NVDA", cooldown_minutes=15, allow_early_breakout=True)
+        assert in_cd_flex is False, "Flexibler ORB-Filter muss ab Minute 3 freigeben!"
+
+        # 5. Teste Sub-Agent #49 im ADAS-Schwarm & Dialekt-Token
+        adas_gov = ADASMetaAgent()
+        assert "autonomous_constraint_regulator" in adas_gov.state.active_subagents, "Sub-Agent #49 muss aktiv sein"
+        _, votes_gov, _ = adas_gov.evaluate_symbol_with_swarm(
+            snap=snap_spy,
+            baseline_signal=sig_spy,
+            macro=green_macro,
+        )
+        vote_gov = next((v for v in votes_gov if v.agent_id == "autonomous_constraint_regulator"), None)
+        assert vote_gov is not None, "Vote von autonomous_constraint_regulator muss vorhanden sein"
+        assert vote_gov.score >= 0.70, f"Constraint Regulator Score muss >= 0.70 sein: {vote_gov.score}"
+        assert "Alpha-Lockerung" in vote_gov.rationale
+
+        deal_gov = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_spy,
+            signal=sig_spy,
+            macro=green_macro,
+            risk_evaluation=eval_spy,
+        )
+        assert "🔓:AUTONOMOUS_CONSTRAINT_EXPANSION" in deal_gov.dialect_sentence, f"Dialekt muss 🔓:AUTONOMOUS_CONSTRAINT_EXPANSION enthalten: {deal_gov.dialect_sentence}"
+
+        print(f"[OK] Test 63 bestanden: Autonome Begrenzungs-Regulierung (Sub-Agent #49) lockert auf Extended Hours & 3-Min ORB und schärft bei Markt-Crash.")
+
+    print("=== Alle 63 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter-, Simple-Arbitrage-Hunter- & Autonomous-Constraint-Regulator-Tests erfolgreich bestanden! ===")
 
 
 

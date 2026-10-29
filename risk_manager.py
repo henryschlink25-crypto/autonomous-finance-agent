@@ -6,11 +6,16 @@ from config import AgentConfig
 from models import MacroRegime, MarketSnapshot, PortfolioRiskMetrics, Position, RiskEvaluation, TradingSignal
 
 
-def is_us_equity_market_open(now_utc: Optional[datetime.datetime] = None, symbol: str = "") -> Tuple[bool, str]:
+def is_us_equity_market_open(
+    now_utc: Optional[datetime.datetime] = None,
+    symbol: str = "",
+    allow_extended_hours: bool = False,
+) -> Tuple[bool, str]:
     """
-    Prüft exakt anhand der Börsenzeit, ob der jeweilige Heimatmarkt geöffnet ist:
-    - Europäische Xetra-Aktien (.DE): Montag bis Freitag, 09:00 bis 17:30 Uhr Europe/Berlin
-    - US-Aktien, US-ETFs & China/EU-ADRs (NYSE/Nasdaq): Montag bis Freitag, 09:30 bis 16:00 Uhr America/New_York
+    Prüft exakt anhand der Börsenzeit, ob der jeweilige Heimatmarkt geöffnet ist.
+    Unterstützt optional Extended-Hours (Pre-Market ab 04:00 ET / 10:00 MEZ & After-Hours bis 20:00 ET / 02:00 MEZ).
+    - Europäische Xetra-Aktien (.DE): 09:00 bis 17:30 MEZ (Extended: 08:00 bis 22:00 MEZ)
+    - US-Aktien (NYSE/Nasdaq): 09:30 bis 16:00 ET (Extended: 04:00 bis 20:00 ET)
     - Krypto handelt 24/7.
     """
     if now_utc is None:
@@ -21,7 +26,10 @@ def is_us_equity_market_open(now_utc: Optional[datetime.datetime] = None, symbol
         de_now = now_utc.astimezone(de_tz)
         if de_now.weekday() >= 5:
             return False, f"Wochenende (Xetra: {de_now.strftime('%a %H:%M')} MEZ)"
-        if datetime.time(9, 0) <= de_now.time() <= datetime.time(17, 30):
+        de_time = de_now.time()
+        if allow_extended_hours and datetime.time(8, 0) <= de_time <= datetime.time(22, 0):
+            return True, f"Xetra/Tradegate EXTENDED OPEN ({de_now.strftime('%H:%M')} MEZ)"
+        if datetime.time(9, 0) <= de_time <= datetime.time(17, 30):
             return True, f"Xetra/Frankfurt OFFEN ({de_now.strftime('%H:%M')} MEZ)"
         return False, f"Xetra geschlossen ({de_now.strftime('%H:%M')} MEZ, offen 09:00-17:30)"
 
@@ -33,6 +41,12 @@ def is_us_equity_market_open(now_utc: Optional[datetime.datetime] = None, symbol
     if weekday >= 5:
         return False, f"Wochenende (NY: {ny_now.strftime('%a %H:%M')} ET)"
 
+    # Extended Hours (Pre-Market 04:00-09:30 ET & After-Hours 16:00-20:00 ET)
+    if allow_extended_hours:
+        if datetime.time(4, 0) <= ny_time <= datetime.time(20, 0):
+            sess = "Pre-Market" if ny_time < datetime.time(9, 30) else ("Regulär" if ny_time <= datetime.time(16, 0) else "After-Hours")
+            return True, f"NYSE/Nasdaq EXTENDED OPEN ({sess}, NY: {ny_now.strftime('%H:%M')} ET)"
+
     market_open = datetime.time(9, 30)
     market_close = datetime.time(16, 0)
     if market_open <= ny_time <= market_close:
@@ -41,14 +55,18 @@ def is_us_equity_market_open(now_utc: Optional[datetime.datetime] = None, symbol
 
 
 def is_opening_bell_cooldown(
-    now_utc: Optional[datetime.datetime] = None, symbol: str = "", cooldown_minutes: int = 15
+    now_utc: Optional[datetime.datetime] = None,
+    symbol: str = "",
+    cooldown_minutes: int = 15,
+    allow_early_breakout: bool = False,
 ) -> Tuple[bool, str]:
     """
     Prüft, ob sich die Börse in den ersten X Minuten nach Eröffnung befindet ('Opening Bell Chaos').
-    Verhindert Neukäufe in den ersten 15 Minuten (09:30-09:45 ET bzw. 09:00-09:15 MEZ),
-    während die Bid-Ask-Spreads weit sind und Fehlausbrüche ('Opening Fakeouts') stattfinden.
+    Wird bei bestätigtem Eröffnungs-Ausbruch (ORB) durch den Constraint Governor
+    autonom von 15 Minuten auf 3 Minuten gelockert!
     """
-    if cooldown_minutes <= 0:
+    effective_cd = min(cooldown_minutes, 3 if allow_early_breakout else cooldown_minutes)
+    if effective_cd <= 0:
         return False, ""
     if now_utc is None:
         now_utc = datetime.datetime.now(datetime.timezone.utc)
@@ -59,8 +77,8 @@ def is_opening_bell_cooldown(
         if de_now.weekday() < 5:
             open_dt = de_now.replace(hour=9, minute=0, second=0, microsecond=0)
             diff_min = (de_now - open_dt).total_seconds() / 60.0
-            if 0 <= diff_min < cooldown_minutes:
-                return True, f"Xetra Opening-Range ({int(diff_min)}/{cooldown_minutes} Min nach Eröffnung)"
+            if 0 <= diff_min < effective_cd:
+                return True, f"Xetra Opening-Range ({int(diff_min)}/{effective_cd} Min nach Eröffnung)"
         return False, ""
 
     ny_tz = pytz.timezone("America/New_York")
@@ -68,8 +86,8 @@ def is_opening_bell_cooldown(
     if ny_now.weekday() < 5:
         open_dt = ny_now.replace(hour=9, minute=30, second=0, microsecond=0)
         diff_min = (ny_now - open_dt).total_seconds() / 60.0
-        if 0 <= diff_min < cooldown_minutes:
-            return True, f"US Opening-Range ({int(diff_min)}/{cooldown_minutes} Min nach 09:30 ET Eröffnung)"
+        if 0 <= diff_min < effective_cd:
+            return True, f"US Opening-Range ({int(diff_min)}/{effective_cd} Min nach 09:30 ET Eröffnung)"
     return False, ""
 
 
@@ -109,20 +127,34 @@ class DeterministicRiskManager:
 
         # 0. Börsenöffnungszeiten-Schutz für US- & Xetra-Aktien/ETFs (Krypto handelt 24/7)
         if self.config.enforce_market_hours and snapshot.asset_class == "EQUITY" and signal.action in ("BUY", "SELL"):
-            mkt_open, mkt_status = is_us_equity_market_open(symbol=signal.symbol)
+            # Autonome Überprüfung durch den Dynamic Constraint Governor (Sub-Agent #49)
+            allow_ext = getattr(self.config, "enable_extended_hours_trading", True)
+            allow_early_orb = False
+            try:
+                from dynamic_constraint_governor import DynamicConstraintGovernor
+                gov = DynamicConstraintGovernor(self.config)
+                gov_eval = gov.evaluate_symbol_constraints(snapshot, macro, daily_pnl_pct)
+                allow_ext = gov_eval.extended_hours_allowed
+                allow_early_orb = gov_eval.early_breakout_allowed
+            except Exception:
+                pass
+
+            mkt_open, mkt_status = is_us_equity_market_open(symbol=signal.symbol, allow_extended_hours=allow_ext)
             if not mkt_open:
                 return RiskEvaluation(
                     approved=False,
                     reason=f"BÖRSENZEITEN-SCHUTZ: {mkt_status} – Watch-Only im Shadow-Tracker.",
                     adjusted_action="HOLD",
                 )
-            # 15-Minuten Opening-Bell-Schutz für NEUE Positionen (Schließen bestehender Positionen ist immer sofort erlaubt!)
+            # Opening-Bell-Schutz für NEUE Positionen (autonom gelockert bei validiertem ORB-Ausbruch)
             is_new_entry = (signal.action == "BUY" and (not existing_pos or existing_pos.side == "LONG")) or (
                 signal.action == "SELL" and not existing_pos
             )
             if is_new_entry:
                 in_cooldown, cd_reason = is_opening_bell_cooldown(
-                    symbol=signal.symbol, cooldown_minutes=self.config.opening_bell_cooldown_minutes
+                    symbol=signal.symbol,
+                    cooldown_minutes=self.config.opening_bell_cooldown_minutes,
+                    allow_early_breakout=allow_early_orb,
                 )
                 if in_cooldown:
                     return RiskEvaluation(

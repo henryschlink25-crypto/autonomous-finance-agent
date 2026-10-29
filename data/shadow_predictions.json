@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T22:37:09",
+  "updated_at": "2026-10-29T22:48:54",
   "active": {
     "NOW": {
       "prediction_id": "NOW_2026-10-29T21:17:40",
@@ -1248,33 +1248,33 @@
         "intraday_vwap_rs": 0.0
       }
     },
-    "INTR": {
-      "prediction_id": "INTR_2026-10-29T22:37:09",
-      "opened_at": "2026-10-29T22:37:09",
-      "symbol": "INTR",
+    "CAT": {
+      "prediction_id": "CAT_2026-10-29T22:48:48",
+      "opened_at": "2026-10-29T22:48:48",
+      "symbol": "CAT",
       "asset_class": "EQUITY",
-      "predicted_action": "HOLD",
-      "confidence": 0.54,
+      "predicted_action": "SELL",
+      "confidence": 0.8,
       "was_executed": false,
-      "execution_note": "SKIPPED (⏸️ ABWARTEN: Kein erstklassiges A+ Setup – Cash bleibt g",
-      "entry_price": 4.17,
-      "current_price": 4.17,
-      "target_price": 5.3787,
-      "invalidation_price": 2.9613,
+      "execution_note": "SKIPPED (BÖRSENZEITEN-SCHUTZ: NYSE/Nasdaq geschlossen (NY: 18:48 ",
+      "entry_price": 647.39,
+      "current_price": 647.39,
+      "target_price": 585.6238,
+      "invalidation_price": 715.3328,
       "directional_return_pct": 0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",
       "lesson_learned": "",
       "factor_contributions": {
-        "trend": 0.0,
+        "trend": -0.259,
         "momentum": -0.195,
         "volume": 0.0,
-        "fundamentals": 0.149,
-        "news_sentiment": -0.252,
-        "options_flow": 0.0,
+        "fundamentals": 0.0,
+        "news_sentiment": 0.233,
+        "options_flow": -0.177,
         "cross_asset_lead_lag": 0.0,
-        "intraday_vwap_rs": 0.0
+        "intraday_vwap_rs": -0.147
       }
     }
   },

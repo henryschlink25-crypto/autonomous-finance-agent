@@ -664,7 +664,7 @@ def main() -> None:
         logger.debug(f"Hintergrund-Zucht Start: {e}")
 
     if args.loop > 0:
-        console.print(f"[bold green]Starte autonomen Dauerbetrieb (Intervall: {args.loop} Sekunden)...[/bold green]")
+        console.print(f"[bold green]Starte autonomen Dauerbetrieb (Basis-Intervall: {args.loop}s / adaptiv 75s-300s via Constraint Governor)...[/bold green]")
         while True:
             try:
                 run_autonomous_cycle(config, collector, analyst, risk_mgr, engine)
@@ -672,8 +672,17 @@ def main() -> None:
             except Exception as e:
                 console.print(f"[bold red]Fehler im Analyse-Zyklus (Bot läuft stabil weiter): {e}[/bold red]")
                 time.sleep(5)
-            console.print(f"[dim]Nächster Zyklus in {args.loop} Sekunden (Strg+C zum Beenden)...[/dim]")
-            time.sleep(args.loop)
+
+            # Adaptives Intervall: 75s während US-Börsenzeit, 120s Pre-/After-Market, 300s Off-Hours
+            loop_sec = args.loop
+            try:
+                from dynamic_constraint_governor import DynamicConstraintGovernor
+                gov = DynamicConstraintGovernor(config)
+                loop_sec = gov.get_recommended_loop_seconds(base_loop_seconds=args.loop)
+            except Exception:
+                pass
+            console.print(f"[dim]Nächster Zyklus in {loop_sec} Sekunden (Strg+C zum Beenden)...[/dim]")
+            time.sleep(loop_sec)
     else:
         run_autonomous_cycle(config, collector, analyst, risk_mgr, engine)
         path = DashboardGenerator(config).generate(open_browser=False)

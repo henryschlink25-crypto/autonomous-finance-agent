@@ -10,9 +10,9 @@
     "BHC ↔ ADT (r=+0.92)",
     "CROX ↔ ADT (r=+0.92)",
     "CVNA ↔ NCLH (r=+0.86)",
-    "BHC ↔ CROX (r=+0.86)"
+    "CROX ↔ BHC (r=+0.86)"
   ],
   "monitored_assets_count": 46,
-  "calculated_at": "2026-10-29T22:37:09Z",
+  "calculated_at": "2026-10-29T22:48:54Z",
   "summary": "🟢 Gesunde Diversifikation: Mittlere Korrelation 0.11 im sicheren Bereich (< 0.60). Volle Allokationsfreiheit aktiv."
 }

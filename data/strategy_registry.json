@@ -219,7 +219,7 @@
         "net_return_pct": 149.14
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_1.py",
-      "deployed_at": "2026-10-29T23:30:00.231759"
+      "deployed_at": "2026-10-29T23:48:53.606637"
     },
     "strat_whale_orderflow_accumulator_g1_4": {
       "strategy_id": "strat_whale_orderflow_accumulator_g1_4",
@@ -381,15 +381,49 @@
       "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
       "generation": 1,
       "performance": {
-        "sharpe_ratio": 7.11,
-        "max_drawdown_pct": 11.22,
-        "win_rate_pct": 57.9,
-        "profit_factor": 2.85,
-        "total_trades": 38,
-        "net_return_pct": 143.64
+        "sharpe_ratio": 6.27,
+        "max_drawdown_pct": 10.67,
+        "win_rate_pct": 57.5,
+        "profit_factor": 2.71,
+        "total_trades": 40,
+        "net_return_pct": 96.82
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g1_4.py",
-      "deployed_at": "2026-10-29T23:31:47.943782"
+      "deployed_at": "2026-10-29T23:43:38.749985"
+    },
+    "strat_volatility_squeeze_explosion_g3_3": {
+      "strategy_id": "strat_volatility_squeeze_explosion_g3_3",
+      "class_name": "VolSqueezeExplosion_Gen3_3",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 6.95,
+        "max_drawdown_pct": 10.4,
+        "win_rate_pct": 63.3,
+        "profit_factor": 3.17,
+        "total_trades": 49,
+        "net_return_pct": 270.27
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g3_3.py",
+      "deployed_at": "2026-10-29T23:48:14.220672"
+    },
+    "strat_supply_chain_spillover_sniper_g3_4": {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g3_4",
+      "class_name": "SupplyChainSpillover_Gen3_4",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 3.82,
+        "max_drawdown_pct": 10.1,
+        "win_rate_pct": 54.9,
+        "profit_factor": 1.72,
+        "total_trades": 51,
+        "net_return_pct": 64.43
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_4.py",
+      "deployed_at": "2026-10-29T23:50:06.725313"
     }
   },
   "history": [
@@ -1242,6 +1276,91 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_2.py",
       "deployed_at": "2026-10-29T23:41:26.270487"
+    },
+    {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g1_4",
+      "class_name": "SupplyChainSpillover_Gen1_4",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 6.27,
+        "max_drawdown_pct": 10.67,
+        "win_rate_pct": 57.5,
+        "profit_factor": 2.71,
+        "total_trades": 40,
+        "net_return_pct": 96.82
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g1_4.py",
+      "deployed_at": "2026-10-29T23:43:38.749985"
+    },
+    {
+      "strategy_id": "strat_volatility_squeeze_explosion_g3_3",
+      "class_name": "VolSqueezeExplosion_Gen3_3",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 6.95,
+        "max_drawdown_pct": 10.4,
+        "win_rate_pct": 63.3,
+        "profit_factor": 3.17,
+        "total_trades": 49,
+        "net_return_pct": 270.27
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g3_3.py",
+      "deployed_at": "2026-10-29T23:48:14.220672"
+    },
+    {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g3_4",
+      "class_name": "SupplyChainSpillover_Gen3_4",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 5.26,
+        "max_drawdown_pct": 9.81,
+        "win_rate_pct": 57.5,
+        "profit_factor": 2.1,
+        "total_trades": 40,
+        "net_return_pct": 65.58
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_4.py",
+      "deployed_at": "2026-10-29T23:48:14.239011"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g1_1",
+      "class_name": "WhaleOrderflowAccumulator_Gen1_1",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 6.3,
+        "max_drawdown_pct": 10.3,
+        "win_rate_pct": 59.6,
+        "profit_factor": 2.52,
+        "total_trades": 47,
+        "net_return_pct": 149.14
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_1.py",
+      "deployed_at": "2026-10-29T23:48:53.606637"
+    },
+    {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g3_4",
+      "class_name": "SupplyChainSpillover_Gen3_4",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 3.82,
+        "max_drawdown_pct": 10.1,
+        "win_rate_pct": 54.9,
+        "profit_factor": 1.72,
+        "total_trades": 51,
+        "net_return_pct": 64.43
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_4.py",
+      "deployed_at": "2026-10-29T23:50:06.725313"
     }
   ]
 }

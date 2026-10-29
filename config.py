@@ -58,7 +58,12 @@ class AgentConfig:
     min_expected_edge_score: float = float(os.getenv("MIN_EXPECTED_EDGE_SCORE", "1.48"))
     earnings_blackout_days: int = int(os.getenv("EARNINGS_BLACKOUT_DAYS", "3"))
     enforce_market_hours: bool = os.getenv("ENFORCE_MARKET_HOURS", "True").lower() == "true"
+    enable_extended_hours_trading: bool = os.getenv("ENABLE_EXTENDED_HOURS_TRADING", "True").lower() == "true"
     opening_bell_cooldown_minutes: int = int(os.getenv("OPENING_BELL_COOLDOWN_MINUTES", "15"))
+    enable_autonomous_constraint_governor: bool = os.getenv("ENABLE_AUTONOMOUS_CONSTRAINT_GOVERNOR", "True").lower() == "true"
+    adaptive_loop_interval_active_market: int = int(os.getenv("ADAPTIVE_LOOP_INTERVAL_ACTIVE_MARKET", "75"))
+    adaptive_loop_interval_extended_hours: int = int(os.getenv("ADAPTIVE_LOOP_INTERVAL_EXTENDED_HOURS", "120"))
+    adaptive_loop_interval_off_hours: int = int(os.getenv("ADAPTIVE_LOOP_INTERVAL_OFF_HOURS", "300"))
     enable_short_selling: bool = os.getenv("ENABLE_SHORT_SELLING", "True").lower() == "true"
     min_short_confidence: float = float(os.getenv("MIN_SHORT_CONFIDENCE", "0.85"))
     enable_opportunity_rotation: bool = os.getenv("ENABLE_OPPORTUNITY_ROTATION", "True").lower() == "true"

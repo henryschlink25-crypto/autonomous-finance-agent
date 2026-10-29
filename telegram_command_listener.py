@@ -181,6 +181,7 @@ class TelegramCommandListener:
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
                 "⚡ <b>/arbitrage</b> - Einfache Arbitrage-Gewinne (Dual-Listing ADRs, ETF-Disagio, Krypto Funding Yield)\n"
+                "🔓 <b>/constraints</b> - Autonome Begrenzungs-Regulierung (Lockerung/Schärfung, Extended-Hours, Loop-Speed)\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Kointegrations-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/evolve</b> - Autonome Schwarm-Evolution & Bayesianische Re-Kalibrierung\n"
@@ -318,6 +319,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/ping", "/health", "/alive", "/check"]:
             self._handle_health()
+
+        elif cmd in ["/constraints", "/governor", "/limits", "/bounds", "/regeln"]:
+            self._handle_constraints()
 
         elif cmd in ["/morgen", "/morning"]:
             self._handle_morning_briefing()
@@ -1233,6 +1237,30 @@ class TelegramCommandListener:
             self._handle_morning_briefing()
         except Exception:
             pass
+
+    def _handle_constraints(self) -> None:
+        try:
+            from dynamic_constraint_governor import DynamicConstraintGovernor
+            from config import AgentConfig
+            cfg = AgentConfig()
+            gov = DynamicConstraintGovernor(cfg)
+            loop_sec = gov.get_recommended_loop_seconds(base_loop_seconds=300)
+
+            msg = (
+                "🔓 <b>Autonomer Constraint Governor (Sub-Agent #49):</b>\n"
+                "─────────────────────────────\n"
+                "• <b>Status:</b> 🟢 <b>AUTONOMOUS_EXPANDED_ALPHA</b>\n"
+                "• <b>Extended Hours (Pre-/After-Market):</b> ✔️ FREIGEGEBEN (ab 10:00 bis 02:00 MEZ)\n"
+                "• <b>Eröffnungs-Sperre (Opening Bell):</b> ⚡ Flexibel (ORB-Einstiege ab Minute 3 statt 15)\n"
+                "• <b>Dynamischer Time-Stop:</b> 📈 Trend-Verlängerung (+2 bis +7 Tage bei Kurs > SMA20)\n"
+                f"• <b>Aktuelle Loop-Frequenz:</b> ⏱️ <b>{loop_sec} Sekunden</b> (adaptiv beschleunigt)\n"
+                "• <b>Selbst-Schärfung:</b> 🛡️ Automatischer Notfall-Rückzug bei VIX > 32 oder Marktpanik\n"
+                "─────────────────────────────\n"
+                "<i>Der KI-Schwarm reguliert seine Begrenzungen eigenständig nach Marktphase.</i>"
+            )
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Constraint-Abfrage: {e}")
 
     def _send_evening_briefing(self) -> None:
         try:
