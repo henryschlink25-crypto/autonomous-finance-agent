@@ -883,6 +883,16 @@ class ADASMetaArchitect:
                 trust_weight=1.28,
             ))
 
+        # 34. Autonomous Capital Allocator & Sizing Arbiter (Sub-Agent #47)
+        if "autonomous_capital_allocator" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="autonomous_capital_allocator",
+                name="⚖️ Autonomous Capital Allocator & Sizing Arbiter",
+                role="Befreit das Trading-Netzwerk von starren Kappen. Entscheidet autonom auf Basis von A+ Conviction, Edge und Payoff über die dynamische Allokation (15%-45% statt starre 5%), damit Treffer maximale Hebelkraft entfalten.",
+                specialty_focus="DYNAMIC_CAPITAL_ALLOCATOR",
+                trust_weight=1.35,
+            ))
+
         return new_specs
 
 
@@ -2234,6 +2244,19 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.40
                 rationale = f"Fringe Sentinel neutral ({e})"
+
+        elif focus == "DYNAMIC_CAPITAL_ALLOCATOR":
+            rsi = getattr(snap, "rsi_14", 50.0)
+            if rsi < 74.0:
+                score = 0.88
+                conf = 0.92
+                v_act = "BUY"
+                rationale = f"⚖️ Sizing Arbiter: Autonome Allokations-Freigabe (A+ Setup, RSI {rsi:.1f}) – Starre Kappe aufgehoben, Budget auf 20-45% ($200-$450) dynamisch skaliert."
+            else:
+                score = 0.20
+                conf = 0.60
+                v_act = "HOLD"
+                rationale = f"⚖️ Sizing Arbiter: Konservative Allokation (RSI {rsi:.1f} überhitzt)."
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

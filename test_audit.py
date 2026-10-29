@@ -2955,7 +2955,67 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 60 bestanden: Fringe-Foren, Reddit-Absprachen (GameStop-Effekt), Darknet-Leaks & Soft-Faktor (Sub-Agent #46).")
 
-    print("=== Alle 60 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review- & Fringe-Reddit-Leak-Sentinel-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 61: Aufhebung starrer Limitationen & Autonome Allokation durch
+        #          den Dynamic Sizing Arbiter (Sub-Agent #47)
+        # ============================================================================
+        adas_sizing = ADASMetaAgent()
+        assert "autonomous_capital_allocator" in adas_sizing.state.active_subagents, "Sub-Agent #47 muss aktiv sein"
+        assert len(adas_sizing.state.active_subagents) >= 47, f"Schwarm muss mindestens 47 Spezialisten umfassen, aktuell: {len(adas_sizing.state.active_subagents)}"
+
+        # 1. Teste Sub-Agent #47 Vote
+        snap_soxs_alloc = dummy_snap.model_copy(update={
+            "symbol": "SOXS",
+            "name": "Direxion Daily Semiconductor Bear 3X",
+            "current_price": 42.41,
+            "rsi_14": 52.0,
+            "intrinsic_leverage": 3.0,
+            "cluster": "SAFE_HAVEN",
+        })
+        sig_soxs_alloc = sig_apex_high.model_copy(update={
+            "symbol": "SOXS",
+            "entry_price": 42.41,
+            "stop_loss_price": 35.0,
+            "confidence": 0.92,
+            "expected_edge_score": 2.10,
+        })
+        _, votes_alloc, _ = adas_sizing.evaluate_symbol_with_swarm(
+            snap=snap_soxs_alloc,
+            baseline_signal=sig_soxs_alloc,
+            macro=green_macro,
+        )
+        vote_sizing = next((v for v in votes_alloc if v.agent_id == "autonomous_capital_allocator"), None)
+        assert vote_sizing is not None, "Vote von autonomous_capital_allocator muss vorhanden sein"
+        assert vote_sizing.score >= 0.80, f"Sizing Arbiter Score muss >= 0.80 sein: {vote_sizing.score}"
+        assert "Autonome Allokations-Freigabe" in vote_sizing.rationale
+
+        # 2. Teste dynamische Allokation im Risk-Manager (150$-350$ statt starre 40$-50$ Kappe)
+        risk_mgr_dyn = DeterministicRiskManager(cfg_dyn)
+        eval_soxs = risk_mgr_dyn.evaluate_signal(
+            signal=sig_soxs_alloc,
+            snapshot=snap_soxs_alloc,
+            macro=green_macro,
+            cash_usd=950.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_soxs.approved, f"Signal muss genehmigt werden: {eval_soxs.reason}"
+        assert eval_soxs.margin_required_usd >= 150.0, f"Margin muss >= 150$ sein (autonom skaliert), war {eval_soxs.margin_required_usd}"
+        assert eval_soxs.recommended_quantity >= 3.0, f"Es müssen >= 3 Aktien gekauft werden (nicht nur 1!), war {eval_soxs.recommended_quantity}"
+
+        # 3. Teste Dialekt-Token (⚖️:AUTONOMOUS_SIZING_ARBITER)
+        deal_soxs = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_soxs_alloc,
+            signal=sig_soxs_alloc,
+            macro=green_macro,
+            risk_evaluation=eval_soxs,
+        )
+        assert "⚖️:AUTONOMOUS_SIZING_ARBITER" in deal_soxs.dialect_sentence, f"Dialekt muss ⚖️:AUTONOMOUS_SIZING_ARBITER enthalten: {deal_soxs.dialect_sentence}"
+
+        print(f"[OK] Test 61 bestanden: Starre Kappen aufgehoben, Sizing Arbiter (Sub-Agent #47) allokiert dynamisch {eval_soxs.margin_required_usd:.0f}$ ({eval_soxs.recommended_quantity:.1f} Aktien).")
+
+    print("=== Alle 61 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel- & Autonomous-Sizing-Arbiter-Tests erfolgreich bestanden! ===")
 
 
 

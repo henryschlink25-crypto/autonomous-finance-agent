@@ -357,15 +357,22 @@ class DeterministicRiskManager:
                 adjusted_action="HOLD",
             )
 
-        # 3f. Prüfen ob Einzelposition bereits das maximale Positionsgewicht (30% Margin-Anteil) erreicht hat
+        # 3f. Prüfen ob Einzelposition bereits das maximale Positionsgewicht erreicht hat (autonom skaliert)
         min_order = self.config.min_order_usd
         current_pos_value = existing_pos.market_value if existing_pos else 0.0
-        max_pos_value = total_equity_usd * self.config.max_position_weight_pct
+
+        # Dynamisches maximales Positionsgewicht (Arbiter-Befreiung von starren 30% Kappen):
+        # Bei A+ Überzeugung (Konfidenz >= 85%) oder Core-ETFs darf der Agent autonom bis zu 45% allokieren!
+        dynamic_max_pos_pct = self.config.max_position_weight_pct
+        if signal.confidence >= 0.85 or getattr(signal, "expected_edge_score", 0.0) >= 1.6 or snapshot.cluster == "CORE_ETF":
+            dynamic_max_pos_pct = max(dynamic_max_pos_pct, 0.45)
+
+        max_pos_value = total_equity_usd * dynamic_max_pos_pct
         remaining_pos_capacity = max_pos_value - current_pos_value
         if remaining_pos_capacity < min_order:
             return RiskEvaluation(
                 approved=False,
-                reason=f"Maximales Positionsgewicht ({self.config.max_position_weight_pct*100:.0f}%) für {signal.symbol} bereits erreicht.",
+                reason=f"Maximales Positionsgewicht ({dynamic_max_pos_pct*100:.0f}%) für {signal.symbol} bereits erreicht.",
                 adjusted_action="HOLD",
             )
 
@@ -460,10 +467,19 @@ class DeterministicRiskManager:
         asset_vol = max(10.0, snapshot.volatility_annualized_pct)
         vol_parity_weight = round(float(np.clip(target_vol / asset_vol, 0.45, 1.45)), 2)
 
+        # Dynamischer maximaler Risiko-Verlust pro Trade:
+        # Standard max_risk_per_trade_pct (2.5%), aber bei hoher Überzeugung (>= 85% Konfidenz)
+        # und starkem Edge autonom auf bis zu 5.5% des Portfolios skalierbar!
+        max_risk_cap = self.config.max_risk_per_trade_pct
+        if signal.confidence >= 0.85 or getattr(signal, "expected_edge_score", 0.0) >= 1.6:
+            max_risk_cap = max(max_risk_cap, 0.055)
+        elif signal.confidence >= 0.80:
+            max_risk_cap = max(max_risk_cap, 0.038)
+
         effective_risk_pct = float(np.clip(
             self.config.max_risk_per_trade_pct * kelly_fraction * vol_parity_weight * macro_mult * corr_penalty,
-            0.004,
-            0.025,
+            0.005,
+            max_risk_cap,
         ))
         max_risk_dollars = total_equity_usd * effective_risk_pct
 
@@ -526,10 +542,10 @@ class DeterministicRiskManager:
                 signal.horizon = "CORE_ETF"
                 signal.allocation_tier = "CORE_ANCHOR"
 
-            # Autonomer Überzeugungs-Multiplikator: Verhindert künstliche Kleinst-Allokationen ($40)
-            conv_boost = 1.0 + max(0.0, (signal.confidence - 0.70) * 1.5)
+            # Autonomer Überzeugungs-Multiplikator (Sizing Arbiter): Verhindert künstliche Kleinst-Allokationen ($40)
+            conv_boost = 1.0 + max(0.0, (signal.confidence - 0.70) * 1.8)
             if is_core:
-                conv_boost *= 1.35  # Core-ETFs dürfen als stabiles Rückgrat größer allokiert werden (bis 35%)
+                conv_boost *= 1.35  # Core-ETFs dürfen als stabiles Rückgrat größer allokiert werden (bis 45%)
 
             # Autonome Allokations-Bandbreite: 15% bis 35% des Portfolios (auf $1.000 Konto: $150 bis $350)
             hrp_w = round(float(np.clip((25.0 / max(10.0, vol)) * 0.22 * conv_boost, 0.15, 0.35)), 4)

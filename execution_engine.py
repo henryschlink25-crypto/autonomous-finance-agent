@@ -1128,7 +1128,7 @@ class MultiAssetExecutionEngine:
 
             # Prüfe ob wir bei einem Aktien-BUY eine serverseitige Bracket-Order (Einstieg + Stop-Loss + Take-Profit) senden können
             if side == "BUY" and signal.asset_class == "EQUITY" and qty >= 1.0:
-                whole_qty = int(qty)
+                whole_qty = max(1, int(round(qty)))
                 req = MarketOrderRequest(
                     symbol=signal.symbol,
                     qty=whole_qty,

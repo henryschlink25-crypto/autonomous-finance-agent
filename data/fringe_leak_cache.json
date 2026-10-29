@@ -1,6 +1,6 @@
 {
   "GME": {
-    "cached_at": 1793312312.2806566,
+    "cached_at": 1793313011.3841436,
     "posts": [
       {
         "title": "GME SHORT SQUEEZE LOADING: 120% Float shorted, apes together strong to the moon!",
@@ -150,7 +150,7 @@
     ]
   },
   "SOUN": {
-    "cached_at": 1793312311.6987855,
+    "cached_at": 1793313006.0381365,
     "posts": [
       {
         "title": "SOUN Confidential memo leak: Big tech enterprise contract integration signed?",
@@ -233,6 +233,770 @@
         "upvotes": 120,
         "comments": 25,
         "text_snippet": "Standard retail discussion on PUMPBULL.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "GKOS": {
+    "cached_at": 1793312366.4599047,
+    "posts": [
+      {
+        "title": "Watching GKOS volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on GKOS.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "CROX": {
+    "cached_at": 1793312367.4802122,
+    "posts": [
+      {
+        "title": "Watching CROX volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on CROX.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "LUNG": {
+    "cached_at": 1793312368.1540935,
+    "posts": [
+      {
+        "title": "LUNG Confidential memo leak: Big tech enterprise contract integration signed?",
+        "source": "darknet_leak_feed",
+        "upvotes": 720,
+        "comments": 115,
+        "text_snippet": "Unreleased presentation slides show partnership announcement planned post-market.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.7
+      },
+      {
+        "title": "LUNG breakout primed on low float, load the boat before retail notices",
+        "source": "r/pennystocks",
+        "upvotes": 450,
+        "comments": 85,
+        "text_snippet": "Volume building fast, apes buying the float.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.55
+      }
+    ]
+  },
+  "TDOC": {
+    "cached_at": 1793312369.162899,
+    "posts": [
+      {
+        "title": "Watching TDOC volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on TDOC.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "IOVA": {
+    "cached_at": 1793312369.8088562,
+    "posts": [
+      {
+        "title": "Watching IOVA volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on IOVA.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "PRCH": {
+    "cached_at": 1793312370.4977748,
+    "posts": [
+      {
+        "title": "PRCH Confidential memo leak: Big tech enterprise contract integration signed?",
+        "source": "darknet_leak_feed",
+        "upvotes": 720,
+        "comments": 115,
+        "text_snippet": "Unreleased presentation slides show partnership announcement planned post-market.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.7
+      },
+      {
+        "title": "PRCH breakout primed on low float, load the boat before retail notices",
+        "source": "r/pennystocks",
+        "upvotes": 450,
+        "comments": 85,
+        "text_snippet": "Volume building fast, apes buying the float.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.55
+      }
+    ]
+  },
+  "BHC": {
+    "cached_at": 1793312372.7205608,
+    "posts": [
+      {
+        "title": "Watching BHC volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on BHC.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "ADT": {
+    "cached_at": 1793312373.8110282,
+    "posts": [
+      {
+        "title": "Watching ADT volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on ADT.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "SOXS": {
+    "cached_at": 1793312374.792039,
+    "posts": [
+      {
+        "title": "Semiconductor cycle topping: WSB puts building on chip sector",
+        "source": "r/options",
+        "upvotes": 850,
+        "comments": 140,
+        "text_snippet": "Puts sweep on SOXX index, SOXS hedge accumulation active.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.4
+      }
+    ]
+  },
+  "PURR": {
+    "cached_at": 1793312375.858624,
+    "posts": [
+      {
+        "title": "PURR Confidential memo leak: Big tech enterprise contract integration signed?",
+        "source": "darknet_leak_feed",
+        "upvotes": 720,
+        "comments": 115,
+        "text_snippet": "Unreleased presentation slides show partnership announcement planned post-market.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.7
+      },
+      {
+        "title": "PURR breakout primed on low float, load the boat before retail notices",
+        "source": "r/pennystocks",
+        "upvotes": 450,
+        "comments": 85,
+        "text_snippet": "Volume building fast, apes buying the float.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.55
+      }
+    ]
+  },
+  "MESO": {
+    "cached_at": 1793312376.5057893,
+    "posts": [
+      {
+        "title": "Watching MESO volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on MESO.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "FTAI": {
+    "cached_at": 1793312377.1473749,
+    "posts": [
+      {
+        "title": "Watching FTAI volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on FTAI.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "CVNA": {
+    "cached_at": 1793312377.8324218,
+    "posts": [
+      {
+        "title": "Watching CVNA volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on CVNA.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "SFM": {
+    "cached_at": 1793312380.4807715,
+    "posts": [
+      {
+        "title": "Watching SFM volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on SFM.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "ALNY": {
+    "cached_at": 1793312381.1895416,
+    "posts": [
+      {
+        "title": "Watching ALNY volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on ALNY.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "NCLH": {
+    "cached_at": 1793312381.8579845,
+    "posts": [
+      {
+        "title": "Watching NCLH volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on NCLH.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "GEN": {
+    "cached_at": 1793312383.506883,
+    "posts": [
+      {
+        "title": "Watching GEN volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on GEN.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "NOW": {
+    "cached_at": 1793312384.1621842,
+    "posts": [
+      {
+        "title": "Watching NOW volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on NOW.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "DKI": {
+    "cached_at": 1793312387.14637,
+    "posts": [
+      {
+        "title": "Watching DKI volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on DKI.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "BOOT": {
+    "cached_at": 1793312387.80054,
+    "posts": [
+      {
+        "title": "Watching BOOT volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on BOOT.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "HAPN": {
+    "cached_at": 1793312388.416437,
+    "posts": [
+      {
+        "title": "Watching HAPN volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on HAPN.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "FTNT": {
+    "cached_at": 1793312389.0840871,
+    "posts": [
+      {
+        "title": "Watching FTNT volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on FTNT.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "KPTI": {
+    "cached_at": 1793312396.8885717,
+    "posts": [
+      {
+        "title": "Watching KPTI volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on KPTI.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "TE": {
+    "cached_at": 1793312399.9364133,
+    "posts": [
+      {
+        "title": "Watching TE volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on TE.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "SES": {
+    "cached_at": 1793312400.7024386,
+    "posts": [
+      {
+        "title": "Watching SES volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on SES.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "HLN": {
+    "cached_at": 1793312403.7136407,
+    "posts": [
+      {
+        "title": "Watching HLN volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on HLN.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "GOOGL": {
+    "cached_at": 1793312404.3545387,
+    "posts": [
+      {
+        "title": "Watching GOOGL volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on GOOGL.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "BBAI": {
+    "cached_at": 1793312405.001854,
+    "posts": [
+      {
+        "title": "BBAI Confidential memo leak: Big tech enterprise contract integration signed?",
+        "source": "darknet_leak_feed",
+        "upvotes": 720,
+        "comments": 115,
+        "text_snippet": "Unreleased presentation slides show partnership announcement planned post-market.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.7
+      },
+      {
+        "title": "BBAI breakout primed on low float, load the boat before retail notices",
+        "source": "r/pennystocks",
+        "upvotes": 450,
+        "comments": 85,
+        "text_snippet": "Volume building fast, apes buying the float.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.55
+      }
+    ]
+  },
+  "CAVA": {
+    "cached_at": 1793312408.0904872,
+    "posts": [
+      {
+        "title": "Watching CAVA volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on CAVA.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "GOOG": {
+    "cached_at": 1793312408.8031075,
+    "posts": [
+      {
+        "title": "Watching GOOG volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on GOOG.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "ULCC": {
+    "cached_at": 1793312409.466262,
+    "posts": [
+      {
+        "title": "Watching ULCC volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on ULCC.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "JBLU": {
+    "cached_at": 1793312412.4984746,
+    "posts": [
+      {
+        "title": "Watching JBLU volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on JBLU.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "CAPR": {
+    "cached_at": 1793312420.299767,
+    "posts": [
+      {
+        "title": "Watching CAPR volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on CAPR.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "WHR": {
+    "cached_at": 1793312425.7072384,
+    "posts": [
+      {
+        "title": "Watching WHR volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on WHR.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "PCT": {
+    "cached_at": 1793312428.7479699,
+    "posts": [
+      {
+        "title": "Watching PCT volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on PCT.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "ADS.DE": {
+    "cached_at": 1793312431.8224041,
+    "posts": [
+      {
+        "title": "Watching ADS.DE volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on ADS.DE.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "SHOE": {
+    "cached_at": 1793312434.8661153,
+    "posts": [
+      {
+        "title": "Watching SHOE volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on SHOE.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "UNIT": {
+    "cached_at": 1793312437.85792,
+    "posts": [
+      {
+        "title": "Watching UNIT volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on UNIT.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "LLY": {
+    "cached_at": 1793312440.877871,
+    "posts": [
+      {
+        "title": "Watching LLY volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on LLY.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "KLAC": {
+    "cached_at": 1793312441.5518243,
+    "posts": [
+      {
+        "title": "Watching KLAC volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on KLAC.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "FMC": {
+    "cached_at": 1793312444.5418594,
+    "posts": [
+      {
+        "title": "Watching FMC volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on FMC.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "FTRE": {
+    "cached_at": 1793312445.2557771,
+    "posts": [
+      {
+        "title": "Watching FTRE volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on FTRE.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "VG": {
+    "cached_at": 1793312448.751139,
+    "posts": [
+      {
+        "title": "Watching VG volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on VG.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "PINS": {
+    "cached_at": 1793312451.76052,
+    "posts": [
+      {
+        "title": "Watching PINS volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on PINS.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "INTR": {
+    "cached_at": 1793312796.6380062,
+    "posts": [
+      {
+        "title": "Watching INTR volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on INTR.",
         "is_squeeze_signal": false,
         "is_leak_signal": false,
         "is_dump_warning": false,

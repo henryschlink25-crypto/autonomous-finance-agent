@@ -442,6 +442,13 @@ class EmergentDialectEngine:
         except Exception:
             pass
 
+        # BB. Autonomous Capital Allocator & Sizing Arbiter (Sub-Agent #47)
+        alloc_w = getattr(signal, "hrp_recommended_weight", None)
+        if alloc_w and alloc_w >= 0.15:
+            t = f"⚖️:AUTONOMOUS_SIZING_ARBITER[ALLOC_{alloc_w*100:.0f}%]"
+            self._ensure_token("⚖️:AUTONOMOUS_SIZING_ARBITER", "ALLOCATION", f"Autonome Allokationsprüfung freigegeben ({alloc_w*100:.0f}%)")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
