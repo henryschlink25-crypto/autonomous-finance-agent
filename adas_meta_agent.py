@@ -1877,7 +1877,7 @@ class ADASMetaArchitect:
         elif focus == "SUPERTREND_REGIME_RIDER":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
             min_rvol = ag.rule_parameters.get("min_rvol", 1.35)
-            is_st_green = getattr(snap, "supertrend_direction", "BEARISH") == "BULLISH" or snap.trend_status == "BULLISH"
+            is_st_green = getattr(snap, "supertrend_direction", "BEARISH") == "BULLISH" or getattr(snap, "higher_tf_trend", "NEUTRAL") == "BULLISH_TREND"
             is_above_ma = snap.current_price >= snap.sma_50
             s_st = rec.flag("SuperTrend Bullish", is_st_green and is_above_ma, "bull")
             s_rv = rec.num("Trend RVOL", rvol_val, ">=", "min_rvol", min_rvol, "bull")

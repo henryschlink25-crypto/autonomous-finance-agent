@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-10-29T20:24:35",
-  "total_evaluated": 19,
+  "updated_at": "2026-10-29T20:28:11",
+  "total_evaluated": 20,
   "correct_calls": 7,
-  "false_calls": 12,
+  "false_calls": 13,
   "guardrail_saved_losses": 2,
   "weights": {
     "trend": 0.74,
-    "momentum": 0.95,
+    "momentum": 0.975,
     "volume": 0.955,
-    "fundamentals": 0.965,
-    "news_sentiment": 1.005,
-    "options_flow": 0.92,
+    "fundamentals": 0.93,
+    "news_sentiment": 0.97,
+    "options_flow": 0.885,
     "intraday_vwap_rs": 0.92,
     "cross_asset_lead_lag": 0.965
   },
@@ -74,10 +74,13 @@
     "PURR": {
       "correct": 0,
       "false": 1
+    },
+    "WHR": {
+      "correct": 0,
+      "false": 1
     }
   },
   "recent_lessons": [
-    "[2026-10-28] Prognose (SELL GLD) bestätigt. Treiber ['trend'] gestärkt.",
     "[2026-10-28] Fehlanalyse bei BUY BTC/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
     "[2026-10-28] Fehlanalyse bei BUY BTC/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
     "[2026-10-28] Fehlanalyse bei BUY ETH/USD: Irreführende Faktoren ['trend'] abgewertet (Risk-Guardrail hatte den Trade zum Glück blockiert!).",
@@ -88,6 +91,7 @@
     "[2026-10-29] Fehlanalyse bei SELL GLXY (-11.12%): Irreführende Faktoren ['trend', 'momentum', 'fundamentals', 'options_flow', 'intraday_vwap_rs'] abgewertet.",
     "[2026-10-29] Fehlanalyse bei BUY PRCH (-1.74%): Irreführende Faktoren ['trend', 'volume', 'news_sentiment', 'options_flow', 'cross_asset_lead_lag', 'intraday_vwap_rs'] abgewertet (Risk-Guardrail 'SKIPPED (EARNINGS-SCHUTZ: Quarta' hat Verlust verhindert!).",
     "[2026-10-29] Prognose (SELL NOW) bestätigt. Treiber ['momentum', 'news_sentiment', 'intraday_vwap_rs'] gestärkt.",
-    "[2026-10-29] Fehlanalyse bei BUY PURR (-1.54%): Irreführende Faktoren ['momentum', 'volume', 'news_sentiment', 'options_flow', 'intraday_vwap_rs'] abgewertet (Risk-Guardrail 'SKIPPED (⏸️ ABWARTEN: Chance/Ris' hat Verlust verhindert!)."
+    "[2026-10-29] Fehlanalyse bei BUY PURR (-1.54%): Irreführende Faktoren ['momentum', 'volume', 'news_sentiment', 'options_flow', 'intraday_vwap_rs'] abgewertet (Risk-Guardrail 'SKIPPED (⏸️ ABWARTEN: Chance/Ris' hat Verlust verhindert!).",
+    "[2026-10-29] Fehlanalyse bei SELL WHR (-1.98%): Irreführende Faktoren ['fundamentals', 'news_sentiment', 'options_flow'] abgewertet."
   ]
 }
