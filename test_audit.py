@@ -2819,7 +2819,77 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 58 bestanden: Supply-Chain Spillover (Sub-Agent #44), Mixture-of-Agents Router (Sub-Agent #45), 6 Zucht-Archetypen & Dialekt.")
 
-    print("=== Alle 58 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification- & MoA-Supply-Chain-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 59: Automatisierte Laien-Briefings (Morgen-Ausblick & Abend-Rückblick
+        #          mit Bester/Schlechtester Trade, Begründung & Anpassung)
+        # ============================================================================
+        from telegram_command_listener import format_laien_morning_briefing, format_laien_evening_review
+
+        # 1. Teste Morgen-Briefing (Laien-Zusammenfassung vor Börsenstart)
+        mock_portfolio = {
+            "cash_usd": 950.0,
+            "total_equity_usd": 1005.0,
+            "day_start_equity_usd": 1000.0,
+            "positions": {
+                "SOXS": {
+                    "symbol": "SOXS",
+                    "quantity": 1.0,
+                    "avg_entry_price": 42.41,
+                    "current_price": 47.41,
+                    "stop_loss_price": 40.57,
+                    "side": "LONG",
+                }
+            }
+        }
+        mock_watchlist = {
+            "hot_action_highlights": [
+                "NVDA (Live-Screener, Move +4.2%, Vol 2.1x)",
+                "SPY (Core ETF Anchor)"
+            ]
+        }
+        morning_msg = format_laien_morning_briefing(mock_portfolio, mock_watchlist)
+        assert "Guten Morgen Henry!" in morning_msg, "Morgen-Nachricht muss Begrüßung enthalten"
+        assert "Börsen-Ampel" in morning_msg, "Morgen-Nachricht muss Börsen-Ampel enthalten"
+        assert "SOXS" in morning_msg, "Morgen-Nachricht muss aktuelle Positionen enthalten"
+        assert "NVDA" in morning_msg or "SPY" in morning_msg, "Morgen-Nachricht muss Fokus-Kandidaten enthalten"
+
+        # 2. Teste Abend-Rückblick bei ausschließlich profitablen Trades
+        evening_msg_all_green = format_laien_evening_review(
+            portfolio_state=mock_portfolio,
+            closed_positions=[]
+        )
+        assert "Guten Abend Henry!" in evening_msg_all_green, "Abend-Nachricht muss Begrüßung enthalten"
+        assert "Bester Trade des Tages" in evening_msg_all_green, "Bester Trade muss genannt werden"
+        assert "Warum lief er gut?" in evening_msg_all_green, "Begründung für besten Trade muss vorhanden sein"
+        assert "Keine Verlierer-Trades heute!" in evening_msg_all_green, "Keine Verlierer muss lobend erwähnt werden"
+        assert "Anpassung" in evening_msg_all_green, "Anpassung muss genannt werden"
+
+        # 3. Teste Abend-Rückblick mit Verlust-Trade (inkl. Warum & Anpassung)
+        mock_closed_loss = [
+            {
+                "symbol": "TEST_LOSS",
+                "side": "LONG",
+                "quantity": 2.0,
+                "avg_entry_price": 50.0,
+                "exit_price": 48.0,
+                "pnl_usd": -4.0,
+                "pnl_pct": -4.0,
+                "reason": "STOP_LOSS_TRIGGERED",
+                "status": "GESCHLOSSEN",
+            }
+        ]
+        evening_msg_with_loss = format_laien_evening_review(
+            portfolio_state=mock_portfolio,
+            closed_positions=mock_closed_loss
+        )
+        assert "TEST_LOSS" in evening_msg_with_loss, "Verlierer-Trade muss genannt werden"
+        assert "Warum lief er schlecht?" in evening_msg_with_loss, "Begründung für Fehlschlag muss vorhanden sein"
+        assert "Welche Anpassung wurde vorgenommen?" in evening_msg_with_loss, "Anpassungs-Erklärung muss vorhanden sein"
+        assert "Stop-Loss" in evening_msg_with_loss, "Stop-Loss Schutz muss erwähnt werden"
+
+        print(f"[OK] Test 59 bestanden: Automatisierte Laien-Briefings (Morgen- & Abend-Nachrichten mit Bester/Schlechtester Trade, Warum & Anpassung).")
+
+    print("=== Alle 59 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain- & Laien-Briefing-Daily-Review-Tests erfolgreich bestanden! ===")
 
 
 

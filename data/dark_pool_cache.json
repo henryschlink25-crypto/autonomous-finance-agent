@@ -1,6 +1,6 @@
 {
-  "BHC": {
-    "symbol": "BHC",
+  "CROX": {
+    "symbol": "CROX",
     "dark_pool_ratio": 0.5,
     "short_volume_ratio": 0.42,
     "sentiment": "ACCUMULATION",
@@ -8,73 +8,7 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
-  },
-  "ADT": {
-    "symbol": "ADT",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
-  },
-  "LUNG": {
-    "symbol": "LUNG",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
-  },
-  "GKOS": {
-    "symbol": "GKOS",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
-  },
-  "PURR": {
-    "symbol": "PURR",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
-  },
-  "SOXS": {
-    "symbol": "SOXS",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:53:57"
-  },
-  "TDOC": {
-    "symbol": "TDOC",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
+    "timestamp": "2026-10-29T22:05:54"
   },
   "PRCH": {
     "symbol": "PRCH",
@@ -85,381 +19,7 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
-  },
-  "NOW": {
-    "symbol": "NOW",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "CVNA": {
-    "symbol": "CVNA",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "MESO": {
-    "symbol": "MESO",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": false,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:58"
-  },
-  "ALNY": {
-    "symbol": "ALNY",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "FTAI": {
-    "symbol": "FTAI",
-    "dark_pool_ratio": 0.46,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "NCLH": {
-    "symbol": "NCLH",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "GEN": {
-    "symbol": "GEN",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "SFM": {
-    "symbol": "SFM",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:59"
-  },
-  "BOOT": {
-    "symbol": "BOOT",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": false,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:54:00"
-  },
-  "DKI": {
-    "symbol": "DKI",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:54:00"
-  },
-  "HLN": {
-    "symbol": "HLN",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:26"
-  },
-  "TE": {
-    "symbol": "TE",
-    "dark_pool_ratio": 0.46,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:48:26"
-  },
-  "FTNT": {
-    "symbol": "FTNT",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:27"
-  },
-  "SES": {
-    "symbol": "SES",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:27"
-  },
-  "KPTI": {
-    "symbol": "KPTI",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:26"
-  },
-  "HAPN": {
-    "symbol": "HAPN",
-    "dark_pool_ratio": 0.46,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:48:26"
-  },
-  "BBAI": {
-    "symbol": "BBAI",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:27"
-  },
-  "GOOG": {
-    "symbol": "GOOG",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:27"
-  },
-  "CAVA": {
-    "symbol": "CAVA",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:28"
-  },
-  "GOOGL": {
-    "symbol": "GOOGL",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:27"
-  },
-  "CAPR": {
-    "symbol": "CAPR",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:29"
-  },
-  "WHR": {
-    "symbol": "WHR",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:29"
-  },
-  "ULCC": {
-    "symbol": "ULCC",
-    "dark_pool_ratio": 0.46,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:48:29"
-  },
-  "JBLU": {
-    "symbol": "JBLU",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:30"
-  },
-  "LLY": {
-    "symbol": "LLY",
-    "dark_pool_ratio": 0.46,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:48:30"
-  },
-  "PCT": {
-    "symbol": "PCT",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:30"
-  },
-  "SHOE": {
-    "symbol": "SHOE",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": false,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:30"
-  },
-  "KLAC": {
-    "symbol": "KLAC",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:31"
-  },
-  "UNIT": {
-    "symbol": "UNIT",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:31"
-  },
-  "ADS": {
-    "symbol": "ADS",
-    "dark_pool_ratio": 0.46,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:48:30"
-  },
-  "PINS": {
-    "symbol": "PINS",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": true,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:32"
-  },
-  "FTRE": {
-    "symbol": "FTRE",
-    "dark_pool_ratio": 0.5,
-    "short_volume_ratio": 0.42,
-    "sentiment": "ACCUMULATION",
-    "institutional_accumulation": true,
-    "block_trade_detected": false,
-    "confidence": 0.88,
-    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:48:32"
-  },
-  "FMC": {
-    "symbol": "FMC",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:32"
-  },
-  "FORM": {
-    "symbol": "FORM",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:45:53"
+    "timestamp": "2026-10-29T22:05:53"
   },
   "IOVA": {
     "symbol": "IOVA",
@@ -470,10 +30,10 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:56"
+    "timestamp": "2026-10-29T22:05:53"
   },
-  "CROX": {
-    "symbol": "CROX",
+  "LUNG": {
+    "symbol": "LUNG",
     "dark_pool_ratio": 0.5,
     "short_volume_ratio": 0.42,
     "sentiment": "ACCUMULATION",
@@ -481,10 +41,87 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:53:57"
+    "timestamp": "2026-10-29T22:05:53"
   },
-  "MRVL": {
-    "symbol": "MRVL",
+  "BHC": {
+    "symbol": "BHC",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:53"
+  },
+  "TDOC": {
+    "symbol": "TDOC",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:53"
+  },
+  "SOXS": {
+    "symbol": "SOXS",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:05:54"
+  },
+  "CVNA": {
+    "symbol": "CVNA",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "MESO": {
+    "symbol": "MESO",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": false,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:56"
+  },
+  "ALNY": {
+    "symbol": "ALNY",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "SFM": {
+    "symbol": "SFM",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "FTAI": {
+    "symbol": "FTAI",
     "dark_pool_ratio": 0.46,
     "short_volume_ratio": 0.42,
     "sentiment": "NEUTRAL",
@@ -492,7 +129,359 @@
     "block_trade_detected": false,
     "confidence": 0.6,
     "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:34:23"
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "NCLH": {
+    "symbol": "NCLH",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "GEN": {
+    "symbol": "GEN",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "BOOT": {
+    "symbol": "BOOT",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": false,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:57"
+  },
+  "NOW": {
+    "symbol": "NOW",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:58"
+  },
+  "DKI": {
+    "symbol": "DKI",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:58"
+  },
+  "SES": {
+    "symbol": "SES",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:01"
+  },
+  "HAPN": {
+    "symbol": "HAPN",
+    "dark_pool_ratio": 0.46,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
+    "timestamp": "2026-10-29T22:06:01"
+  },
+  "KPTI": {
+    "symbol": "KPTI",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:00"
+  },
+  "FTNT": {
+    "symbol": "FTNT",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:00"
+  },
+  "TE": {
+    "symbol": "TE",
+    "dark_pool_ratio": 0.46,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
+    "timestamp": "2026-10-29T22:06:01"
+  },
+  "BBAI": {
+    "symbol": "BBAI",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:01"
+  },
+  "HLN": {
+    "symbol": "HLN",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:02"
+  },
+  "CAVA": {
+    "symbol": "CAVA",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:02"
+  },
+  "GOOGL": {
+    "symbol": "GOOGL",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:02"
+  },
+  "GOOG": {
+    "symbol": "GOOG",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:02"
+  },
+  "ULCC": {
+    "symbol": "ULCC",
+    "dark_pool_ratio": 0.46,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
+    "timestamp": "2026-10-29T22:06:04"
+  },
+  "CAPR": {
+    "symbol": "CAPR",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:05"
+  },
+  "JBLU": {
+    "symbol": "JBLU",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:04"
+  },
+  "LLY": {
+    "symbol": "LLY",
+    "dark_pool_ratio": 0.46,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
+    "timestamp": "2026-10-29T22:06:07"
+  },
+  "WHR": {
+    "symbol": "WHR",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:04"
+  },
+  "PCT": {
+    "symbol": "PCT",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:05"
+  },
+  "ADS": {
+    "symbol": "ADS",
+    "dark_pool_ratio": 0.46,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
+    "timestamp": "2026-10-29T22:06:05"
+  },
+  "SHOE": {
+    "symbol": "SHOE",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": false,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:19"
+  },
+  "UNIT": {
+    "symbol": "UNIT",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:07"
+  },
+  "KLAC": {
+    "symbol": "KLAC",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:06"
+  },
+  "FMC": {
+    "symbol": "FMC",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:08"
+  },
+  "PINS": {
+    "symbol": "PINS",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:08"
+  },
+  "FTRE": {
+    "symbol": "FTRE",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": false,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:06:09"
+  },
+  "INTR": {
+    "symbol": "INTR",
+    "dark_pool_ratio": 0.42,
+    "short_volume_ratio": 0.42,
+    "sentiment": "NEUTRAL",
+    "institutional_accumulation": false,
+    "block_trade_detected": false,
+    "confidence": 0.6,
+    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
+    "timestamp": "2026-10-29T22:06:08"
+  },
+  "ADT": {
+    "symbol": "ADT",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:53"
+  },
+  "PURR": {
+    "symbol": "PURR",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:53"
+  },
+  "GKOS": {
+    "symbol": "GKOS",
+    "dark_pool_ratio": 0.5,
+    "short_volume_ratio": 0.42,
+    "sentiment": "ACCUMULATION",
+    "institutional_accumulation": true,
+    "block_trade_detected": true,
+    "confidence": 0.88,
+    "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
+    "timestamp": "2026-10-29T22:05:53"
   },
   "CAT": {
     "symbol": "CAT",
@@ -503,7 +492,7 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:34:23"
+    "timestamp": "2026-10-29T22:00:30"
   },
   "WHALE": {
     "symbol": "WHALE",
@@ -514,7 +503,7 @@
     "block_trade_detected": false,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:46:58"
+    "timestamp": "2026-10-29T22:06:44"
   },
   "AMD": {
     "symbol": "AMD",
@@ -525,7 +514,7 @@
     "block_trade_detected": false,
     "confidence": 0.6,
     "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:47:00"
+    "timestamp": "2026-10-29T22:06:46"
   },
   "TECH": {
     "symbol": "TECH",
@@ -536,7 +525,7 @@
     "block_trade_detected": false,
     "confidence": 0.6,
     "summary_text": "Dark Pool Aktivitt moderat (46.0%)",
-    "timestamp": "2026-10-29T21:47:00"
+    "timestamp": "2026-10-29T22:06:46"
   },
   "NVDA": {
     "symbol": "NVDA",
@@ -547,7 +536,7 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (52.0% ATS-Volumen, geringer Short-Druck 38.0%)",
-    "timestamp": "2026-10-29T21:47:27"
+    "timestamp": "2026-10-29T22:07:08"
   },
   "PUMPBULL": {
     "symbol": "PUMPBULL",
@@ -558,10 +547,10 @@
     "block_trade_detected": true,
     "confidence": 0.88,
     "summary_text": "Dark Pool Akkumulation (50.0% ATS-Volumen, geringer Short-Druck 42.0%)",
-    "timestamp": "2026-10-29T21:47:02"
+    "timestamp": "2026-10-29T22:06:47"
   },
-  "BBD": {
-    "symbol": "BBD",
+  "VRT": {
+    "symbol": "VRT",
     "dark_pool_ratio": 0.42,
     "short_volume_ratio": 0.42,
     "sentiment": "NEUTRAL",
@@ -569,17 +558,6 @@
     "block_trade_detected": false,
     "confidence": 0.6,
     "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:40:15"
-  },
-  "VG": {
-    "symbol": "VG",
-    "dark_pool_ratio": 0.42,
-    "short_volume_ratio": 0.42,
-    "sentiment": "NEUTRAL",
-    "institutional_accumulation": false,
-    "block_trade_detected": false,
-    "confidence": 0.6,
-    "summary_text": "Dark Pool Aktivitt moderat (42.0%)",
-    "timestamp": "2026-10-29T21:48:33"
+    "timestamp": "2026-10-29T22:07:12"
   }
 }

@@ -25,6 +25,7 @@ class MultiAssetExecutionEngine:
         self.realized_pnl_usd: float = 0.0
         self.day_start_date: str = datetime.date.today().isoformat()
         self.day_start_equity_usd: float = self.config.initial_capital_usd
+        self.closed_positions_today: List[Dict[str, Any]] = []
         self.positions: Dict[str, Position] = {}
         self.alpaca_live_prices: Dict[str, float] = {}
         self.yahoo_vs_broker_price_diff: Dict[str, Tuple[float, float]] = {}
@@ -54,9 +55,11 @@ class MultiAssetExecutionEngine:
                 if saved_day == today_str and "day_start_equity_usd" in data:
                     self.day_start_date = saved_day
                     self.day_start_equity_usd = float(data["day_start_equity_usd"])
+                    self.closed_positions_today = data.get("closed_positions_today", [])
                 else:
                     self.day_start_date = today_str
                     self.day_start_equity_usd = self.total_equity_usd
+                    self.closed_positions_today = []
                     self._save_state()
             except Exception as e:
                 print(f"[Warnung] Portfolio-State konnte nicht geladen werden ({e}). Starte neu.")
@@ -184,6 +187,7 @@ class MultiAssetExecutionEngine:
             "realized_pnl_usd": round(self.realized_pnl_usd, 2),
             "is_trading_paused": self.is_trading_paused,
             "positions": {sym: pos.model_dump() for sym, pos in self.positions.items()},
+            "closed_positions_today": self.closed_positions_today,
         }
         old_data = {}
         if os.path.exists(self.config.portfolio_state_file):
@@ -528,6 +532,21 @@ class MultiAssetExecutionEngine:
                 pnl = (abs(pos.quantity) * (exec_price - pos.avg_entry_price)) - fee_usd
             self.cash_usd += pos.margin_used_usd + pnl
             self.realized_pnl_usd += pnl
+            pnl_pct = round(((exec_price - pos.avg_entry_price) / pos.avg_entry_price * 100.0), 2) if pos.avg_entry_price > 0 else 0.0
+            if pos.side == "SHORT":
+                pnl_pct = -pnl_pct
+            self.closed_positions_today.append({
+                "symbol": sym,
+                "side": pos.side,
+                "quantity": pos.quantity,
+                "avg_entry_price": pos.avg_entry_price,
+                "exit_price": exec_price,
+                "realized_pnl_usd": round(pnl, 2),
+                "pnl_usd": round(pnl, 2),
+                "pnl_pct": pnl_pct,
+                "reason": trigger_reason,
+                "closed_at": datetime.datetime.now().isoformat(),
+            })
             b_tag = f" [{broker_exit_note}]" if broker_exit_note else ""
             msg = (
                 f"[{trigger_reason}] {sym} ({pos.side}): {pos.quantity:g} Einheiten @ {exec_price:.2f}$ geschlossen "
@@ -623,6 +642,21 @@ class MultiAssetExecutionEngine:
             pnl = (abs(pos.quantity) * (exec_price - pos.avg_entry_price)) - fee_usd
             self.cash_usd += pos.margin_used_usd + pnl
             self.realized_pnl_usd += pnl
+            pnl_pct = round(((exec_price - pos.avg_entry_price) / pos.avg_entry_price * 100.0), 2) if pos.avg_entry_price > 0 else 0.0
+            if pos.side == "SHORT":
+                pnl_pct = -pnl_pct
+            self.closed_positions_today.append({
+                "symbol": sym,
+                "side": pos.side,
+                "quantity": pos.quantity,
+                "avg_entry_price": pos.avg_entry_price,
+                "exit_price": exec_price,
+                "realized_pnl_usd": round(pnl, 2),
+                "pnl_usd": round(pnl, 2),
+                "pnl_pct": pnl_pct,
+                "reason": rot_reason,
+                "closed_at": datetime.datetime.now().isoformat(),
+            })
             b_tag = f" [{broker_exit_note}]" if broker_exit_note else ""
             msg = (
                 f"[{rot_reason}] 🔄 Kapital-Rotation: Schwache Position {sym} ({pos.quantity:g} Stk. @ ${exec_price:.2f}, PnL {pnl:+.2f}$) "
@@ -730,6 +764,21 @@ class MultiAssetExecutionEngine:
 
             self.cash_usd += pos.margin_used_usd + pnl
             self.realized_pnl_usd += pnl
+            pnl_pct = round(((exec_price - pos.avg_entry_price) / pos.avg_entry_price * 100.0), 2) if pos.avg_entry_price > 0 else 0.0
+            if pos.side == "SHORT":
+                pnl_pct = -pnl_pct
+            self.closed_positions_today.append({
+                "symbol": sym,
+                "side": pos.side,
+                "quantity": pos.quantity,
+                "avg_entry_price": pos.avg_entry_price,
+                "exit_price": exec_price,
+                "realized_pnl_usd": round(pnl, 2),
+                "pnl_usd": round(pnl, 2),
+                "pnl_pct": pnl_pct,
+                "reason": reason,
+                "closed_at": datetime.datetime.now().isoformat(),
+            })
             b_tag = f" [{broker_exit_note}]" if broker_exit_note else ""
             msg = f"[{reason}] 🚨 NOTAUSSTIEG {sym}: {pos.quantity:g} Stk. @ ${exec_price:,.2f} liquidiert (PnL: ${pnl:+,.2f}){b_tag}"
             closed_events.append(msg)
@@ -846,6 +895,19 @@ class MultiAssetExecutionEngine:
                 pnl = (abs(pos.quantity) * (pos.avg_entry_price - price)) - fee_usd
                 self.cash_usd += pos.margin_used_usd + pnl
                 self.realized_pnl_usd += pnl
+                pnl_pct = round(((pos.avg_entry_price - price) / pos.avg_entry_price * 100.0), 2) if pos.avg_entry_price > 0 else 0.0
+                self.closed_positions_today.append({
+                    "symbol": symbol,
+                    "side": "SHORT",
+                    "quantity": pos.quantity,
+                    "avg_entry_price": pos.avg_entry_price,
+                    "exit_price": price,
+                    "realized_pnl_usd": round(pnl, 2),
+                    "pnl_usd": round(pnl, 2),
+                    "pnl_pct": pnl_pct,
+                    "reason": signal.thesis or "SHORT_COVER",
+                    "closed_at": datetime.datetime.now().isoformat(),
+                })
                 self._save_state()
                 msg = f"EXECUTED SHORT COVER: {pos.quantity} {symbol} @ {price:.2f}$ eingedeckt (Realisierter PnL: {pnl:+.2f}$)"
                 self._send_push_alert(f"🟢 Short Cover {symbol}", msg)
@@ -949,6 +1011,19 @@ class MultiAssetExecutionEngine:
                 pnl = (pos.quantity * (price - pos.avg_entry_price)) - fee_usd
                 self.cash_usd += pos.margin_used_usd + pnl
                 self.realized_pnl_usd += pnl
+                pnl_pct = round(((price - pos.avg_entry_price) / pos.avg_entry_price * 100.0), 2) if pos.avg_entry_price > 0 else 0.0
+                self.closed_positions_today.append({
+                    "symbol": symbol,
+                    "side": "LONG",
+                    "quantity": pos.quantity,
+                    "avg_entry_price": pos.avg_entry_price,
+                    "exit_price": price,
+                    "realized_pnl_usd": round(pnl, 2),
+                    "pnl_usd": round(pnl, 2),
+                    "pnl_pct": pnl_pct,
+                    "reason": signal.thesis or "SELL_EXIT",
+                    "closed_at": datetime.datetime.now().isoformat(),
+                })
                 self._save_state()
                 msg = f"EXECUTED SELL: {pos.quantity} {symbol} @ {price:.2f}$ (Realisierter PnL: {pnl:+.2f}$)"
                 self._send_push_alert(f"🔴 Sell {symbol}", msg)

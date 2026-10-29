@@ -6,13 +6,13 @@
   "protective_mandate": "NORMAL_ALLOCATION",
   "required_cash_buffer_pct": 15.0,
   "high_correlation_pairs": [
-    "GOOG ↔ GOOGL (r=+1.00)",
+    "GOOGL ↔ GOOG (r=+1.00)",
     "BHC ↔ ADT (r=+0.92)",
-    "CROX ↔ ADT (r=+0.92)",
+    "ADT ↔ CROX (r=+0.92)",
     "CVNA ↔ NCLH (r=+0.86)",
-    "CROX ↔ BHC (r=+0.86)"
+    "BHC ↔ CROX (r=+0.86)"
   ],
-  "monitored_assets_count": 45,
-  "calculated_at": "2026-10-29T21:48:45Z",
+  "monitored_assets_count": 46,
+  "calculated_at": "2026-10-29T22:06:43Z",
   "summary": "🟢 Gesunde Diversifikation: Mittlere Korrelation 0.11 im sicheren Bereich (< 0.60). Volle Allokationsfreiheit aktiv."
 }
