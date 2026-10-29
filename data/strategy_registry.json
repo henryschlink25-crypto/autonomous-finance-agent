@@ -288,6 +288,23 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_3.py",
       "deployed_at": "2026-10-29T22:29:24.026022"
+    },
+    "strat_volatility_squeeze_explosion_g1_3": {
+      "strategy_id": "strat_volatility_squeeze_explosion_g1_3",
+      "class_name": "VolSqueezeExplosion_Gen1_3",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 4.77,
+        "max_drawdown_pct": 11.01,
+        "win_rate_pct": 63.6,
+        "profit_factor": 2.06,
+        "total_trades": 44,
+        "net_return_pct": 97.18
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g1_3.py",
+      "deployed_at": "2026-10-29T22:49:10.075422"
     }
   },
   "history": [
@@ -868,6 +885,23 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_4.py",
       "deployed_at": "2026-10-29T22:46:56.807316"
+    },
+    {
+      "strategy_id": "strat_volatility_squeeze_explosion_g1_3",
+      "class_name": "VolSqueezeExplosion_Gen1_3",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 4.77,
+        "max_drawdown_pct": 11.01,
+        "win_rate_pct": 63.6,
+        "profit_factor": 2.06,
+        "total_trades": 44,
+        "net_return_pct": 97.18
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g1_3.py",
+      "deployed_at": "2026-10-29T22:49:10.075422"
     }
   ]
 }

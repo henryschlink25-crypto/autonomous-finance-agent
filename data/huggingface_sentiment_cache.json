@@ -164,7 +164,7 @@
     }
   },
   "CROX": {
-    "timestamp": 1793308655.980999,
+    "timestamp": 1793310516.2746336,
     "data": {
       "symbol": "CROX",
       "sentiment_label": "VERY_BULLISH",
@@ -181,7 +181,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:17:35Z"
+      "analyzed_at": "2026-10-29T21:48:36Z"
     }
   },
   "GKOS": {
@@ -206,7 +206,7 @@
     }
   },
   "ADT": {
-    "timestamp": 1793308656.6281419,
+    "timestamp": 1793310516.6483543,
     "data": {
       "symbol": "ADT",
       "sentiment_label": "VERY_BULLISH",
@@ -217,17 +217,17 @@
       "headline_count": 5,
       "top_headlines": [
         "ADT stock surges to 5-year high after Thrive Holdings agrees to $7.6 billion buyout deal",
-        "ADT to Go Private in $15.3 Billion Acquisition Deal",
-        "ADT Stock Hits Near 4-Year Highs – Joshua Kushner-Backed Thrive Holdings To Acquire ADT At $10 Per Share"
+        "ADT agrees to $7.6 billion buyout; more offers possible",
+        "ADT to Go Private in $15.3 Billion Acquisition Deal"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:17:36Z"
+      "analyzed_at": "2026-10-29T21:48:36Z"
     }
   },
   "PURR": {
-    "timestamp": 1793308657.4670339,
+    "timestamp": 1793310515.7758796,
     "data": {
       "symbol": "PURR",
       "sentiment_label": "NEUTRAL",
@@ -244,7 +244,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:17:37Z"
+      "analyzed_at": "2026-10-29T21:48:35Z"
     }
   },
   "NOW": {
@@ -962,7 +962,7 @@
     }
   },
   "TDOC": {
-    "timestamp": 1793308657.102464,
+    "timestamp": 1793310515.2434723,
     "data": {
       "symbol": "TDOC",
       "sentiment_label": "VERY_BULLISH",
@@ -979,7 +979,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:17:37Z"
+      "analyzed_at": "2026-10-29T21:48:35Z"
     }
   },
   "LUNG": {
@@ -1277,7 +1277,7 @@
     }
   },
   "VG": {
-    "timestamp": 1793305682.7649677,
+    "timestamp": 1793310518.5900257,
     "data": {
       "symbol": "VG",
       "sentiment_label": "VERY_BULLISH",
@@ -1294,7 +1294,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:28:02Z"
+      "analyzed_at": "2026-10-29T21:48:38Z"
     }
   },
   "CABA": {
@@ -1673,6 +1673,27 @@
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
       "analyzed_at": "2026-10-29T21:34:38Z"
+    }
+  },
+  "VRT": {
+    "timestamp": 1793310822.482676,
+    "data": {
+      "symbol": "VRT",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "What Is Behind The Move In Vertiv Stock?",
+        "Vertiv Is Up 15% in a Week. Are Doubled Orders Really That Good?",
+        "Vertiv Looked “Overvalued.” Then Orders Doubled."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:53:42Z"
     }
   }
 }

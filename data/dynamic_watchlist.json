@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-29T21:47:20",
-  "scan_cycle": 248,
-  "total_scanned_count": 90,
-  "hot_action_count": 2,
-  "watch_closely_count": 16,
-  "discarded_count": 0,
+  "updated_at": "2026-10-29T21:53:53",
+  "scan_cycle": 251,
+  "total_scanned_count": 184,
+  "hot_action_count": 45,
+  "watch_closely_count": 18,
+  "discarded_count": 12,
   "hot_action_highlights": [
     "ADT (Live-Screener, Move +33.2%, Vol 10.8x, 5d +41.2%, RS +33.6% vs SPY)",
     "GKOS (Live-Screener, Move +33.6%, Vol 4.1x, 5d +37.2%, RS +34.0% vs SPY)",
@@ -12,8 +12,7 @@
     "LUNG (🚀 Aus Watch-Queue gezündet, Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)",
     "TDOC (🚀 Aus Watch-Queue gezündet, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY)",
     "PRCH (🚀 Aus Watch-Queue gezündet, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY)",
-    "PURR (🚀 Aus Watch-Queue gezündet, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)",
-    "CROX (🚀 Aus Watch-Queue gezündet, Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY)"
+    "PURR (🚀 Aus Watch-Queue gezündet, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)"
   ],
   "promoted_from_watch": [
     "NOW (🚀 Aus 'Weiterbeobachten' gezündet: Move -26.9%, Vol 4.8x, 5d -30.1%)",
@@ -28,113 +27,113 @@
     "LUNG (🚀 Aus 'Weiterbeobachten' gezündet: Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)"
   ],
   "watch_closely_queue": {
-    "BHC": {
-      "symbol": "BHC",
-      "yf_ticker": "BHC",
-      "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "Bausch Health Companies Inc. (🔥 Breakout)",
-      "activity_score": 58.6,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "LUNG": {
-      "symbol": "LUNG",
-      "yf_ticker": "LUNG",
+    "INTR": {
+      "symbol": "INTR",
+      "yf_ticker": "INTR",
       "asset_class": "EQUITY",
       "cluster": "PENNY_STOCKS",
-      "name": "Pulmonx Corporation (🎯 Penny Stock In-Play)",
-      "activity_score": 56.52,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY",
+      "name": "Inter & Co. Inc. (🎯 Penny Stock In-Play)",
+      "activity_score": 9.47,
+      "reason": "Aufbau +1.5%, 5d -38.1%, RS +1.8% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "TDOC": {
-      "symbol": "TDOC",
-      "yf_ticker": "TDOC",
+    "FORM": {
+      "symbol": "FORM",
+      "yf_ticker": "FORM",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "Teladoc Health, Inc. (🔥 Breakout)",
-      "activity_score": 49.94,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY",
+      "name": "FormFactor, Inc. (⚡ Reversal/Short)",
+      "activity_score": 9.46,
+      "reason": "Live-Screener, Move -11.6%, Vol 1.5x",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "PRCH": {
-      "symbol": "PRCH",
-      "yf_ticker": "PRCH",
+    "PLXS": {
+      "symbol": "PLXS",
+      "yf_ticker": "PLXS",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "Porch Group, Inc. (🔥 Breakout)",
-      "activity_score": 46.72,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY",
+      "name": "Plexus Corp. (⚡ Reversal/Short)",
+      "activity_score": 9.22,
+      "reason": "Live-Screener, Move -9.6%, Vol 2.2x",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "PURR": {
-      "symbol": "PURR",
-      "yf_ticker": "PURR",
+    "CAT": {
+      "symbol": "CAT",
+      "yf_ticker": "CAT",
+      "asset_class": "EQUITY",
+      "cluster": "VALUE_CYCLICAL",
+      "name": "Caterpillar Inc.",
+      "activity_score": 9.02,
+      "reason": "Move -9.3%, Vol 2.7x, 5d -7.8%",
+      "last_price": 0.0,
+      "cycles_watched": 1
+    },
+    "MRVL": {
+      "symbol": "MRVL",
+      "yf_ticker": "MRVL",
+      "asset_class": "EQUITY",
+      "cluster": "US_TECH",
+      "name": "Marvell Technology (Custom AI Silicon)",
+      "activity_score": 8.93,
+      "reason": "Move -13.2%, Vol 1.9x",
+      "last_price": 0.0,
+      "cycles_watched": 1
+    },
+    "ASX": {
+      "symbol": "ASX",
+      "yf_ticker": "ASX",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "Hyperliquid Strategies Inc (🔥 Breakout)",
-      "activity_score": 45.6,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY",
+      "name": "ASE Technology Holding Co.,  (🔥 Breakout)",
+      "activity_score": 8.6,
+      "reason": "Live-Screener, Aufbau +1.4%, Vol 1.7x, 5d +18.0%, RS +1.8% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "CROX": {
-      "symbol": "CROX",
-      "yf_ticker": "CROX",
+    "F": {
+      "symbol": "F",
+      "yf_ticker": "F",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "Crocs, Inc. (🔥 Breakout)",
-      "activity_score": 44.9,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY",
+      "name": "Ford Motor Company (🔥 Breakout)",
+      "activity_score": 8.57,
+      "reason": "Live-Screener, Move +3.4%, Vol 1.7x, Knapp unter 20d-High, RS +3.8% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "IOVA": {
-      "symbol": "IOVA",
-      "yf_ticker": "IOVA",
+    "M": {
+      "symbol": "M",
+      "yf_ticker": "M",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "Iovance Biotherapeutics, Inc (⚡ Reversal/Short)",
-      "activity_score": 34.22,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move -35.4%, Vol 4.2x, 5d -32.4%",
+      "name": "Macy's Inc (🔥 Breakout)",
+      "activity_score": 8.49,
+      "reason": "Live-Screener, Move +4.1%, Knapp unter 20d-High, RS +4.5% vs SPY",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "MESO": {
-      "symbol": "MESO",
-      "yf_ticker": "MESO",
+    "BBD": {
+      "symbol": "BBD",
+      "yf_ticker": "BBD",
       "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "Mesoblast Limited (🔥 Breakout)",
-      "activity_score": 31.15,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +17.0%, Vol 2.3x, 5d +24.9%, RS +17.4% vs SPY",
+      "cluster": "PENNY_STOCKS",
+      "name": "Banco Bradesco Sa (🎯 Penny Stock In-Play)",
+      "activity_score": 8.31,
+      "reason": "Move -3.7%, Vol-Anstieg 1.17x, 5d -33.4%",
       "last_price": 0.0,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
-    "FTAI": {
-      "symbol": "FTAI",
-      "yf_ticker": "FTAI",
+    "DBK.DE": {
+      "symbol": "DBK.DE",
+      "yf_ticker": "DBK.DE",
       "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "FTAI Aviation Ltd. (🔥 Breakout)",
-      "activity_score": 30.63,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +17.3%, Vol 1.8x, 5d +24.5%, RS +17.7% vs SPY",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "ALNY": {
-      "symbol": "ALNY",
-      "yf_ticker": "ALNY",
-      "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "Alnylam Pharmaceuticals, Inc (⚡ Reversal/Short)",
-      "activity_score": 29.78,
-      "reason": "Live-Screener, Move -25.1%, Vol 6.2x, 5d -23.4%",
+      "cluster": "EU_LEADERS",
+      "name": "Deutsche Bank AG",
+      "activity_score": 8.19,
+      "reason": "Move +3.8%, Vol 1.4x, 5d +11.2%, RS +4.2% vs SPY",
       "last_price": 0.0,
       "cycles_watched": 1
     },
@@ -147,7 +146,7 @@
       "activity_score": 1.08,
       "reason": "Aufbau +1.0%, Vol-Anstieg 1.25x, Knapp unter 20d-High",
       "last_price": 439.6,
-      "cycles_watched": 3
+      "cycles_watched": 1
     },
     "HOOD": {
       "symbol": "HOOD",
@@ -158,7 +157,7 @@
       "activity_score": 1.03,
       "reason": "5d -5.2%",
       "last_price": 91.59,
-      "cycles_watched": 3
+      "cycles_watched": 1
     },
     "UBER": {
       "symbol": "UBER",
@@ -169,7 +168,7 @@
       "activity_score": 0.96,
       "reason": "5d -4.8%",
       "last_price": 65.74,
-      "cycles_watched": 3
+      "cycles_watched": 1
     },
     "ISRG": {
       "symbol": "ISRG",
@@ -180,7 +179,18 @@
       "activity_score": 0.84,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 448.76,
-      "cycles_watched": 3
+      "cycles_watched": 1
+    },
+    "CVX": {
+      "symbol": "CVX",
+      "yf_ticker": "CVX",
+      "asset_class": "EQUITY",
+      "cluster": "VALUE_CYCLICAL",
+      "name": "Chevron Corp. (Energy)",
+      "activity_score": 0.82,
+      "reason": "Aufbau +1.0%, Knapp unter 20d-High",
+      "last_price": 231.46,
+      "cycles_watched": 1
     },
     "USO": {
       "symbol": "USO",
@@ -191,19 +201,43 @@
       "activity_score": 0.82,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 168.19,
-      "cycles_watched": 3
+      "cycles_watched": 1
     },
-    "XOM": {
-      "symbol": "XOM",
-      "yf_ticker": "XOM",
+    "REGN": {
+      "symbol": "REGN",
+      "yf_ticker": "REGN",
       "asset_class": "EQUITY",
       "cluster": "VALUE_CYCLICAL",
-      "name": "Exxon Mobil Corp.",
-      "activity_score": 0.45,
-      "reason": "Knapp unter 20d-High",
-      "last_price": 183.29,
-      "cycles_watched": 2
+      "name": "Regeneron Pharmaceuticals",
+      "activity_score": 0.7,
+      "reason": "Vol-Anstieg 1.24x, Knapp unter 20d-High",
+      "last_price": 818.77,
+      "cycles_watched": 3
+    },
+    "XPEV": {
+      "symbol": "XPEV",
+      "yf_ticker": "XPEV",
+      "asset_class": "EQUITY",
+      "cluster": "CHINA_TECH",
+      "name": "XPeng Inc. (China Smart EV)",
+      "activity_score": 0.57,
+      "reason": "Aufbau -1.5%",
+      "last_price": 9.18,
+      "cycles_watched": 3
     }
   },
-  "discarded_symbols": []
+  "discarded_symbols": [
+    "SPY",
+    "NVDA",
+    "PLTR",
+    "SHOP",
+    "CELH",
+    "BIDU",
+    "JD",
+    "NIO",
+    "FUTU",
+    "TCOM",
+    "FCX",
+    "PLUG"
+  ]
 }

@@ -407,6 +407,17 @@ class EmergentDialectEngine:
             self._ensure_token("⚡:TACTICAL_ALPHA_MOMENTUM", "ALLOCATION", f"Kurzfristige Alpha-Opportunität ({snapshot.symbol})")
             tokens_used.append(t)
 
+        # Y. Supply-Chain Cascade (Sub-Agent #44)
+        if snapshot.symbol in ("VRT", "MU", "MRVL", "AMAT", "LRCX", "CCJ", "GE") and snapshot.change_24h_pct > 0.5:
+            t = f"⛓️:SUPPLY_CHAIN_CASCADE[{snapshot.symbol}]"
+            self._ensure_token("⛓️:SUPPLY_CHAIN_CASCADE", "SPILLOVER", f"Sektor-Spillover & Supply-Chain-Kaskade aktiv ({snapshot.symbol})")
+            tokens_used.append(t)
+
+        # Z. Mixture-of-Agents (MoA) Dynamic Regime Guidance (Sub-Agent #45)
+        moa_tag = "🧠:MOA_REGIME_ROUTER[BULL_MOMENTUM]" if macro and macro.regime_state == "GREEN_RISK_ON" else "🧠:MOA_REGIME_ROUTER[DEFENSE]"
+        self._ensure_token("🧠:MOA_REGIME_ROUTER", "ROUTING", "Hierarchische Mixture-of-Agents Regime-Steuerung")
+        tokens_used.append(moa_tag)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

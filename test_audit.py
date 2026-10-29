@@ -2755,7 +2755,71 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 57 bestanden: Autonome Diversifikation, Core-ETF Vermögensanker, Dynamische Allokation & Sub-Agent #43.")
 
-    print("=== Alle 57 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator- & Autonomous-Diversification-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 58: Erweiterte Strategie-Netzwerke: Supply-Chain Spillover (Sub-Agent #44),
+        #          Mixture-of-Agents Regime Router (Sub-Agent #45) & Neue Zucht-Archetypen
+        # ============================================================================
+        from genetic_strategy_breeder import STRATEGY_ARCHETYPES
+        
+        # 1. Teste erweiterte Zucht-Archetypen (mindestens 6 Strategie-Familien)
+        archetype_names = [a["archetype"] for a in STRATEGY_ARCHETYPES]
+        assert "CORE_ETF_MOMENTUM_COMPOUNDER" in archetype_names, "CORE_ETF_MOMENTUM_COMPOUNDER Archetyp muss vorhanden sein"
+        assert "SUPPLY_CHAIN_SPILLOVER_SNIPER" in archetype_names, "SUPPLY_CHAIN_SPILLOVER_SNIPER Archetyp muss vorhanden sein"
+        assert len(STRATEGY_ARCHETYPES) >= 6, f"Es müssen >= 6 Zucht-Archetypen definiert sein, aktuell: {len(STRATEGY_ARCHETYPES)}"
+
+        # 2. Teste Sub-Agent #44 (Supply-Chain & Cross-Sector Spillover Specialist)
+        adas_moa = ADASMetaAgent()
+        assert "supply_chain_spillover_specialist" in adas_moa.state.active_subagents, "Sub-Agent #44 muss aktiv sein"
+        assert "moa_regime_router" in adas_moa.state.active_subagents, "Sub-Agent #45 muss aktiv sein"
+        assert len(adas_moa.state.active_subagents) >= 45, f"Schwarm muss mindestens 45 Spezialisten umfassen, aktuell: {len(adas_moa.state.active_subagents)}"
+
+        snap_vrt = dummy_snap.model_copy(update={
+            "symbol": "VRT",
+            "name": "Vertiv Holdings",
+            "cluster": "US_TECH",
+            "current_price": 115.0,
+            "change_24h_pct": 2.4,       # Starkes Kaskaden-Momentum
+            "macd_hist": 0.45,
+            "rsi_14": 58.0,
+            "sma_20": 110.0,
+        })
+        sig_vrt = sig_apex_high.model_copy(update={
+            "symbol": "VRT",
+            "entry_price": 115.0,
+            "stop_loss_price": 110.0,
+            "take_profit_price": 125.0,
+            "thesis": "Supply-Chain Kaskade profitiert direkt von NVDA Datacenter Cooling Nachfrage",
+        })
+
+        _, votes_vrt, _ = adas_moa.evaluate_symbol_with_swarm(
+            snap=snap_vrt,
+            baseline_signal=sig_vrt,
+            macro=green_macro,
+        )
+        vote_spillover = next((v for v in votes_vrt if v.agent_id == "supply_chain_spillover_specialist"), None)
+        assert vote_spillover is not None, "Vote von supply_chain_spillover_specialist muss vorhanden sein"
+        assert vote_spillover.score >= 0.75, f"Spillover-Score für VRT muss >= 0.75 sein: {vote_spillover.score}"
+        assert "Supply-Chain Spillover" in vote_spillover.rationale
+
+        # 3. Teste Sub-Agent #45 (Mixture-of-Agents Dynamic Regime Router)
+        vote_moa = next((v for v in votes_vrt if v.agent_id == "moa_regime_router"), None)
+        assert vote_moa is not None, "Vote von moa_regime_router muss vorhanden sein"
+        assert vote_moa.score >= 0.80, f"MoA Router muss bei Green Macro bullisch werten: {vote_moa.score}"
+        assert "BULL_MOMENTUM" in vote_moa.rationale
+
+        # 4. Teste Emergent Dialect Tokens
+        deal_vrt = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_vrt,
+            signal=sig_vrt,
+            macro=green_macro,
+            risk_evaluation=eval_hrp,
+        )
+        assert "⛓️:SUPPLY_CHAIN_CASCADE" in deal_vrt.dialect_sentence, f"Dialekt muss ⛓️:SUPPLY_CHAIN_CASCADE enthalten: {deal_vrt.dialect_sentence}"
+        assert "🧠:MOA_REGIME_ROUTER" in deal_vrt.dialect_sentence, f"Dialekt muss 🧠:MOA_REGIME_ROUTER enthalten: {deal_vrt.dialect_sentence}"
+
+        print(f"[OK] Test 58 bestanden: Supply-Chain Spillover (Sub-Agent #44), Mixture-of-Agents Router (Sub-Agent #45), 6 Zucht-Archetypen & Dialekt.")
+
+    print("=== Alle 58 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification- & MoA-Supply-Chain-Tests erfolgreich bestanden! ===")
 
 
 

@@ -1,6 +1,6 @@
 {
   "shield_active": false,
-  "average_pairwise_correlation": 0.1,
+  "average_pairwise_correlation": 0.11,
   "max_pairwise_correlation": 1.0,
   "market_regime": "HEALTHY_DIVERSIFICATION",
   "protective_mandate": "NORMAL_ALLOCATION",
@@ -9,10 +9,10 @@
     "GOOG ↔ GOOGL (r=+1.00)",
     "BHC ↔ ADT (r=+0.92)",
     "CROX ↔ ADT (r=+0.92)",
-    "NCLH ↔ CVNA (r=+0.86)",
+    "CVNA ↔ NCLH (r=+0.86)",
     "CROX ↔ BHC (r=+0.86)"
   ],
-  "monitored_assets_count": 48,
-  "calculated_at": "2026-10-29T21:46:05Z",
-  "summary": "🟢 Gesunde Diversifikation: Mittlere Korrelation 0.10 im sicheren Bereich (< 0.60). Volle Allokationsfreiheit aktiv."
+  "monitored_assets_count": 45,
+  "calculated_at": "2026-10-29T21:48:45Z",
+  "summary": "🟢 Gesunde Diversifikation: Mittlere Korrelation 0.11 im sicheren Bereich (< 0.60). Volle Allokationsfreiheit aktiv."
 }

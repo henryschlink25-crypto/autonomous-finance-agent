@@ -853,6 +853,26 @@ class ADASMetaArchitect:
                 trust_weight=1.35,
             ))
 
+        # 31. Supply-Chain & Cross-Sector Spillover Specialist (Sub-Agent #44)
+        if "supply_chain_spillover_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="supply_chain_spillover_specialist",
+                name="⛓️ Supply-Chain & Cross-Sector Spillover Specialist",
+                role="Erkennt Sektor-Kaskaden und Spillover-Effekte (z.B. NVDA-Ausbruch zieht Datacenter-Cooling VRT, Speicher MU, Wafer AMAT und Atomstrom CCJ nach).",
+                specialty_focus="SUPPLY_CHAIN_SPILLOVER",
+                trust_weight=1.32,
+            ))
+
+        # 32. Mixture-of-Agents (MoA) Dynamic Regime Router (Sub-Agent #45)
+        if "moa_regime_router" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="moa_regime_router",
+                name="🧠 Mixture-of-Agents (MoA) Dynamic Regime Router",
+                role="Klassifiziert das Marktregime (Bull-Momentum, Volatiler Chop, Crash-Verteidigung, Range-Arbitrage) und routet dynamisch das Entscheidungsgewicht der Unteragenten.",
+                specialty_focus="MOA_REGIME_ROUTER",
+                trust_weight=1.35,
+            ))
+
         return new_specs
 
 
@@ -2102,6 +2122,65 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.40
                 rationale = f"Allokations-Stratege neutral ({e})"
+
+        elif focus == "SUPPLY_CHAIN_SPILLOVER":
+            try:
+                sym = snap.symbol
+                spillover_targets = {
+                    "VRT": "Datacenter Liquid Cooling für Next-Gen KI-Cluster",
+                    "MU": "High-Bandwidth Memory (HBM3e) Zulieferer",
+                    "MRVL": "Custom AI ASICs & Electro-Optics Interconnect",
+                    "AMAT": "Semiconductor Wafer Fab Equipment",
+                    "LRCX": "Etch & Deposition Wafer Equipment",
+                    "CCJ": "Uranium & Clean Nuclear Baseload für Hyperscaler Datacenter",
+                    "GE": "Gasturbinen & Stromnetz-Infrastruktur für KI-Rechenzentren",
+                }
+                is_spillover_sym = sym in spillover_targets
+                has_momentum = snap.change_24h_pct >= 0.8 and snap.macd_hist >= 0
+
+                s_cascade = rec.flag("Supply Chain Cascade Momentum", is_spillover_sym and has_momentum, "bull")
+                s_sector_lead = rec.flag("Sector Leader Bullish", snap.cluster in ("US_TECH", "LEVERAGED_3X") and snap.current_price >= getattr(snap, "sma_20", 0.0), "bull")
+
+                if s_cascade.passed:
+                    score = 0.86
+                    conf = 0.89
+                    rationale = f"⛓️ Supply-Chain Spillover: {sym} profitiert direkt ({spillover_targets[sym]}) mit +{snap.change_24h_pct:.1f}% Momentum!"
+                    decisive_idx = rec.idx(s_cascade)
+                elif s_sector_lead.passed:
+                    score = 0.70
+                    conf = 0.80
+                    rationale = f"⛓️ Sektor-Leithammel: {sym} treibt vorauseilendes Branchen-Momentum."
+                    decisive_idx = rec.idx(s_sector_lead)
+                else:
+                    score = 0.10
+                    conf = 0.50
+                    rationale = "Keine akute Supply-Chain-Kaskade aktiv."
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Spillover Specialist neutral ({e})"
+
+        elif focus == "MOA_REGIME_ROUTER":
+            try:
+                vix = getattr(macro, "vix_level", 18.0) if macro else 18.0
+                regime = getattr(macro, "regime_state", "GREEN_RISK_ON") if macro else "GREEN_RISK_ON"
+
+                if regime == "RED_CRASH_PROTECT" or vix >= 28.0:
+                    score = -0.65 if not getattr(snap, "is_safe_haven", False) else 0.88
+                    conf = 0.92
+                    rationale = f"🧠 MoA Regime Router: CRASH_DEFENSE aktiv (VIX {vix:.1f}) – Safe-Havens priorisiert, Long gehemmt."
+                elif regime == "GREEN_RISK_ON" and vix < 20.0:
+                    score = 0.84 if snap.change_24h_pct > 0 else 0.20
+                    conf = 0.90
+                    rationale = f"🧠 MoA Regime Router: BULL_MOMENTUM Regime (VIX {vix:.1f}) – Trend- und Ausbruch-Agenten maximal gewichtet."
+                else:
+                    score = 0.65 if abs(snap.change_24h_pct) < 1.0 else 0.15
+                    conf = 0.80
+                    rationale = f"🧠 MoA Regime Router: RANGE_CHOP Regime – Mean-Reversion & Stat-Arb priorisiert."
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"MoA Router neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
