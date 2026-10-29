@@ -1718,7 +1718,7 @@ def test_all_audit_fixes() -> None:
         # --- Test 43: Multi-Timeframe Trend Resonance (Sub-Agent #31) & Proactive Adverse Volatility Risk Evaporator (Sub-Agent #32) ---
         from adas_meta_agent import ADASMetaArchitect
         arch_32 = ADASMetaArchitect(cfg_paper)
-        assert len(arch_32.state.active_subagents) == 32, f"Schwarm muss genau 32 Spezialisten umfassen, erhalten: {len(arch_32.state.active_subagents)}"
+        assert len(arch_32.state.active_subagents) >= 32, f"Schwarm muss mindestens 32 Spezialisten umfassen, erhalten: {len(arch_32.state.active_subagents)}"
 
         # 1. Sub-Agent #31 (TIMEFRAME_CONFLUENCE)
         ag_tf = next(ag for ag in arch_32.state.active_subagents.values() if ag.specialty_focus == "TIMEFRAME_CONFLUENCE")
@@ -1794,7 +1794,115 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 43 bestanden: Multi-Timeframe Resonance (Sub-Agent #31, 32 Spezialisten im Schwarm), Adverse Volatility Sentinel (Sub-Agent #32) & Proaktive Breakeven-/Notfall-Evakuierung.")
 
-    print("=== Alle 43 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction- & Multi-Timeframe-Proactive-Shield-Tests erfolgreich bestanden! ===")
+        # --- Test 44: Tactical Timing & Entry-Optimization Strategist (Sub-Agent #33: Abwägen Sofort-Einstieg vs. Geduldiges Abwarten auf Pullback) ---
+        adas_33 = ADASMetaArchitect(cfg_paper)
+        # 1. Schwarm-Größe prüfen: Genau 33 Spezialisten im Schwarm
+        assert "tactical_timing_optimizer" in adas_33.state.active_subagents, "Sub-Agent #33 muss aktiv sein"
+        assert len(adas_33.state.active_subagents) == 33, f"Schwarm muss genau 33 Spezialisten umfassen, erhalten: {len(adas_33.state.active_subagents)}"
+
+        # 2. Fall A: Überdehntes Setup (Aktie steigt rasant, liegt +2.5% über VWAP, RSI 74.0) -> Abwarten auf Pullback!
+        snap_overextended = snap_fav.model_copy(update={
+            "symbol": "EXT_TICKER",
+            "current_price": 102.50,
+            "intraday_vwap": 100.00,
+            "rsi_14": 74.0,
+            "volume_ratio": 1.2,
+            "atr_14": 2.50,
+        })
+        sig_candidate = fake_buy_sig.model_copy(update={
+            "symbol": "EXT_TICKER",
+            "entry_price": 102.50,
+            "stop_loss_price": 97.00,
+            "take_profit_price": 115.00,
+            "confidence": 0.85,
+            "expected_edge_score": 1.80,
+            "risk_reward_ratio": 2.27,
+            "cio_conviction_tier": "TIER_1_ALPHA_HIGH_CONVICTION",
+        })
+
+        # Subagent-Vote prüfen
+        vote_timing_wait, _ = adas_33._compute_single_subagent_vote(
+            adas_33.state.active_subagents["tactical_timing_optimizer"],
+            snap_overextended,
+            green_macro,
+        )
+        assert "ABWARTEN AUF PULLBACK" in vote_timing_wait.rationale, f"Muss Abwarten fordern: {vote_timing_wait.rationale}"
+
+        # CIO-Synthese abwägen
+        from cio_conviction_synthesizer import CIOConvictionSynthesizer
+        cio_synth = CIOConvictionSynthesizer()
+        cio_res_wait = cio_synth.synthesize_conviction(
+            symbol="EXT_TICKER",
+            votes=[vote_timing_wait],
+            active_subagents=adas_33.state.active_subagents,
+            baseline_signal=sig_candidate,
+            macro=green_macro,
+            snapshot=snap_overextended,
+        )
+        assert cio_res_wait.execution_timing == "WAIT_FOR_PULLBACK", f"CIO muss WAIT_FOR_PULLBACK wählen, erhalten: {cio_res_wait.execution_timing}"
+        assert cio_res_wait.optimal_entry_price is not None and cio_res_wait.optimal_entry_price < 102.50, "Optimaler Einstieg muss unter dem überhitzten Preis liegen"
+
+        # Risk-Manager prüft: Überhasteter Kauf am Top wird blockiert!
+        eval_timing_blocked = risk_paper.evaluate_signal(
+            signal=sig_candidate,
+            snapshot=snap_overextended,
+            macro=green_macro,
+            cash_usd=10000.0,
+            total_equity_usd=10000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_timing_blocked.approved is False, "Überhasteter Kauf am Hoch muss vom Risk-Manager pausiert werden"
+        assert "ABWARTEN AUF BESSEREN EINSTIEG" in eval_timing_blocked.reason
+
+        # Dialekt prüfen: Satz muss Token ⏳:ENTRY_PULLBACK_WAIT enthalten
+        deal_timing_wait = dialect_engine.compose_and_negotiate_deal(snap_overextended, sig_candidate, green_macro, eval_timing_blocked)
+        assert "⏳:ENTRY_PULLBACK_WAIT" in deal_timing_wait.dialect_sentence
+
+        # 3. Fall B: Frischer Ausbruch direkt an Basis/VWAP (RVol 2.4x, RSI 58.0) -> Sofortiger Markteinstieg!
+        snap_breakout = snap_fav.model_copy(update={
+            "symbol": "BREAKOUT_LEADER",
+            "current_price": 100.50,
+            "intraday_vwap": 100.00,
+            "rsi_14": 58.0,
+            "volume_ratio": 2.4,
+            "atr_14": 2.50,
+            "unusual_options_activity_detected": True,
+        })
+        sig_breakout = fake_buy_sig.model_copy(update={
+            "symbol": "BREAKOUT_LEADER",
+            "entry_price": 100.50,
+            "stop_loss_price": 95.00,
+            "take_profit_price": 113.00,
+            "confidence": 0.88,
+            "expected_edge_score": 1.95,
+            "risk_reward_ratio": 2.27,
+            "cio_conviction_tier": "TIER_1_ALPHA_HIGH_CONVICTION",
+        })
+
+        vote_timing_immediate, _ = adas_33._compute_single_subagent_vote(
+            adas_33.state.active_subagents["tactical_timing_optimizer"],
+            snap_breakout,
+            green_macro,
+        )
+        assert "SOFORT-EINSTIEG" in vote_timing_immediate.rationale, f"Muss Sofort-Einstieg fordern: {vote_timing_immediate.rationale}"
+
+        cio_res_immediate = cio_synth.synthesize_conviction(
+            symbol="BREAKOUT_LEADER",
+            votes=[vote_timing_immediate],
+            active_subagents=adas_33.state.active_subagents,
+            baseline_signal=sig_breakout,
+            macro=green_macro,
+            snapshot=snap_breakout,
+        )
+        assert cio_res_immediate.execution_timing == "IMMEDIATE"
+
+        deal_timing_immediate = dialect_engine.compose_and_negotiate_deal(snap_breakout, sig_breakout, green_macro, dummy_risk)
+        assert "⚡:ENTRY_IMMEDIATE" in deal_timing_immediate.dialect_sentence
+
+        print(f"[OK] Test 44 bestanden: Tactical Timing & Entry-Optimization (Sub-Agent #33, 33 Spezialisten im Schwarm) – Abwägen Sofort-Einstieg vs. Abwarten auf Pullback/Retest.")
+
+    print("=== Alle 44 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield- & Tactical-Entry-Timing-Tests erfolgreich bestanden! ===")
 
 
 

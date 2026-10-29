@@ -312,6 +312,22 @@ class DeterministicRiskManager:
                     adjusted_action="HOLD",
                 )
 
+        # 3d. Taktische Einstiegs-Abwägung: Sofort-Kauf vs. Abwarten auf Pullback/Retest (Timing-Optimierung)
+        timing = getattr(signal, "execution_timing", "IMMEDIATE")
+        opt_entry = getattr(signal, "optimal_entry_price", None)
+        if signal.action == "BUY" and timing == "WAIT_FOR_PULLBACK" and opt_entry:
+            price_gap_pct = ((snapshot.current_price - opt_entry) / opt_entry) * 100.0
+            if price_gap_pct > 1.2:
+                return RiskEvaluation(
+                    approved=False,
+                    reason=(
+                        f"⏳ ABWARTEN AUF BESSEREN EINSTIEG: Setup attraktiv ({signal.confidence*100:.0f}%), "
+                        f"aber Kurs ist kurzfristig überdehnt (+{price_gap_pct:.1f}% über Optimal-Einstieg ${opt_entry:,.2f}). "
+                        f"Warte auf Pullback/Retest zur Renditemaximierung (aktuell: ${snapshot.current_price:,.2f})."
+                    ),
+                    adjusted_action="HOLD",
+                )
+
         if signal.confidence < min_conf:
             return RiskEvaluation(
                 approved=False,

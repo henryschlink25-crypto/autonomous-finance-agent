@@ -161,6 +161,7 @@ class TelegramCommandListener:
                 "📊 <b>/analysts &lt;SYM&gt;</b> - Wall Street Analysten-Konsens & Kursziele\n"
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
                 "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
+                "⏱️ <b>/timing &lt;SYM&gt;</b> - Einstiegs-Timing: Sofort kaufen vs. Abwarten auf Pullback\n"
                 "📈 <b>/forecast &lt;SYM&gt;</b> - Probabilistischer Kurs-Trichter (P10/P50/P90)\n"
                 "🚨 <b>/shield</b> - Dynamic Correlation Breakdown Shield (Marktpanik & Gleichlauf)\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
@@ -229,6 +230,12 @@ class TelegramCommandListener:
             else:
                 self._handle_vwap(args[0])
 
+        elif cmd in ["/timing", "/entry", "/pullback", "/wait"]:
+            if not args:
+                self.send_message("⏱️ Bitte Symbol angeben, z.B.: <code>/timing NVDA</code>")
+            else:
+                self._handle_timing(args[0])
+
         elif cmd in ["/forecast", "/quantiles", "/trichter", "/p90"]:
             if not args:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/forecast NVDA</code>")
@@ -291,12 +298,12 @@ class TelegramCommandListener:
                 pass
 
         adas_file = Path("data/adas_meta_state.json")
-        swarm_agents_count = 17
+        swarm_agents_count = 33
         if adas_file.exists():
             try:
                 with open(adas_file, "r", encoding="utf-8") as f:
                     d = json.load(f)
-                    swarm_agents_count = len(d.get("sub_agent_weights", {}))
+                    swarm_agents_count = len(d.get("active_subagents", {})) or len(d.get("sub_agent_weights", {})) or 33
             except Exception:
                 pass
 
@@ -635,6 +642,69 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei VWAP-Analyse für {sym}: {e}")
+
+    def _handle_timing(self, symbol: str) -> None:
+        sym = symbol.strip().upper()
+        self.send_message(f"⏱️ <i>Analysiere Einstiegs-Timing (Sofort-Kauf vs. Abwarten auf Pullback) für {sym}...</i>")
+        try:
+            from data_collector import MultiAssetDataCollector
+            collector = MultiAssetDataCollector()
+            snap = collector.fetch_snapshot(sym)
+            if not snap:
+                self.send_message(f"⚠️ Keine Marktdaten für {sym} gefunden.")
+                return
+
+            cur_p = snap.current_price
+            vwap = snap.intraday_vwap or cur_p
+            vwap_gap = ((cur_p - vwap) / vwap * 100.0) if vwap > 0 else 0.0
+            rsi = snap.rsi_14
+            rvol = snap.volume_ratio
+            atr = getattr(snap, "atr_14", cur_p * 0.02) or (cur_p * 0.02)
+
+            is_overextended = (vwap_gap >= 1.8 or rsi >= 70.0)
+            is_fresh_momentum = (rvol >= 1.8 and vwap_gap < 1.4 and rsi < 68.0)
+            is_oversold = (rsi <= 28.0)
+
+            if is_overextended:
+                verdict = "⏳ <b>ABWARTEN AUF PULLBACK</b>"
+                opt_entry = round(max(vwap * 1.002, cur_p - 0.70 * atr), 2)
+                reason = (
+                    f"Der Kurs ist kurzfristig überhitzt (+{vwap_gap:.1f}% über VWAP, RSI {rsi:.1f}). "
+                    f"Ein Sofort-Kauf birgt Rücksetzer-Risiko. Optimaler Einstieg bei Dip nahe <b>${opt_entry:,.2f}</b> abwarten!"
+                )
+            elif is_fresh_momentum:
+                verdict = "⚡ <b>SOFORT-EINSTIEG EMPFOHLEN</b>"
+                opt_entry = round(cur_p, 2)
+                reason = (
+                    f"Frischer Momentum-Ausbruch mit hohem Volumen ({rvol:.1f}x) direkt an Basis/VWAP. "
+                    f"Abwarten birgt Slippage- und Verpassungs-Risiko – sofortige Ausführung empfohlen!"
+                )
+            elif is_oversold:
+                verdict = "⏳ <b>ABWARTEN AUF REBOUND</b>"
+                opt_entry = round(cur_p * 1.018, 2)
+                reason = (
+                    f"Stark überverkauft (RSI {rsi:.1f}). Bei Verkäufen kein Panik-Ausstieg am Tief, "
+                    f"sondern technischen Relief-Bounce für besseren Exit bei <b>${opt_entry:,.2f}</b> abwarten."
+                )
+            else:
+                verdict = "⏱️ <b>TIMING NEUTRAL / SOLIDE</b>"
+                opt_entry = round(cur_p, 2)
+                reason = f"Kurs handelt in gesunder Spanne nahe VWAP (${vwap:,.2f}). Normaler Einstieg bei Signal-Bestätigung."
+
+            msg = (
+                f"⏱️ <b>Einstiegs-Timing & Abwägung für <code>{sym}</code></b>\n"
+                f"─────────────────────────────\n"
+                f"• <b>Aktueller Kurs:</b> ${cur_p:,.2f}\n"
+                f"• <b>Intraday VWAP:</b> ${vwap:,.2f} ({vwap_gap:+.1f}%)\n"
+                f"• <b>RSI (14):</b> {rsi:.1f} | <b>Volumen:</b> {rvol:.1f}x\n"
+                f"• <b>Optimaler Einstiegskurs:</b> <b>${opt_entry:,.2f}</b>\n\n"
+                f"🎯 <b>Timing-Urteil:</b> {verdict}\n"
+                f"💡 <i>{reason}</i>\n"
+                f"─────────────────────────────"
+            )
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Timing-Analyse für {sym}: {e}")
 
     def _handle_forecast(self, symbol: str) -> None:
         sym = symbol.strip().upper()

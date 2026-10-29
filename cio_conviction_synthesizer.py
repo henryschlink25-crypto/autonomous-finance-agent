@@ -75,6 +75,9 @@ class CIOSynthesisResult(BaseModel):
     conflict_resolution_note: str = ""
     committees: Dict[str, CommitteeResult] = Field(default_factory=dict)
     executive_summary: str = ""
+    execution_timing: str = "IMMEDIATE"      # "IMMEDIATE", "WAIT_FOR_PULLBACK", "WAIT_FOR_RELIEF_BOUNCE"
+    optimal_entry_price: Optional[float] = None
+    timing_rationale: str = ""
 
 
 # Zuordnung der Agenten-Spezialisierungen zu Komitees
@@ -125,6 +128,7 @@ COMMITTEE_MAPPING = {
     "MICROSTRUCTURE_CORWIN": "RISK_EXECUTION",
     "MARKET_MICROSTRUCTURE": "RISK_EXECUTION",
     "ADVERSE_VOLATILITY_SHIELD": "RISK_EXECUTION",
+    "TACTICAL_TIMING": "RISK_EXECUTION",
     "PENNY_STOCK_RISK": "RISK_EXECUTION",
     "PENNY_STOCK_MOMENTUM": "RISK_EXECUTION",
     "SMART_LEVERAGE": "RISK_EXECUTION",
@@ -255,6 +259,61 @@ class CIOConvictionSynthesizer:
         if conflict_note:
             exec_summary += f" [{conflict_note}]"
 
+        # 6. Taktische Einstiegs-Abwägung: Sofort-Ausführung vs. Geduldiges Abwarten (Timing & Optimal Entry)
+        cur_p = snapshot.current_price
+        vwap = snapshot.intraday_vwap or cur_p
+        vwap_gap = ((cur_p - vwap) / vwap) if vwap > 0 else 0.0
+        rsi = snapshot.rsi_14
+        atr = getattr(snapshot, "atr_14", cur_p * 0.02) or (cur_p * 0.02)
+        vah = getattr(snapshot, "volume_profile_vah", None)
+
+        execution_timing = "IMMEDIATE"
+        optimal_entry = round(cur_p, 2)
+        timing_rationale = ""
+        improved_rr = baseline_signal.risk_reward_ratio
+
+        if action == "BUY":
+            is_extended = (
+                vwap_gap >= 0.018
+                or rsi >= 70.0
+                or (vah is not None and vah > 0 and cur_p > vah * 1.018)
+            )
+            if is_extended:
+                execution_timing = "WAIT_FOR_PULLBACK"
+                optimal_entry = round(max(vwap * 1.002, cur_p - 0.70 * atr), 2)
+                timing_rationale = (
+                    f"Setup attraktiv ({conviction_score*100:.0f}%), aber überdehnt (+{vwap_gap*100:.1f}% vs VWAP, RSI {rsi:.1f}). "
+                    f"Abwarten auf Pullback zu ${optimal_entry:,.2f} empfohlen."
+                )
+                risk_dist = max(0.01, optimal_entry - baseline_signal.stop_loss_price)
+                reward_dist = max(0.01, baseline_signal.take_profit_price - optimal_entry)
+                improved_rr = round(reward_dist / risk_dist, 2)
+            else:
+                execution_timing = "IMMEDIATE"
+                optimal_entry = round(cur_p, 2)
+                timing_rationale = "Ideales Einstiegsfenster: Kurs nahe VWAP/Support – sofortige Marktausführung empfohlen."
+
+        elif action == "SELL":
+            if rsi <= 28.0:
+                execution_timing = "WAIT_FOR_RELIEF_BOUNCE"
+                optimal_entry = round(cur_p * 1.018, 2)
+                timing_rationale = (
+                    f"Überverkauft (RSI {rsi:.1f}). Abwarten auf Entlastungs-Bounce (${optimal_entry:,.2f}) für besseren Verkaufskurs."
+                )
+            else:
+                execution_timing = "IMMEDIATE"
+                optimal_entry = round(cur_p, 2)
+                timing_rationale = "Sofortige Ausführung: Trendbruch oder Risikobegrenzung."
+
+        # Synchronisiere Timing-Felder direkt in baseline_signal
+        try:
+            baseline_signal.execution_timing = execution_timing
+            baseline_signal.optimal_entry_price = optimal_entry
+            baseline_signal.timing_rationale = timing_rationale
+            baseline_signal.timing_risk_reward_improved = improved_rr
+        except Exception:
+            pass
+
         return CIOSynthesisResult(
             symbol=sym,
             overall_conviction_score=conviction_score,
@@ -265,6 +324,9 @@ class CIOConvictionSynthesizer:
             conflict_resolution_note=conflict_note,
             committees=committee_results,
             executive_summary=exec_summary,
+            execution_timing=execution_timing,
+            optimal_entry_price=optimal_entry,
+            timing_rationale=timing_rationale,
         )
 
     def _compute_regime_weights(self, macro: MacroRegime) -> Dict[str, float]:

@@ -277,7 +277,23 @@ class EmergentDialectEngine:
             self._ensure_token(t, "RISK", "Volatilitäts-Explosion erkannt: Proaktive Breakeven-Stop-Nachziehung")
             tokens_used.append(t)
 
-        # M. Confluence-Grad (Güteklasse des Setups)
+        # M. Taktische Einstiegs-Abwägung (Sofort-Ausführung vs. Geduldiges Abwarten auf Pullback/Retest)
+        exec_timing = getattr(signal, "execution_timing", "IMMEDIATE")
+        opt_entry = getattr(signal, "optimal_entry_price", None)
+        if exec_timing == "WAIT_FOR_PULLBACK":
+            t = f"⏳:ENTRY_PULLBACK_WAIT[{opt_entry:.2f}]" if opt_entry else "⏳:ENTRY_PULLBACK_WAIT"
+            self._ensure_token("⏳:ENTRY_PULLBACK_WAIT", "TIMING", "Taktisches Abwarten auf Pullback/Retest zur Renditemaximierung")
+            tokens_used.append(t)
+        elif exec_timing == "IMMEDIATE" and signal.action in ("BUY", "SELL"):
+            t = "⚡:ENTRY_IMMEDIATE"
+            self._ensure_token("⚡:ENTRY_IMMEDIATE", "TIMING", "Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum")
+            tokens_used.append(t)
+        elif exec_timing == "WAIT_FOR_RELIEF_BOUNCE":
+            t = "⏳:WAIT_RELIEF_BOUNCE"
+            self._ensure_token("⏳:WAIT_RELIEF_BOUNCE", "TIMING", "Überverkauft: Abwarten auf Entlastungs-Bounce für besseren Exit")
+            tokens_used.append(t)
+
+        # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
         if conf_len >= 4:

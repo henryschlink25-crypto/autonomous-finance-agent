@@ -208,6 +208,11 @@ class TradingSignal(BaseModel):
     cio_conviction_score: float = 0.50
     cio_committee_consensus: str = ""
     debate_result: Optional[AdversarialDebateResult] = None
+    # Taktische Einstiegs-Abwägung (Sofort-Kauf/Verkauf vs. Abwarten auf Pullback/Retest)
+    execution_timing: Literal["IMMEDIATE", "WAIT_FOR_PULLBACK", "WAIT_FOR_RELIEF_BOUNCE"] = "IMMEDIATE"
+    optimal_entry_price: Optional[float] = None
+    timing_rationale: str = ""
+    timing_risk_reward_improved: float = 0.0
 
     def model_post_init(self, __context) -> None:
         if self.partial_take_profit_price <= 0 and self.take_profit_price > self.entry_price:

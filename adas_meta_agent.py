@@ -709,6 +709,16 @@ class ADASMetaArchitect:
                 trust_weight=1.28,
             ))
 
+        # 20. Tactical Timing & Entry-Optimization Strategist (Sub-Agent #33)
+        if "tactical_timing_optimizer" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="tactical_timing_optimizer",
+                name="⏱️ Tactical Timing & Entry-Optimization Strategist",
+                role="Wägt bei interessanten Setups & Options-Flows ab: Sofort-Einstieg (Momentum/Ausbruch) vs. geduldiges Abwarten auf Pullback/Retest (VWAP, EMA, Support) zur Renditemaximierung.",
+                specialty_focus="TACTICAL_TIMING",
+                trust_weight=1.27,
+            ))
+
         return new_specs
 
 
@@ -1532,6 +1542,70 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = f"Risk Shield temporär nicht verfügbar ({e})"
+
+        elif focus == "TACTICAL_TIMING":
+            try:
+                cur_p = snap.current_price
+                vwap = snap.intraday_vwap or cur_p
+                vwap_gap_pct = ((cur_p - vwap) / vwap * 100.0) if vwap > 0 else 0.0
+                rsi = snap.rsi_14
+                rvol = snap.volume_ratio
+                opt_flow = getattr(snap, "unusual_options_activity_detected", False)
+                vah = getattr(snap, "volume_profile_vah", None)
+
+                # 1. Fall: Stark überdehnter Kurs (Pullback abwarten!)
+                is_overextended = (
+                    vwap_gap_pct >= 1.8
+                    or rsi >= 70.0
+                    or (vah is not None and vah > 0 and cur_p > vah * 1.018)
+                )
+                # 2. Fall: Stark überverkauft bei Abwärtstrend (Relief-Bounce abwarten für Verkauf!)
+                is_oversold_dump = rsi <= 28.0
+
+                # 3. Fall: Frisches Ausbruchs-Momentum / Whale-Optionen direkt am Support (Sofort kaufen!)
+                is_fresh_momentum = (
+                    (rvol >= 1.8 or opt_flow)
+                    and vwap_gap_pct < 1.4
+                    and rsi < 68.0
+                )
+
+                s_wait_pullback = rec.flag("Wait For Pullback / Dip", is_overextended, "bear")
+                s_immediate_entry = rec.flag("Immediate Breakout Execution", is_fresh_momentum, "bull")
+                s_wait_bounce = rec.flag("Wait For Relief Bounce", is_oversold_dump, "bear")
+
+                if s_wait_pullback.passed:
+                    # Setup ist attraktiv, aber Einstieg wird verzögert
+                    score = 0.35
+                    conf = 0.88
+                    rationale = (
+                        f"⏳ ABWARTEN AUF PULLBACK: Setup attraktiv, aber intraday überhitzt "
+                        f"(+{vwap_gap_pct:.1f}% über VWAP, RSI {rsi:.1f}). Besserer Einstieg nahe VWAP ${vwap:,.2f} abwarten!"
+                    )
+                    decisive_idx = rec.idx(s_wait_pullback)
+                elif s_immediate_entry.passed:
+                    score = 0.85
+                    conf = 0.90
+                    rationale = (
+                        f"⚡ SOFORT-EINSTIEG: Frischer Momentum-Ausbruch (RVol {rvol:.1f}x) "
+                        f"direkt an Basis/VWAP – sofort ausführen vor Slippage!"
+                    )
+                    decisive_idx = rec.idx(s_immediate_entry)
+                elif s_wait_bounce.passed:
+                    score = -0.30
+                    conf = 0.82
+                    rationale = (
+                        f"⏳ ABWARTEN AUF REBOUND: Überverkauft (RSI {rsi:.1f}). Kein Panik-Verkauf am Tiefstkurs; "
+                        f"besseren Ausstieg bei kurzem Relief-Bounce abwarten!"
+                    )
+                    decisive_idx = rec.idx(s_wait_bounce)
+                else:
+                    score = 0.20 if cur_p >= vwap else -0.10
+                    conf = 0.65
+                    rationale = f"⏱️ Einstiegs-Timing neutral/solide (VWAP-Abstand: {vwap_gap_pct:+.1f}%, RSI {rsi:.1f})"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"Tactical Timing Engine temporär nicht verfügbar ({e})"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:
