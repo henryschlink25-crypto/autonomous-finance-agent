@@ -1046,7 +1046,105 @@ def test_all_audit_fixes() -> None:
         assert top_h_tok and top_h_tok.weight > 1.0, "Gewinner-Tokens müssen im Gewicht steigen"
         print(f"[OK] Test 33 bestanden: Emergent Dialect Engine verhandelt Deals symbolisch (Dialekt: {packet.dialect_sentence[:50]}...) & Dolmetscher dekodiert nach Deutsch.")
 
-    print("=== Alle 33 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge- & Emergent-Dialect-Tests erfolgreich bestanden! ===")
+        # --- Test 34: Hugging Face FinBERT NLP & Sentiment Sentinel (Sub-Agent #27) ---
+        from huggingface_sentiment_sentinel import HuggingFaceSentimentSentinel
+        test_cache = os.path.join(tmpdir, "test_hf_sentiment_cache.json")
+        hf_sentinel = HuggingFaceSentimentSentinel(cache_file=test_cache)
+
+        # 1. Bullische Schlagzeilen mit FinBERT analysieren
+        bull_headlines = [
+            "NVIDIA reports record revenue surge, beating analyst estimates by 25%",
+            "Wall Street upgrades NVDA to Strong Buy following massive AI chip demand and profit breakout"
+        ]
+        snap_bull = hf_sentinel.analyze_symbol("NVDA", headlines=bull_headlines, force_refresh=True)
+        assert snap_bull.sentiment_label in ("BULLISH", "VERY_BULLISH"), f"Erwartet BULLISH, erhalten: {snap_bull.sentiment_label}"
+        assert snap_bull.compound_score >= 0.35, f"Score zu niedrig: {snap_bull.compound_score}"
+        assert snap_bull.positive_prob >= 0.50
+        assert snap_bull.veto_triggered is False
+
+        # 2. Bärische Schock-Nachrichten analysieren (Veto-Trigger)
+        bear_headlines = [
+            "SEC launches formal fraud investigation into accounting irregularities and revenue manipulation",
+            "Company issues profit warning and announces massive dilution with public offering amid bankruptcy fears"
+        ]
+        snap_bear = hf_sentinel.analyze_symbol("TROUBLE_CORP", headlines=bear_headlines, force_refresh=True)
+        assert snap_bear.sentiment_label in ("BEARISH", "VERY_BEARISH"), f"Erwartet BEARISH, erhalten: {snap_bear.sentiment_label}"
+        assert snap_bear.compound_score <= -0.35, f"Score zu hoch: {snap_bear.compound_score}"
+        assert snap_bear.negative_prob >= 0.55
+        assert snap_bear.veto_triggered is True
+
+        # 3. Sub-Agent #27 Votum im ADAS-Schwarm prüfen
+        ada_hf_snap = MarketSnapshot(
+            symbol="NVDA",
+            name="Nvidia",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=140.0,
+            change_24h_pct=3.0,
+            change_7d_pct=7.0,
+            rsi_14=58.0,
+            sma_20=135.0,
+            sma_50=128.0,
+            macd_hist=0.6,
+            atr_14=3.0,
+            volatility_annualized_pct=26.0,
+            volume_ratio_vs_20d=1.5,
+            hf_sentiment_label=snap_bull.sentiment_label,
+            hf_sentiment_score=snap_bull.compound_score,
+            hf_positive_prob=snap_bull.positive_prob,
+            hf_negative_prob=snap_bull.negative_prob,
+        )
+        arch_hf = ADASMetaArchitect(cfg)
+        hf_spec = next((ag for ag in arch_hf.state.active_subagents.values() if ag.specialty_focus == "HUGGINGFACE_SENTIMENT"), None)
+        assert hf_spec is not None, "Sub-Agent #27 (HUGGINGFACE_SENTIMENT) muss im Schwarm registriert sein"
+        hf_vote, _ = arch_hf._compute_single_subagent_vote(hf_spec, ada_hf_snap, green_macro)
+        assert hf_vote.vote_action == "BUY"
+        assert hf_vote.score >= 0.50
+
+        # 4. Red-Team Veto bei negativem FinBERT-Sentiment prüfen
+        from adversarial_red_team import AdversarialRedTeamTribunal
+        red_tribunal_hf = AdversarialRedTeamTribunal(cfg)
+        bear_market_snap = MarketSnapshot(
+            symbol="TROUBLE_CORP",
+            name="Trouble Corp",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=20.0,
+            change_24h_pct=-6.0,
+            change_7d_pct=-15.0,
+            rsi_14=42.0,
+            sma_20=24.0,
+            sma_50=28.0,
+            macd_hist=-0.5,
+            atr_14=1.2,
+            volatility_annualized_pct=45.0,
+            volume_ratio_vs_20d=2.0,
+            hf_sentiment_label="VERY_BEARISH",
+            hf_sentiment_score=-0.75,
+            hf_negative_prob=0.88,
+        )
+        fake_buy_sig = TradingSignal(
+            symbol="TROUBLE_CORP",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="BUY",
+            confidence=0.75,
+            sentiment_score=0.5,
+            entry_price=20.0,
+            stop_loss_price=18.0,
+            take_profit_price=25.0,
+            risk_reward_ratio=2.5,
+            expected_edge_score=1.5,
+            catalyst_summary="Katalysator",
+            thesis="Kauf-These",
+        )
+        tribunal_res = red_tribunal_hf.convene_tribunal(fake_buy_sig, bear_market_snap, green_macro, {})
+        assert "FinBERT Negative Sentiment Shock" in tribunal_res.bear_rebuttal or "FinBERT" in tribunal_res.bear_rebuttal
+        assert tribunal_res.verdict in ("REJECTED_VETO", "REDUCED_SIZE")
+
+        print(f"[OK] Test 34 bestanden: Hugging Face FinBERT NLP & Sentiment Sentinel klassifiziert News (Score {snap_bull.compound_score:+.2f} Bull / {snap_bear.compound_score:+.2f} Bear) & Red-Team schützt vor Sentiment-Schocks.")
+
+    print("=== Alle 34 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect- & HuggingFace-Sentiment-Tests erfolgreich bestanden! ===")
 
 
 

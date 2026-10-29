@@ -631,6 +631,17 @@ class ADASMetaArchitect:
                 trust_weight=1.25,
             ))
 
+        # 14. Hugging Face FinBERT NLP & Sentiment Sentinel (Sub-Agent #27)
+        if "huggingface_sentiment_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="huggingface_sentiment_sentinel",
+                name="🤗 Hugging Face FinBERT Sentiment Sentinel",
+                role="Überwacht Finanznachrichten & SEC-Headlines über das Hugging Face ProsusAI/finbert Modell. Erkennt negative Sentiment-Schocks und schützt vor Bad-News-Kollaps.",
+                specialty_focus="HUGGINGFACE_SENTIMENT",
+                trust_weight=1.22,
+                rule_parameters={"min_positive_score": 0.35, "max_negative_veto_score": -0.40},
+            ))
+
         return new_specs
 
 
@@ -1223,6 +1234,44 @@ class ADASMetaArchitect:
                 score = 0.10
                 conf = 0.60
                 rationale = f"Geopolitische Lage kontrolliert (GCI {geo_score:.1f}/10, {geo_mode})"
+
+        elif focus == "HUGGINGFACE_SENTIMENT":
+            try:
+                from huggingface_sentiment_sentinel import get_hf_sentiment_sentinel
+                hf_sent = get_hf_sentiment_sentinel()
+                if hasattr(snap, "hf_sentiment_score") and snap.hf_sentiment_score != 0.0:
+                    hf_score = snap.hf_sentiment_score
+                    neg_p = snap.hf_negative_prob
+                    pos_p = snap.hf_positive_prob
+                    label = snap.hf_sentiment_label
+                else:
+                    hf_snap = hf_sent.analyze_symbol(snap.symbol)
+                    hf_score = hf_snap.compound_score
+                    neg_p = hf_snap.negative_prob
+                    pos_p = hf_snap.positive_prob
+                    label = hf_snap.sentiment_label
+
+                s_veto = rec.flag("FinBERT Negative Shock", neg_p >= 0.55 or hf_score <= -0.35, "bear")
+                s_bull = rec.num("FinBERT Bullish", hf_score, ">=", "min_positive_score", 0.35, "bull")
+
+                if s_veto.passed:
+                    score = -0.88
+                    conf = 0.90
+                    rationale = f"🚨 VETO: Hugging Face FinBERT erkennt negativen Sentiment-Schock ({label}, Neg {neg_p*100:.0f}%)"
+                    decisive_idx = rec.idx(s_veto)
+                elif s_bull.passed:
+                    score = min(0.90, 0.55 + pos_p * 0.35)
+                    conf = min(0.94, 0.70 + pos_p * 0.25)
+                    rationale = f"🤗 Bullisches FinBERT-Sentiment ({label}, Score {hf_score:+.2f}, Pos {pos_p*100:.0f}%)"
+                    decisive_idx = rec.idx(s_bull)
+                else:
+                    score = 0.10 if hf_score >= 0 else -0.10
+                    conf = 0.60
+                    rationale = f"Hugging Face FinBERT Sentiment unauffällig ({label})"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"FinBERT-Sentiment temporär nicht verfügbar ({e})"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:

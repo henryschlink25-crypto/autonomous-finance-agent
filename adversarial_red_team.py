@@ -125,6 +125,8 @@ class AdversarialRedTeamTribunal:
         if getattr(snapshot, "analyst_consensus", "") in ("STRONG_BUY", "BUY"):
             ups = getattr(snapshot, "analyst_target_upside_pct", 0.0) or 0.0
             points.append(f"📊 Wall Street Konsens ({snapshot.analyst_consensus}): +{ups:.1f}% Kurspotenzial ({snapshot.analyst_count} Analysten)")
+        if getattr(snapshot, "hf_sentiment_score", 0.0) >= 0.35:
+            points.append(f"🤗 Hugging Face FinBERT Bullish Sentiment (Score {snapshot.hf_sentiment_score:+.2f})")
         if macro is not None and getattr(macro, "geopolitical_regime_mode", "") == "PEACE_DIVIDEND":
             points.append("🕊️ Globale Friedensdividende (GCI ruhig)")
         if getattr(snapshot, "supertrend_direction", "") == "BULLISH":
@@ -243,6 +245,13 @@ class AdversarialRedTeamTribunal:
                 rebuttals.append(msg)
                 fatal_risks.append("Geopolitical Shock Risk")
                 risk_score += 6.5 if is_severe else 3.5
+
+        # 14. Hugging Face FinBERT Negativer Sentiment-Schock
+        if getattr(snapshot, "hf_sentiment_score", 0.0) <= -0.35 or getattr(snapshot, "hf_negative_prob", 0.0) >= 0.55:
+            msg = f"Hugging Face FinBERT erkennt negativen Sentiment-Schock ({getattr(snapshot, 'hf_sentiment_label', 'BEARISH')}, Score {getattr(snapshot, 'hf_sentiment_score', 0.0):+.2f})"
+            rebuttals.append(msg)
+            fatal_risks.append("FinBERT Negative Sentiment Shock")
+            risk_score += 3.5
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)
