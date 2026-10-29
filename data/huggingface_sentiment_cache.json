@@ -248,7 +248,7 @@
     }
   },
   "NOW": {
-    "timestamp": 1793311585.5516143,
+    "timestamp": 1793313411.372495,
     "data": {
       "symbol": "NOW",
       "sentiment_label": "NEUTRAL",
@@ -265,7 +265,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:25Z"
+      "analyzed_at": "2026-10-29T22:36:51Z"
     }
   },
   "PRCH": {
@@ -290,7 +290,7 @@
     }
   },
   "MESO": {
-    "timestamp": 1793311581.6755881,
+    "timestamp": 1793313407.7573638,
     "data": {
       "symbol": "MESO",
       "sentiment_label": "VERY_BULLISH",
@@ -307,7 +307,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:21Z"
+      "analyzed_at": "2026-10-29T22:36:47Z"
     }
   },
   "INSM": {
@@ -332,7 +332,7 @@
     }
   },
   "CVNA": {
-    "timestamp": 1793311584.7160215,
+    "timestamp": 1793313410.107326,
     "data": {
       "symbol": "CVNA",
       "sentiment_label": "NEUTRAL",
@@ -349,11 +349,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:24Z"
+      "analyzed_at": "2026-10-29T22:36:50Z"
     }
   },
   "NCLH": {
-    "timestamp": 1793311582.585726,
+    "timestamp": 1793313408.2351441,
     "data": {
       "symbol": "NCLH",
       "sentiment_label": "VERY_BULLISH",
@@ -370,11 +370,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:22Z"
+      "analyzed_at": "2026-10-29T22:36:48Z"
     }
   },
   "FTAI": {
-    "timestamp": 1793311582.1677067,
+    "timestamp": 1793313409.0650272,
     "data": {
       "symbol": "FTAI",
       "sentiment_label": "NEUTRAL",
@@ -391,7 +391,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:22Z"
+      "analyzed_at": "2026-10-29T22:36:49Z"
     }
   },
   "TXT": {
@@ -458,24 +458,24 @@
     }
   },
   "GOOGL": {
-    "timestamp": 1793311590.057964,
+    "timestamp": 1793313416.592174,
     "data": {
       "symbol": "GOOGL",
-      "sentiment_label": "NEUTRAL",
-      "compound_score": 0.0,
-      "positive_prob": 0.2,
-      "negative_prob": 0.2,
-      "neutral_prob": 0.6,
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
       "headline_count": 5,
       "top_headlines": [
         "Dow Jones Futures: Amazon, Intel Lead Earnings Losers After Google, ServiceNow, Fortinet Hit Nasdaq",
-        "First Google Search, Now Amazon Retail. Tech’s Moneymakers Are Stumbling.",
-        "Big Tech Earnings Couldn’t Ignite Chip Stocks. What The Semis Need Now."
+        "Amazon cloud business accelerates but shares drop on profit miss",
+        "IBM (IBM) Debuts AI Agent Security Controls For Hybrid Cloud"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
-      "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:30Z"
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T22:36:56Z"
     }
   },
   "DRS": {
@@ -521,7 +521,7 @@
     }
   },
   "GEN": {
-    "timestamp": 1793311583.939771,
+    "timestamp": 1793313408.6505923,
     "data": {
       "symbol": "GEN",
       "sentiment_label": "VERY_BULLISH",
@@ -538,11 +538,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:23Z"
+      "analyzed_at": "2026-10-29T22:36:48Z"
     }
   },
   "BOOT": {
-    "timestamp": 1793311583.0075846,
+    "timestamp": 1793313410.499272,
     "data": {
       "symbol": "BOOT",
       "sentiment_label": "NEUTRAL",
@@ -559,7 +559,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:23Z"
+      "analyzed_at": "2026-10-29T22:36:50Z"
     }
   },
   "GVA": {
@@ -752,7 +752,7 @@
     }
   },
   "CAVA": {
-    "timestamp": 1793311589.544208,
+    "timestamp": 1793313415.675887,
     "data": {
       "symbol": "CAVA",
       "sentiment_label": "NEUTRAL",
@@ -769,7 +769,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:29Z"
+      "analyzed_at": "2026-10-29T22:36:55Z"
     }
   },
   "EPAC": {
@@ -836,7 +836,7 @@
     }
   },
   "IOVA": {
-    "timestamp": 1793311580.7798717,
+    "timestamp": 1793313406.7800074,
     "data": {
       "symbol": "IOVA",
       "sentiment_label": "NEUTRAL",
@@ -853,11 +853,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:20Z"
+      "analyzed_at": "2026-10-29T22:36:46Z"
     }
   },
   "DKI": {
-    "timestamp": 1793311585.1288636,
+    "timestamp": 1793313411.7745993,
     "data": {
       "symbol": "DKI",
       "sentiment_label": "VERY_BEARISH",
@@ -874,11 +874,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:25Z"
+      "analyzed_at": "2026-10-29T22:36:51Z"
     }
   },
   "GOOG": {
-    "timestamp": 1793311590.4220123,
+    "timestamp": 1793313416.195814,
     "data": {
       "symbol": "GOOG",
       "sentiment_label": "NEUTRAL",
@@ -889,17 +889,17 @@
       "headline_count": 5,
       "top_headlines": [
         "Dow Jones Futures: Amazon, Intel Lead Earnings Losers After Google, ServiceNow, Fortinet Hit Nasdaq",
-        "Google's AI chips could change what ChatGPT costs you",
-        "Alphabet, Marvell, ServiceNow, Fortinet, Caterpillar, Lilly, and More Stocks That Explain Today’s Market"
+        "SATO Technologies Heads 3 Canadian AI Stocks To Watch",
+        "Google's AI chips could change what ChatGPT costs you"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:30Z"
+      "analyzed_at": "2026-10-29T22:36:56Z"
     }
   },
   "SES": {
-    "timestamp": 1793311587.1656482,
+    "timestamp": 1793313412.6167216,
     "data": {
       "symbol": "SES",
       "sentiment_label": "VERY_BULLISH",
@@ -916,7 +916,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:27Z"
+      "analyzed_at": "2026-10-29T22:36:52Z"
     }
   },
   "BLDR": {
@@ -1004,7 +1004,7 @@
     }
   },
   "ALNY": {
-    "timestamp": 1793311584.3213398,
+    "timestamp": 1793313409.4460425,
     "data": {
       "symbol": "ALNY",
       "sentiment_label": "NEUTRAL",
@@ -1021,11 +1021,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:24Z"
+      "analyzed_at": "2026-10-29T22:36:49Z"
     }
   },
   "SFM": {
-    "timestamp": 1793311583.4923286,
+    "timestamp": 1793313410.8971636,
     "data": {
       "symbol": "SFM",
       "sentiment_label": "VERY_BEARISH",
@@ -1042,11 +1042,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:23Z"
+      "analyzed_at": "2026-10-29T22:36:50Z"
     }
   },
   "FTNT": {
-    "timestamp": 1793311586.2372115,
+    "timestamp": 1793313412.1897447,
     "data": {
       "symbol": "FTNT",
       "sentiment_label": "VERY_BEARISH",
@@ -1063,7 +1063,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:26Z"
+      "analyzed_at": "2026-10-29T22:36:52Z"
     }
   },
   "REPL": {
@@ -1088,7 +1088,7 @@
     }
   },
   "HLN": {
-    "timestamp": 1793311589.129579,
+    "timestamp": 1793313415.2243018,
     "data": {
       "symbol": "HLN",
       "sentiment_label": "VERY_BEARISH",
@@ -1105,11 +1105,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:29Z"
+      "analyzed_at": "2026-10-29T22:36:55Z"
     }
   },
   "HAPN": {
-    "timestamp": 1793311588.641425,
+    "timestamp": 1793313414.718155,
     "data": {
       "symbol": "HAPN",
       "sentiment_label": "NEUTRAL",
@@ -1126,11 +1126,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:28Z"
+      "analyzed_at": "2026-10-29T22:36:54Z"
     }
   },
   "TE": {
-    "timestamp": 1793311587.668296,
+    "timestamp": 1793313413.0717702,
     "data": {
       "symbol": "TE",
       "sentiment_label": "NEUTRAL",
@@ -1147,11 +1147,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:27Z"
+      "analyzed_at": "2026-10-29T22:36:53Z"
     }
   },
   "ADS.DE": {
-    "timestamp": 1793311592.6338947,
+    "timestamp": 1793313420.3923175,
     "data": {
       "symbol": "ADS.DE",
       "sentiment_label": "VERY_BULLISH",
@@ -1168,11 +1168,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:32Z"
+      "analyzed_at": "2026-10-29T22:37:00Z"
     }
   },
   "BBAI": {
-    "timestamp": 1793311588.1682892,
+    "timestamp": 1793313413.5871735,
     "data": {
       "symbol": "BBAI",
       "sentiment_label": "NEUTRAL",
@@ -1189,11 +1189,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:28Z"
+      "analyzed_at": "2026-10-29T22:36:53Z"
     }
   },
   "PCT": {
-    "timestamp": 1793311591.9774206,
+    "timestamp": 1793313418.6413019,
     "data": {
       "symbol": "PCT",
       "sentiment_label": "NEUTRAL",
@@ -1210,7 +1210,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:31Z"
+      "analyzed_at": "2026-10-29T22:36:58Z"
     }
   },
   "BLMN": {
@@ -1235,7 +1235,7 @@
     }
   },
   "CAPR": {
-    "timestamp": 1793311592.9992335,
+    "timestamp": 1793313418.122956,
     "data": {
       "symbol": "CAPR",
       "sentiment_label": "NEUTRAL",
@@ -1252,11 +1252,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:32Z"
+      "analyzed_at": "2026-10-29T22:36:58Z"
     }
   },
   "JBLU": {
-    "timestamp": 1793311591.226675,
+    "timestamp": 1793313419.5250995,
     "data": {
       "symbol": "JBLU",
       "sentiment_label": "VERY_BEARISH",
@@ -1273,7 +1273,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:31Z"
+      "analyzed_at": "2026-10-29T22:36:59Z"
     }
   },
   "VG": {
@@ -1319,28 +1319,28 @@
     }
   },
   "KLAC": {
-    "timestamp": 1793311593.5046568,
+    "timestamp": 1793313420.7495296,
     "data": {
       "symbol": "KLAC",
       "sentiment_label": "VERY_BULLISH",
-      "compound_score": 0.88,
-      "positive_prob": 0.92,
-      "negative_prob": 0.04,
-      "neutral_prob": 0.04,
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
+        "Is KLA (KLAC) Undervalued On Its Earnings Beat And AI Driven Guidance?",
         "Why KLA Corporation Rallied Today",
-        "KLAC Q1 Earnings Beat Estimates, Revenues Rise on AI Demand",
-        "KLA (KLAC) Q1 2027 Earnings Call Transcript"
+        "KLAC Q1 Earnings Beat Estimates, Revenues Rise on AI Demand"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:33Z"
+      "analyzed_at": "2026-10-29T22:37:00Z"
     }
   },
   "LLY": {
-    "timestamp": 1793311594.3030856,
+    "timestamp": 1793313419.1783173,
     "data": {
       "symbol": "LLY",
       "sentiment_label": "NEUTRAL",
@@ -1351,17 +1351,17 @@
       "headline_count": 5,
       "top_headlines": [
         "How much can GLP-1s raise the bar for healthcare stocks?",
-        "Eli Lilly (LLY) Q3 2026 Earnings Call Transcript",
-        "Why Eli Lilly’s CFO Sees Cancer Drugs as the Next Growth Drivers"
+        "Eli Lilly and Company Q3 2026 Earnings Call Summary",
+        "Eli Lilly (LLY) Q3 2026 Earnings Call Transcript"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:34Z"
+      "analyzed_at": "2026-10-29T22:36:59Z"
     }
   },
   "WHR": {
-    "timestamp": 1793311590.778907,
+    "timestamp": 1793313417.6324053,
     "data": {
       "symbol": "WHR",
       "sentiment_label": "VERY_BEARISH",
@@ -1378,11 +1378,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:30Z"
+      "analyzed_at": "2026-10-29T22:36:57Z"
     }
   },
   "UNIT": {
-    "timestamp": 1793311593.8425674,
+    "timestamp": 1793313421.1626792,
     "data": {
       "symbol": "UNIT",
       "sentiment_label": "NEUTRAL",
@@ -1399,7 +1399,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:33Z"
+      "analyzed_at": "2026-10-29T22:37:01Z"
     }
   },
   "MRVL": {
@@ -1424,7 +1424,7 @@
     }
   },
   "FTRE": {
-    "timestamp": 1793311595.192367,
+    "timestamp": 1793313421.7280636,
     "data": {
       "symbol": "FTRE",
       "sentiment_label": "NEUTRAL",
@@ -1441,7 +1441,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:35Z"
+      "analyzed_at": "2026-10-29T22:37:01Z"
     }
   },
   "FORM": {
@@ -1529,7 +1529,7 @@
     }
   },
   "KPTI": {
-    "timestamp": 1793311586.6661205,
+    "timestamp": 1793313414.2112536,
     "data": {
       "symbol": "KPTI",
       "sentiment_label": "NEUTRAL",
@@ -1546,7 +1546,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:26Z"
+      "analyzed_at": "2026-10-29T22:36:54Z"
     }
   },
   "DBK.DE": {
@@ -1571,7 +1571,7 @@
     }
   },
   "ULCC": {
-    "timestamp": 1793311591.5956414,
+    "timestamp": 1793313417.23413,
     "data": {
       "symbol": "ULCC",
       "sentiment_label": "NEUTRAL",
@@ -1588,7 +1588,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:31Z"
+      "analyzed_at": "2026-10-29T22:36:57Z"
     }
   },
   "AUR": {
@@ -1613,7 +1613,7 @@
     }
   },
   "SHOE": {
-    "timestamp": 1793311595.6618333,
+    "timestamp": 1793313419.920207,
     "data": {
       "symbol": "SHOE",
       "sentiment_label": "NEUTRAL",
@@ -1630,7 +1630,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:06:35Z"
+      "analyzed_at": "2026-10-29T22:36:59Z"
     }
   },
   "FMC": {
@@ -1655,7 +1655,7 @@
     }
   },
   "PINS": {
-    "timestamp": 1793311594.7660215,
+    "timestamp": 1793313422.304859,
     "data": {
       "symbol": "PINS",
       "sentiment_label": "VERY_BEARISH",
@@ -1672,7 +1672,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T22:06:34Z"
+      "analyzed_at": "2026-10-29T22:37:02Z"
     }
   },
   "VRT": {
@@ -1736,6 +1736,25 @@
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
       "analyzed_at": "2026-10-29T22:15:25Z"
+    }
+  },
+  "BTC/USD": {
+    "timestamp": 1793313722.1222441,
+    "data": {
+      "symbol": "BTC/USD",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 1,
+      "top_headlines": [
+        "BTC/USD trading in market session with active institutional order flow."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T22:42:02Z"
     }
   }
 }

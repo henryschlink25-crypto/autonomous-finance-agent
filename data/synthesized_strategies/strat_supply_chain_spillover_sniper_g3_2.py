@@ -2,7 +2,7 @@
 Synthetisierte Handelsstrategie: SupplyChainSpillover_Gen3_2
 Archetyp: SUPPLY_CHAIN_SPILLOVER_SNIPER
 Hypothese: Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).
-Generiert am: 2026-10-29T23:28:08.753932
+Generiert am: 2026-10-29T23:41:26.237542
 """
 
 class SupplyChainSpillover_Gen3_2:
@@ -15,14 +15,14 @@ class SupplyChainSpillover_Gen3_2:
     
     def __init__(self):
         self.genes = {
-        "min_rvol": 1.602,
-        "min_change_pct": 1.876,
-        "max_rsi": 76.635,
-        "min_edge_score": 1.419,
-        "atr_sl_mult": 2.171,
-        "atr_tp_mult": 4.857,
-        "time_stop_days": 7,
-        "penny_max_price": 895.372
+        "min_rvol": 1.521,
+        "min_change_pct": 1.378,
+        "max_rsi": 72.772,
+        "min_edge_score": 1.429,
+        "atr_sl_mult": 2.126,
+        "atr_tp_mult": 4.25,
+        "time_stop_days": 6,
+        "penny_max_price": 1115.017
 }
 
     def evaluate_entry(self, snapshot, macro=None) -> dict:

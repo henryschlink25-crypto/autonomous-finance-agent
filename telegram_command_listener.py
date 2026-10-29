@@ -180,7 +180,8 @@ class TelegramCommandListener:
                 "🚨 <b>/shield</b> - Dynamic Correlation Breakdown Shield (Marktpanik & Gleichlauf)\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
-                "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
+                "⚡ <b>/arbitrage</b> - Einfache Arbitrage-Gewinne (Dual-Listing ADRs, ETF-Disagio, Krypto Funding Yield)\n"
+                "🔀 <b>/pairs</b> - Statistische Arbitrage & Kointegrations-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/evolve</b> - Autonome Schwarm-Evolution & Bayesianische Re-Kalibrierung\n"
                 "🧪 <b>/lab</b> - Walk-Forward Forschungs-Labor & WFER-Effizienz\n"
@@ -609,21 +610,36 @@ class TelegramCommandListener:
             self.send_message(f"❌ Fehler bei Fundamentalanalyse für {sym}: {e}")
 
     def _handle_pairs(self) -> None:
-        self.send_message("🔀 <i>Scanne statistische Arbitrage & Kointegrations-Spreads aller Paare...</i>")
+        self.send_message("⚡ <i>Scanne einfache Arbitrage-Gewinne & statistische Kointegrations-Spreads...</i>")
         try:
+            from simple_arbitrage_engine import SimpleArbitrageEngine
             from pairs_stat_arb import StatisticalArbitrageScanner
-            scanner = StatisticalArbitrageScanner()
-            opps = scanner.scan_all_pairs()
-            if not opps:
-                self.send_message("🔀 Keine Pairs-Daten verfügbar.")
-                return
 
-            lines = ["🔀 <b>Statistische Arbitrage & Pairs-Spreads:</b>\n─────────────────────────────"]
-            for o in opps:
+            arb_eng = SimpleArbitrageEngine()
+            simple_opps = arb_eng.scan_all_opportunities()
+
+            scanner = StatisticalArbitrageScanner()
+            pairs_opps = scanner.scan_all_pairs()
+
+            lines = ["⚡ <b>Einfache Arbitrage-Gewinne (Sub-Agent #48):</b>\n─────────────────────────────"]
+            if simple_opps:
+                for s in simple_opps[:5]:
+                    badge = "🟢" if s.net_spread_pct >= 0.50 or s.annualized_yield_pct >= 15.0 else "🟡"
+                    lines.append(
+                        f"{badge} <b>{s.name}</b>\n"
+                        f"   Typ: <i>{s.arb_type}</i> | Netto-Spread: <b>+{s.net_spread_pct:.2f}%</b>\n"
+                        f"   Ertrag: <b>{s.annualized_yield_pct:.1f}% p.a.</b> ({s.risk_level})\n"
+                        f"   Aktion: {html.escape(s.action_directive[:75])}...\n"
+                    )
+            else:
+                lines.append("<i>Keine signifikanten einfachen Spreads aktiv.</i>\n")
+
+            lines.append("─────────────────────────────\n🔀 <b>Statistische Arbitrage & Pairs-Spreads:</b>\n─────────────────────────────")
+            for o in pairs_opps:
                 z = o.z_score
                 action = o.signal_action
                 icon = "🔥" if action != "NEUTRAL" else ("🟡" if abs(z) >= 1.5 else "⚪")
-                sig_text = f" ➜ <b>KAUF {o.target_asset}</b> (Edge {o.expected_edge_score:+.2f})" if action != "NEUTRAL" else ""
+                sig_text = f" -> <b>KAUF {o.target_asset}</b> (Edge {o.expected_edge_score:+.2f})" if action != "NEUTRAL" else ""
 
                 lines.append(
                     f"{icon} <b>{o.pair_name}</b> ({o.description[:24]})\n"
@@ -631,10 +647,10 @@ class TelegramCommandListener:
                     f"   Korr: {o.correlation_60d:.2f} | Halbwertszeit: {o.half_life_days:.1f}d{sig_text}\n"
                 )
 
-            lines.append("─────────────────────────────\n<i>Tipp: Bei |Z| &ge; 2.0σ löst der Schwarm automatisch Mean-Reversion Orders aus!</i>")
+            lines.append("─────────────────────────────\n<i>Tipp: Der Schwarm scannt 24/7 nach deterministischen & statistischen Fehlbewertungen!</i>")
             self.send_message("\n".join(lines))
         except Exception as e:
-            self.send_message(f"❌ Fehler bei Pairs-Arbitrage Scan: {e}")
+            self.send_message(f"❌ Fehler bei Arbitrage-Scan: {e}")
 
     def _handle_sectors(self) -> None:
         self.send_message("🚀 <i>Analysiere 11 US-Sektoren & relative Stärke vs. S&P 500...</i>")

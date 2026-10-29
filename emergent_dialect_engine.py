@@ -449,6 +449,18 @@ class EmergentDialectEngine:
             self._ensure_token("⚖️:AUTONOMOUS_SIZING_ARBITER", "ALLOCATION", f"Autonome Allokationsprüfung freigegeben ({alloc_w*100:.0f}%)")
             tokens_used.append(t)
 
+        # CC. Simple Arbitrage Hunter (Sub-Agent #48)
+        try:
+            from simple_arbitrage_engine import SimpleArbitrageEngine
+            arb_eng = SimpleArbitrageEngine()
+            opp = arb_eng.get_opportunity_for_symbol(snapshot.symbol)
+            if opp and (opp.net_spread_pct >= 0.25 or opp.annualized_yield_pct >= 10.0):
+                t = f"⚡:SIMPLE_ARBITRAGE_SPREAD[{opp.asset_primary}_{opp.net_spread_pct:+.1f}%]"
+                self._ensure_token("⚡:SIMPLE_ARBITRAGE_SPREAD", "ARBITRAGE", f"Einfacher Arbitrage-Spread erkannt ({opp.name}, Netto: {opp.net_spread_pct:.2f}%)")
+                tokens_used.append(t)
+        except Exception:
+            pass
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

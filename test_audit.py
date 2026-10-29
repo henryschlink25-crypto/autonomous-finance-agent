@@ -3015,7 +3015,61 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 61 bestanden: Starre Kappen aufgehoben, Sizing Arbiter (Sub-Agent #47) allokiert dynamisch {eval_soxs.margin_required_usd:.0f}$ ({eval_soxs.recommended_quantity:.1f} Aktien).")
 
-    print("=== Alle 61 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel- & Autonomous-Sizing-Arbiter-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 62: Einfache Arbitrage-Gewinne (Sub-Agent #48 Simple Arbitrage Hunter)
+        #          Dual-Listing ADRs, ETF NAV Disagio & Krypto Funding Rate Yield
+        # ============================================================================
+        from simple_arbitrage_engine import SimpleArbitrageEngine
+        arb_engine = SimpleArbitrageEngine()
+        arb_opps = arb_engine.scan_all_opportunities()
+        assert len(arb_opps) >= 3, f"Mindestens 3 Arbitrage-Gelegenheiten müssen gefunden werden, aktuell: {len(arb_opps)}"
+
+        # 1. Prüfe Vorhandensein der verschiedenen Arbitrage-Typen
+        arb_types = {o.arb_type for o in arb_opps}
+        assert "FUNDING_RATE_YIELD" in arb_types, "Krypto Delta-Neutral Funding Rate Yield muss vorhanden sein"
+        
+        # 2. Prüfe ADAS Meta-Agent Registrierung (Sub-Agent #48)
+        adas_arb = ADASMetaAgent()
+        assert "simple_arbitrage_hunter" in adas_arb.state.active_subagents, "Sub-Agent #48 muss aktiv sein"
+        assert len(adas_arb.state.active_subagents) >= 48, f"Schwarm muss mindestens 48 Spezialisten umfassen, aktuell: {len(adas_arb.state.active_subagents)}"
+
+        # 3. Teste Schwarm-Voting von Sub-Agent #48
+        snap_btc_arb = dummy_snap.model_copy(update={
+            "symbol": "BTC/USD",
+            "name": "Bitcoin",
+            "current_price": 68000.0,
+            "rsi_14": 55.0,
+            "asset_class": "CRYPTO",
+            "cluster": "CRYPTO",
+        })
+        sig_btc_arb = sig_apex_high.model_copy(update={
+            "symbol": "BTC/USD",
+            "entry_price": 68000.0,
+            "stop_loss_price": 64000.0,
+            "confidence": 0.88,
+        })
+        _, votes_arb, _ = adas_arb.evaluate_symbol_with_swarm(
+            snap=snap_btc_arb,
+            baseline_signal=sig_btc_arb,
+            macro=green_macro,
+        )
+        vote_hunter = next((v for v in votes_arb if v.agent_id == "simple_arbitrage_hunter"), None)
+        assert vote_hunter is not None, "Vote von simple_arbitrage_hunter muss vorhanden sein"
+        assert vote_hunter.score >= 0.70, f"Simple Arbitrage Vote Score muss >= 0.70 sein: {vote_hunter.score}"
+        assert "Simple Arbitrage" in vote_hunter.rationale
+
+        # 4. Teste Dialekt-Token (⚡:SIMPLE_ARBITRAGE_SPREAD)
+        deal_btc = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_btc_arb,
+            signal=sig_btc_arb,
+            macro=green_macro,
+            risk_evaluation=eval_soxs,
+        )
+        assert "⚡:SIMPLE_ARBITRAGE_SPREAD" in deal_btc.dialect_sentence, f"Dialekt muss ⚡:SIMPLE_ARBITRAGE_SPREAD enthalten: {deal_btc.dialect_sentence}"
+
+        print(f"[OK] Test 62 bestanden: Einfache Arbitrage-Gewinne (Sub-Agent #48) analysiert {len(arb_opps)} Gelegenheiten (Dual-Listing, NAV-Disagio & Funding Yield).")
+
+    print("=== Alle 62 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter- & Simple-Arbitrage-Hunter-Tests erfolgreich bestanden! ===")
 
 
 

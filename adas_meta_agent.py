@@ -893,6 +893,16 @@ class ADASMetaArchitect:
                 trust_weight=1.35,
             ))
 
+        # 35. Simple Arbitrage Hunter (Sub-Agent #48)
+        if "simple_arbitrage_hunter" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="simple_arbitrage_hunter",
+                name="⚡ Simple Arbitrage Hunter",
+                role="Scannt in Echtzeit nach einfachen, mathematisch greifbaren Arbitrage-Gewinnen (Dual-Listing ADR Spreads, Krypto-Basis & Funding-Yield, ETF-NAV Disagio). Berechnet Netto-Spreads nach Gebühren und liefert risikofreie oder risikoarme Konvergenz-Votings.",
+                specialty_focus="SIMPLE_ARBITRAGE_SPREAD",
+                trust_weight=1.32,
+            ))
+
         return new_specs
 
 
@@ -2257,6 +2267,31 @@ class ADASMetaArchitect:
                 conf = 0.60
                 v_act = "HOLD"
                 rationale = f"⚖️ Sizing Arbiter: Konservative Allokation (RSI {rsi:.1f} überhitzt)."
+
+        elif focus == "SIMPLE_ARBITRAGE_SPREAD":
+            try:
+                from simple_arbitrage_engine import SimpleArbitrageEngine
+                eng = SimpleArbitrageEngine()
+                opp = eng.get_opportunity_for_symbol(snap.symbol)
+                if opp and opp.net_spread_pct >= 0.25:
+                    score = min(0.95, round(0.75 + opp.net_spread_pct * 0.10, 2))
+                    conf = opp.confidence
+                    v_act = "BUY"
+                    rationale = f"⚡ Simple Arbitrage: {opp.name} ({opp.arb_type}) bietet +{opp.net_spread_pct:.2f}% Netto-Spread ({opp.annualized_yield_pct:.1f}% p.a.) -> {opp.action_directive}"
+                elif opp and opp.annualized_yield_pct >= 10.0:
+                    score = 0.82
+                    conf = opp.confidence
+                    v_act = "BUY"
+                    rationale = f"⚡ Simple Arbitrage (Delta-Neutral): {opp.name} liefert {opp.annualized_yield_pct:.1f}% p.a. Funding Yield ohne Kursrisiko."
+                else:
+                    score = 0.10
+                    conf = 0.50
+                    v_act = "HOLD"
+                    rationale = f"Simple Arbitrage neutral: Kein signifikanter Netto-Spread für {snap.symbol}."
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Simple Arbitrage Hunter neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

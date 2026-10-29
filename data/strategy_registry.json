@@ -24,15 +24,15 @@
       "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
       "generation": 1,
       "performance": {
-        "sharpe_ratio": 8.74,
-        "max_drawdown_pct": 7.09,
-        "win_rate_pct": 72.2,
-        "profit_factor": 3.58,
-        "total_trades": 36,
-        "net_return_pct": 130.86
+        "sharpe_ratio": 6.35,
+        "max_drawdown_pct": 10.63,
+        "win_rate_pct": 61.8,
+        "profit_factor": 2.7,
+        "total_trades": 34,
+        "net_return_pct": 80.34
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g1_3.py",
-      "deployed_at": "2026-10-29T11:39:41.097405"
+      "deployed_at": "2026-10-29T23:31:47.715779"
     },
     "strat_supertrend_regime_rider_g2_2": {
       "strategy_id": "strat_supertrend_regime_rider_g2_2",
@@ -92,15 +92,15 @@
       "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 9.06,
-        "max_drawdown_pct": 8.9,
-        "win_rate_pct": 70.3,
+        "sharpe_ratio": 9.19,
+        "max_drawdown_pct": 8.83,
+        "win_rate_pct": 68.4,
         "profit_factor": 3.78,
-        "total_trades": 37,
-        "net_return_pct": 170.13
+        "total_trades": 38,
+        "net_return_pct": 200.59
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_2.py",
-      "deployed_at": "2026-10-29T22:09:56.467952"
+      "deployed_at": "2026-10-29T23:36:05.555164"
     },
     "strat_whale_orderflow_accumulator_g3_3": {
       "strategy_id": "strat_whale_orderflow_accumulator_g3_3",
@@ -330,15 +330,15 @@
       "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 13.53,
-        "max_drawdown_pct": 10.45,
-        "win_rate_pct": 73.9,
-        "profit_factor": 5.87,
-        "total_trades": 23,
-        "net_return_pct": 302.29
+        "sharpe_ratio": 6.12,
+        "max_drawdown_pct": 11.88,
+        "win_rate_pct": 52.0,
+        "profit_factor": 2.31,
+        "total_trades": 25,
+        "net_return_pct": 93.74
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g3_3.py",
-      "deployed_at": "2026-10-29T23:17:39.663782"
+      "deployed_at": "2026-10-29T23:41:26.190560"
     },
     "strat_supply_chain_spillover_sniper_g3_2": {
       "strategy_id": "strat_supply_chain_spillover_sniper_g3_2",
@@ -347,15 +347,15 @@
       "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 3.5,
-        "max_drawdown_pct": 11.04,
-        "win_rate_pct": 55.0,
-        "profit_factor": 1.69,
-        "total_trades": 40,
-        "net_return_pct": 45.51
+        "sharpe_ratio": 5.11,
+        "max_drawdown_pct": 11.1,
+        "win_rate_pct": 64.4,
+        "profit_factor": 2.1,
+        "total_trades": 45,
+        "net_return_pct": 79.32
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_2.py",
-      "deployed_at": "2026-10-29T23:28:08.776441"
+      "deployed_at": "2026-10-29T23:41:26.270487"
     },
     "strat_supply_chain_spillover_sniper_g1_2": {
       "strategy_id": "strat_supply_chain_spillover_sniper_g1_2",
@@ -373,6 +373,23 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g1_2.py",
       "deployed_at": "2026-10-29T23:30:00.504593"
+    },
+    "strat_supply_chain_spillover_sniper_g1_4": {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g1_4",
+      "class_name": "SupplyChainSpillover_Gen1_4",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 7.11,
+        "max_drawdown_pct": 11.22,
+        "win_rate_pct": 57.9,
+        "profit_factor": 2.85,
+        "total_trades": 38,
+        "net_return_pct": 143.64
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g1_4.py",
+      "deployed_at": "2026-10-29T23:31:47.943782"
     }
   },
   "history": [
@@ -1140,6 +1157,91 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g1_2.py",
       "deployed_at": "2026-10-29T23:30:00.504593"
+    },
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g1_3",
+      "class_name": "SuperTrendRegimeRider_Gen1_3",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 6.35,
+        "max_drawdown_pct": 10.63,
+        "win_rate_pct": 61.8,
+        "profit_factor": 2.7,
+        "total_trades": 34,
+        "net_return_pct": 80.34
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g1_3.py",
+      "deployed_at": "2026-10-29T23:31:47.715779"
+    },
+    {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g1_4",
+      "class_name": "SupplyChainSpillover_Gen1_4",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 7.11,
+        "max_drawdown_pct": 11.22,
+        "win_rate_pct": 57.9,
+        "profit_factor": 2.85,
+        "total_trades": 38,
+        "net_return_pct": 143.64
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g1_4.py",
+      "deployed_at": "2026-10-29T23:31:47.943782"
+    },
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g3_2",
+      "class_name": "SuperTrendRegimeRider_Gen3_2",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 9.19,
+        "max_drawdown_pct": 8.83,
+        "win_rate_pct": 68.4,
+        "profit_factor": 3.78,
+        "total_trades": 38,
+        "net_return_pct": 200.59
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_2.py",
+      "deployed_at": "2026-10-29T23:36:05.555164"
+    },
+    {
+      "strategy_id": "strat_core_etf_momentum_compounder_g3_3",
+      "class_name": "CoreEtfCompounder_Gen3_3",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 6.12,
+        "max_drawdown_pct": 11.88,
+        "win_rate_pct": 52.0,
+        "profit_factor": 2.31,
+        "total_trades": 25,
+        "net_return_pct": 93.74
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g3_3.py",
+      "deployed_at": "2026-10-29T23:41:26.190560"
+    },
+    {
+      "strategy_id": "strat_supply_chain_spillover_sniper_g3_2",
+      "class_name": "SupplyChainSpillover_Gen3_2",
+      "archetype": "SUPPLY_CHAIN_SPILLOVER_SNIPER",
+      "hypothesis": "Nutzt sektorübergreifende Kaskaden (Kühlungs-, Strom- und Speicher-Zulieferer von KI-Giganten wie NVDA/MSFT).",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 5.11,
+        "max_drawdown_pct": 11.1,
+        "win_rate_pct": 64.4,
+        "profit_factor": 2.1,
+        "total_trades": 45,
+        "net_return_pct": 79.32
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_2.py",
+      "deployed_at": "2026-10-29T23:41:26.270487"
     }
   ]
 }
