@@ -833,6 +833,16 @@ class ADASMetaArchitect:
                 trust_weight=1.32,
             ))
 
+        # 29. Smart Recovery & Thesis Invalidation Auditor (Sub-Agent #42)
+        if "recovery_thesis_auditor" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="recovery_thesis_auditor",
+                name="🛡️ Smart Recovery & Thesis Invalidation Auditor",
+                role="Überwacht Positionen im Drawdown. Prüft Rebound-Potenzial (RSI-Erschöpfung, VWAP-Support, Qlib Alpha158, Dark-Pool-Dip-Buying) vs. These-Bruch und schützt vor vorzeitigem Stop-Hunting.",
+                specialty_focus="SMART_RECOVERY",
+                trust_weight=1.30,
+            ))
+
         return new_specs
 
 
@@ -2009,6 +2019,45 @@ class ADASMetaArchitect:
                 score = 0.05
                 conf = 0.50
                 rationale = f"Qlib Alpha158 neutral ({e})"
+
+        elif focus == "SMART_RECOVERY":
+            try:
+                rsi_val = getattr(snap, "rsi_14", 50.0)
+                is_extreme_oversold = rsi_val <= 28.0
+                is_oversold = rsi_val <= 35.0
+                qlib_sc = getattr(snap, "qlib_alpha158_score", 0.0)
+                dp_sent = getattr(snap, "dark_pool_sentiment", "")
+                vwap_lvl = getattr(snap, "vwap_val", getattr(snap, "intraday_vwap", 0.0)) or 0.0
+                has_vwap_support = vwap_lvl > 0 and abs(snap.current_price - vwap_lvl) / vwap_lvl <= 0.015
+                has_sma_support = (snap.sma_50 > 0 and abs(snap.current_price - snap.sma_50) / snap.sma_50 <= 0.015)
+
+                s_rebound = rec.flag("Extreme Oversold Rebound", is_extreme_oversold, "bull")
+                s_support = rec.flag("Support Rebound Zone", is_oversold and (has_vwap_support or has_sma_support or qlib_sc >= 0.10 or dp_sent in ("BULLISH_FLOW", "ACCUMULATION")), "bull")
+                s_thesis_break = rec.flag("Thesis Broken Breakdown", rsi_val >= 75.0 or (snap.change_24h_pct < -4.5 and not is_oversold), "bear")
+
+                if s_rebound.passed:
+                    score = 0.88
+                    conf = 0.90
+                    rationale = f"🛡️ Rebound-Verteidigung: Extrem überverkauft (RSI {rsi_val:.1f}) – Hohes Erholungspotenzial!"
+                    decisive_idx = rec.idx(s_rebound)
+                elif s_support.passed:
+                    score = 0.74
+                    conf = 0.85
+                    rationale = f"🛡️ Erholungszone: Support stützt Kurs bei RSI {rsi_val:.1f} & positivem Zufluss."
+                    decisive_idx = rec.idx(s_support)
+                elif s_thesis_break.passed:
+                    score = -0.75
+                    conf = 0.80
+                    rationale = "⚡ These-Bruch: Überhitzung oder freier Fall ohne Support."
+                    decisive_idx = rec.idx(s_thesis_break)
+                else:
+                    score = 0.10
+                    conf = 0.55
+                    rationale = "Normale Marktzone – Erholungspotenzial neutral."
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Smart Recovery Auditor neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

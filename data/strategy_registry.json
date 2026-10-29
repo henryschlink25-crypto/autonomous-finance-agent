@@ -75,15 +75,15 @@
       "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 9.79,
-        "max_drawdown_pct": 9.48,
-        "win_rate_pct": 66.7,
-        "profit_factor": 4.28,
-        "total_trades": 36,
-        "net_return_pct": 216.51
+        "sharpe_ratio": 5.76,
+        "max_drawdown_pct": 11.17,
+        "win_rate_pct": 63.8,
+        "profit_factor": 2.37,
+        "total_trades": 47,
+        "net_return_pct": 123.51
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_4.py",
-      "deployed_at": "2026-10-29T20:44:46.651446"
+      "deployed_at": "2026-10-29T22:27:25.767936"
     },
     "strat_supertrend_regime_rider_g3_2": {
       "strategy_id": "strat_supertrend_regime_rider_g3_2",
@@ -194,15 +194,15 @@
       "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 8.87,
-        "max_drawdown_pct": 10.26,
-        "win_rate_pct": 66.1,
-        "profit_factor": 3.66,
-        "total_trades": 59,
-        "net_return_pct": 449.87
+        "sharpe_ratio": 7.41,
+        "max_drawdown_pct": 11.45,
+        "win_rate_pct": 61.4,
+        "profit_factor": 3.14,
+        "total_trades": 57,
+        "net_return_pct": 330.92
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g3_4.py",
-      "deployed_at": "2026-10-29T21:53:39.281769"
+      "deployed_at": "2026-10-29T22:27:25.836417"
     },
     "strat_whale_orderflow_accumulator_g1_1": {
       "strategy_id": "strat_whale_orderflow_accumulator_g1_1",
@@ -220,6 +220,40 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_1.py",
       "deployed_at": "2026-10-29T22:10:40.777713"
+    },
+    "strat_whale_orderflow_accumulator_g1_4": {
+      "strategy_id": "strat_whale_orderflow_accumulator_g1_4",
+      "class_name": "WhaleOrderflowAccumulator_Gen1_4",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 3.0,
+        "max_drawdown_pct": 11.85,
+        "win_rate_pct": 55.6,
+        "profit_factor": 1.58,
+        "total_trades": 45,
+        "net_return_pct": 39.79
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_4.py",
+      "deployed_at": "2026-10-29T22:12:08.665304"
+    },
+    "strat_supertrend_regime_rider_g3_1": {
+      "strategy_id": "strat_supertrend_regime_rider_g3_1",
+      "class_name": "SuperTrendRegimeRider_Gen3_1",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 11.64,
+        "max_drawdown_pct": 6.89,
+        "win_rate_pct": 72.2,
+        "profit_factor": 5.21,
+        "total_trades": 36,
+        "net_return_pct": 221.88
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_1.py",
+      "deployed_at": "2026-10-29T22:24:46.356158"
     }
   },
   "history": [
@@ -579,6 +613,74 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_1.py",
       "deployed_at": "2026-10-29T22:10:40.777713"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g1_4",
+      "class_name": "WhaleOrderflowAccumulator_Gen1_4",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 3.0,
+        "max_drawdown_pct": 11.85,
+        "win_rate_pct": 55.6,
+        "profit_factor": 1.58,
+        "total_trades": 45,
+        "net_return_pct": 39.79
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_4.py",
+      "deployed_at": "2026-10-29T22:12:08.665304"
+    },
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g3_1",
+      "class_name": "SuperTrendRegimeRider_Gen3_1",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 11.64,
+        "max_drawdown_pct": 6.89,
+        "win_rate_pct": 72.2,
+        "profit_factor": 5.21,
+        "total_trades": 36,
+        "net_return_pct": 221.88
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_1.py",
+      "deployed_at": "2026-10-29T22:24:46.356158"
+    },
+    {
+      "strategy_id": "strat_supertrend_regime_rider_g3_4",
+      "class_name": "SuperTrendRegimeRider_Gen3_4",
+      "archetype": "SUPERTREND_REGIME_RIDER",
+      "hypothesis": "Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 5.76,
+        "max_drawdown_pct": 11.17,
+        "win_rate_pct": 63.8,
+        "profit_factor": 2.37,
+        "total_trades": 47,
+        "net_return_pct": 123.51
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_4.py",
+      "deployed_at": "2026-10-29T22:27:25.767936"
+    },
+    {
+      "strategy_id": "strat_volatility_squeeze_explosion_g3_4",
+      "class_name": "VolSqueezeExplosion_Gen3_4",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 7.41,
+        "max_drawdown_pct": 11.45,
+        "win_rate_pct": 61.4,
+        "profit_factor": 3.14,
+        "total_trades": 57,
+        "net_return_pct": 330.92
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g3_4.py",
+      "deployed_at": "2026-10-29T22:27:25.836417"
     }
   ]
 }

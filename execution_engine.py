@@ -6,6 +6,7 @@ from config import AgentConfig
 from ibkr_bridge import IBKRBridge
 from models import MarketSnapshot, Position, RiskEvaluation, TradingSignal
 from risk_manager import is_us_equity_market_open
+from smart_recovery_evaluator import SmartRecoveryEvaluator
 
 
 class MultiAssetExecutionEngine:
@@ -304,11 +305,36 @@ class MultiAssetExecutionEngine:
                 else self.config.max_stale_holding_days
             )
 
+            if pos.side != "SHORT" and pos.recovery_shield_active and snap.current_price > pos.stop_loss_price:
+                pos.recovery_shield_active = False
+                triggered_events.append(
+                    f"[RECOVERY_SUCCEEDED] {sym}: Rebound erfolgreich! Kurs hat sich von ${pos.stop_loss_price:,.2f} auf ${snap.current_price:,.2f} erholt."
+                )
+
             if pos.side == "SHORT":
                 pos.highest_price = min(pos.highest_price if pos.highest_price > 0 else pos.current_price, pos.current_price)
+                if pos.recovery_shield_active and snap.current_price < pos.stop_loss_price:
+                    pos.recovery_shield_active = False
+                    triggered_events.append(
+                        f"[RECOVERY_SUCCEEDED] {sym} (SHORT): Rebound erfolgreich! Kurs hat sich von ${pos.stop_loss_price:,.2f} auf ${snap.current_price:,.2f} erholt."
+                    )
                 if snap.current_price >= pos.stop_loss_price:
-                    reason = "SHORT_TRAILING_STOP_TRIGGERED" if pos.stop_loss_price < pos.avg_entry_price else "SHORT_STOP_LOSS_TRIGGERED"
-                    symbols_to_close.append((sym, snap.current_price, reason))
+                    if pos.stop_loss_price < pos.avg_entry_price:
+                        symbols_to_close.append((sym, snap.current_price, "SHORT_TRAILING_STOP_TRIGGERED"))
+                    else:
+                        recovery = SmartRecoveryEvaluator.evaluate(pos, snap, news_sentiment=avg_news_sent)
+                        if recovery.hard_emergency_exit:
+                            symbols_to_close.append((sym, snap.current_price, f"HARD_EMERGENCY_STOP_TRIGGERED ({recovery.summary})"))
+                        elif recovery.can_recover:
+                            pos.recovery_shield_active = True
+                            pos.recovery_score = recovery.recovery_score
+                            triggered_events.append(
+                                f"[SMART_RECOVERY_DEFENSE] {sym} (SHORT): Kurs (${snap.current_price:,.2f}) testet Stop (${pos.stop_loss_price:,.2f}), "
+                                f"aber Erholungspotenzial ist HOCH (Score {recovery.recovery_score:.1f}/4.0: {recovery.summary}). "
+                                f"Position wird verteidigt bis Notfall-Stop (${pos.hard_stop_loss_price:,.2f})!"
+                            )
+                        else:
+                            symbols_to_close.append((sym, snap.current_price, "SHORT_STOP_LOSS_TRIGGERED"))
                 elif snap.current_price <= pos.take_profit_price:
                     symbols_to_close.append((sym, snap.current_price, "SHORT_TAKE_PROFIT_2_TRIGGERED"))
                 elif snap.rsi_14 <= 26.0 and pos.unrealized_pnl_pct >= 2.0:
@@ -333,8 +359,22 @@ class MultiAssetExecutionEngine:
                 # Proaktiver Liquiditäts-Vakuum Notausstieg (Flash-Crash-Schutz vor SL-Slippage)
                 symbols_to_close.append((sym, snap.current_price, "PROACTIVE_LIQUIDITY_VOID_EVACUATION"))
             elif snap.current_price <= pos.stop_loss_price:
-                reason = "TRAILING_STOP_TRIGGERED" if pos.stop_loss_price > pos.avg_entry_price else "STOP_LOSS_TRIGGERED"
-                symbols_to_close.append((sym, snap.current_price, reason))
+                if pos.stop_loss_price > pos.avg_entry_price:
+                    symbols_to_close.append((sym, snap.current_price, "TRAILING_STOP_TRIGGERED"))
+                else:
+                    recovery = SmartRecoveryEvaluator.evaluate(pos, snap, news_sentiment=avg_news_sent)
+                    if recovery.hard_emergency_exit:
+                        symbols_to_close.append((sym, snap.current_price, f"HARD_EMERGENCY_STOP_TRIGGERED ({recovery.summary})"))
+                    elif recovery.can_recover:
+                        pos.recovery_shield_active = True
+                        pos.recovery_score = recovery.recovery_score
+                        triggered_events.append(
+                            f"[SMART_RECOVERY_DEFENSE] {sym}: Kurs (${snap.current_price:,.2f}) testet Stop (${pos.stop_loss_price:,.2f}), "
+                            f"aber Erholungspotenzial ist HOCH (Score {recovery.recovery_score:.1f}/4.0: {recovery.summary}). "
+                            f"Position wird verteidigt bis Notfall-Stop (${pos.hard_stop_loss_price:,.2f})!"
+                        )
+                    else:
+                        symbols_to_close.append((sym, snap.current_price, "STOP_LOSS_TRIGGERED"))
             elif snap.current_price >= pos.take_profit_price:
                 # Runner-Modus: Wenn Teilgewinn bereits gesichert ist (partial_tp_done) und der Trend extrem stark ist,
                 # schließe nicht verfrüht, sondern erweitere das Kursziel auf +5.0x ATR bei nachziehendem Chandelier-Stop!
@@ -359,8 +399,16 @@ class MultiAssetExecutionEngine:
                 and snap.macd_hist < 0
                 and pos.unrealized_pnl_pct < 0.5
             ):
-                # 3. Früher Trendbruch-Exit (ab Tag 2): Kurs fällt unter SMA20 + MACD negativ -> vorzeitig raus!
-                symbols_to_close.append((sym, snap.current_price, f"EARLY_TREND_BREAK_{holding_days}D"))
+                recovery = SmartRecoveryEvaluator.evaluate(pos, snap, news_sentiment=avg_news_sent)
+                if recovery.can_recover and not recovery.hard_emergency_exit:
+                    pos.recovery_shield_active = True
+                    pos.recovery_score = recovery.recovery_score
+                    triggered_events.append(
+                        f"[SMART_RECOVERY_DEFENSE] {sym}: Früher Trendbruch verworfen – Erholungspotenzial intakt "
+                        f"(Score {recovery.recovery_score:.1f}/4.0: {recovery.summary})!"
+                    )
+                else:
+                    symbols_to_close.append((sym, snap.current_price, f"EARLY_TREND_BREAK_{holding_days}D"))
             elif (
                 holding_days >= max_days_allowed
                 and pos.unrealized_pnl_pct < 1.5

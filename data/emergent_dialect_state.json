@@ -5,8 +5,8 @@
       "category": "TREND",
       "meaning_de": "Persistenter Trendmodus (Hurst >= 0.58) – Kein Random-Walk",
       "weight": 2.5,
-      "usage_count": 443,
-      "success_count": 371,
+      "usage_count": 490,
+      "success_count": 386,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -15,7 +15,7 @@
       "category": "TREND",
       "meaning_de": "Anti-persistente Mean-Reversion – Rückkehr zum Mittelwert",
       "weight": 1.0,
-      "usage_count": 782,
+      "usage_count": 843,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -25,7 +25,7 @@
       "category": "MOMENTUM",
       "meaning_de": "TTM Volatilitäts-Ausbruch zündet mit dynamischem Impuls",
       "weight": 1.0,
-      "usage_count": 330,
+      "usage_count": 351,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -35,7 +35,7 @@
       "category": "MOMENTUM",
       "meaning_de": "Bollinger-Bänder komprimieren in Keltner-Kanälen",
       "weight": 1.0,
-      "usage_count": 29,
+      "usage_count": 32,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -45,8 +45,8 @@
       "category": "FLOW",
       "meaning_de": "Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)",
       "weight": 2.5,
-      "usage_count": 1219,
-      "success_count": 371,
+      "usage_count": 1319,
+      "success_count": 386,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -55,7 +55,7 @@
       "category": "FLOW",
       "meaning_de": "Bärische Put-Absicherung dominiert",
       "weight": 1.0,
-      "usage_count": 143,
+      "usage_count": 149,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -75,8 +75,8 @@
       "category": "CATALYST",
       "meaning_de": "Wall Street Konsens (Buy) mit starkem Kursziel-Aufwärtspotenzial",
       "weight": 2.5,
-      "usage_count": 834,
-      "success_count": 371,
+      "usage_count": 901,
+      "success_count": 386,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -85,8 +85,8 @@
       "category": "TREND",
       "meaning_de": "Führende relative Branchen-Stärke vs. S&P 500",
       "weight": 2.5,
-      "usage_count": 1217,
-      "success_count": 395,
+      "usage_count": 1298,
+      "success_count": 417,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -95,7 +95,7 @@
       "category": "RISK",
       "meaning_de": "Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt",
       "weight": 1.0,
-      "usage_count": 1577,
+      "usage_count": 1709,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -125,8 +125,8 @@
       "category": "CONFLUENCE",
       "meaning_de": "A+ Setup: 4 voneinander unabhängige Domänen bestätigen den Einstieg",
       "weight": 2.5,
-      "usage_count": 930,
-      "success_count": 427,
+      "usage_count": 1080,
+      "success_count": 519,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -135,8 +135,8 @@
       "category": "CONFLUENCE",
       "meaning_de": "Starkes Setup: 3 voneinander unabhängige Domänen bestätigen",
       "weight": 2.5,
-      "usage_count": 599,
-      "success_count": 245,
+      "usage_count": 636,
+      "success_count": 293,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -155,8 +155,8 @@
       "category": "FLOW",
       "meaning_de": "Institutioneller Liquidity-Sweep & Stop-Absorption am VWAP (-1.6σ) mit Reclaim",
       "weight": 2.5,
-      "usage_count": 76,
-      "success_count": 264,
+      "usage_count": 85,
+      "success_count": 294,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -175,8 +175,8 @@
       "category": "FLOW",
       "meaning_de": "Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)",
       "weight": 2.5,
-      "usage_count": 202,
-      "success_count": 375,
+      "usage_count": 241,
+      "success_count": 469,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -185,8 +185,8 @@
       "category": "RISK",
       "meaning_de": "Ungünstiges Downside-Risiko im Quantil-Trichter (0.5x)",
       "weight": 2.5,
-      "usage_count": 26,
-      "success_count": 80,
+      "usage_count": 29,
+      "success_count": 92,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -195,8 +195,8 @@
       "category": "CONFLUENCE",
       "meaning_de": "Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction",
       "weight": 2.5,
-      "usage_count": 237,
-      "success_count": 96,
+      "usage_count": 290,
+      "success_count": 143,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -205,8 +205,8 @@
       "category": "RISK",
       "meaning_de": "Systemischer Korrelations-Kollaps (ρ=0.99): Alle Assets stürzen synchron ab",
       "weight": 2.5,
-      "usage_count": 22,
-      "success_count": 69,
+      "usage_count": 25,
+      "success_count": 81,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -215,8 +215,8 @@
       "category": "TIMING",
       "meaning_de": "Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum",
       "weight": 2.5,
-      "usage_count": 630,
-      "success_count": 597,
+      "usage_count": 727,
+      "success_count": 737,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -225,8 +225,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und ⚡:ENTRY_IMMEDIATE",
       "weight": 2.5,
-      "usage_count": 93,
-      "success_count": 82,
+      "usage_count": 107,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -235,8 +235,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📊:WALL_ST_UPSIDE",
       "weight": 2.5,
-      "usage_count": 160,
-      "success_count": 82,
+      "usage_count": 184,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -245,8 +245,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ω:HURST_PERSIST",
       "weight": 2.5,
-      "usage_count": 184,
-      "success_count": 82,
+      "usage_count": 205,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -255,8 +255,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und Ω:HURST_PERSIST",
       "weight": 2.5,
-      "usage_count": 241,
-      "success_count": 82,
+      "usage_count": 271,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -265,8 +265,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:WALL_ST_UPSIDE",
       "weight": 2.5,
-      "usage_count": 280,
-      "success_count": 82,
+      "usage_count": 314,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -275,8 +275,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE",
       "weight": 2.5,
-      "usage_count": 276,
-      "success_count": 106,
+      "usage_count": 309,
+      "success_count": 128,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -285,8 +285,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und ⚡:ENTRY_IMMEDIATE",
       "weight": 2.5,
-      "usage_count": 302,
-      "success_count": 82,
+      "usage_count": 334,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -295,8 +295,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Relative Branchenstärke vereint mit Wall Street Konsens-Kursziel",
       "weight": 2.5,
-      "usage_count": 367,
-      "success_count": 82,
+      "usage_count": 400,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -305,8 +305,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE",
       "weight": 2.5,
-      "usage_count": 497,
-      "success_count": 82,
+      "usage_count": 549,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -315,8 +315,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ψ:CALL_WHALE_BURST",
       "weight": 2.5,
-      "usage_count": 649,
-      "success_count": 82,
+      "usage_count": 712,
+      "success_count": 97,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -325,8 +325,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY",
       "weight": 2.5,
-      "usage_count": 169,
-      "success_count": 350,
+      "usage_count": 205,
+      "success_count": 444,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -335,8 +335,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎯:LIQUIDITY_SWEEP_RECLAIM",
       "weight": 2.5,
-      "usage_count": 58,
-      "success_count": 161,
+      "usage_count": 67,
+      "success_count": 191,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -345,8 +345,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und ⚡:ENTRY_IMMEDIATE",
       "weight": 2.5,
-      "usage_count": 19,
-      "success_count": 63,
+      "usage_count": 22,
+      "success_count": 75,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -355,8 +355,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA",
       "weight": 2.5,
-      "usage_count": 73,
-      "success_count": 69,
+      "usage_count": 94,
+      "success_count": 109,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -365,8 +365,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA",
       "weight": 2.5,
-      "usage_count": 184,
-      "success_count": 93,
+      "usage_count": 228,
+      "success_count": 140,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -375,8 +375,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🛑:CORRELATION_BREAKDOWN_PANIC",
       "weight": 2.5,
-      "usage_count": 19,
-      "success_count": 66,
+      "usage_count": 22,
+      "success_count": 78,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -385,8 +385,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🛑:CORRELATION_BREAKDOWN_PANIC",
       "weight": 2.5,
-      "usage_count": 19,
-      "success_count": 66,
+      "usage_count": 22,
+      "success_count": 78,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -395,8 +395,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Asymmetrische Quantil-Verteilung trifft auf institutionellen Liquiditäts-Reclaim",
       "weight": 2.5,
-      "usage_count": 39,
-      "success_count": 98,
+      "usage_count": 45,
+      "success_count": 116,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -405,8 +405,8 @@
       "category": "TREND",
       "meaning_de": "Perfekte fraktale Resonanz: Daily, 4H und 1H synchron im Aufwärtstrend",
       "weight": 2.5,
-      "usage_count": 19,
-      "success_count": 27,
+      "usage_count": 22,
+      "success_count": 33,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -415,8 +415,8 @@
       "category": "RISK",
       "meaning_de": "Orderbuch-Vakuum & Liquiditäts-Schwund: Notausstieg zum Kapitalschutz",
       "weight": 2.5,
-      "usage_count": 19,
-      "success_count": 27,
+      "usage_count": 22,
+      "success_count": 33,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -425,7 +425,7 @@
       "category": "TIMING",
       "meaning_de": "Taktisches Abwarten auf Pullback/Retest zur Renditemaximierung",
       "weight": 1.0,
-      "usage_count": 19,
+      "usage_count": 22,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -435,8 +435,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:TRIPLE_TIMEFRAME_ALIGN",
       "weight": 2.5,
-      "usage_count": 15,
-      "success_count": 21,
+      "usage_count": 18,
+      "success_count": 27,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -445,8 +445,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:TRIPLE_TIMEFRAME_ALIGN",
       "weight": 2.5,
-      "usage_count": 15,
-      "success_count": 21,
+      "usage_count": 18,
+      "success_count": 27,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -455,8 +455,8 @@
       "category": "COMPOUNDING",
       "meaning_de": "Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung",
       "weight": 2.5,
-      "usage_count": 55,
-      "success_count": 27,
+      "usage_count": 74,
+      "success_count": 62,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -465,8 +465,8 @@
       "category": "CATALYST",
       "meaning_de": "Post-Earnings Announcement Drift Momentum nach explosiven Quartalszahlen",
       "weight": 2.5,
-      "usage_count": 13,
-      "success_count": 24,
+      "usage_count": 16,
+      "success_count": 31,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -474,9 +474,9 @@
       "token_str": "🧬:SECTOR_A_CIO_TIER",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:CIO_TIER1_ALPHA",
-      "weight": 2.44,
-      "usage_count": 108,
-      "success_count": 18,
+      "weight": 2.5,
+      "usage_count": 133,
+      "success_count": 25,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -484,9 +484,9 @@
       "token_str": "🧬:SECTOR_A_PEAD_EAR",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:PEAD_EARNINGS_DRIFT",
-      "weight": 2.44,
-      "usage_count": 12,
-      "success_count": 18,
+      "weight": 2.5,
+      "usage_count": 15,
+      "success_count": 25,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -494,9 +494,9 @@
       "token_str": "🧬:PEAD_EAR_CIO_TIER",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:CIO_TIER1_ALPHA",
-      "weight": 2.44,
-      "usage_count": 12,
-      "success_count": 18,
+      "weight": 2.5,
+      "usage_count": 15,
+      "success_count": 25,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -504,9 +504,9 @@
       "token_str": "🧬:ENTRY_IM_PEAD_EAR",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und ⚡:PEAD_EARNINGS_DRIFT",
-      "weight": 2.44,
-      "usage_count": 12,
-      "success_count": 18,
+      "weight": 2.5,
+      "usage_count": 15,
+      "success_count": 25,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -514,9 +514,9 @@
       "token_str": "⚙️:SYNTHESIZED_TOOL_BOOST",
       "category": "ALPHA",
       "meaning_de": "Autonome Validierung durch vom Schwarm synthetisierte Indikatoren",
-      "weight": 1.24,
-      "usage_count": 404,
-      "success_count": 3,
+      "weight": 1.8,
+      "usage_count": 539,
+      "success_count": 10,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -524,58 +524,58 @@
       "token_str": "🧬:SYNTHESI_ENTRY_IM",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und ⚡:ENTRY_IMMEDIATE",
-      "weight": 1.0,
-      "usage_count": 141,
-      "success_count": 0,
+      "weight": 1.56,
+      "usage_count": 189,
+      "success_count": 7,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "🧬:SYNTHESI_CIO_TIER": {
       "token_str": "🧬:SYNTHESI_CIO_TIER",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🏛️:CIO_TIER1_ALPHA",
-      "weight": 1.0,
-      "usage_count": 93,
-      "success_count": 0,
+      "weight": 1.56,
+      "usage_count": 121,
+      "success_count": 7,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "🧬:SYNTHESI_QUANTILE": {
       "token_str": "🧬:SYNTHESI_QUANTILE",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🎲:QUANTILE_ASYMMETRY",
-      "weight": 1.0,
-      "usage_count": 5,
-      "success_count": 0,
+      "weight": 1.56,
+      "usage_count": 8,
+      "success_count": 7,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "⚖️:HRP_RISK_PARITY": {
       "token_str": "⚖️:HRP_RISK_PARITY",
       "category": "ALLOCATION",
       "meaning_de": "Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)",
-      "weight": 1.0,
-      "usage_count": 37,
-      "success_count": 0,
+      "weight": 2.5,
+      "usage_count": 56,
+      "success_count": 35,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "📊:TRADINGVIEW_CONSENSUS": {
       "token_str": "📊:TRADINGVIEW_CONSENSUS",
       "category": "CONSENSUS",
       "meaning_de": "Bestätigt durch offizielles TradingView 26-Indikatoren Konsens-Rating",
-      "weight": 1.0,
-      "usage_count": 58,
-      "success_count": 0,
+      "weight": 1.56,
+      "usage_count": 77,
+      "success_count": 7,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "🛑:TRADINGVIEW_HEADWIND_VETO": {
       "token_str": "🛑:TRADINGVIEW_HEADWIND_VETO",
       "category": "RISK",
       "meaning_de": "VETO: TradingView Oszillatoren & MAs signalisieren schweren Gegenwind",
       "weight": 1.0,
-      "usage_count": 19,
+      "usage_count": 29,
       "success_count": 0,
       "failure_count": 0,
       "win_rate_pct": 50.0
@@ -585,8 +585,8 @@
       "category": "CONSENSUS",
       "meaning_de": "Dezentraler A2A-Konsens über das Swarm Blackboard erzielt",
       "weight": 2.5,
-      "usage_count": 120,
-      "success_count": 99,
+      "usage_count": 208,
+      "success_count": 239,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -594,9 +594,9 @@
       "token_str": "🧬:CALL_WHA_BLACKBOA",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📋:BLACKBOARD_CONSENSUS",
-      "weight": 2.2,
-      "usage_count": 43,
-      "success_count": 15,
+      "weight": 2.5,
+      "usage_count": 76,
+      "success_count": 30,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -605,8 +605,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS",
       "weight": 2.5,
-      "usage_count": 113,
-      "success_count": 84,
+      "usage_count": 200,
+      "success_count": 224,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -614,9 +614,9 @@
       "token_str": "🧬:SECTOR_A_BLACKBOA",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 📋:BLACKBOARD_CONSENSUS",
-      "weight": 2.2,
-      "usage_count": 40,
-      "success_count": 15,
+      "weight": 2.5,
+      "usage_count": 70,
+      "success_count": 37,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -624,9 +624,9 @@
       "token_str": "🧬:HURST_PE_BLACKBOA",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📋:BLACKBOARD_CONSENSUS",
-      "weight": 2.2,
-      "usage_count": 19,
-      "success_count": 15,
+      "weight": 2.5,
+      "usage_count": 33,
+      "success_count": 30,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -634,9 +634,9 @@
       "token_str": "🧬:WALL_ST__BLACKBOA",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 📊:WALL_ST_UPSIDE und 📋:BLACKBOARD_CONSENSUS",
-      "weight": 2.2,
-      "usage_count": 42,
-      "success_count": 15,
+      "weight": 2.5,
+      "usage_count": 77,
+      "success_count": 30,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -645,8 +645,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS",
       "weight": 2.5,
-      "usage_count": 42,
-      "success_count": 47,
+      "usage_count": 75,
+      "success_count": 141,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -655,8 +655,8 @@
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎯:LIQUIDITY_SWEEP_RECLAIM und 📋:BLACKBOARD_CONSENSUS",
       "weight": 2.5,
-      "usage_count": 13,
-      "success_count": 25,
+      "usage_count": 22,
+      "success_count": 55,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -664,9 +664,9 @@
       "token_str": "🧬:DOWNSIDE_BLACKBOA",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und 📋:BLACKBOARD_CONSENSUS",
-      "weight": 1.88,
-      "usage_count": 4,
-      "success_count": 11,
+      "weight": 2.5,
+      "usage_count": 7,
+      "success_count": 23,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -674,9 +674,9 @@
       "token_str": "🧬:CIO_TIER_BLACKBOA",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS",
-      "weight": 1.88,
-      "usage_count": 49,
-      "success_count": 11,
+      "weight": 2.5,
+      "usage_count": 86,
+      "success_count": 58,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -684,9 +684,9 @@
       "token_str": "🧬:BLACKBOA_CORRELAT",
       "category": "EVOLVED_IDIOM",
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 🛑:CORRELATION_BREAKDOWN_PANIC",
-      "weight": 1.88,
-      "usage_count": 4,
-      "success_count": 11,
+      "weight": 2.5,
+      "usage_count": 7,
+      "success_count": 23,
       "failure_count": 0,
       "win_rate_pct": 100.0
     },
@@ -694,26 +694,366 @@
       "token_str": "🌑:DARK_POOL_ACCUMULATION",
       "category": "ALPHA",
       "meaning_de": "Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)",
-      "weight": 1.0,
-      "usage_count": 101,
-      "success_count": 0,
+      "weight": 1.56,
+      "usage_count": 177,
+      "success_count": 7,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "📑:SEC_EDGAR_CATALYST": {
       "token_str": "📑:SEC_EDGAR_CATALYST",
       "category": "CATALYST",
       "meaning_de": "Regulatorisch verifizierter SEC EDGAR Impuls (Form 4 Whales / Form 8-K)",
-      "weight": 1.0,
-      "usage_count": 4,
-      "success_count": 0,
+      "weight": 1.56,
+      "usage_count": 7,
+      "success_count": 7,
       "failure_count": 0,
-      "win_rate_pct": 50.0
+      "win_rate_pct": 100.0
     },
     "📐:QLIB_ALPHA158_CONFLUENCE": {
       "token_str": "📐:QLIB_ALPHA158_CONFLUENCE",
       "category": "QUANT",
       "meaning_de": "Bestätigt durch Microsoft Qlib Alpha158 Quant-Faktor-Matrix (+0.52)",
+      "weight": 1.56,
+      "usage_count": 80,
+      "success_count": 7,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🛑:QLIB_ALPHA158_HEADWIND_VETO": {
+      "token_str": "🛑:QLIB_ALPHA158_HEADWIND_VETO",
+      "category": "RISK",
+      "meaning_de": "VETO: Qlib Alpha158 meldet quantitativen Gegenwind (-0.78)",
+      "weight": 1.0,
+      "usage_count": 51,
+      "success_count": 0,
+      "failure_count": 0,
+      "win_rate_pct": 50.0
+    },
+    "🧬:HRP_RISK_CIO_TIER": {
+      "token_str": "🧬:HRP_RISK_CIO_TIER",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA",
+      "weight": 2.2,
+      "usage_count": 13,
+      "success_count": 15,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_ENTRY_IM": {
+      "token_str": "🧬:HRP_RISK_ENTRY_IM",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE",
+      "weight": 2.2,
+      "usage_count": 13,
+      "success_count": 15,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_BLACKBOA": {
+      "token_str": "🧬:HRP_RISK_BLACKBOA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS",
+      "weight": 2.2,
+      "usage_count": 10,
+      "success_count": 15,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_QUANTILE": {
+      "token_str": "🧬:HRP_RISK_QUANTILE",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY",
+      "weight": 1.96,
+      "usage_count": 8,
+      "success_count": 12,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_TRIPLE_T": {
+      "token_str": "🧬:BLACKBOA_TRIPLE_T",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:TRIPLE_TIMEFRAME_ALIGN",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_LIQUIDIT": {
+      "token_str": "🧬:BLACKBOA_LIQUIDIT",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 🚨:LIQUIDITY_VOID_EVACUATE",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_PEAD_EAR": {
+      "token_str": "🧬:HRP_RISK_PEAD_EAR",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:PEAD_EARNINGS_DRIFT",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:PEAD_EAR_BLACKBOA": {
+      "token_str": "🧬:PEAD_EAR_BLACKBOA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 📋:BLACKBOARD_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:SECTOR_A_HRP_RISK": {
+      "token_str": "🧬:SECTOR_A_HRP_RISK",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚖️:HRP_RISK_PARITY",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_SYNTHESI": {
+      "token_str": "🧬:HRP_RISK_SYNTHESI",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚙️:SYNTHESIZED_TOOL_BOOST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:SYNTHESI_BLACKBOA": {
+      "token_str": "🧬:SYNTHESI_BLACKBOA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 📋:BLACKBOARD_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:CIO_TIER_TRADINGV": {
+      "token_str": "🧬:CIO_TIER_TRADINGV",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📊:TRADINGVIEW_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:QUANTILE_TRADINGV": {
+      "token_str": "🧬:QUANTILE_TRADINGV",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📊:TRADINGVIEW_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_TRADINGV": {
+      "token_str": "🧬:ENTRY_IM_TRADINGV",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:TRADINGVIEW_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_TRADINGV": {
+      "token_str": "🧬:HRP_RISK_TRADINGV",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📊:TRADINGVIEW_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:TRADINGV_BLACKBOA": {
+      "token_str": "🧬:TRADINGV_BLACKBOA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📊:TRADINGVIEW_CONSENSUS und 📋:BLACKBOARD_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:CIO_TIER_SEC_EDGA": {
+      "token_str": "🧬:CIO_TIER_SEC_EDGA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📑:SEC_EDGAR_CATALYST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_CIO_TIER": {
+      "token_str": "🧬:DARK_POO_CIO_TIER",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🏛️:CIO_TIER1_ALPHA",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:QUANTILE_SEC_EDGA": {
+      "token_str": "🧬:QUANTILE_SEC_EDGA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📑:SEC_EDGAR_CATALYST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_QUANTILE": {
+      "token_str": "🧬:DARK_POO_QUANTILE",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🎲:QUANTILE_ASYMMETRY",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_SEC_EDGA": {
+      "token_str": "🧬:ENTRY_IM_SEC_EDGA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📑:SEC_EDGAR_CATALYST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_SEC_EDGA": {
+      "token_str": "🧬:DARK_POO_SEC_EDGA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📑:SEC_EDGAR_CATALYST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_SEC_EDGA": {
+      "token_str": "🧬:HRP_RISK_SEC_EDGA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📑:SEC_EDGAR_CATALYST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_SEC_EDGA": {
+      "token_str": "🧬:BLACKBOA_SEC_EDGA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📑:SEC_EDGAR_CATALYST",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_DARK_POO": {
+      "token_str": "🧬:ENTRY_IM_DARK_POO",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🌑:DARK_POOL_ACCUMULATION",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_DARK_POO": {
+      "token_str": "🧬:HRP_RISK_DARK_POO",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🌑:DARK_POOL_ACCUMULATION",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_BLACKBOA": {
+      "token_str": "🧬:DARK_POO_BLACKBOA",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📋:BLACKBOARD_CONSENSUS",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:CIO_TIER_QLIB_ALP": {
+      "token_str": "🧬:CIO_TIER_QLIB_ALP",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "weight": 1.24,
+      "usage_count": 3,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:QUANTILE_QLIB_ALP": {
+      "token_str": "🧬:QUANTILE_QLIB_ALP",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_QLIB_ALP": {
+      "token_str": "🧬:ENTRY_IM_QLIB_ALP",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "weight": 1.24,
+      "usage_count": 3,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_QLIB_ALP": {
+      "token_str": "🧬:HRP_RISK_QLIB_ALP",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "weight": 1.24,
+      "usage_count": 3,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_QLIB_ALP": {
+      "token_str": "🧬:BLACKBOA_QLIB_ALP",
+      "category": "EVOLVED_IDIOM",
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "weight": 1.24,
+      "usage_count": 2,
+      "success_count": 3,
+      "failure_count": 0,
+      "win_rate_pct": 100.0
+    },
+    "🛡️:SMART_RECOVERY_DEFENSE": {
+      "token_str": "🛡️:SMART_RECOVERY_DEFENSE",
+      "category": "DEFENSE",
+      "meaning_de": "Hohes Erholungspotenzial – Rebound-Zone aktiv (RSI 27.5)",
       "weight": 1.0,
       "usage_count": 1,
       "success_count": 0,
@@ -723,98 +1063,85 @@
   },
   "recent_deals": [
     {
-      "deal_id": "DEAL_SHOE_20261029T210946",
-      "symbol": "SHOE",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::SHOE | ACT:HOLD | Ψ:CALL_WHALE_BURST[+0.40] · Δ:SECTOR_ALPHA_LEAD[+8.1%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · 🌑:DARK_POOL_ACCUMULATION[50%] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:SECTOR_A_CALL_WHA[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:1.27⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
+      "deal_id": "DEAL_XOM_20261029T212510",
+      "symbol": "XOM",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::XOM | ACT:BUY | 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[18%] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:4.06⟫",
+      "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 1.27,
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 4.06,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH SHOE</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>1.27</b>)\n<b>Begründung der Agenten:</b>\n• Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)\n• Führende relative Branchen-Stärke vs. S&P 500\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ψ:CALL_WHALE_BURST\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:46"
+      "plain_german_summary": "<b>🟢 KAUF XOM</b> (✅ <b>GENEHMIGT</b> · Edge: <b>4.06</b>)\n<b>Begründung der Agenten:</b>\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:25:10"
     },
     {
-      "deal_id": "DEAL_LLY_20261029T210946",
-      "symbol": "LLY",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::LLY | ACT:HOLD | Ω:HURST_MEAN_REV[0.35] · Δ:SECTOR_ALPHA_LEAD[+10.6%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · 📊:TRADINGVIEW_CONSENSUS[STRONG_BUY] · Σ:CONFLUENCE_QUAD_A_PLUS | VERDICT:VETOED_REJECTED | EDGE:1.06⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
+      "deal_id": "DEAL_NVDA_20261029T212510",
+      "symbol": "NVDA",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | Δ:SECTOR_ALPHA_LEAD[+4.5%] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚡:PEAD_EARNINGS_DRIFT · ⚖️:HRP_RISK_PARITY[18%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:SECTOR_A_ENTRY_IM[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:SECTOR_A_CIO_TIER[+1.35x] · 🧬:SECTOR_A_PEAD_EAR[+1.35x] · 🧬:PEAD_EAR_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_PEAD_EAR[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:SECTOR_A_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_PEAD_EAR[+1.35x] · 🧬:PEAD_EAR_BLACKBOA[+1.35x] · 🧬:SECTOR_A_HRP_RISK[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:366.12⟫",
+      "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 1.06,
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 366.12,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH LLY</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>1.06</b>)\n<b>Begründung der Agenten:</b>\n• Anti-persistente Mean-Reversion – Rückkehr zum Mittelwert\n• Führende relative Branchen-Stärke vs. S&P 500\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Bestätigt durch offizielles TradingView 26-Indikatoren Konsens-Rating\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:46"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>366.12</b>)\n<b>Begründung der Agenten:</b>\n• Führende relative Branchen-Stärke vs. S&P 500\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Post-Earnings Announcement Drift Momentum nach explosiven Quartalszahlen\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚖️:HRP_RISK_PARITY\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:25:10"
     },
     {
-      "deal_id": "DEAL_KLAC_20261029T210946",
-      "symbol": "KLAC",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::KLAC | ACT:HOLD | Ω:HURST_MEAN_REV[0.29] · Ψ:CALL_WHALE_BURST[+-0.20] · 📊:WALL_ST_UPSIDE[+36%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:CALL_WHA_WALL_ST_[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:1.36⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
+      "deal_id": "DEAL_NVDA_20261029T212513",
+      "symbol": "NVDA",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚙️:SYNTHESIZED_TOOL_BOOST · ⚖️:HRP_RISK_PARITY[18%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:SYNTHESI_ENTRY_IM[+1.35x] · 🧬:SYNTHESI_CIO_TIER[+1.35x] · 🧬:SYNTHESI_QUANTILE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:HRP_RISK_SYNTHESI[+1.35x] · 🧬:SYNTHESI_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:33008.47⟫",
+      "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 1.36,
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 33008.47,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH KLAC</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>1.36</b>)\n<b>Begründung der Agenten:</b>\n• Anti-persistente Mean-Reversion – Rückkehr zum Mittelwert\n• Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)\n• Wall Street Konsens (Buy) mit starkem Kursziel-Aufwärtspotenzial\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:46"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>33008.47</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚙️:SYNTHESIZED_TOOL_BOOST\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:25:13"
     },
     {
-      "deal_id": "DEAL_PINS_20261029T210946",
-      "symbol": "PINS",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::PINS | ACT:HOLD | Ω:HURST_PERSIST[0.68] · Ψ:CALL_WHALE_BURST[+-0.20] · 📊:WALL_ST_UPSIDE[+46%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · 🌑:DARK_POOL_ACCUMULATION[50%] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:HURST_PE_WALL_ST_[+1.35x] · 🧬:CALL_WHA_HURST_PE[+1.35x] · 🧬:CALL_WHA_WALL_ST_[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:2.15⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
+      "deal_id": "DEAL_NVDA_20261029T212517",
+      "symbol": "NVDA",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · 📊:TRADINGVIEW_CONSENSUS[STRONG_BUY] · ⚖️:HRP_RISK_PARITY[17%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:CIO_TIER_TRADINGV[+1.35x] · 🧬:QUANTILE_TRADINGV[+1.35x] · 🧬:ENTRY_IM_TRADINGV[+1.35x] · 🧬:HRP_RISK_TRADINGV[+1.35x] · 🧬:TRADINGV_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:2975992.98⟫",
+      "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 2.15,
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 2975992.98,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH PINS</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>2.15</b>)\n<b>Begründung der Agenten:</b>\n• Persistenter Trendmodus (Hurst >= 0.58) – Kein Random-Walk\n• Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)\n• Wall Street Konsens (Buy) mit starkem Kursziel-Aufwärtspotenzial\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)\n• Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📊:WALL_ST_UPSIDE\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und Ω:HURST_PERSIST\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:46"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>2975992.98</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Bestätigt durch offizielles TradingView 26-Indikatoren Konsens-Rating\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 📊:TRADINGVIEW_CONSENSUS und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:25:17"
     },
     {
-      "deal_id": "DEAL_UNIT_20261029T210946",
-      "symbol": "UNIT",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::UNIT | ACT:HOLD | Ω:HURST_PERSIST[0.86] · 📊:WALL_ST_UPSIDE[+111%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:HURST_PE_WALL_ST_[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:1.20⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
+      "deal_id": "DEAL_NVDA_20261029T212517",
+      "symbol": "NVDA",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 🌑:DARK_POOL_ACCUMULATION[53%] · 📑:SEC_EDGAR_CATALYST[INSIDER_CLUSTER_BUY] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:CIO_TIER_SEC_EDGA[+1.35x] · 🧬:DARK_POO_CIO_TIER[+1.35x] · 🧬:QUANTILE_SEC_EDGA[+1.35x] · 🧬:DARK_POO_QUANTILE[+1.35x] · 🧬:ENTRY_IM_SEC_EDGA[+1.35x] · 🧬:DARK_POO_SEC_EDGA[+1.35x] · 🧬:HRP_RISK_SEC_EDGA[+1.35x] · 🧬:BLACKBOA_SEC_EDGA[+1.35x] · 🧬:ENTRY_IM_DARK_POO[+1.35x] · 🧬:HRP_RISK_DARK_POO[+1.35x] · 🧬:DARK_POO_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:1624205736.81⟫",
+      "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 1.2,
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 1624205736.81,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH UNIT</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>1.20</b>)\n<b>Begründung der Agenten:</b>\n• Persistenter Trendmodus (Hurst >= 0.58) – Kein Random-Walk\n• Wall Street Konsens (Buy) mit starkem Kursziel-Aufwärtspotenzial\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📊:WALL_ST_UPSIDE\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:46"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>1624205736.81</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)\n• Regulatorisch verifizierter SEC EDGAR Impuls (Form 4 Whales / Form 8-K)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🌑:DARK_POOL_ACCUMULATION\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🌑:DARK_POOL_ACCUMULATION\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:25:17"
     },
     {
-      "deal_id": "DEAL_FTRE_20261029T210946",
-      "symbol": "FTRE",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::FTRE | ACT:HOLD | Ψ:CALL_WHALE_BURST[+0.60] · Δ:SECTOR_ALPHA_LEAD[+9.9%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · 🌑:DARK_POOL_ACCUMULATION[50%] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:SECTOR_A_CALL_WHA[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:1.31⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
+      "deal_id": "DEAL_NVDA_20261029T212517",
+      "symbol": "NVDA",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 📋:BLACKBOARD_CONSENSUS[BUY] · 📐:QLIB_ALPHA158_CONFLUENCE[+0.52] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:CIO_TIER_QLIB_ALP[+1.35x] · 🧬:QUANTILE_QLIB_ALP[+1.35x] · 🧬:ENTRY_IM_QLIB_ALP[+1.35x] · 🧬:HRP_RISK_QLIB_ALP[+1.35x] · 🧬:BLACKBOA_QLIB_ALP[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:146435902292.09⟫",
+      "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 1.31,
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 146435902292.09,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH FTRE</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>1.31</b>)\n<b>Begründung der Agenten:</b>\n• Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)\n• Führende relative Branchen-Stärke vs. S&P 500\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ψ:CALL_WHALE_BURST\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:46"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>146435902292.09</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Bestätigt durch Microsoft Qlib Alpha158 Quant-Faktor-Matrix (+0.52)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:QLIB_ALPHA158_CONFLUENCE\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:25:17"
     },
     {
-      "deal_id": "DEAL_MRVL_20261029T210947",
-      "symbol": "MRVL",
-      "action": "HOLD",
-      "dialect_sentence": "⟪PITCH::MRVL | ACT:HOLD | Ω:HURST_MEAN_REV[0.35] · Ψ:CALL_WHALE_BURST[+0.20] · 📊:WALL_ST_UPSIDE[+58%] · 🌐:GEO_CRISIS_ESCALATION[ESCALATION_CRISIS_REGIME] · ⚙️:SYNTHESIZED_TOOL_BOOST · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:CALL_WHA_WALL_ST_[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:1.18⟫",
-      "pitching_agent": "SAKANA_SWARM_GEN24",
-      "countering_agent": "Red_Team_Tribunal",
-      "consensus_verdict": "VETOED_REJECTED",
-      "edge_score": 1.18,
-      "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>⏸️ CASH MRVL</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>1.18</b>)\n<b>Begründung der Agenten:</b>\n• Anti-persistente Mean-Reversion – Rückkehr zum Mittelwert\n• Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)\n• Wall Street Konsens (Buy) mit starkem Kursziel-Aufwärtspotenzial\n• Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:09:47"
-    },
-    {
-      "deal_id": "DEAL_NVDA_20261029T211012",
+      "deal_id": "DEAL_NVDA_20261029T212731",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | Ω:HURST_PERSIST[0.66] · Ψ:CALL_WHALE_BURST[+0.65] · 📊:WALL_ST_UPSIDE[+35%] · Δ:SECTOR_ALPHA_LEAD[+3.5%] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:HURST_PE_ENTRY_IM[+1.35x] · 🧬:HURST_PE_WALL_ST_[+1.35x] · 🧬:SECTOR_A_HURST_PE[+1.35x] · 🧬:CALL_WHA_HURST_PE[+1.35x] · 🧬:ENTRY_IM_WALL_ST_[+1.35x] · 🧬:SECTOR_A_ENTRY_IM[+1.35x] · 🧬:CALL_WHA_ENTRY_IM[+1.35x] · 👑:SOVEREIGN_ALPHA_HARVEST[+1.35x] · 🧬:CALL_WHA_WALL_ST_[+1.35x] · 🧬:SECTOR_A_CALL_WHA[+1.35x] · 🧬:CALL_WHA_BLACKBOA[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:SECTOR_A_BLACKBOA[+1.35x] · 🧬:HURST_PE_BLACKBOA[+1.35x] · 🧬:WALL_ST__BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:211.91⟫",
@@ -824,10 +1151,10 @@
       "edge_score": 211.91,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>211.91</b>)\n<b>Begründung der Agenten:</b>\n• Persistenter Trendmodus (Hurst >= 0.58) – Kein Random-Walk\n• Ungewöhnlicher institutioneller Call-Flow (Whale-Akkumulation)\n• Wall Street Konsens (Buy) mit starkem Kursziel-Aufwärtspotenzial\n• Führende relative Branchen-Stärke vs. S&P 500\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📊:WALL_ST_UPSIDE\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ω:HURST_PERSIST\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und Ω:HURST_PERSIST\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:WALL_ST_UPSIDE\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und ⚡:ENTRY_IMMEDIATE\n• Relative Branchenstärke vereint mit Wall Street Konsens-Kursziel\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ψ:CALL_WHALE_BURST\n• Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 📊:WALL_ST_UPSIDE und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:12"
+      "timestamp": "2026-10-29T21:27:31"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211012",
+      "deal_id": "DEAL_NVDA_20261029T212734",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎯:LIQUIDITY_SWEEP_RECLAIM[-1.6σ] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:ENTRY_IM_LIQUIDIT[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:LIQUIDIT_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:5.41⟫",
@@ -837,10 +1164,10 @@
       "edge_score": 5.41,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>5.41</b>)\n<b>Begründung der Agenten:</b>\n• Institutioneller Liquidity-Sweep & Stop-Absorption am VWAP (-1.6σ) mit Reclaim\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎯:LIQUIDITY_SWEEP_RECLAIM\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎯:LIQUIDITY_SWEEP_RECLAIM und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:12"
+      "timestamp": "2026-10-29T21:27:34"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211012",
+      "deal_id": "DEAL_NVDA_20261029T212734",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:3.69⟫",
@@ -850,10 +1177,10 @@
       "edge_score": 3.69,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>3.69</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:12"
+      "timestamp": "2026-10-29T21:27:34"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211012",
+      "deal_id": "DEAL_NVDA_20261029T212734",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | ⚠️:DOWNSIDE_SKEW_WARN[0.5x] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:DOWNSIDE_ENTRY_IM[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:DOWNSIDE_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:9.08⟫",
@@ -863,10 +1190,10 @@
       "edge_score": 9.08,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>9.08</b>)\n<b>Begründung der Agenten:</b>\n• Ungünstiges Downside-Risiko im Quantil-Trichter (0.5x)\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:12"
+      "timestamp": "2026-10-29T21:27:34"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211013",
+      "deal_id": "DEAL_NVDA_20261029T212735",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:54.97⟫",
@@ -876,10 +1203,10 @@
       "edge_score": 54.97,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>54.97</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:13"
+      "timestamp": "2026-10-29T21:27:35"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211013",
+      "deal_id": "DEAL_NVDA_20261029T212735",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🛑:CORRELATION_BREAKDOWN_PANIC[ρ=0.99] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CORRELAT[+1.35x] · 🧬:ENTRY_IM_CORRELAT[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:BLACKBOA_CORRELAT[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:54.97⟫",
@@ -889,10 +1216,10 @@
       "edge_score": 54.97,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>54.97</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Systemischer Korrelations-Kollaps (ρ=0.99): Alle Assets stürzen synchron ab\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🛑:CORRELATION_BREAKDOWN_PANIC\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🛑:CORRELATION_BREAKDOWN_PANIC\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 🛑:CORRELATION_BREAKDOWN_PANIC\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:13"
+      "timestamp": "2026-10-29T21:27:35"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211014",
+      "deal_id": "DEAL_NVDA_20261029T212736",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎯:LIQUIDITY_SWEEP_RECLAIM[+0.0σ] · 🎲:QUANTILE_ASYMMETRY[2.5x] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_LIQUIDIT[+1.35x] · 💎:QUANT_SWEEP_CONVERGENCE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:LIQUIDIT_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:7.57⟫",
@@ -902,10 +1229,10 @@
       "edge_score": 7.57,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>7.57</b>)\n<b>Begründung der Agenten:</b>\n• Institutioneller Liquidity-Sweep & Stop-Absorption am VWAP (-1.6σ) mit Reclaim\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎯:LIQUIDITY_SWEEP_RECLAIM\n• Asymmetrische Quantil-Verteilung trifft auf institutionellen Liquiditäts-Reclaim\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎯:LIQUIDITY_SWEEP_RECLAIM und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:14"
+      "timestamp": "2026-10-29T21:27:36"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211015",
+      "deal_id": "DEAL_NVDA_20261029T212740",
       "symbol": "NVDA",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎯:LIQUIDITY_SWEEP_RECLAIM[+0.0σ] · 🎲:QUANTILE_ASYMMETRY[2.5x] · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_LIQUIDIT[+1.35x] · 💎:QUANT_SWEEP_CONVERGENCE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:LIQUIDIT_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:45.83⟫",
@@ -915,36 +1242,36 @@
       "edge_score": 45.83,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>45.83</b>)\n<b>Begründung der Agenten:</b>\n• Institutioneller Liquidity-Sweep & Stop-Absorption am VWAP (-1.6σ) mit Reclaim\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎯:LIQUIDITY_SWEEP_RECLAIM\n• Asymmetrische Quantil-Verteilung trifft auf institutionellen Liquiditäts-Reclaim\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎯:LIQUIDITY_SWEEP_RECLAIM und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:15"
+      "timestamp": "2026-10-29T21:27:40"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211020",
+      "deal_id": "DEAL_NVDA_20261029T212743",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 📐:TRIPLE_TIMEFRAME_ALIGN · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_TRIPLE_T[+1.35x] · 🧬:QUANTILE_TRIPLE_T[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:246.50⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 📐:TRIPLE_TIMEFRAME_ALIGN · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_TRIPLE_T[+1.35x] · 🧬:QUANTILE_TRIPLE_T[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:BLACKBOA_TRIPLE_T[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:332.77⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 246.5,
+      "edge_score": 332.77,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>246.50</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Perfekte fraktale Resonanz: Daily, 4H und 1H synchron im Aufwärtstrend\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:TRIPLE_TIMEFRAME_ALIGN\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:TRIPLE_TIMEFRAME_ALIGN\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:20"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>332.77</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Perfekte fraktale Resonanz: Daily, 4H und 1H synchron im Aufwärtstrend\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:TRIPLE_TIMEFRAME_ALIGN\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:TRIPLE_TIMEFRAME_ALIGN\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:TRIPLE_TIMEFRAME_ALIGN\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:43"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211020",
+      "deal_id": "DEAL_NVDA_20261029T212743",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🚨:LIQUIDITY_VOID_EVACUATE · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:606.47⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🚨:LIQUIDITY_VOID_EVACUATE · ⚡:ENTRY_IMMEDIATE · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:BLACKBOA_LIQUIDIT[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:1105.29⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 606.47,
+      "edge_score": 1105.29,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>606.47</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Orderbuch-Vakuum & Liquiditäts-Schwund: Notausstieg zum Kapitalschutz\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:20"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>1105.29</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Orderbuch-Vakuum & Liquiditäts-Schwund: Notausstieg zum Kapitalschutz\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 🚨:LIQUIDITY_VOID_EVACUATE\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:43"
     },
     {
-      "deal_id": "DEAL_EXT_TICKER_20261029T211020",
+      "deal_id": "DEAL_EXT_TICKER_20261029T212743",
       "symbol": "EXT_TICKER",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::EXT_TICKER | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⏳:ENTRY_PULLBACK_WAIT[100.75] · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:QUANTILE_CIO_TIER[+1.35x] | VERDICT:VETOED_REJECTED | EDGE:2.43⟫",
@@ -954,10 +1281,10 @@
       "edge_score": 2.43,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF EXT_TICKER</b> (🛡️ <b>VETO ABGELEHNT</b> · Edge: <b>2.43</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Taktisches Abwarten auf Pullback/Retest zur Renditemaximierung\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:20"
+      "timestamp": "2026-10-29T21:27:43"
     },
     {
-      "deal_id": "DEAL_BREAKOUT_LEADER_20261029T211020",
+      "deal_id": "DEAL_BREAKOUT_LEADER_20261029T212743",
       "symbol": "BREAKOUT_LEADER",
       "action": "BUY",
       "dialect_sentence": "⟪PITCH::BREAKOUT_LEADER | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · Σ:CONFLUENCE_TRIPLE_STRONG · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:4.80⟫",
@@ -967,85 +1294,98 @@
       "edge_score": 4.8,
       "recommended_allocation_pct": 0.0,
       "plain_german_summary": "<b>🟢 KAUF BREAKOUT_LEADER</b> (✅ <b>GENEHMIGT</b> · Edge: <b>4.80</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:20"
+      "timestamp": "2026-10-29T21:27:43"
     },
     {
-      "deal_id": "DEAL_XOM_20261029T211032",
+      "deal_id": "DEAL_XOM_20261029T212749",
       "symbol": "XOM",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::XOM | ACT:BUY | 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[18%] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_CIO_TIER[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:2.23⟫",
+      "dialect_sentence": "⟪PITCH::XOM | ACT:BUY | 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[18%] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:4.06⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 2.23,
+      "edge_score": 4.06,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF XOM</b> (✅ <b>GENEHMIGT</b> · Edge: <b>2.23</b>)\n<b>Begründung der Agenten:</b>\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:32"
+      "plain_german_summary": "<b>🟢 KAUF XOM</b> (✅ <b>GENEHMIGT</b> · Edge: <b>4.06</b>)\n<b>Begründung der Agenten:</b>\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:49"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211032",
+      "deal_id": "DEAL_NVDA_20261029T212749",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | Δ:SECTOR_ALPHA_LEAD[+4.5%] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚡:PEAD_EARNINGS_DRIFT · ⚖️:HRP_RISK_PARITY[18%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:SECTOR_A_ENTRY_IM[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:SECTOR_A_CIO_TIER[+1.35x] · 🧬:SECTOR_A_PEAD_EAR[+1.35x] · 🧬:PEAD_EAR_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_PEAD_EAR[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:SECTOR_A_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:33.19⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | Δ:SECTOR_ALPHA_LEAD[+4.5%] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚡:PEAD_EARNINGS_DRIFT · ⚖️:HRP_RISK_PARITY[18%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:SECTOR_A_ENTRY_IM[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:SECTOR_A_CIO_TIER[+1.35x] · 🧬:SECTOR_A_PEAD_EAR[+1.35x] · 🧬:PEAD_EAR_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_PEAD_EAR[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:SECTOR_A_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_PEAD_EAR[+1.35x] · 🧬:PEAD_EAR_BLACKBOA[+1.35x] · 🧬:SECTOR_A_HRP_RISK[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:366.12⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 33.19,
+      "edge_score": 366.12,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>33.19</b>)\n<b>Begründung der Agenten:</b>\n• Führende relative Branchen-Stärke vs. S&P 500\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Post-Earnings Announcement Drift Momentum nach explosiven Quartalszahlen\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:32"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>366.12</b>)\n<b>Begründung der Agenten:</b>\n• Führende relative Branchen-Stärke vs. S&P 500\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Post-Earnings Announcement Drift Momentum nach explosiven Quartalszahlen\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:PEAD_EARNINGS_DRIFT\n• Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚖️:HRP_RISK_PARITY\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:49"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211034",
+      "deal_id": "DEAL_NVDA_20261029T212751",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚙️:SYNTHESIZED_TOOL_BOOST · ⚖️:HRP_RISK_PARITY[18%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:SYNTHESI_ENTRY_IM[+1.35x] · 🧬:SYNTHESI_CIO_TIER[+1.35x] · 🧬:SYNTHESI_QUANTILE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:494.26⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚙️:SYNTHESIZED_TOOL_BOOST · ⚖️:HRP_RISK_PARITY[18%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:SYNTHESI_ENTRY_IM[+1.35x] · 🧬:SYNTHESI_CIO_TIER[+1.35x] · 🧬:SYNTHESI_QUANTILE[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:HRP_RISK_SYNTHESI[+1.35x] · 🧬:SYNTHESI_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:33008.47⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 494.26,
+      "edge_score": 33008.47,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>494.26</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:34"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>33008.47</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Autonome Validierung durch vom Schwarm synthetisierte Indikatoren\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚙️:SYNTHESIZED_TOOL_BOOST\n• Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:51"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211040",
+      "deal_id": "DEAL_NVDA_20261029T212755",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · 📊:TRADINGVIEW_CONSENSUS[STRONG_BUY] · ⚖️:HRP_RISK_PARITY[17%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:2991.96⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · 📊:TRADINGVIEW_CONSENSUS[STRONG_BUY] · ⚖️:HRP_RISK_PARITY[17%] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:CIO_TIER_TRADINGV[+1.35x] · 🧬:QUANTILE_TRADINGV[+1.35x] · 🧬:ENTRY_IM_TRADINGV[+1.35x] · 🧬:HRP_RISK_TRADINGV[+1.35x] · 🧬:TRADINGV_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:2975992.98⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 2991.96,
+      "edge_score": 2975992.98,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>2991.96</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Bestätigt durch offizielles TradingView 26-Indikatoren Konsens-Rating\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:40"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>2975992.98</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Bestätigt durch offizielles TradingView 26-Indikatoren Konsens-Rating\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📊:TRADINGVIEW_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 📊:TRADINGVIEW_CONSENSUS und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:55"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211040",
+      "deal_id": "DEAL_NVDA_20261029T212756",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 🌑:DARK_POOL_ACCUMULATION[53%] · 📑:SEC_EDGAR_CATALYST[INSIDER_CLUSTER_BUY] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:18111.64⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 🌑:DARK_POOL_ACCUMULATION[53%] · 📑:SEC_EDGAR_CATALYST[INSIDER_CLUSTER_BUY] · 📋:BLACKBOARD_CONSENSUS[BUY] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:CIO_TIER_SEC_EDGA[+1.35x] · 🧬:DARK_POO_CIO_TIER[+1.35x] · 🧬:QUANTILE_SEC_EDGA[+1.35x] · 🧬:DARK_POO_QUANTILE[+1.35x] · 🧬:ENTRY_IM_SEC_EDGA[+1.35x] · 🧬:DARK_POO_SEC_EDGA[+1.35x] · 🧬:HRP_RISK_SEC_EDGA[+1.35x] · 🧬:BLACKBOA_SEC_EDGA[+1.35x] · 🧬:ENTRY_IM_DARK_POO[+1.35x] · 🧬:HRP_RISK_DARK_POO[+1.35x] · 🧬:DARK_POO_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:1624205736.81⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 18111.64,
+      "edge_score": 1624205736.81,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>18111.64</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)\n• Regulatorisch verifizierter SEC EDGAR Impuls (Form 4 Whales / Form 8-K)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:40"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>1624205736.81</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Institutionelle Dark-Pool Akkumulation (Off-Exchange Smart-Money Absorption)\n• Regulatorisch verifizierter SEC EDGAR Impuls (Form 4 Whales / Form 8-K)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📑:SEC_EDGAR_CATALYST\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🌑:DARK_POOL_ACCUMULATION\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🌑:DARK_POOL_ACCUMULATION\n• Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:56"
     },
     {
-      "deal_id": "DEAL_NVDA_20261029T211041",
+      "deal_id": "DEAL_NVDA_20261029T212756",
       "symbol": "NVDA",
       "action": "BUY",
-      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 📋:BLACKBOARD_CONSENSUS[BUY] · 📐:QLIB_ALPHA158_CONFLUENCE[+0.52] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:109637.83⟫",
+      "dialect_sentence": "⟪PITCH::NVDA | ACT:BUY | 🎲:QUANTILE_ASYMMETRY[2.2x] · 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 📋:BLACKBOARD_CONSENSUS[BUY] · 📐:QLIB_ALPHA158_CONFLUENCE[+0.52] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_QUANTILE[+1.35x] · 🧬:QUANTILE_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:ENTRY_IM_BLACKBOA[+1.35x] · 🧬:QUANTILE_BLACKBOA[+1.35x] · 🧬:CIO_TIER_BLACKBOA[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:HRP_RISK_BLACKBOA[+1.35x] · 🧬:HRP_RISK_QUANTILE[+1.35x] · 🧬:CIO_TIER_QLIB_ALP[+1.35x] · 🧬:QUANTILE_QLIB_ALP[+1.35x] · 🧬:ENTRY_IM_QLIB_ALP[+1.35x] · 🧬:HRP_RISK_QLIB_ALP[+1.35x] · 🧬:BLACKBOA_QLIB_ALP[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:146435902292.09⟫",
       "pitching_agent": "AI_HYBRID",
       "countering_agent": "Red_Team_Tribunal",
       "consensus_verdict": "SEALED_APPROVED",
-      "edge_score": 109637.83,
+      "edge_score": 146435902292.09,
       "recommended_allocation_pct": 0.0,
-      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>109637.83</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Bestätigt durch Microsoft Qlib Alpha158 Quant-Faktor-Matrix (+0.52)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n<b>Einsatz:</b> $0 Margin",
-      "timestamp": "2026-10-29T21:10:41"
+      "plain_german_summary": "<b>🟢 KAUF NVDA</b> (✅ <b>GENEHMIGT</b> · Edge: <b>146435902292.09</b>)\n<b>Begründung der Agenten:</b>\n• Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter (2.2x)\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Dezentraler A2A-Konsens über das Swarm Blackboard erzielt\n• Bestätigt durch Microsoft Qlib Alpha158 Quant-Faktor-Matrix (+0.52)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:QLIB_ALPHA158_CONFLUENCE\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:56"
+    },
+    {
+      "deal_id": "DEAL_TEST_RECOV_20261029T212757",
+      "symbol": "TEST_RECOV",
+      "action": "BUY",
+      "dialect_sentence": "⟪PITCH::TEST_RECOV | ACT:BUY | 🏛️:CIO_TIER1_ALPHA · ⚡:ENTRY_IMMEDIATE · 🚀:ASYMMETRIC_COMPOUNDING · ⚖️:HRP_RISK_PARITY[17%] · 📐:QLIB_ALPHA158_CONFLUENCE[+0.25] · 🛡️:SMART_RECOVERY_DEFENSE[RSI28] · Σ:CONFLUENCE_QUAD_A_PLUS · 🧬:ENTRY_IM_CIO_TIER[+1.35x] · 🧬:HRP_RISK_CIO_TIER[+1.35x] · 🧬:HRP_RISK_ENTRY_IM[+1.35x] · 🧬:CIO_TIER_QLIB_ALP[+1.35x] · 🧬:ENTRY_IM_QLIB_ALP[+1.35x] · 🧬:HRP_RISK_QLIB_ALP[+1.35x] | VERDICT:SEALED_APPROVED | EDGE:886441701143.10⟫",
+      "pitching_agent": "AI_HYBRID",
+      "countering_agent": "Red_Team_Tribunal",
+      "consensus_verdict": "SEALED_APPROVED",
+      "edge_score": 886441701143.1,
+      "recommended_allocation_pct": 0.0,
+      "plain_german_summary": "<b>🟢 KAUF TEST_RECOV</b> (✅ <b>GENEHMIGT</b> · Edge: <b>886441701143.10</b>)\n<b>Begründung der Agenten:</b>\n• Chief Investment Officer: Vollständiger Komitee-Konsens & Höchste Conviction\n• Sofortiger Markteinstieg bei direktem Ausbruchs-Momentum\n• Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung\n• Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib (18.0%)\n• Bestätigt durch Microsoft Qlib Alpha158 Quant-Faktor-Matrix (+0.52)\n• Hohes Erholungspotenzial – Rebound-Zone aktiv (RSI 27.5)\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE\n• Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:QLIB_ALPHA158_CONFLUENCE\n• Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📐:QLIB_ALPHA158_CONFLUENCE\n<b>Einsatz:</b> $0 Margin",
+      "timestamp": "2026-10-29T21:27:57"
     }
   ],
   "evolved_idioms": {
@@ -1055,8 +1395,8 @@
         "Ω:HURST_PERSIST",
         "⚡:ENTRY_IMMEDIATE"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und ⚡:ENTRY_IMMEDIATE",
       "edge_multiplier": 1.35,
@@ -1069,8 +1409,8 @@
         "Ω:HURST_PERSIST",
         "📊:WALL_ST_UPSIDE"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📊:WALL_ST_UPSIDE",
       "edge_multiplier": 1.35,
@@ -1083,8 +1423,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "Ω:HURST_PERSIST"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ω:HURST_PERSIST",
       "edge_multiplier": 1.35,
@@ -1097,8 +1437,8 @@
         "Ψ:CALL_WHALE_BURST",
         "Ω:HURST_PERSIST"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und Ω:HURST_PERSIST",
       "edge_multiplier": 1.35,
@@ -1111,8 +1451,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "📊:WALL_ST_UPSIDE"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:WALL_ST_UPSIDE",
       "edge_multiplier": 1.35,
@@ -1125,8 +1465,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "⚡:ENTRY_IMMEDIATE"
       ],
-      "co_occurrence_count": 109,
-      "success_count": 109,
+      "co_occurrence_count": 131,
+      "success_count": 131,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE",
       "edge_multiplier": 1.35,
@@ -1139,8 +1479,8 @@
         "Ψ:CALL_WHALE_BURST",
         "⚡:ENTRY_IMMEDIATE"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und ⚡:ENTRY_IMMEDIATE",
       "edge_multiplier": 1.35,
@@ -1153,8 +1493,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "📊:WALL_ST_UPSIDE"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Relative Branchenstärke vereint mit Wall Street Konsens-Kursziel",
       "edge_multiplier": 1.35,
@@ -1167,8 +1507,8 @@
         "Ψ:CALL_WHALE_BURST",
         "📊:WALL_ST_UPSIDE"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE",
       "edge_multiplier": 1.35,
@@ -1181,8 +1521,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "Ψ:CALL_WHALE_BURST"
       ],
-      "co_occurrence_count": 85,
-      "success_count": 85,
+      "co_occurrence_count": 100,
+      "success_count": 100,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ψ:CALL_WHALE_BURST",
       "edge_multiplier": 1.35,
@@ -1195,8 +1535,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "🎲:QUANTILE_ASYMMETRY"
       ],
-      "co_occurrence_count": 358,
-      "success_count": 358,
+      "co_occurrence_count": 452,
+      "success_count": 452,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY",
       "edge_multiplier": 1.35,
@@ -1209,8 +1549,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "🎯:LIQUIDITY_SWEEP_RECLAIM"
       ],
-      "co_occurrence_count": 191,
-      "success_count": 165,
+      "co_occurrence_count": 227,
+      "success_count": 195,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎯:LIQUIDITY_SWEEP_RECLAIM",
       "edge_multiplier": 1.35,
@@ -1223,8 +1563,8 @@
         "⚠️:DOWNSIDE_SKEW_WARN",
         "⚡:ENTRY_IMMEDIATE"
       ],
-      "co_occurrence_count": 65,
-      "success_count": 65,
+      "co_occurrence_count": 77,
+      "success_count": 77,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und ⚡:ENTRY_IMMEDIATE",
       "edge_multiplier": 1.35,
@@ -1237,8 +1577,8 @@
         "🎲:QUANTILE_ASYMMETRY",
         "🏛️:CIO_TIER1_ALPHA"
       ],
-      "co_occurrence_count": 71,
-      "success_count": 71,
+      "co_occurrence_count": 111,
+      "success_count": 111,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA",
       "edge_multiplier": 1.35,
@@ -1251,8 +1591,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "🏛️:CIO_TIER1_ALPHA"
       ],
-      "co_occurrence_count": 95,
-      "success_count": 95,
+      "co_occurrence_count": 142,
+      "success_count": 142,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA",
       "edge_multiplier": 1.35,
@@ -1265,8 +1605,8 @@
         "🎲:QUANTILE_ASYMMETRY",
         "🛑:CORRELATION_BREAKDOWN_PANIC"
       ],
-      "co_occurrence_count": 68,
-      "success_count": 68,
+      "co_occurrence_count": 80,
+      "success_count": 80,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🛑:CORRELATION_BREAKDOWN_PANIC",
       "edge_multiplier": 1.35,
@@ -1279,8 +1619,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "🛑:CORRELATION_BREAKDOWN_PANIC"
       ],
-      "co_occurrence_count": 68,
-      "success_count": 68,
+      "co_occurrence_count": 80,
+      "success_count": 80,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🛑:CORRELATION_BREAKDOWN_PANIC",
       "edge_multiplier": 1.35,
@@ -1293,8 +1633,8 @@
         "🎯:LIQUIDITY_SWEEP_RECLAIM",
         "🎲:QUANTILE_ASYMMETRY"
       ],
-      "co_occurrence_count": 126,
-      "success_count": 100,
+      "co_occurrence_count": 150,
+      "success_count": 118,
       "failure_count": 0,
       "meaning_de": "Asymmetrische Quantil-Verteilung trifft auf institutionellen Liquiditäts-Reclaim",
       "edge_multiplier": 1.35,
@@ -1307,8 +1647,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "📐:TRIPLE_TIMEFRAME_ALIGN"
       ],
-      "co_occurrence_count": 27,
-      "success_count": 27,
+      "co_occurrence_count": 33,
+      "success_count": 33,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:TRIPLE_TIMEFRAME_ALIGN",
       "edge_multiplier": 1.35,
@@ -1321,8 +1661,8 @@
         "🎲:QUANTILE_ASYMMETRY",
         "📐:TRIPLE_TIMEFRAME_ALIGN"
       ],
-      "co_occurrence_count": 27,
-      "success_count": 27,
+      "co_occurrence_count": 33,
+      "success_count": 33,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:TRIPLE_TIMEFRAME_ALIGN",
       "edge_multiplier": 1.35,
@@ -1335,8 +1675,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "🏛️:CIO_TIER1_ALPHA"
       ],
-      "co_occurrence_count": 24,
-      "success_count": 24,
+      "co_occurrence_count": 31,
+      "success_count": 31,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:CIO_TIER1_ALPHA",
       "edge_multiplier": 1.35,
@@ -1349,8 +1689,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "⚡:PEAD_EARNINGS_DRIFT"
       ],
-      "co_occurrence_count": 24,
-      "success_count": 24,
+      "co_occurrence_count": 31,
+      "success_count": 31,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:PEAD_EARNINGS_DRIFT",
       "edge_multiplier": 1.35,
@@ -1363,8 +1703,8 @@
         "⚡:PEAD_EARNINGS_DRIFT",
         "🏛️:CIO_TIER1_ALPHA"
       ],
-      "co_occurrence_count": 24,
-      "success_count": 24,
+      "co_occurrence_count": 31,
+      "success_count": 31,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:CIO_TIER1_ALPHA",
       "edge_multiplier": 1.35,
@@ -1377,8 +1717,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "⚡:PEAD_EARNINGS_DRIFT"
       ],
-      "co_occurrence_count": 24,
-      "success_count": 24,
+      "co_occurrence_count": 31,
+      "success_count": 31,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und ⚡:PEAD_EARNINGS_DRIFT",
       "edge_multiplier": 1.35,
@@ -1391,8 +1731,8 @@
         "⚙️:SYNTHESIZED_TOOL_BOOST",
         "⚡:ENTRY_IMMEDIATE"
       ],
-      "co_occurrence_count": 3,
-      "success_count": 3,
+      "co_occurrence_count": 10,
+      "success_count": 10,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und ⚡:ENTRY_IMMEDIATE",
       "edge_multiplier": 1.35,
@@ -1405,8 +1745,8 @@
         "⚙️:SYNTHESIZED_TOOL_BOOST",
         "🏛️:CIO_TIER1_ALPHA"
       ],
-      "co_occurrence_count": 3,
-      "success_count": 3,
+      "co_occurrence_count": 10,
+      "success_count": 10,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🏛️:CIO_TIER1_ALPHA",
       "edge_multiplier": 1.35,
@@ -1419,8 +1759,8 @@
         "⚙️:SYNTHESIZED_TOOL_BOOST",
         "🎲:QUANTILE_ASYMMETRY"
       ],
-      "co_occurrence_count": 3,
-      "success_count": 3,
+      "co_occurrence_count": 10,
+      "success_count": 10,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🎲:QUANTILE_ASYMMETRY",
       "edge_multiplier": 1.35,
@@ -1433,8 +1773,8 @@
         "Ψ:CALL_WHALE_BURST",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 18,
-      "success_count": 18,
+      "co_occurrence_count": 33,
+      "success_count": 33,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1447,8 +1787,8 @@
         "⚡:ENTRY_IMMEDIATE",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 99,
-      "success_count": 99,
+      "co_occurrence_count": 239,
+      "success_count": 239,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1461,8 +1801,8 @@
         "Δ:SECTOR_ALPHA_LEAD",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 18,
-      "success_count": 18,
+      "co_occurrence_count": 40,
+      "success_count": 40,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1475,8 +1815,8 @@
         "Ω:HURST_PERSIST",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 18,
-      "success_count": 18,
+      "co_occurrence_count": 33,
+      "success_count": 33,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1489,8 +1829,8 @@
         "📊:WALL_ST_UPSIDE",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 18,
-      "success_count": 18,
+      "co_occurrence_count": 33,
+      "success_count": 33,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 📊:WALL_ST_UPSIDE und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1503,8 +1843,8 @@
         "🎲:QUANTILE_ASYMMETRY",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 55,
-      "success_count": 55,
+      "co_occurrence_count": 149,
+      "success_count": 149,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1517,8 +1857,8 @@
         "🎯:LIQUIDITY_SWEEP_RECLAIM",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 29,
-      "success_count": 29,
+      "co_occurrence_count": 59,
+      "success_count": 59,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎯:LIQUIDITY_SWEEP_RECLAIM und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1531,8 +1871,8 @@
         "⚠️:DOWNSIDE_SKEW_WARN",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 13,
-      "success_count": 13,
+      "co_occurrence_count": 25,
+      "success_count": 25,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1545,8 +1885,8 @@
         "🏛️:CIO_TIER1_ALPHA",
         "📋:BLACKBOARD_CONSENSUS"
       ],
-      "co_occurrence_count": 13,
-      "success_count": 13,
+      "co_occurrence_count": 60,
+      "success_count": 60,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📋:BLACKBOARD_CONSENSUS",
       "edge_multiplier": 1.35,
@@ -1559,55 +1899,535 @@
         "📋:BLACKBOARD_CONSENSUS",
         "🛑:CORRELATION_BREAKDOWN_PANIC"
       ],
-      "co_occurrence_count": 13,
-      "success_count": 13,
+      "co_occurrence_count": 25,
+      "success_count": 25,
       "failure_count": 0,
       "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 🛑:CORRELATION_BREAKDOWN_PANIC",
       "edge_multiplier": 1.35,
       "discovered_at": "2026-10-29T20:47:25",
       "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_CIO_TIER": {
+      "idiom_token": "🧬:HRP_RISK_CIO_TIER",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "🏛️:CIO_TIER1_ALPHA"
+      ],
+      "co_occurrence_count": 35,
+      "success_count": 35,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:CIO_TIER1_ALPHA",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:55",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_ENTRY_IM": {
+      "idiom_token": "🧬:HRP_RISK_ENTRY_IM",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "⚡:ENTRY_IMMEDIATE"
+      ],
+      "co_occurrence_count": 35,
+      "success_count": 35,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:ENTRY_IMMEDIATE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:55",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_BLACKBOA": {
+      "idiom_token": "🧬:HRP_RISK_BLACKBOA",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "📋:BLACKBOARD_CONSENSUS"
+      ],
+      "co_occurrence_count": 35,
+      "success_count": 35,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📋:BLACKBOARD_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:55",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_QUANTILE": {
+      "idiom_token": "🧬:HRP_RISK_QUANTILE",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "🎲:QUANTILE_ASYMMETRY"
+      ],
+      "co_occurrence_count": 28,
+      "success_count": 28,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🎲:QUANTILE_ASYMMETRY",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:55",
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_TRIPLE_T": {
+      "idiom_token": "🧬:BLACKBOA_TRIPLE_T",
+      "component_tokens": [
+        "📋:BLACKBOARD_CONSENSUS",
+        "📐:TRIPLE_TIMEFRAME_ALIGN"
+      ],
+      "co_occurrence_count": 6,
+      "success_count": 6,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:TRIPLE_TIMEFRAME_ALIGN",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_LIQUIDIT": {
+      "idiom_token": "🧬:BLACKBOA_LIQUIDIT",
+      "component_tokens": [
+        "📋:BLACKBOARD_CONSENSUS",
+        "🚨:LIQUIDITY_VOID_EVACUATE"
+      ],
+      "co_occurrence_count": 6,
+      "success_count": 6,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 🚨:LIQUIDITY_VOID_EVACUATE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_PEAD_EAR": {
+      "idiom_token": "🧬:HRP_RISK_PEAD_EAR",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "⚡:PEAD_EARNINGS_DRIFT"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚡:PEAD_EARNINGS_DRIFT",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:PEAD_EAR_BLACKBOA": {
+      "idiom_token": "🧬:PEAD_EAR_BLACKBOA",
+      "component_tokens": [
+        "⚡:PEAD_EARNINGS_DRIFT",
+        "📋:BLACKBOARD_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 📋:BLACKBOARD_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:SECTOR_A_HRP_RISK": {
+      "idiom_token": "🧬:SECTOR_A_HRP_RISK",
+      "component_tokens": [
+        "Δ:SECTOR_ALPHA_LEAD",
+        "⚖️:HRP_RISK_PARITY"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚖️:HRP_RISK_PARITY",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_SYNTHESI": {
+      "idiom_token": "🧬:HRP_RISK_SYNTHESI",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "⚙️:SYNTHESIZED_TOOL_BOOST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und ⚙️:SYNTHESIZED_TOOL_BOOST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:SYNTHESI_BLACKBOA": {
+      "idiom_token": "🧬:SYNTHESI_BLACKBOA",
+      "component_tokens": [
+        "⚙️:SYNTHESIZED_TOOL_BOOST",
+        "📋:BLACKBOARD_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 📋:BLACKBOARD_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:CIO_TIER_TRADINGV": {
+      "idiom_token": "🧬:CIO_TIER_TRADINGV",
+      "component_tokens": [
+        "🏛️:CIO_TIER1_ALPHA",
+        "📊:TRADINGVIEW_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📊:TRADINGVIEW_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:QUANTILE_TRADINGV": {
+      "idiom_token": "🧬:QUANTILE_TRADINGV",
+      "component_tokens": [
+        "🎲:QUANTILE_ASYMMETRY",
+        "📊:TRADINGVIEW_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📊:TRADINGVIEW_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_TRADINGV": {
+      "idiom_token": "🧬:ENTRY_IM_TRADINGV",
+      "component_tokens": [
+        "⚡:ENTRY_IMMEDIATE",
+        "📊:TRADINGVIEW_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:TRADINGVIEW_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_TRADINGV": {
+      "idiom_token": "🧬:HRP_RISK_TRADINGV",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "📊:TRADINGVIEW_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📊:TRADINGVIEW_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:TRADINGV_BLACKBOA": {
+      "idiom_token": "🧬:TRADINGV_BLACKBOA",
+      "component_tokens": [
+        "📊:TRADINGVIEW_CONSENSUS",
+        "📋:BLACKBOARD_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📊:TRADINGVIEW_CONSENSUS und 📋:BLACKBOARD_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:CIO_TIER_SEC_EDGA": {
+      "idiom_token": "🧬:CIO_TIER_SEC_EDGA",
+      "component_tokens": [
+        "🏛️:CIO_TIER1_ALPHA",
+        "📑:SEC_EDGAR_CATALYST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📑:SEC_EDGAR_CATALYST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_CIO_TIER": {
+      "idiom_token": "🧬:DARK_POO_CIO_TIER",
+      "component_tokens": [
+        "🌑:DARK_POOL_ACCUMULATION",
+        "🏛️:CIO_TIER1_ALPHA"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🏛️:CIO_TIER1_ALPHA",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:QUANTILE_SEC_EDGA": {
+      "idiom_token": "🧬:QUANTILE_SEC_EDGA",
+      "component_tokens": [
+        "🎲:QUANTILE_ASYMMETRY",
+        "📑:SEC_EDGAR_CATALYST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📑:SEC_EDGAR_CATALYST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_QUANTILE": {
+      "idiom_token": "🧬:DARK_POO_QUANTILE",
+      "component_tokens": [
+        "🌑:DARK_POOL_ACCUMULATION",
+        "🎲:QUANTILE_ASYMMETRY"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🎲:QUANTILE_ASYMMETRY",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_SEC_EDGA": {
+      "idiom_token": "🧬:ENTRY_IM_SEC_EDGA",
+      "component_tokens": [
+        "⚡:ENTRY_IMMEDIATE",
+        "📑:SEC_EDGAR_CATALYST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📑:SEC_EDGAR_CATALYST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_SEC_EDGA": {
+      "idiom_token": "🧬:DARK_POO_SEC_EDGA",
+      "component_tokens": [
+        "🌑:DARK_POOL_ACCUMULATION",
+        "📑:SEC_EDGAR_CATALYST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📑:SEC_EDGAR_CATALYST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_SEC_EDGA": {
+      "idiom_token": "🧬:HRP_RISK_SEC_EDGA",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "📑:SEC_EDGAR_CATALYST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📑:SEC_EDGAR_CATALYST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_SEC_EDGA": {
+      "idiom_token": "🧬:BLACKBOA_SEC_EDGA",
+      "component_tokens": [
+        "📋:BLACKBOARD_CONSENSUS",
+        "📑:SEC_EDGAR_CATALYST"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📑:SEC_EDGAR_CATALYST",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_DARK_POO": {
+      "idiom_token": "🧬:ENTRY_IM_DARK_POO",
+      "component_tokens": [
+        "⚡:ENTRY_IMMEDIATE",
+        "🌑:DARK_POOL_ACCUMULATION"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🌑:DARK_POOL_ACCUMULATION",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_DARK_POO": {
+      "idiom_token": "🧬:HRP_RISK_DARK_POO",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "🌑:DARK_POOL_ACCUMULATION"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🌑:DARK_POOL_ACCUMULATION",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:DARK_POO_BLACKBOA": {
+      "idiom_token": "🧬:DARK_POO_BLACKBOA",
+      "component_tokens": [
+        "🌑:DARK_POOL_ACCUMULATION",
+        "📋:BLACKBOARD_CONSENSUS"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 📋:BLACKBOARD_CONSENSUS",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:CIO_TIER_QLIB_ALP": {
+      "idiom_token": "🧬:CIO_TIER_QLIB_ALP",
+      "component_tokens": [
+        "🏛️:CIO_TIER1_ALPHA",
+        "📐:QLIB_ALPHA158_CONFLUENCE"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:QUANTILE_QLIB_ALP": {
+      "idiom_token": "🧬:QUANTILE_QLIB_ALP",
+      "component_tokens": [
+        "🎲:QUANTILE_ASYMMETRY",
+        "📐:QLIB_ALPHA158_CONFLUENCE"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:ENTRY_IM_QLIB_ALP": {
+      "idiom_token": "🧬:ENTRY_IM_QLIB_ALP",
+      "component_tokens": [
+        "⚡:ENTRY_IMMEDIATE",
+        "📐:QLIB_ALPHA158_CONFLUENCE"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:HRP_RISK_QLIB_ALP": {
+      "idiom_token": "🧬:HRP_RISK_QLIB_ALP",
+      "component_tokens": [
+        "⚖️:HRP_RISK_PARITY",
+        "📐:QLIB_ALPHA158_CONFLUENCE"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
+    },
+    "🧬:BLACKBOA_QLIB_ALP": {
+      "idiom_token": "🧬:BLACKBOA_QLIB_ALP",
+      "component_tokens": [
+        "📋:BLACKBOARD_CONSENSUS",
+        "📐:QLIB_ALPHA158_CONFLUENCE"
+      ],
+      "co_occurrence_count": 7,
+      "success_count": 7,
+      "failure_count": 0,
+      "meaning_de": "Synthetische Schwarm-Konvergenz aus 📋:BLACKBOARD_CONSENSUS und 📐:QLIB_ALPHA158_CONFLUENCE",
+      "edge_multiplier": 1.35,
+      "discovered_at": "2026-10-29T21:24:58",
+      "win_rate_pct": 100.0
     }
   },
   "pair_success": {
-    "Ω:HURST_PERSIST + ⚡:ENTRY_IMMEDIATE": 85,
-    "Ω:HURST_PERSIST + 📊:WALL_ST_UPSIDE": 85,
-    "Δ:SECTOR_ALPHA_LEAD + Ω:HURST_PERSIST": 85,
-    "Ψ:CALL_WHALE_BURST + Ω:HURST_PERSIST": 85,
-    "⚡:ENTRY_IMMEDIATE + 📊:WALL_ST_UPSIDE": 85,
-    "Δ:SECTOR_ALPHA_LEAD + ⚡:ENTRY_IMMEDIATE": 109,
-    "Ψ:CALL_WHALE_BURST + ⚡:ENTRY_IMMEDIATE": 85,
-    "Δ:SECTOR_ALPHA_LEAD + 📊:WALL_ST_UPSIDE": 85,
-    "Ψ:CALL_WHALE_BURST + 📊:WALL_ST_UPSIDE": 85,
-    "Δ:SECTOR_ALPHA_LEAD + Ψ:CALL_WHALE_BURST": 85,
-    "⚡:ENTRY_IMMEDIATE + 🎯:LIQUIDITY_SWEEP_RECLAIM": 165,
-    "⚡:ENTRY_IMMEDIATE + 🎲:QUANTILE_ASYMMETRY": 358,
-    "⚠️:DOWNSIDE_SKEW_WARN + ⚡:ENTRY_IMMEDIATE": 65,
-    "🎲:QUANTILE_ASYMMETRY + 🏛️:CIO_TIER1_ALPHA": 71,
-    "⚡:ENTRY_IMMEDIATE + 🏛️:CIO_TIER1_ALPHA": 95,
-    "🎲:QUANTILE_ASYMMETRY + 🛑:CORRELATION_BREAKDOWN_PANIC": 68,
-    "⚡:ENTRY_IMMEDIATE + 🛑:CORRELATION_BREAKDOWN_PANIC": 68,
-    "🎯:LIQUIDITY_SWEEP_RECLAIM + 🎲:QUANTILE_ASYMMETRY": 100,
-    "⚡:ENTRY_IMMEDIATE + 📐:TRIPLE_TIMEFRAME_ALIGN": 27,
-    "🎲:QUANTILE_ASYMMETRY + 📐:TRIPLE_TIMEFRAME_ALIGN": 27,
-    "⚡:ENTRY_IMMEDIATE + 🚨:LIQUIDITY_VOID_EVACUATE": 27,
-    "🎲:QUANTILE_ASYMMETRY + 🚨:LIQUIDITY_VOID_EVACUATE": 27,
-    "Δ:SECTOR_ALPHA_LEAD + 🏛️:CIO_TIER1_ALPHA": 24,
-    "Δ:SECTOR_ALPHA_LEAD + ⚡:PEAD_EARNINGS_DRIFT": 24,
-    "⚡:PEAD_EARNINGS_DRIFT + 🏛️:CIO_TIER1_ALPHA": 24,
-    "⚡:ENTRY_IMMEDIATE + ⚡:PEAD_EARNINGS_DRIFT": 24,
-    "⚙️:SYNTHESIZED_TOOL_BOOST + ⚡:ENTRY_IMMEDIATE": 3,
-    "⚙️:SYNTHESIZED_TOOL_BOOST + 🏛️:CIO_TIER1_ALPHA": 3,
-    "⚙️:SYNTHESIZED_TOOL_BOOST + 🎲:QUANTILE_ASYMMETRY": 3,
-    "Ψ:CALL_WHALE_BURST + 📋:BLACKBOARD_CONSENSUS": 18,
-    "⚡:ENTRY_IMMEDIATE + 📋:BLACKBOARD_CONSENSUS": 99,
-    "Δ:SECTOR_ALPHA_LEAD + 📋:BLACKBOARD_CONSENSUS": 18,
-    "Ω:HURST_PERSIST + 📋:BLACKBOARD_CONSENSUS": 18,
-    "📊:WALL_ST_UPSIDE + 📋:BLACKBOARD_CONSENSUS": 18,
-    "🎯:LIQUIDITY_SWEEP_RECLAIM + 📋:BLACKBOARD_CONSENSUS": 29,
-    "🎲:QUANTILE_ASYMMETRY + 📋:BLACKBOARD_CONSENSUS": 55,
-    "⚠️:DOWNSIDE_SKEW_WARN + 📋:BLACKBOARD_CONSENSUS": 13,
-    "🏛️:CIO_TIER1_ALPHA + 📋:BLACKBOARD_CONSENSUS": 13,
-    "📋:BLACKBOARD_CONSENSUS + 🛑:CORRELATION_BREAKDOWN_PANIC": 13
+    "Ω:HURST_PERSIST + ⚡:ENTRY_IMMEDIATE": 100,
+    "Ω:HURST_PERSIST + 📊:WALL_ST_UPSIDE": 100,
+    "Δ:SECTOR_ALPHA_LEAD + Ω:HURST_PERSIST": 100,
+    "Ψ:CALL_WHALE_BURST + Ω:HURST_PERSIST": 100,
+    "⚡:ENTRY_IMMEDIATE + 📊:WALL_ST_UPSIDE": 100,
+    "Δ:SECTOR_ALPHA_LEAD + ⚡:ENTRY_IMMEDIATE": 131,
+    "Ψ:CALL_WHALE_BURST + ⚡:ENTRY_IMMEDIATE": 100,
+    "Δ:SECTOR_ALPHA_LEAD + 📊:WALL_ST_UPSIDE": 100,
+    "Ψ:CALL_WHALE_BURST + 📊:WALL_ST_UPSIDE": 100,
+    "Δ:SECTOR_ALPHA_LEAD + Ψ:CALL_WHALE_BURST": 100,
+    "⚡:ENTRY_IMMEDIATE + 🎯:LIQUIDITY_SWEEP_RECLAIM": 195,
+    "⚡:ENTRY_IMMEDIATE + 🎲:QUANTILE_ASYMMETRY": 452,
+    "⚠️:DOWNSIDE_SKEW_WARN + ⚡:ENTRY_IMMEDIATE": 77,
+    "🎲:QUANTILE_ASYMMETRY + 🏛️:CIO_TIER1_ALPHA": 111,
+    "⚡:ENTRY_IMMEDIATE + 🏛️:CIO_TIER1_ALPHA": 142,
+    "🎲:QUANTILE_ASYMMETRY + 🛑:CORRELATION_BREAKDOWN_PANIC": 80,
+    "⚡:ENTRY_IMMEDIATE + 🛑:CORRELATION_BREAKDOWN_PANIC": 80,
+    "🎯:LIQUIDITY_SWEEP_RECLAIM + 🎲:QUANTILE_ASYMMETRY": 118,
+    "⚡:ENTRY_IMMEDIATE + 📐:TRIPLE_TIMEFRAME_ALIGN": 33,
+    "🎲:QUANTILE_ASYMMETRY + 📐:TRIPLE_TIMEFRAME_ALIGN": 33,
+    "⚡:ENTRY_IMMEDIATE + 🚨:LIQUIDITY_VOID_EVACUATE": 33,
+    "🎲:QUANTILE_ASYMMETRY + 🚨:LIQUIDITY_VOID_EVACUATE": 33,
+    "Δ:SECTOR_ALPHA_LEAD + 🏛️:CIO_TIER1_ALPHA": 31,
+    "Δ:SECTOR_ALPHA_LEAD + ⚡:PEAD_EARNINGS_DRIFT": 31,
+    "⚡:PEAD_EARNINGS_DRIFT + 🏛️:CIO_TIER1_ALPHA": 31,
+    "⚡:ENTRY_IMMEDIATE + ⚡:PEAD_EARNINGS_DRIFT": 31,
+    "⚙️:SYNTHESIZED_TOOL_BOOST + ⚡:ENTRY_IMMEDIATE": 10,
+    "⚙️:SYNTHESIZED_TOOL_BOOST + 🏛️:CIO_TIER1_ALPHA": 10,
+    "⚙️:SYNTHESIZED_TOOL_BOOST + 🎲:QUANTILE_ASYMMETRY": 10,
+    "Ψ:CALL_WHALE_BURST + 📋:BLACKBOARD_CONSENSUS": 33,
+    "⚡:ENTRY_IMMEDIATE + 📋:BLACKBOARD_CONSENSUS": 239,
+    "Δ:SECTOR_ALPHA_LEAD + 📋:BLACKBOARD_CONSENSUS": 40,
+    "Ω:HURST_PERSIST + 📋:BLACKBOARD_CONSENSUS": 33,
+    "📊:WALL_ST_UPSIDE + 📋:BLACKBOARD_CONSENSUS": 33,
+    "🎯:LIQUIDITY_SWEEP_RECLAIM + 📋:BLACKBOARD_CONSENSUS": 59,
+    "🎲:QUANTILE_ASYMMETRY + 📋:BLACKBOARD_CONSENSUS": 149,
+    "⚠️:DOWNSIDE_SKEW_WARN + 📋:BLACKBOARD_CONSENSUS": 25,
+    "🏛️:CIO_TIER1_ALPHA + 📋:BLACKBOARD_CONSENSUS": 60,
+    "📋:BLACKBOARD_CONSENSUS + 🛑:CORRELATION_BREAKDOWN_PANIC": 25,
+    "📋:BLACKBOARD_CONSENSUS + 📐:TRIPLE_TIMEFRAME_ALIGN": 6,
+    "📋:BLACKBOARD_CONSENSUS + 🚨:LIQUIDITY_VOID_EVACUATE": 6,
+    "⚖️:HRP_RISK_PARITY + 🏛️:CIO_TIER1_ALPHA": 35,
+    "⚖️:HRP_RISK_PARITY + ⚡:ENTRY_IMMEDIATE": 35,
+    "⚖️:HRP_RISK_PARITY + ⚡:PEAD_EARNINGS_DRIFT": 7,
+    "⚡:PEAD_EARNINGS_DRIFT + 📋:BLACKBOARD_CONSENSUS": 7,
+    "Δ:SECTOR_ALPHA_LEAD + ⚖️:HRP_RISK_PARITY": 7,
+    "⚖️:HRP_RISK_PARITY + 📋:BLACKBOARD_CONSENSUS": 35,
+    "⚖️:HRP_RISK_PARITY + 🎲:QUANTILE_ASYMMETRY": 28,
+    "⚖️:HRP_RISK_PARITY + ⚙️:SYNTHESIZED_TOOL_BOOST": 7,
+    "⚙️:SYNTHESIZED_TOOL_BOOST + 📋:BLACKBOARD_CONSENSUS": 7,
+    "🏛️:CIO_TIER1_ALPHA + 📊:TRADINGVIEW_CONSENSUS": 7,
+    "🎲:QUANTILE_ASYMMETRY + 📊:TRADINGVIEW_CONSENSUS": 7,
+    "⚡:ENTRY_IMMEDIATE + 📊:TRADINGVIEW_CONSENSUS": 7,
+    "⚖️:HRP_RISK_PARITY + 📊:TRADINGVIEW_CONSENSUS": 7,
+    "📊:TRADINGVIEW_CONSENSUS + 📋:BLACKBOARD_CONSENSUS": 7,
+    "🏛️:CIO_TIER1_ALPHA + 📑:SEC_EDGAR_CATALYST": 7,
+    "🌑:DARK_POOL_ACCUMULATION + 🏛️:CIO_TIER1_ALPHA": 7,
+    "🎲:QUANTILE_ASYMMETRY + 📑:SEC_EDGAR_CATALYST": 7,
+    "🌑:DARK_POOL_ACCUMULATION + 🎲:QUANTILE_ASYMMETRY": 7,
+    "⚡:ENTRY_IMMEDIATE + 📑:SEC_EDGAR_CATALYST": 7,
+    "🌑:DARK_POOL_ACCUMULATION + 📑:SEC_EDGAR_CATALYST": 7,
+    "⚖️:HRP_RISK_PARITY + 📑:SEC_EDGAR_CATALYST": 7,
+    "📋:BLACKBOARD_CONSENSUS + 📑:SEC_EDGAR_CATALYST": 7,
+    "⚡:ENTRY_IMMEDIATE + 🌑:DARK_POOL_ACCUMULATION": 7,
+    "⚖️:HRP_RISK_PARITY + 🌑:DARK_POOL_ACCUMULATION": 7,
+    "🌑:DARK_POOL_ACCUMULATION + 📋:BLACKBOARD_CONSENSUS": 7,
+    "🏛️:CIO_TIER1_ALPHA + 📐:QLIB_ALPHA158_CONFLUENCE": 7,
+    "🎲:QUANTILE_ASYMMETRY + 📐:QLIB_ALPHA158_CONFLUENCE": 7,
+    "⚡:ENTRY_IMMEDIATE + 📐:QLIB_ALPHA158_CONFLUENCE": 7,
+    "⚖️:HRP_RISK_PARITY + 📐:QLIB_ALPHA158_CONFLUENCE": 7,
+    "📋:BLACKBOARD_CONSENSUS + 📐:QLIB_ALPHA158_CONFLUENCE": 7
   },
   "pair_failure": {},
   "composite_macros": {}

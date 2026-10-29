@@ -101,7 +101,7 @@
     }
   },
   "BHC": {
-    "timestamp": 1793306449.67006,
+    "timestamp": 1793308321.354655,
     "data": {
       "symbol": "BHC",
       "sentiment_label": "VERY_BULLISH",
@@ -118,7 +118,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:40:49Z"
+      "analyzed_at": "2026-10-29T21:12:01Z"
     }
   },
   "AAPL": {
@@ -164,7 +164,7 @@
     }
   },
   "CROX": {
-    "timestamp": 1793306788.0093422,
+    "timestamp": 1793308655.980999,
     "data": {
       "symbol": "CROX",
       "sentiment_label": "VERY_BULLISH",
@@ -181,11 +181,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:46:28Z"
+      "analyzed_at": "2026-10-29T21:17:35Z"
     }
   },
   "GKOS": {
-    "timestamp": 1793306450.4301288,
+    "timestamp": 1793308319.4678037,
     "data": {
       "symbol": "GKOS",
       "sentiment_label": "NEUTRAL",
@@ -202,11 +202,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:40:50Z"
+      "analyzed_at": "2026-10-29T21:11:59Z"
     }
   },
   "ADT": {
-    "timestamp": 1793306788.3574057,
+    "timestamp": 1793308656.6281419,
     "data": {
       "symbol": "ADT",
       "sentiment_label": "VERY_BULLISH",
@@ -223,11 +223,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:46:28Z"
+      "analyzed_at": "2026-10-29T21:17:36Z"
     }
   },
   "PURR": {
-    "timestamp": 1793306787.5215836,
+    "timestamp": 1793308657.4670339,
     "data": {
       "symbol": "PURR",
       "sentiment_label": "NEUTRAL",
@@ -244,7 +244,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:46:27Z"
+      "analyzed_at": "2026-10-29T21:17:37Z"
     }
   },
   "NOW": {
@@ -941,7 +941,7 @@
     }
   },
   "SOXS": {
-    "timestamp": 1793306455.4131584,
+    "timestamp": 1793308320.6696973,
     "data": {
       "symbol": "SOXS",
       "sentiment_label": "VERY_BULLISH",
@@ -958,11 +958,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:40:55Z"
+      "analyzed_at": "2026-10-29T21:12:00Z"
     }
   },
   "TDOC": {
-    "timestamp": 1793306788.6986234,
+    "timestamp": 1793308657.102464,
     "data": {
       "symbol": "TDOC",
       "sentiment_label": "VERY_BULLISH",
@@ -979,7 +979,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:46:28Z"
+      "analyzed_at": "2026-10-29T21:17:37Z"
     }
   },
   "LUNG": {
@@ -1487,7 +1487,7 @@
     }
   },
   "BBD": {
-    "timestamp": 1793306112.2959917,
+    "timestamp": 1793308994.312853,
     "data": {
       "symbol": "BBD",
       "sentiment_label": "VERY_BEARISH",
@@ -1504,7 +1504,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": true,
-      "analyzed_at": "2026-10-29T20:35:12Z"
+      "analyzed_at": "2026-10-29T21:23:14Z"
     }
   },
   "CAT": {

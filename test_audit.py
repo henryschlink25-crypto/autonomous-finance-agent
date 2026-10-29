@@ -2586,7 +2586,90 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 55 bestanden: Microsoft Qlib Alpha158 Factor Mining (Sub-Agent #41), Background Evolution Daemon & Dialekt-Token.")
 
-    print("=== Alle 55 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout- & Microsoft-Qlib-Alpha158-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 56: Smart Recovery Evaluator, Rebound Defense, Hard Emergency Stop & Sub-Agent #42
+        # ============================================================================
+        from smart_recovery_evaluator import SmartRecoveryEvaluator
+        
+        # 1. Teste SmartRecoveryEvaluator Kriterien
+        pos_recovery_test = Position(
+            symbol="TEST_RECOV",
+            asset_class="EQUITY",
+            quantity=10.0,
+            avg_entry_price=100.0,
+            current_price=97.8,
+            stop_loss_price=98.0,        # Taktischer Stop bei 98.0
+            hard_stop_loss_price=95.0,   # Harter Notfall-Stop bei 95.0
+            take_profit_price=108.0,
+            opened_at="2026-10-28T14:30:00",
+        )
+
+        snap_recov_high = dummy_snap.model_copy(update={
+            "symbol": "TEST_RECOV",
+            "name": "Test Recovery Corp",
+            "current_price": 97.8,
+            "change_24h_pct": -2.2,
+            "rsi_14": 27.5,                 # Extrem überverkauft -> Rebound-Chance
+            "volume": 500_000,
+            "volume_sma_20": 800_000,       # Geringes Volumen (kein Panikverkauf)
+            "sma_20": 99.0,
+            "sma_50": 97.5,                 # Direkt an 50-Tage-Linie SMA50
+            "sma_200": 92.0,
+            "intraday_vwap": 97.8,
+            "vwap_val": 97.8,
+            "bollinger_lower": 97.5,
+            "bollinger_upper": 102.5,
+            "qlib_alpha158_score": 0.25,     # Positiver quantitativer Faktor-Zufluss
+            "dark_pool_sentiment": "BULLISH_FLOW",
+        })
+
+        eval_high = SmartRecoveryEvaluator.evaluate(pos_recovery_test, snap_recov_high)
+        assert eval_high.can_recover, f"Erholungspotenzial muss als positiv erkannt werden: {eval_high}"
+        assert eval_high.recovery_score >= 1.5, f"Recovery-Score muss >= 1.5 sein: {eval_high.recovery_score}"
+        assert not eval_high.hard_emergency_exit, "Notfall-Stop darf noch nicht aktiv sein"
+
+        # 2. Teste Execution Engine Rebound-Verteidigung (Position wird NICHT vorzeitig ausgestoppt)
+        cfg_recov = AgentConfig()
+        cfg_recov.execution_mode = "LOCAL_PAPER"
+        cfg_recov.enforce_market_hours = False
+        cfg_recov.portfolio_state_file = os.path.join(tmpdir, "recovery_portfolio.json")
+        recov_engine = MultiAssetExecutionEngine(cfg_recov)
+        recov_engine.positions["TEST_RECOV"] = pos_recovery_test
+
+        events_recov = recov_engine.update_prices_and_check_stops({"TEST_RECOV": snap_recov_high})
+        assert "TEST_RECOV" in recov_engine.positions, "Position darf bei hohem Erholungspotenzial nicht voreilig liquidiert werden!"
+        assert recov_engine.positions["TEST_RECOV"].recovery_shield_active, "Recovery Shield muss aktiviert worden sein"
+        assert any("SMART_RECOVERY_DEFENSE" in e for e in events_recov), f"Event muss SMART_RECOVERY_DEFENSE enthalten: {events_recov}"
+
+        # 3. Teste erfolgreichen Rebound zurück über taktischen Stop
+        snap_rebounded = snap_recov_high.model_copy(update={"current_price": 99.2, "rsi_14": 42.0})
+        events_bounce = recov_engine.update_prices_and_check_stops({"TEST_RECOV": snap_rebounded})
+        assert "TEST_RECOV" in recov_engine.positions
+        assert not recov_engine.positions["TEST_RECOV"].recovery_shield_active, "Recovery Shield muss nach erfolgreichem Rebound deaktiviert werden"
+        assert any("RECOVERY_SUCCEEDED" in e for e in events_bounce), f"Event muss RECOVERY_SUCCEEDED enthalten: {events_bounce}"
+
+        # 4. Teste Durchbruch des harten Notfall-Stopps (Kompromissloser Kapitalschutz)
+        snap_crash = snap_recov_high.model_copy(update={"current_price": 94.2})  # Unter 95.0 Notfall-Stop
+        events_crash = recov_engine.update_prices_and_check_stops({"TEST_RECOV": snap_crash})
+        assert "TEST_RECOV" not in recov_engine.positions, "Bei Bruch des Notfall-Stopps muss kompromisslos liquidiert werden!"
+        assert any("HARD_EMERGENCY_STOP_TRIGGERED" in e for e in events_crash), f"Event muss HARD_EMERGENCY_STOP_TRIGGERED enthalten: {events_crash}"
+
+        # 5. Teste Sub-Agent #42 im ADAS-Schwarm & Dialekt-Token
+        adas_recov = ADASMetaAgent()
+        assert "recovery_thesis_auditor" in adas_recov.state.active_subagents, "recovery_thesis_auditor (Sub-Agent #42) muss im Schwarm registriert sein"
+        assert len(adas_recov.state.active_subagents) >= 42, f"Schwarm muss mindestens 42 Spezialisten umfassen, aktuell: {len(adas_recov.state.active_subagents)}"
+
+        deal_recov = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_recov_high,
+            signal=sig_apex_high,
+            macro=green_macro,
+            risk_evaluation=eval_hrp,
+        )
+        assert "🛡️:SMART_RECOVERY_DEFENSE" in deal_recov.dialect_sentence, f"Dialekt muss 🛡️:SMART_RECOVERY_DEFENSE enthalten: {deal_recov.dialect_sentence}"
+
+        print(f"[OK] Test 56 bestanden: Smart Recovery Evaluator, Rebound Defense, Hard Emergency Stop, Sub-Agent #42 & Dialekt-Token.")
+
+    print("=== Alle 56 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158- & Smart-Recovery-Evaluator-Tests erfolgreich bestanden! ===")
 
 
 

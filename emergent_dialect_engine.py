@@ -387,6 +387,15 @@ class EmergentDialectEngine:
             self._ensure_token("🛑:QLIB_ALPHA158_HEADWIND_VETO", "RISK", f"VETO: Qlib Alpha158 meldet quantitativen Gegenwind ({qlib_sc:.2f})")
             tokens_used.append(t)
 
+        # W. Smart Recovery & Rebound Defense (Sub-Agent #42)
+        rsi_val = getattr(snapshot, "rsi_14", 50.0)
+        lower_bb = getattr(snapshot, "bollinger_lower", 0.0)
+        has_bb_bounce = lower_bb > 0 and snapshot.current_price <= lower_bb * 1.01
+        if rsi_val <= 32.0 or has_bb_bounce:
+            t = f"🛡️:SMART_RECOVERY_DEFENSE[RSI{rsi_val:.0f}]"
+            self._ensure_token("🛡️:SMART_RECOVERY_DEFENSE", "DEFENSE", f"Hohes Erholungspotenzial – Rebound-Zone aktiv (RSI {rsi_val:.1f})")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

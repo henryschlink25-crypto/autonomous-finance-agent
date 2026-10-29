@@ -283,8 +283,16 @@ class Position(BaseModel):
     partial_tp_done: bool = False
     take_profit_price: float
     opened_at: str
+    hard_stop_loss_price: float = 0.0
+    recovery_shield_active: bool = False
+    recovery_score: float = 0.0
 
     def model_post_init(self, __context) -> None:
+        if self.hard_stop_loss_price <= 0:
+            if self.side == "SHORT":
+                self.hard_stop_loss_price = round(self.avg_entry_price * 1.045, 4)
+            else:
+                self.hard_stop_loss_price = round(self.avg_entry_price * 0.955, 4)
         if self.highest_price <= 0:
             self.highest_price = (
                 min(self.avg_entry_price, self.current_price)
