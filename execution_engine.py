@@ -576,6 +576,18 @@ class MultiAssetExecutionEngine:
                 urllib.request.urlopen(req, timeout=3.0)
             except Exception:
                 pass
+        if self.config.whatsapp_phone_number and self.config.whatsapp_api_key:
+            try:
+                import urllib.parse
+                clean_phone = self.config.whatsapp_phone_number.replace("+", "").replace(" ", "").replace("-", "")
+                text_content = f"🤖 {title}\n{message}"
+                encoded_text = urllib.parse.quote(text_content)
+                wa_url = f"https://api.callmebot.com/whatsapp.php?phone={clean_phone}&text={encoded_text}&apikey={self.config.whatsapp_api_key}"
+                req = urllib.request.Request(wa_url, headers={"User-Agent": "AutonomousFinanceAgent/2.0"})
+                urllib.request.urlopen(req, timeout=4.0)
+            except Exception:
+                pass
+
 
     def execute_order(self, signal: TradingSignal, risk_eval: RiskEvaluation) -> str:
         """Führt eine vom Risk-Manager genehmigte Order (Long-Kauf, Scale-In, Verkauf oder Short-Sell) aus."""

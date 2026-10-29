@@ -66,10 +66,12 @@ class AgentConfig:
     leveraged_etf_max_days: int = int(os.getenv("LEVERAGED_ETF_MAX_DAYS", "3"))
     min_order_usd: float = 25.0
 
-    # Optionale Echtzeit-Push-Alerts (Telegram Bot oder Discord Webhook)
+    # Optionale Echtzeit-Push-Alerts (Telegram Bot, Discord Webhook oder WhatsApp)
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     telegram_chat_id: str = os.getenv("TELEGRAM_CHAT_ID", "")
     discord_webhook_url: str = os.getenv("DISCORD_WEBHOOK_URL", "")
+    whatsapp_phone_number: str = os.getenv("WHATSAPP_PHONE_NUMBER", "")
+    whatsapp_api_key: str = os.getenv("WHATSAPP_API_KEY", "")
 
     # Storage paths
     portfolio_state_file: str = os.path.join(os.path.dirname(__file__), "data", "portfolio_state.json")
