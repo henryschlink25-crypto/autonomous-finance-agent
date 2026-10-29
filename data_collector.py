@@ -91,31 +91,38 @@ class MultiAssetDataCollector:
         self.last_promoted_notes: List[str] = []
         self.dynamic_radar_file: str = os.path.join(os.path.dirname(__file__), "data", "dynamic_watchlist.json")
 
-    def discover_market_anomalies(self, existing_symbols: set, max_additions: int = 24) -> List[WatchlistItem]:
+    def discover_market_anomalies(self, existing_symbols: set, max_additions: int = 75) -> List[WatchlistItem]:
         """
-        Scannt live 9 institutionelle Yahoo Finance Market Screener ('day_gainers', 'most_actives', 'day_losers',
-        'undervalued_growth_stocks', 'growth_technology_stocks', 'small_cap_gainers', 'aggressive_small_caps',
-        'most_shorted_stocks', 'undervalued_large_caps') nach Aktien & Options-Zielen mit ungewöhnlichem Volumen,
+        Scannt live 9 institutionelle Yahoo Finance Market Screener ('most_actives', 'growth_technology_stocks',
+        'day_gainers', 'undervalued_growth_stocks', 'most_shorted_stocks', 'aggressive_small_caps', 'day_losers',
+        'small_cap_gainers', 'undervalued_large_caps') nach Aktien & Options-Zielen mit ungewöhnlichem Volumen,
         Short-Squeeze-Potenzial oder Ausbruchs-Momentum.
+        Gewährleistet eine breite und diversifizierte Chancenerfassung ohne einseitige Monopolisierung.
         """
         discovered: List[WatchlistItem] = []
         seen = set(existing_symbols)
+        # Priorisiere hochliquide institutionelle Screener vor extremen Penny-Gainern
         screeners = (
-            "day_gainers",
-            "most_actives",
-            "day_losers",
-            "undervalued_growth_stocks",
-            "growth_technology_stocks",
-            "small_cap_gainers",
-            "aggressive_small_caps",
-            "most_shorted_stocks",
-            "undervalued_large_caps",
+            ("most_actives", 15),
+            ("growth_technology_stocks", 12),
+            ("day_gainers", 10),
+            ("undervalued_growth_stocks", 10),
+            ("most_shorted_stocks", 10),
+            ("aggressive_small_caps", 8),
+            ("small_cap_gainers", 8),
+            ("day_losers", 6),
+            ("undervalued_large_caps", 8),
         )
-        for screen_name in screeners:
+        for screen_name, max_per_screen in screeners:
+            if len(discovered) >= max_additions:
+                break
             try:
                 res = yf.screen(screen_name)
                 quotes = res.get("quotes", []) if isinstance(res, dict) else []
+                screen_count = 0
                 for q in quotes:
+                    if screen_count >= max_per_screen or len(discovered) >= max_additions:
+                        break
                     sym = str(q.get("symbol", "")).strip().upper()
                     if not sym or sym in seen or "." in sym or "-" in sym or len(sym) > 5:
                         continue
@@ -128,7 +135,7 @@ class MultiAssetDataCollector:
 
                     # Liquide Aktie oder Penny-Stock mit außergewöhnlicher Bewegung / RVOL
                     is_penny = (0.50 <= price < 5.0) and (vol_mult >= 1.6 or abs(chg_pct) >= 3.5)
-                    is_mid_large = (price >= 5.0 and mkt_cap >= 400_000_000 and (abs(chg_pct) >= 2.5 or (abs(chg_pct) >= 1.5 and vol_mult >= 1.3)))
+                    is_mid_large = (price >= 5.0 and mkt_cap >= 300_000_000 and (abs(chg_pct) >= 1.8 or (abs(chg_pct) >= 1.0 and vol_mult >= 1.25)))
 
                     if is_penny or is_mid_large:
                         name = str(q.get("shortName") or q.get("longName") or sym)[:28]
@@ -149,8 +156,7 @@ class MultiAssetDataCollector:
                             )
                         )
                         seen.add(sym)
-                        if len(discovered) >= max_additions:
-                            break
+                        screen_count += 1
 
             except Exception:
                 continue
@@ -161,7 +167,7 @@ class MultiAssetDataCollector:
             sector_radar = SectorMomentumExpander()
             sec_snap = sector_radar.scan_sector_rotation()
             for hot_sym in sec_snap.recommended_hot_stocks:
-                if hot_sym not in seen and len(discovered) < max_additions:
+                if hot_sym not in seen:
                     discovered.append(
                         WatchlistItem(
                             symbol=hot_sym,
@@ -178,7 +184,7 @@ class MultiAssetDataCollector:
 
         # 3. Inverse Absicherungs-ETFs (SOXS, SQQQ) immer im Scanner bereithalten
         for inv, inv_name in [("SOXS", "3x Short Semiconductor"), ("SQQQ", "3x Short Nasdaq")]:
-            if inv not in seen and len(discovered) < max_additions:
+            if inv not in seen:
                 discovered.append(
                     WatchlistItem(
                         symbol=inv,
@@ -227,7 +233,7 @@ class MultiAssetDataCollector:
 
         dynamic_movers = self.discover_market_anomalies(
             existing_symbols={w.symbol if hasattr(w, "symbol") else str(w) for w in candidate_pool},
-            max_additions=24,
+            max_additions=75,
         )
 
         # Stelle sicher, dass auch vorherige 'Weiterbeobachten'-Aktien aus früheren Screener-Läufen wieder mitgeprüft werden
@@ -356,7 +362,7 @@ class MultiAssetDataCollector:
             # 6. Earnings-Blackout Vorfilter: Sperre keine wertvollen Zone-1 Plätze für Aktien mit Zahlen heute/morgen
             snap_item = snapshots.get(item.symbol) if snapshots else None
             earn_rel = getattr(snap_item, "earnings_date_relative", "") if snap_item else ""
-            if item.symbol in ("BOOT", "CVNA", "GEN", "GOOGL") or earn_rel in ("TODAY", "TOMORROW"):
+            if earn_rel in ("TODAY", "TOMORROW"):
                 activity_score -= 4.0
                 reasons.append("Earnings-Blackout")
 

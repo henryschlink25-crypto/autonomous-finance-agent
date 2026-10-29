@@ -94,8 +94,8 @@ class AgentConfig:
     # - Aktien ohne interessante Aktivität (kein Volumen-Schub, kein Momentum, keine News) werden automatisch aussortiert!
     # - Dafür scannt der Agent live den Gesamtmarkt nach aktuellen Ausbrechern (" Stocks in Play").
     enable_dynamic_anomaly_scanner: bool = True
-    max_dynamic_anomaly_tickers: int = 36
-    max_active_watchlist_size: int = int(os.getenv("MAX_ACTIVE_WATCHLIST_SIZE", "28"))
+    max_dynamic_anomaly_tickers: int = 75
+    max_active_watchlist_size: int = int(os.getenv("MAX_ACTIVE_WATCHLIST_SIZE", "45"))
     min_activity_score_to_keep: float = 0.25
     dynamic_watchlist_file: str = os.path.join(os.path.dirname(__file__), "data", "dynamic_watchlist.json")
     watchlist: List[WatchlistItem] = field(default_factory=lambda: [
@@ -144,6 +144,13 @@ class AgentConfig:
         WatchlistItem(symbol="IONQ", yf_ticker="IONQ", asset_class="EQUITY", cluster="HIGH_BETA", name="IonQ Inc. (Quantum Computing)"),
         WatchlistItem(symbol="RGTI", yf_ticker="RGTI", asset_class="EQUITY", cluster="HIGH_BETA", name="Rigetti Computing"),
         WatchlistItem(symbol="RKLB", yf_ticker="RKLB", asset_class="EQUITY", cluster="HIGH_BETA", name="Rocket Lab USA (Space)"),
+        WatchlistItem(symbol="ASTS", yf_ticker="ASTS", asset_class="EQUITY", cluster="HIGH_BETA", name="AST SpaceMobile (Direct-to-Cell)"),
+        WatchlistItem(symbol="HIMS", yf_ticker="HIMS", asset_class="EQUITY", cluster="HIGH_BETA", name="Hims & Hers Health"),
+        WatchlistItem(symbol="CAVA", yf_ticker="CAVA", asset_class="EQUITY", cluster="HIGH_BETA", name="CAVA Group Inc."),
+        WatchlistItem(symbol="DKNG", yf_ticker="DKNG", asset_class="EQUITY", cluster="HIGH_BETA", name="DraftKings Inc."),
+        WatchlistItem(symbol="CELH", yf_ticker="CELH", asset_class="EQUITY", cluster="HIGH_BETA", name="Celsius Holdings"),
+        WatchlistItem(symbol="RDDT", yf_ticker="RDDT", asset_class="EQUITY", cluster="HIGH_BETA", name="Reddit Inc."),
+        WatchlistItem(symbol="NET", yf_ticker="NET", asset_class="EQUITY", cluster="US_TECH", name="Cloudflare Inc."),
         WatchlistItem(symbol="NFLX", yf_ticker="NFLX", asset_class="EQUITY", cluster="US_TECH", name="Netflix Inc."),
         # 4. Chinesische High-Growth & E-Mobility Leader
         WatchlistItem(symbol="BABA", yf_ticker="BABA", asset_class="EQUITY", cluster="CHINA_TECH", name="Alibaba Group (China Cloud/AI)"),
