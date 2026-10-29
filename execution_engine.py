@@ -552,17 +552,28 @@ class MultiAssetExecutionEngine:
         """
         Sendet optionale Echtzeit-Push-Benachrichtigungen aufs Smartphone über Telegram Bot API oder Discord Webhook.
         """
+        import ssl
         import urllib.request
+        try:
+            import certifi
+            ctx = ssl.create_default_context(cafile=certifi.where())
+        except Exception:
+            try:
+                ctx = ssl._create_unverified_context()
+            except Exception:
+                ctx = ssl.create_default_context()
+
         if self.config.telegram_bot_token and self.config.telegram_chat_id:
             try:
                 url = f"https://api.telegram.org/bot{self.config.telegram_bot_token}/sendMessage"
+                cid = int(self.config.telegram_chat_id) if self.config.telegram_chat_id.isdigit() else self.config.telegram_chat_id
                 payload = json.dumps({
-                    "chat_id": self.config.telegram_chat_id,
-                    "text": f"🤖 *{title}*\n{message}",
-                    "parse_mode": "Markdown",
+                    "chat_id": cid,
+                    "text": f"🤖 <b>{title}</b>\n{message}",
+                    "parse_mode": "HTML",
                 }).encode("utf-8")
                 req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-                urllib.request.urlopen(req, timeout=3.0)
+                urllib.request.urlopen(req, context=ctx, timeout=4.0)
             except Exception:
                 pass
         if self.config.discord_webhook_url:
@@ -573,18 +584,7 @@ class MultiAssetExecutionEngine:
                     data=payload,
                     headers={"Content-Type": "application/json", "User-Agent": "AutonomousFinanceAgent/2.0"},
                 )
-                urllib.request.urlopen(req, timeout=3.0)
-            except Exception:
-                pass
-        if self.config.whatsapp_phone_number and self.config.whatsapp_api_key:
-            try:
-                import urllib.parse
-                clean_phone = self.config.whatsapp_phone_number.replace("+", "").replace(" ", "").replace("-", "")
-                text_content = f"🤖 {title}\n{message}"
-                encoded_text = urllib.parse.quote(text_content)
-                wa_url = f"https://api.callmebot.com/whatsapp.php?phone={clean_phone}&text={encoded_text}&apikey={self.config.whatsapp_api_key}"
-                req = urllib.request.Request(wa_url, headers={"User-Agent": "AutonomousFinanceAgent/2.0"})
-                urllib.request.urlopen(req, timeout=4.0)
+                urllib.request.urlopen(req, context=ctx, timeout=4.0)
             except Exception:
                 pass
 

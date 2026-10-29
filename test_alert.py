@@ -6,7 +6,9 @@ Sendet einen sofortigen Test-Alarm aufs Smartphone, um zu prüfen, ob die Benach
 import os
 import sys
 import json
+import ssl
 import urllib.request
+import urllib.error
 from dotenv import load_dotenv
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -17,8 +19,17 @@ load_dotenv()
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "").strip()
-WHATSAPP_PHONE_NUMBER = os.getenv("WHATSAPP_PHONE_NUMBER", "").strip()
-WHATSAPP_API_KEY = os.getenv("WHATSAPP_API_KEY", "").strip()
+
+
+def _get_ssl_context() -> ssl.SSLContext:
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        try:
+            return ssl._create_unverified_context()
+        except Exception:
+            return ssl.create_default_context()
 
 
 def send_test_telegram() -> bool:
@@ -26,27 +37,34 @@ def send_test_telegram() -> bool:
         print("[Telegram] Nicht konfiguriert (TELEGRAM_BOT_TOKEN oder TELEGRAM_CHAT_ID fehlt in .env).")
         return False
 
+    ctx = _get_ssl_context()
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = json.dumps({
-        "chat_id": TELEGRAM_CHAT_ID,
+        "chat_id": int(TELEGRAM_CHAT_ID) if TELEGRAM_CHAT_ID.isdigit() else TELEGRAM_CHAT_ID,
         "text": (
-            "🤖 *Autonomous Finance Agent · Test-Alarm*\n\n"
-            "✅ *Verbindung erfolgreich hergestellt!*\n"
+            "🤖 <b>Autonomous Finance Agent · Test-Alarm</b>\n\n"
+            "✅ <b>Verbindung erfolgreich hergestellt!</b>\n"
             "Dein KI-Trading-Schwarm (14 Spezial-Unteragenten) ist mit deinem Smartphone verbunden.\n\n"
-            "Du wirst ab sofort benachrichtigt bei:\n"
-            "• 🚀 Penny-Stock Ausbrüchen & 8-K Katalysatoren\n"
-            "• 📈 Trade-Eröffnungen & Gewinn-Mitnahmen\n"
-            "• 🧬 Geburt neuer Spezial-Hilfsagenten"
+            "Du wirst ab sofort in Echtzeit benachrichtigt bei:\n"
+            "• 🚀 Penny-Stock Ausbrüchen & SEC 8-K Katalysatoren\n"
+            "• 📈 Trade-Eröffnungen & 2-Stufen Gewinn-Mitnahmen\n"
+            "• 🧬 Geburt neuer Unteragenten & Meta-Evolution"
         ),
-        "parse_mode": "Markdown",
+        "parse_mode": "HTML",
     }).encode("utf-8")
 
     try:
         req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=5.0) as resp:
+        with urllib.request.urlopen(req, context=ctx, timeout=6.0) as resp:
             if resp.status == 200:
                 print("✅ [Telegram] Test-Nachricht erfolgreich aufs Smartphone gesendet!")
                 return True
+    except urllib.error.HTTPError as e:
+        err_body = e.read().decode("utf-8")
+        if "chat not found" in err_body.lower():
+            print("⚠️ [Telegram] Chat noch nicht initialisiert: Bitte öffne in Telegram @Henry_trading_agent_bot und drücke 'START'!")
+        else:
+            print(f"❌ [Telegram] HTTP Fehler: {err_body}")
     except Exception as e:
         print(f"❌ [Telegram] Fehler beim Senden: {e}")
     return False
@@ -67,12 +85,13 @@ def send_test_discord() -> bool:
     }).encode("utf-8")
 
     try:
+        ctx = _get_ssl_context()
         req = urllib.request.Request(
             DISCORD_WEBHOOK_URL,
             data=payload,
             headers={"Content-Type": "application/json", "User-Agent": "AutonomousFinanceAgent/2.0"},
         )
-        with urllib.request.urlopen(req, timeout=5.0) as resp:
+        with urllib.request.urlopen(req, context=ctx, timeout=5.0) as resp:
             if resp.status in (200, 204):
                 print("✅ [Discord] Test-Nachricht erfolgreich im Discord-Kanal gesendet!")
                 return True
@@ -81,38 +100,7 @@ def send_test_discord() -> bool:
     return False
 
 
-def send_test_whatsapp() -> bool:
-    if not WHATSAPP_PHONE_NUMBER or not WHATSAPP_API_KEY:
-        print("[WhatsApp] Nicht konfiguriert (WHATSAPP_PHONE_NUMBER oder WHATSAPP_API_KEY fehlt in .env).")
-        return False
-
-    import urllib.parse
-    clean_phone = WHATSAPP_PHONE_NUMBER.replace("+", "").replace(" ", "").replace("-", "")
-    text_content = (
-        "🤖 Autonomous Finance Agent · Test-Alarm\n\n"
-        "✅ WhatsApp-Verbindung erfolgreich hergestellt!\n"
-        "Dein KI-Trading-Schwarm ist jetzt direkt mit deinem WhatsApp verbunden.\n\n"
-        "Alerts für Trades, Penny Stocks & Agenten-Evolution werden ab sofort hierher gesendet."
-    )
-    encoded_text = urllib.parse.quote(text_content)
-    wa_url = f"https://api.callmebot.com/whatsapp.php?phone={clean_phone}&text={encoded_text}&apikey={WHATSAPP_API_KEY}"
-
-    try:
-        req = urllib.request.Request(wa_url, headers={"User-Agent": "AutonomousFinanceAgent/2.0"})
-        with urllib.request.urlopen(req, timeout=6.0) as resp:
-            if resp.status == 200:
-                print("✅ [WhatsApp] Test-Nachricht erfolgreich auf dein WhatsApp gesendet!")
-                return True
-    except Exception as e:
-        print(f"❌ [WhatsApp] Fehler beim Senden: {e}")
-    return False
-
-
 if __name__ == "__main__":
     print("=== 📲 Teste Smartphone Push-Benachrichtigungen ===")
     t_ok = send_test_telegram()
     d_ok = send_test_discord()
-    w_ok = send_test_whatsapp()
-    if not t_ok and not d_ok and not w_ok:
-        print("\n👉 Bitte trage deinen Telegram-Bot, Discord-Webhook oder WhatsApp-Key in .env ein.")
-
