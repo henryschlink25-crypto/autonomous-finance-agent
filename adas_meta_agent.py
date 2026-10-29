@@ -320,6 +320,37 @@ class ADASMetaArchitect:
                 events.append(msg)
                 self._send_evolution_alert(spec)
 
+        # 3. Autonome Werkzeug-Synthese (ADAS AI Scientist / Sakana AI Paradigm):
+        # Programmiert, validiert per AST und deployed quantitative Werkzeuge eigenständig in die Toolbox.
+        try:
+            from adas_code_synthesizer import ADASCodeSynthesizer
+            syn = ADASCodeSynthesizer()
+            new_tool = syn.synthesize_next_optimal_tool()
+            if new_tool:
+                t_msg = f"[{now_str[11:19]}] ⚙️ Autonome Werkzeug-Synthese: '{new_tool['name']}' ({new_tool['tool_id']}) verifiziert & in QuantitativeToolbox integriert."
+                self.state.evolution_log.append(t_msg)
+                events.append(t_msg)
+        except Exception:
+            pass
+
+        # 4. Autonome genetische Strategie-Zucht (AlphaZero / Walk-Forward Crisis Backtesting):
+        # Läuft periodisch alle 12 Zyklen oder initial wenn < 2 gezüchtete Elite-Strategien aktiv sind.
+        try:
+            active_bred = [ag for ag in self.state.active_subagents.values() if ag.specialty_focus in ("PENNY_CATALYST_ROCKET", "VOLATILITY_SQUEEZE_EXPLOSION", "WHALE_ORDERFLOW_ACCUMULATOR", "SUPERTREND_REGIME_RIDER")]
+            if len(active_bred) < 2 or (self.state.total_evolution_cycles % 12 == 0):
+                from genetic_strategy_breeder import GeneticStrategyBreeder
+                breeder = GeneticStrategyBreeder(self.config)
+                population = breeder.breed_generation(pop_size=4, generation_num=max(1, self.state.evolution_generation))
+                for cand in population:
+                    if cand.get("is_elite"):
+                        ok, fpath = breeder.deploy_elite_strategy(cand)
+                        if ok:
+                            b_msg = f"[{now_str[11:19]}] 🧬 Elite-Strategie gezüchtet & scharfgeschaltet: '{cand['class_name']}' (Sharpe {cand['performance']['sharpe_ratio']:.2f}, Win-Rate {cand['performance']['win_rate_pct']:.1f}%)"
+                            self.state.evolution_log.append(b_msg)
+                            events.append(b_msg)
+        except Exception:
+            pass
+
         self.state.evolution_log = self.state.evolution_log[-30:]
         self._save()
         return events
@@ -730,6 +761,36 @@ class ADASMetaArchitect:
                 role="Erkennt institutionelle Folgekäufe nach Quartalszahlen-Überraschungen (Earnings Beat + Gap-and-Go + hohes Volumen) und reitet den 3- bis 10-Tage Drift.",
                 specialty_focus="PEAD_MOMENTUM",
                 trust_weight=1.28,
+            ))
+
+        # 22. Biopharma & FDA Clinical Catalyst Sentinel (Sub-Agent #35)
+        if "biopharma_catalyst_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="biopharma_catalyst_sentinel",
+                name="🧬 Biopharma & FDA Clinical Catalyst Sentinel",
+                role="Überwacht FDA-Zulassungen, Phase-3 Studienergebnisse und PDUFA-Entscheidungen im US-Biotechsektor mit asymmetrischem Chance-Risiko-Profil.",
+                specialty_focus="BIOPHARMA_CATALYST",
+                trust_weight=1.24,
+            ))
+
+        # 23. Crypto-Macro Lead-Lag Divergence Specialist (Sub-Agent #36)
+        if "crypto_macro_lead_lag_specialist" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="crypto_macro_lead_lag_specialist",
+                name="⚡ Crypto-Macro Lead-Lag Divergence Specialist",
+                role="Nutzt 24/7 Bitcoin/Ethereum Liquiditäts-Impulse und Wochenend-Divergenzen als Frühindikator für montägliche Eröffnungslücken von Tech- und Krypto-Aktien.",
+                specialty_focus="CRYPTO_LEAD_LAG",
+                trust_weight=1.22,
+            ))
+
+        # 24. Short-Squeeze & High Cost-to-Borrow Hunter (Sub-Agent #37)
+        if "short_squeeze_ctb_hunter" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="short_squeeze_ctb_hunter",
+                name="🪤 Short-Squeeze & Extreme CTB Hunter",
+                role="Identifiziert Aktien mit überhöhtem Short Interest (>15%), steigenden Leihezinsen (Cost-to-Borrow) und beginnender Short-Covering-Kettenreaktion.",
+                specialty_focus="SHORT_SQUEEZE_CTB",
+                trust_weight=1.25,
             ))
 
         return new_specs
@@ -1656,6 +1717,153 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = f"PEAD Hunter temporär neutral ({e})"
+
+        elif focus == "BIOPHARMA_CATALYST":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            has_bio_cat = snap.sec_form8k_catalyst or snap.cluster == "BIOTECH"
+            vol_boost = rvol_val >= 1.5
+            chg = snap.change_24h_pct
+            s_cat = rec.flag("Biopharma Catalyst Present", has_bio_cat, "bull")
+            s_vol = rec.flag("Biopharma Volume Surge", vol_boost, "bull")
+            if s_cat.passed and chg >= 2.0 and s_vol.passed:
+                score = min(0.95, 0.70 + (chg / 30.0) * 0.25)
+                conf = 0.90
+                cat_desc = f" [{snap.sec_form8k_catalyst[:40]}]" if snap.sec_form8k_catalyst else ""
+                rationale = f"🧬 Biopharma A+ Catalyst: FDA/Trial Move +{chg:.1f}% bei {rvol_val:.1f}x Vol{cat_desc}"
+                decisive_idx = rec.idx(s_cat, s_vol)
+            else:
+                score = 0.05
+                conf = 0.50
+                rationale = "Biopharma Catalyst neutral"
+
+        elif focus == "CRYPTO_LEAD_LAG":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            is_crypto_sym = snap.symbol in ("BTC-USD", "ETH-USD", "SOL-USD") or snap.cluster == "CRYPTO"
+            is_crypto_stock = snap.symbol in ("COIN", "MSTR", "MARA", "RIOT", "CLSK")
+            vol_hi = rvol_val >= 1.4
+            chg = snap.change_24h_pct
+            if (is_crypto_sym or is_crypto_stock) and chg >= 2.5 and vol_hi:
+                score = 0.86
+                conf = 0.89
+                rationale = f"⚡ Krypto-Liquiditäts Lead-Lag Momentum: +{chg:.1f}% Ausbruch bei {rvol_val:.1f}x Vol"
+            elif (is_crypto_sym or is_crypto_stock) and chg <= -3.5:
+                score = -0.75
+                conf = 0.82
+                rationale = f"⚠️ Krypto-Schwäche Vorläufer: {chg:.1f}% Rücksetzer"
+            else:
+                score = 0.0
+                conf = 0.50
+                rationale = "Krypto Lead-Lag neutral"
+
+        elif focus == "SHORT_SQUEEZE_CTB":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            high_vol = rvol_val >= 1.8
+            chg = snap.change_24h_pct
+            whale_opt = getattr(snap, "unusual_options_activity_detected", False) or snap.unusual_options_vol_oi >= 1.8
+            if high_vol and chg >= 3.5 and (whale_opt or getattr(snap, "intraday_vwap_rs", 0.0) > 3.0 or snap.relative_strength_vs_spy > 3.0):
+                score = 0.88
+                conf = 0.92
+                rationale = f"🪤 Short-Squeeze Kettenreaktion: RVOL {rvol_val:.1f}x & +{chg:.1f}% Move mit starkem Smart Money Druck"
+            else:
+                score = 0.05
+                conf = 0.50
+                rationale = "Short-Squeeze Kriterien neutral"
+
+        elif focus == "PENNY_CATALYST_ROCKET":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            min_rvol = ag.rule_parameters.get("min_rvol", 1.95)
+            min_chg = ag.rule_parameters.get("min_change_pct", 3.8)
+            max_p = ag.rule_parameters.get("penny_max_price", 5.20)
+            s_p = rec.num("Penny Max Preis", snap.current_price, "<=", "penny_max_price", max_p, "bull")
+            s_rv = rec.num("Penny RVOL", rvol_val, ">=", "min_rvol", min_rvol, "bull")
+            s_ch = rec.num("Penny Ausbruch", snap.change_24h_pct, ">=", "min_change_pct", min_chg, "bull")
+            if s_p.passed and s_rv.passed and s_ch.passed:
+                score = 0.86
+                conf = 0.91
+                rationale = f"🧬 Gezüchtete Elite-Strategie (Penny Catalyst Rocket): RVOL {rvol_val:.1f}x & +{snap.change_24h_pct:.1f}% Ausbruch"
+                decisive_idx = rec.idx(s_p, s_rv, s_ch)
+            else:
+                score = 0.05
+                conf = 0.50
+                rationale = "Penny Catalyst Rocket neutral"
+
+        elif focus == "VOLATILITY_SQUEEZE_EXPLOSION":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            min_rvol = ag.rule_parameters.get("min_rvol", 1.50)
+            min_chg = ag.rule_parameters.get("min_change_pct", 1.5)
+            s_rv = rec.num("Squeeze RVOL", rvol_val, ">=", "min_rvol", min_rvol, "bull")
+            s_ch = rec.num("Squeeze Ausbruch", snap.change_24h_pct, ">=", "min_change_pct", min_chg, "bull")
+            is_sqz = "FIRED" in snap.ttm_squeeze_status or snap.macd_hist > 0
+            if is_sqz and s_rv.passed and s_ch.passed:
+                score = 0.85
+                conf = 0.89
+                rationale = f"🧬 Gezüchtete Elite-Strategie (Vol Squeeze Explosion): Ausbruch mit RVOL {rvol_val:.1f}x und MACD {snap.macd_hist:+.2f}"
+                decisive_idx = rec.idx(s_rv, s_ch)
+            else:
+                score = 0.05
+                conf = 0.50
+                rationale = "Vol Squeeze Explosion neutral"
+
+        elif focus == "WHALE_ORDERFLOW_ACCUMULATOR":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            min_rvol = ag.rule_parameters.get("min_rvol", 1.65)
+            has_whale = getattr(snap, "unusual_options_activity_detected", False) or snap.unusual_options_vol_oi >= 1.8 or getattr(snap, "options_call_put_ratio", 1.0) >= 1.5
+            s_rv = rec.num("Whale RVOL", rvol_val, ">=", "min_rvol", min_rvol, "bull")
+            s_wh = rec.flag("Whale Accumulation", has_whale, "bull")
+            if s_rv.passed and s_wh.passed:
+                score = 0.87
+                conf = 0.92
+                rationale = f"🧬 Gezüchtete Elite-Strategie (Whale Flow Accumulator): Smart Money Akkumulation & RVOL {rvol_val:.1f}x"
+                decisive_idx = rec.idx(s_rv, s_wh)
+            else:
+                score = 0.05
+                conf = 0.50
+                rationale = "Whale Accumulator neutral"
+
+        elif focus == "SUPERTREND_REGIME_RIDER":
+            rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
+            min_rvol = ag.rule_parameters.get("min_rvol", 1.35)
+            is_st_green = getattr(snap, "supertrend_direction", "BEARISH") == "BULLISH" or snap.trend_status == "BULLISH"
+            is_above_ma = snap.current_price >= snap.sma_50
+            s_st = rec.flag("SuperTrend Bullish", is_st_green and is_above_ma, "bull")
+            s_rv = rec.num("Trend RVOL", rvol_val, ">=", "min_rvol", min_rvol, "bull")
+            if s_st.passed and s_rv.passed:
+                score = 0.85
+                conf = 0.89
+                rationale = f"🧬 Gezüchtete Elite-Strategie (SuperTrend Regime Rider): Etablierter Megatrend & RVOL {rvol_val:.1f}x"
+                decisive_idx = rec.idx(s_st, s_rv)
+            else:
+                score = 0.05
+                conf = 0.50
+                rationale = "SuperTrend Regime Rider neutral"
+
+        # Autonome Werkzeug-Erweiterung: Berücksichtige vom ADAS AI Scientist synthetisierte Indikatoren
+        if snap.custom_metrics:
+            synth_boost = 0.0
+            tool_reasons = []
+            if snap.custom_metrics.get("vw_macd_signal") == "BULLISH_SURGE":
+                synth_boost += 0.04
+                tool_reasons.append("VW-MACD Surge")
+            if snap.custom_metrics.get("rvi_status") == "VOLATILITY_EXPANSION_UP":
+                synth_boost += 0.04
+                tool_reasons.append("RVI Exp")
+            if snap.custom_metrics.get("hull_ma_hma_trend") == "BULLISH":
+                synth_boost += 0.04
+                tool_reasons.append("HMA Bullish")
+            if snap.custom_metrics.get("choppiness_index_regime") == "STRONG_TREND":
+                synth_boost += 0.03
+                tool_reasons.append("CHOP Trend")
+            if snap.custom_metrics.get("elder_ray_status") == "STRONG_BULL_DOMINANCE":
+                synth_boost += 0.03
+                tool_reasons.append("Elder Ray Bull")
+            if snap.custom_metrics.get("twiggs_mf_status") == "BULLISH_FLOW":
+                synth_boost += 0.03
+                tool_reasons.append("Twiggs Flow")
+
+            if synth_boost > 0 and score > 0.20:
+                score = min(1.0, score + synth_boost)
+                conf = min(0.98, conf + synth_boost * 0.5)
+                rationale += f" [⚙️ Synthetisierte Tools: {'/'.join(tool_reasons[:3])}]"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:

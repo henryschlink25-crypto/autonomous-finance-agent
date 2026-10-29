@@ -84,6 +84,109 @@ SYNTHESIS_CANDIDATE_TEMPLATES = [
     return {"rvi": val, "status": stat}
 """,
     },
+    {
+        "name": "HullMovingAverage",
+        "tool_id": "hull_ma",
+        "description": "Hull Moving Average (HMA): Extrem verzögerungsarmer Trend-Filter zur Früherkennung dynamischer Richtungswechsel.",
+        "code": """def calculate_hull_ma(df_daily, period=16):
+    if df_daily is None or len(df_daily) < period + 5:
+        return {"hma_val": 0.0, "hma_slope": 0.0, "hma_trend": "NEUTRAL"}
+    close = df_daily["Close"].astype(float)
+    half_p = max(2, int(period / 2))
+    sqrt_p = max(2, int(np.sqrt(period)))
+    wma_half = close.rolling(half_p).apply(lambda x: np.dot(x, np.arange(1, len(x) + 1)) / np.arange(1, len(x) + 1).sum(), raw=True)
+    wma_full = close.rolling(period).apply(lambda x: np.dot(x, np.arange(1, len(x) + 1)) / np.arange(1, len(x) + 1).sum(), raw=True)
+    diff = 2 * wma_half - wma_full
+    hma = diff.rolling(sqrt_p).apply(lambda x: np.dot(x, np.arange(1, len(x) + 1)) / np.arange(1, len(x) + 1).sum(), raw=True)
+    val = round(float(hma.iloc[-1]), 2)
+    prev = round(float(hma.iloc[-2]), 2) if len(hma) >= 2 else val
+    slope = round(float(val - prev), 3)
+    trend = "BULLISH" if slope > 0 else ("BEARISH" if slope < 0 else "NEUTRAL")
+    return {"hma_val": val, "hma_slope": slope, "hma_trend": trend}
+""",
+    },
+    {
+        "name": "DonchianBreakoutChannel",
+        "tool_id": "donchian_channel",
+        "description": "Donchian Breakout Channel: 20-Tage Ausbruchskanal (Turtle Strategy). Erkennt Trend-Expansionen aus engen Konsolidierungen.",
+        "code": """def calculate_donchian_channel(df_daily, period=20):
+    if df_daily is None or len(df_daily) < period + 2:
+        return {"donchian_breakout": "NONE", "channel_width_pct": 0.0}
+    high = df_daily["High"].astype(float)
+    low = df_daily["Low"].astype(float)
+    close = df_daily["Close"].astype(float)
+    upper = high.rolling(period).max()
+    lower = low.rolling(period).min()
+    cur_c = float(close.iloc[-1])
+    cur_u = float(upper.iloc[-2]) if len(upper) >= 2 else cur_c
+    cur_l = float(lower.iloc[-2]) if len(lower) >= 2 else cur_c
+    width_pct = round(((cur_u - cur_l) / cur_c) * 100.0, 2) if cur_c > 0 else 0.0
+    status = "UPPER_BREAKOUT" if cur_c >= cur_u else ("LOWER_BREAKDOWN" if cur_c <= cur_l else "INSIDE_CHANNEL")
+    return {"donchian_breakout": status, "channel_width_pct": width_pct, "upper_barrier": round(cur_u, 2), "lower_barrier": round(cur_l, 2)}
+""",
+    },
+    {
+        "name": "ChoppinessIndex",
+        "tool_id": "choppiness_index",
+        "description": "Choppiness Index (CHOP): Fraktale Dimension zur Trennung von echten Trendphasen (< 38.2) und seitwärtigem Markt-Rauschen (> 61.8).",
+        "code": """def calculate_choppiness_index(df_daily, period=14):
+    if df_daily is None or len(df_daily) < period + 3:
+        return {"chop": 50.0, "regime": "NEUTRAL"}
+    high = df_daily["High"].astype(float)
+    low = df_daily["Low"].astype(float)
+    close = df_daily["Close"].astype(float)
+    prev_close = close.shift(1)
+    tr = pd.concat([high - low, (high - prev_close).abs(), (low - prev_close).abs()], axis=1).max(axis=1)
+    sum_tr = tr.rolling(period).sum()
+    max_hi = high.rolling(period).max()
+    min_lo = low.rolling(period).min()
+    range_hl = (max_hi - min_lo).replace(0, 0.0001)
+    chop = 100.0 * np.log10(sum_tr / range_hl) / np.log10(period)
+    val = round(float(chop.iloc[-1]), 2)
+    regime = "STRONG_TREND" if val < 38.2 else ("CHOPPY_SIDEWAYS" if val > 61.8 else "TRANSITION")
+    return {"chop": val, "regime": regime}
+""",
+    },
+    {
+        "name": "ElderRayBullPower",
+        "tool_id": "elder_ray",
+        "description": "Elder Ray Bull Power: Misst die Kaufkraft institutioneller Bullen relativ zum 13-Tage Exponential Moving Average.",
+        "code": """def calculate_elder_ray(df_daily, period=13):
+    if df_daily is None or len(df_daily) < period + 2:
+        return {"bull_power": 0.0, "status": "NEUTRAL"}
+    high = df_daily["High"].astype(float)
+    close = df_daily["Close"].astype(float)
+    ema = close.ewm(span=period, adjust=False).mean()
+    bull_power = high - ema
+    val = round(float(bull_power.iloc[-1]), 3)
+    status = "STRONG_BULL_DOMINANCE" if val > 0 else "BEAR_PRESSURE"
+    return {"bull_power": val, "status": status}
+""",
+    },
+    {
+        "name": "TwiggsMoneyFlow",
+        "tool_id": "twiggs_mf",
+        "description": "Twiggs Money Flow (TMF): Verfeinerter Akkumulations-Oszillator mit exponentieller Glättung und Schutz vor Kurslücken.",
+        "code": """def calculate_twiggs_mf(df_daily, period=21):
+    if df_daily is None or len(df_daily) < period + 3:
+        return {"tmf": 0.0, "status": "NEUTRAL"}
+    high = df_daily["High"].astype(float)
+    low = df_daily["Low"].astype(float)
+    close = df_daily["Close"].astype(float)
+    vol = df_daily["Volume"].astype(float)
+    prev_close = close.shift(1)
+    true_low = pd.concat([low, prev_close], axis=1).min(axis=1)
+    true_high = pd.concat([high, prev_close], axis=1).max(axis=1)
+    tr = (true_high - true_low).replace(0, 0.0001)
+    adv = ((2 * close - true_high - true_low) / tr) * vol
+    alpha = 2.0 / (period + 1)
+    ema_adv = adv.ewm(alpha=alpha, adjust=False).mean()
+    ema_vol = vol.ewm(alpha=alpha, adjust=False).mean().replace(0, 1)
+    tmf = round(float((ema_adv / ema_vol).iloc[-1]), 4)
+    stat = "BULLISH_FLOW" if tmf > 0.05 else ("BEARISH_OUTFLOW" if tmf < -0.05 else "NEUTRAL")
+    return {"tmf": tmf, "status": stat}
+""",
+    },
 ]
 
 
@@ -182,6 +285,7 @@ class ADASCodeSynthesizer:
             file_path = os.path.join(self.output_dir, f"{t_id}.py")
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(f"# Autonom synthetisierter Code von ADAS Meta-Architect ({datetime.datetime.now().isoformat()})\n")
+                f.write("import numpy as np\nimport pandas as pd\n\n")
                 f.write(tmpl["code"])
 
             entry = {
@@ -212,6 +316,17 @@ class ADASCodeSynthesizer:
 
         console.print("[dim]Alle aktuellen Synthese-Kandidaten sind bereits aktiv.[/dim]")
         return None
+
+    def synthesize_all_pending(self) -> List[Dict[str, Any]]:
+        """Synthetisiert alle noch offenen Tool-Kandidaten in einem Durchlauf."""
+        deployed = []
+        while True:
+            entry = self.synthesize_next_optimal_tool()
+            if entry:
+                deployed.append(entry)
+            else:
+                break
+        return deployed
 
 
 if __name__ == "__main__":

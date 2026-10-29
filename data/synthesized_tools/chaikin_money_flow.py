@@ -1,4 +1,7 @@
-# Autonom synthetisierter Code von ADAS Meta-Architect (2026-10-29T10:11:38.534592)
+# Autonom synthetisierter Code von ADAS Meta-Architect
+import numpy as np
+import pandas as pd
+
 def calculate_chaikin_money_flow(df_daily, period=20):
     if df_daily is None or len(df_daily) < period + 2:
         return {"cmf": 0.0, "status": "NEUTRAL", "accumulation": False}

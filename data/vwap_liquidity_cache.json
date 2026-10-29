@@ -1,0 +1,29 @@
+{
+  "NVDA": {
+    "timestamp": 1793283031.9900386,
+    "data": {
+      "symbol": "NVDA",
+      "current_price": 97.5,
+      "vwap": 99.09,
+      "vwap_stdev": 1.44,
+      "z_score": -1.11,
+      "band_upper_1s": 100.53,
+      "band_upper_2s": 101.96,
+      "band_upper_3s": 103.4,
+      "band_lower_1s": 97.66,
+      "band_lower_2s": 96.22,
+      "band_lower_3s": 94.78,
+      "poc_price": 100.04,
+      "value_area_high": 100.13,
+      "value_area_low": 99.95,
+      "sweep_status": "IN_VALUE_RANGE",
+      "sweep_edge_score": 0.05,
+      "suggested_stop_loss": null,
+      "suggested_take_profit": null,
+      "risk_reward_ratio": 0.0,
+      "volume_absorption_ratio": 1.46,
+      "summary": "Kurs pendelt in der Value Area zwischen VAL ($99.95) und VAH ($100.13) um den POC ($100.04).",
+      "calculated_at": "2026-10-29T14:10:31Z"
+    }
+  }
+}

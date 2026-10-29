@@ -1,5 +1,5 @@
 {
-  "synthesized_count": 1,
+  "synthesized_count": 8,
   "active_tools": {
     "chaikin_money_flow": {
       "name": "ChaikinMoneyFlow",
@@ -11,6 +11,93 @@
         "cmf": -0.057,
         "status": "NEUTRAL",
         "accumulation": false
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "vw_macd": {
+      "name": "VolumeWeightedMACD",
+      "tool_id": "vw_macd",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\vw_macd.py",
+      "description": "Volume-Weighted MACD (VW-MACD): Verstärkt Trend-Impulse nur dann, wenn sie von echtem institutionellem Volumen getragen werden.",
+      "synthesized_at": "2026-10-29T20:35:31.776258",
+      "test_output": {
+        "vw_macd_hist": 0.0177,
+        "signal": "BULLISH_SURGE"
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "rvi": {
+      "name": "RelativeVolatilityIndex",
+      "tool_id": "rvi",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\rvi.py",
+      "description": "Relative Volatility Index (RVI): Misst die Richtung der Volatilität basierend auf der Standardabweichung von Kursgewinnen und -verlusten.",
+      "synthesized_at": "2026-10-29T20:35:31.787228",
+      "test_output": {
+        "rvi": 56.45,
+        "status": "NORMAL"
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "hull_ma": {
+      "name": "HullMovingAverage",
+      "tool_id": "hull_ma",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\hull_ma.py",
+      "description": "Hull Moving Average (HMA): Extrem verzögerungsarmer Trend-Filter zur Früherkennung dynamischer Richtungswechsel.",
+      "synthesized_at": "2026-10-29T20:35:31.797283",
+      "test_output": {
+        "hma_val": 128.72,
+        "hma_slope": 0.55,
+        "hma_trend": "BULLISH"
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "donchian_channel": {
+      "name": "DonchianBreakoutChannel",
+      "tool_id": "donchian_channel",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\donchian_channel.py",
+      "description": "Donchian Breakout Channel: 20-Tage Ausbruchskanal (Turtle Strategy). Erkennt Trend-Expansionen aus engen Konsolidierungen.",
+      "synthesized_at": "2026-10-29T20:35:31.804806",
+      "test_output": {
+        "donchian_breakout": "INSIDE_CHANNEL",
+        "channel_width_pct": 11.1,
+        "upper_barrier": 130.81,
+        "lower_barrier": 116.57
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "choppiness_index": {
+      "name": "ChoppinessIndex",
+      "tool_id": "choppiness_index",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\choppiness_index.py",
+      "description": "Choppiness Index (CHOP): Fraktale Dimension zur Trennung von echten Trendphasen (< 38.2) und seitwärtigem Markt-Rauschen (> 61.8).",
+      "synthesized_at": "2026-10-29T20:35:31.814776",
+      "test_output": {
+        "chop": 73.72,
+        "regime": "CHOPPY_SIDEWAYS"
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "elder_ray": {
+      "name": "ElderRayBullPower",
+      "tool_id": "elder_ray",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\elder_ray.py",
+      "description": "Elder Ray Bull Power: Misst die Kaufkraft institutioneller Bullen relativ zum 13-Tage Exponential Moving Average.",
+      "synthesized_at": "2026-10-29T20:35:31.823377",
+      "test_output": {
+        "bull_power": 5.81,
+        "status": "STRONG_BULL_DOMINANCE"
+      },
+      "status": "ACTIVE_DEPLOYED"
+    },
+    "twiggs_mf": {
+      "name": "TwiggsMoneyFlow",
+      "tool_id": "twiggs_mf",
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_tools\\twiggs_mf.py",
+      "description": "Twiggs Money Flow (TMF): Verfeinerter Akkumulations-Oszillator mit exponentieller Glättung und Schutz vor Kurslücken.",
+      "synthesized_at": "2026-10-29T20:35:31.833202",
+      "test_output": {
+        "tmf": -0.0106,
+        "status": "NEUTRAL"
       },
       "status": "ACTIVE_DEPLOYED"
     }

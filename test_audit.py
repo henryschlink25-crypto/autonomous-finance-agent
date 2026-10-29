@@ -2141,7 +2141,7 @@ def test_all_audit_fixes() -> None:
         # --- Test 48: Sub-Agent #34 PEAD Drift Hunter (Post-Earnings Announcement Drift Specialist) ---
         adas_34 = ADASMetaArchitect(cfg_paper)
         assert "pead_drift_hunter" in adas_34.state.active_subagents, "Sub-Agent #34 (pead_drift_hunter) muss im Schwarm aktiv sein"
-        assert len(adas_34.state.active_subagents) == 34, f"Schwarm muss genau 34 Spezialisten umfassen, erhalten: {len(adas_34.state.active_subagents)}"
+        assert len(adas_34.state.active_subagents) >= 34, f"Schwarm muss mindestens 34 Spezialisten umfassen, erhalten: {len(adas_34.state.active_subagents)}"
 
         pead_spec = adas_34.state.active_subagents["pead_drift_hunter"]
         snap_pead = snap_leader.model_copy(update={
@@ -2206,7 +2206,7 @@ def test_all_audit_fixes() -> None:
         initial_epoch = adas_agent.state.evolution_epoch
 
         evo_metrics = adas_agent.execute_nightly_bayesian_swarm_evolution()
-        assert evo_metrics["active_subagents_count"] == 34, f"Evolution muss 34 Agenten umfassen, erhalten: {evo_metrics['active_subagents_count']}"
+        assert evo_metrics["active_subagents_count"] >= 34, f"Evolution muss >= 34 Agenten umfassen, erhalten: {evo_metrics['active_subagents_count']}"
         assert evo_metrics["epoch"] == initial_epoch + 1, "Epoche muss inkrementiert worden sein"
         assert "date" in evo_metrics
 
@@ -2250,11 +2250,63 @@ def test_all_audit_fixes() -> None:
         assert len(messages_sent) >= 2
         evo_chat_msg = messages_sent[-1]
         assert "Autonome Schwarm-Evolution" in evo_chat_msg
-        assert "34" in evo_chat_msg
+        assert "Aktive KI-Agenten:" in evo_chat_msg
 
         print(f"[OK] Test 51 bestanden: Telegram Push-Charts, Price-Ladder Visualizer & Autonome Nacht-Rekalibrierungs-Befehle.")
 
-    print("=== Alle 51 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, Unattended-Travel-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution- & Push-Charts-Tests erfolgreich bestanden! ===")
+        # --- Test 52: Autonome Werkzeug-Synthese, QuantitativeToolbox Dynamic Loading, Genetische Strategie-Zucht & Sub-Agenten Schwarm-Selbsterweiterung (37+ Spezialisten) ---
+        from adas_code_synthesizer import ADASCodeSynthesizer
+        from genetic_strategy_breeder import GeneticStrategyBreeder
+        from agent_tools import QuantitativeToolbox
+
+        # 1. Teste Code-Synthesizer: Validiert AST und Sandbox-Ausführung für alle Templates
+        syn = ADASCodeSynthesizer()
+        pending = syn.synthesize_all_pending()
+        assert len(syn.registry["active_tools"]) >= 8, f"Erwartet >= 8 aktive Werkzeuge, erhalten: {len(syn.registry['active_tools'])}"
+
+        # 2. Teste Dynamic Loading via QuantitativeToolbox auf Test-DataFrame
+        np.random.seed(42)
+        n_bars = 60
+        df_bars = pd.DataFrame({
+            "High": np.linspace(100, 130, n_bars) + np.random.uniform(1, 3, n_bars),
+            "Low": np.linspace(98, 128, n_bars) - np.random.uniform(1, 3, n_bars),
+            "Close": np.linspace(99, 129, n_bars) + np.random.uniform(-1, 1, n_bars),
+            "Volume": np.random.uniform(1_000_000, 5_000_000, n_bars),
+        })
+        tools_res = QuantitativeToolbox.execute_synthesized_tools(df_bars)
+        assert "vw_macd_signal" in tools_res, "VW-MACD muss dynamisch geladen und berechnet werden"
+        assert "rvi_status" in tools_res, "RVI muss dynamisch berechnet werden"
+        assert "hull_ma_hma_trend" in tools_res, "HMA muss dynamisch berechnet werden"
+        assert "choppiness_index_regime" in tools_res, "Choppiness Index muss dynamisch berechnet werden"
+        assert "elder_ray_status" in tools_res, "Elder Ray muss dynamisch berechnet werden"
+
+        # 3. Teste ADAS Meta Architect Selbsterweiterung: 37+ Spezialisten inklusive Biopharma, Crypto Lead-Lag & Short-Squeeze
+        adas_self_ext = ADASMetaArchitect(cfg)
+        needed = adas_self_ext._detect_needed_specialist_agents({"TEST": snap_fav}, green_macro)
+        active_ids = set(adas_self_ext.state.active_subagents.keys())
+        for sp in needed:
+            if sp.agent_id not in active_ids:
+                adas_self_ext.state.active_subagents[sp.agent_id] = sp
+        assert "biopharma_catalyst_sentinel" in adas_self_ext.state.active_subagents
+        assert "crypto_macro_lead_lag_specialist" in adas_self_ext.state.active_subagents
+        assert "short_squeeze_ctb_hunter" in adas_self_ext.state.active_subagents
+        assert len(adas_self_ext.state.active_subagents) >= 34, f"Erwartet >= 34 Unteragenten, erhalten: {len(adas_self_ext.state.active_subagents)}"
+
+        # 4. Teste Emergent Dialect Token für Synthesized Tools
+        snap_synth = snap_fav.model_copy(update={
+            "custom_metrics": tools_res,
+        })
+        deal_synth = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_synth,
+            signal=sig_apex_high,
+            macro=green_macro,
+            risk_evaluation=eval_profit,
+        )
+        assert "⚙️:SYNTHESIZED_TOOL_BOOST" in deal_synth.dialect_sentence, "Dialekt muss ⚙️:SYNTHESIZED_TOOL_BOOST enthalten"
+
+        print(f"[OK] Test 52 bestanden: Autonome Werkzeug-Synthese, Dynamic Toolbox Loading, Genetische Strategie-Zucht & Sub-Agenten Schwarm-Selbsterweiterung (37+ Spezialisten).")
+
+    print("=== Alle 52 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts- & Autonomous-Self-Expansion-Tests erfolgreich bestanden! ===")
 
 
 

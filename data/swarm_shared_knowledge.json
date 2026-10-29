@@ -1,0 +1,2040 @@
+{
+  "total_exchanges": 77,
+  "insights": {
+    "TRAP_PENNY_NO_CATALYST": {
+      "insight_id": "TRAP_PENNY_NO_CATALYST",
+      "category": "TRAP_WARNING",
+      "author_agent_id": "fundamental_health_guardian",
+      "author_agent_name": "🛡️ Fundamental Health Guardian",
+      "title": "Penny-Stock Dilution ohne SEC 8-K",
+      "lesson": "Penny Stocks mit hohem Volumen ohne offizielles Filing erweisen sich zu 78% als Pump & Dump Bullenfalle.",
+      "symbol_origin": "MARKET_EXPERIENCE",
+      "confidence_impact": -0.25,
+      "target_focuses": [
+        "PENNY_STOCK_MOMENTUM",
+        "MOMENTUM_RVOL_RS",
+        "FAST_BREAKOUT"
+      ],
+      "verifications_count": 5,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T13:32:50"
+    },
+    "TRAP_CREDIT_SPREAD_CRUNCH": {
+      "insight_id": "TRAP_CREDIT_SPREAD_CRUNCH",
+      "category": "TRAP_WARNING",
+      "author_agent_id": "intermarket_credit_sentinel",
+      "author_agent_name": "🚨 Credit Sentinel",
+      "title": "Systemischer Junk-Bond Abverkauf",
+      "lesson": "Ein Einbruch bei HYG/LQD geht Aktien-Crashs um 2-5 Tage voraus. Tech-Ausbrüche in dieser Phase scheitern meist.",
+      "symbol_origin": "INTERMARKET",
+      "confidence_impact": -0.3,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 4,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T13:32:50"
+    },
+    "ALPHA_HURST_TREND_FOLLOW": {
+      "insight_id": "ALPHA_HURST_TREND_FOLLOW",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "fractal_regime_cycler",
+      "author_agent_name": "🌀 Fractal Regime Cycler",
+      "title": "Persistenter Hurst-Trend (H >= 0.58)",
+      "lesson": "Aktien mit Hurst-Exponent >= 0.58 besitzen eine statistische Trend-Persistenz von über 68%.",
+      "symbol_origin": "MATHEMATICS",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "MOMENTUM_RVOL_RS",
+        "FAST_BREAKOUT",
+        "SECTOR_ROTATION"
+      ],
+      "verifications_count": 6,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T13:32:50"
+    },
+    "ALPHA_CATALYST_SQUEEZE": {
+      "insight_id": "ALPHA_CATALYST_SQUEEZE",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "ttm_squeeze_specialist",
+      "author_agent_name": "🔥 TTM Squeeze Hunter",
+      "title": "Squeeze-Ausbruch mit Optionen-Whale-Flow",
+      "lesson": "Fired TTM Squeeze gepaart mit bullischem Call-Flow erzeugt explosionsartige Aufwärtswellen.",
+      "symbol_origin": "OPTIONS_FLOW",
+      "confidence_impact": 0.18,
+      "target_focuses": [
+        "TTM_SQUEEZE_EXPLOSION",
+        "OPTIONS_SMART_MONEY"
+      ],
+      "verifications_count": 7,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T13:32:50"
+    },
+    "ALPHA_CONFIRMED_WINNER": {
+      "insight_id": "ALPHA_CONFIRMED_WINNER",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "collective_swarm",
+      "author_agent_name": "🐝 Schwarm-Konsens",
+      "title": "Multivariate Bestätigung bei WINNER",
+      "lesson": "Kombination aus Momentum, Volumen und News erzeugte +4.2% Gewinn.",
+      "symbol_origin": "WINNER",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 1,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T13:33:02"
+    },
+    "ALPHA_CONFIRMED_AAPL": {
+      "insight_id": "ALPHA_CONFIRMED_AAPL",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "collective_swarm",
+      "author_agent_name": "🐝 Schwarm-Konsens",
+      "title": "Multivariate Bestätigung bei AAPL",
+      "lesson": "Kombination aus Momentum, Volumen und News erzeugte +1.5% Gewinn.",
+      "symbol_origin": "AAPL",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 1,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T15:34:38"
+    },
+    "ALPHA_CONFIRMED_BHC": {
+      "insight_id": "ALPHA_CONFIRMED_BHC",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "collective_swarm",
+      "author_agent_name": "🐝 Schwarm-Konsens",
+      "title": "Multivariate Bestätigung bei BHC",
+      "lesson": "Kombination aus Momentum, Volumen und News erzeugte +23.1% Gewinn.",
+      "symbol_origin": "BHC",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 1,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T15:34:38"
+    },
+    "ALPHA_CONFIRMED_PGEN": {
+      "insight_id": "ALPHA_CONFIRMED_PGEN",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "collective_swarm",
+      "author_agent_name": "🐝 Schwarm-Konsens",
+      "title": "Multivariate Bestätigung bei PGEN",
+      "lesson": "Kombination aus Momentum, Volumen und News erzeugte +2.1% Gewinn.",
+      "symbol_origin": "PGEN",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 1,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T16:48:08"
+    },
+    "IDIOM_🧬:SECTOR_A_HURST_PE": {
+      "insight_id": "IDIOM_🧬:SECTOR_A_HURST_PE",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SECTOR_A_HURST_PE",
+      "lesson": "Sprachkonvergenz 🧬:SECTOR_A_HURST_PE (Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ω:HURST_PERSIST) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:SECTOR_A_CALL_WHA": {
+      "insight_id": "IDIOM_🧬:SECTOR_A_CALL_WHA",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SECTOR_A_CALL_WHA",
+      "lesson": "Sprachkonvergenz 🧬:SECTOR_A_CALL_WHA (Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und Ψ:CALL_WHALE_BURST) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_👑:SOVEREIGN_ALPHA_HARVEST": {
+      "insight_id": "IDIOM_👑:SOVEREIGN_ALPHA_HARVEST",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 👑:SOVEREIGN_ALPHA_HARVEST",
+      "lesson": "Sprachkonvergenz 👑:SOVEREIGN_ALPHA_HARVEST (Relative Branchenstärke vereint mit Wall Street Konsens-Kursziel) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:CALL_WHA_HURST_PE": {
+      "insight_id": "IDIOM_🧬:CALL_WHA_HURST_PE",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:CALL_WHA_HURST_PE",
+      "lesson": "Sprachkonvergenz 🧬:CALL_WHA_HURST_PE (Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und Ω:HURST_PERSIST) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:HURST_PE_WALL_ST_": {
+      "insight_id": "IDIOM_🧬:HURST_PE_WALL_ST_",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:HURST_PE_WALL_ST_",
+      "lesson": "Sprachkonvergenz 🧬:HURST_PE_WALL_ST_ (Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 📊:WALL_ST_UPSIDE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:CALL_WHA_WALL_ST_": {
+      "insight_id": "IDIOM_🧬:CALL_WHA_WALL_ST_",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:CALL_WHA_WALL_ST_",
+      "lesson": "Sprachkonvergenz 🧬:CALL_WHA_WALL_ST_ (Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 📊:WALL_ST_UPSIDE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:QUANTILE_CIO_TIER": {
+      "insight_id": "IDIOM_🧬:QUANTILE_CIO_TIER",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:QUANTILE_CIO_TIER",
+      "lesson": "Sprachkonvergenz 🧬:QUANTILE_CIO_TIER (Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:CIO_TIER1_ALPHA) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 50,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:QUANTILE_CORRELAT": {
+      "insight_id": "IDIOM_🧬:QUANTILE_CORRELAT",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:QUANTILE_CORRELAT",
+      "lesson": "Sprachkonvergenz 🧬:QUANTILE_CORRELAT (Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🛑:CORRELATION_BREAKDOWN_PANIC) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 50,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_💎:QUANT_SWEEP_CONVERGENCE": {
+      "insight_id": "IDIOM_💎:QUANT_SWEEP_CONVERGENCE",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 💎:QUANT_SWEEP_CONVERGENCE",
+      "lesson": "Sprachkonvergenz 💎:QUANT_SWEEP_CONVERGENCE (Asymmetrische Quantil-Verteilung trifft auf institutionellen Liquiditäts-Reclaim) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 76,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:CALL_WHA_ENTRY_IM": {
+      "insight_id": "IDIOM_🧬:CALL_WHA_ENTRY_IM",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:CALL_WHA_ENTRY_IM",
+      "lesson": "Sprachkonvergenz 🧬:CALL_WHA_ENTRY_IM (Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und ⚡:ENTRY_IMMEDIATE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:ENTRY_IM_WALL_ST_": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_WALL_ST_",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_WALL_ST_",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_WALL_ST_ (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📊:WALL_ST_UPSIDE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:HURST_PE_ENTRY_IM": {
+      "insight_id": "IDIOM_🧬:HURST_PE_ENTRY_IM",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:HURST_PE_ENTRY_IM",
+      "lesson": "Sprachkonvergenz 🧬:HURST_PE_ENTRY_IM (Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und ⚡:ENTRY_IMMEDIATE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 61,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:SECTOR_A_ENTRY_IM": {
+      "insight_id": "IDIOM_🧬:SECTOR_A_ENTRY_IM",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SECTOR_A_ENTRY_IM",
+      "lesson": "Sprachkonvergenz 🧬:SECTOR_A_ENTRY_IM (Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:ENTRY_IMMEDIATE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 82,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:ENTRY_IM_QUANTILE": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_QUANTILE",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_QUANTILE",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_QUANTILE (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎲:QUANTILE_ASYMMETRY) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 271,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:ENTRY_IM_LIQUIDIT": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_LIQUIDIT",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_LIQUIDIT",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_LIQUIDIT (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🎯:LIQUIDITY_SWEEP_RECLAIM) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 123,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:DOWNSIDE_ENTRY_IM": {
+      "insight_id": "IDIOM_🧬:DOWNSIDE_ENTRY_IM",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:DOWNSIDE_ENTRY_IM",
+      "lesson": "Sprachkonvergenz 🧬:DOWNSIDE_ENTRY_IM (Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und ⚡:ENTRY_IMMEDIATE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 47,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:ENTRY_IM_CIO_TIER": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_CIO_TIER",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_CIO_TIER",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_CIO_TIER (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:CIO_TIER1_ALPHA) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 71,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:ENTRY_IM_CORRELAT": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_CORRELAT",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_CORRELAT",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_CORRELAT (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🛑:CORRELATION_BREAKDOWN_PANIC) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 50,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:47:10"
+    },
+    "IDIOM_🧬:ENTRY_IM_TRIPLE_T": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_TRIPLE_T",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_TRIPLE_T",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_TRIPLE_T (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 📐:TRIPLE_TIMEFRAME_ALIGN) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 39,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:46:34"
+    },
+    "IDIOM_🧬:QUANTILE_TRIPLE_T": {
+      "insight_id": "IDIOM_🧬:QUANTILE_TRIPLE_T",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:QUANTILE_TRIPLE_T",
+      "lesson": "Sprachkonvergenz 🧬:QUANTILE_TRIPLE_T (Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 📐:TRIPLE_TIMEFRAME_ALIGN) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 39,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:46:34"
+    },
+    "IDIOM_🧬:SECTOR_A_CIO_TIER": {
+      "insight_id": "IDIOM_🧬:SECTOR_A_CIO_TIER",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SECTOR_A_CIO_TIER",
+      "lesson": "Sprachkonvergenz 🧬:SECTOR_A_CIO_TIER (Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:CIO_TIER1_ALPHA) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 36,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:46:34"
+    },
+    "IDIOM_🧬:PEAD_EAR_CIO_TIER": {
+      "insight_id": "IDIOM_🧬:PEAD_EAR_CIO_TIER",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:PEAD_EAR_CIO_TIER",
+      "lesson": "Sprachkonvergenz 🧬:PEAD_EAR_CIO_TIER (Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:CIO_TIER1_ALPHA) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 36,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:46:34"
+    },
+    "IDIOM_🧬:ENTRY_IM_PEAD_EAR": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_PEAD_EAR",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_PEAD_EAR",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_PEAD_EAR (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und ⚡:PEAD_EARNINGS_DRIFT) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 36,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:46:34"
+    },
+    "IDIOM_🧬:SECTOR_A_PEAD_EAR": {
+      "insight_id": "IDIOM_🧬:SECTOR_A_PEAD_EAR",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SECTOR_A_PEAD_EAR",
+      "lesson": "Sprachkonvergenz 🧬:SECTOR_A_PEAD_EAR (Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und ⚡:PEAD_EARNINGS_DRIFT) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 36,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:46:34"
+    },
+    "ALPHA_CONFIRMED_DKI": {
+      "insight_id": "ALPHA_CONFIRMED_DKI",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "collective_swarm",
+      "author_agent_name": "🐝 Schwarm-Konsens",
+      "title": "Multivariate Bestätigung bei DKI",
+      "lesson": "Kombination aus Momentum, Volumen und News erzeugte +2.5% Gewinn.",
+      "symbol_origin": "DKI",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 1,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:12:16"
+    },
+    "ALPHA_CONFIRMED_ALNY": {
+      "insight_id": "ALPHA_CONFIRMED_ALNY",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "collective_swarm",
+      "author_agent_name": "🐝 Schwarm-Konsens",
+      "title": "Multivariate Bestätigung bei ALNY",
+      "lesson": "Kombination aus Momentum, Volumen und News erzeugte +1.7% Gewinn.",
+      "symbol_origin": "ALNY",
+      "confidence_impact": 0.15,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 1,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T19:40:48"
+    }
+  },
+  "synergies": {
+    "fast_breakout_chaser:ttm_squeeze_specialist": {
+      "agent_a": "fast_breakout_chaser",
+      "agent_b": "ttm_squeeze_specialist",
+      "co_success": 60,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "fast_breakout_chaser:options_smart_money_hunter": {
+      "agent_a": "fast_breakout_chaser",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 60,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "options_smart_money_hunter:ttm_squeeze_specialist": {
+      "agent_a": "options_smart_money_hunter",
+      "agent_b": "ttm_squeeze_specialist",
+      "co_success": 60,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "intraday_vwap_sniper:options_whale_profiler": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "options_whale_profiler",
+      "co_success": 3,
+      "co_failure": 7,
+      "synergy_score": 0.98
+    },
+    "fundamental_catalyst_auditor:options_whale_profiler": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 1,
+      "synergy_score": 1.15
+    },
+    "cross_asset_macro_sentinel:options_whale_profiler": {
+      "agent_a": "cross_asset_macro_sentinel",
+      "agent_b": "options_whale_profiler",
+      "co_success": 3,
+      "co_failure": 1,
+      "synergy_score": 1.19
+    },
+    "options_whale_profiler:tail_risk_adversary_guard": {
+      "agent_a": "options_whale_profiler",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "fundamental_catalyst_auditor:intraday_vwap_sniper": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "cross_asset_macro_sentinel:intraday_vwap_sniper": {
+      "agent_a": "cross_asset_macro_sentinel",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 2,
+      "co_failure": 1,
+      "synergy_score": 1.15
+    },
+    "intraday_vwap_sniper:tail_risk_adversary_guard": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 5,
+      "synergy_score": 0.92
+    },
+    "cross_asset_macro_sentinel:fundamental_catalyst_auditor": {
+      "agent_a": "cross_asset_macro_sentinel",
+      "agent_b": "fundamental_catalyst_auditor",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "fundamental_catalyst_auditor:tail_risk_adversary_guard": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "cross_asset_macro_sentinel:tail_risk_adversary_guard": {
+      "agent_a": "cross_asset_macro_sentinel",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:options_whale_profiler": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "alpha_breakout_hunter:intraday_vwap_sniper": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 2,
+      "co_failure": 4,
+      "synergy_score": 1.0
+    },
+    "alpha_breakout_hunter:cross_asset_macro_sentinel": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "cross_asset_macro_sentinel",
+      "co_success": 2,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "alpha_breakout_hunter:gamma_squeeze_specialist": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "gamma_squeeze_specialist",
+      "co_success": 2,
+      "co_failure": 1,
+      "synergy_score": 1.15
+    },
+    "alpha_breakout_hunter:pead_earnings_drift_agent": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "gamma_squeeze_specialist:options_whale_profiler": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "options_whale_profiler:pead_earnings_drift_agent": {
+      "agent_a": "options_whale_profiler",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "gamma_squeeze_specialist:intraday_vwap_sniper": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "intraday_vwap_sniper:pead_earnings_drift_agent": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "cross_asset_macro_sentinel:gamma_squeeze_specialist": {
+      "agent_a": "cross_asset_macro_sentinel",
+      "agent_b": "gamma_squeeze_specialist",
+      "co_success": 2,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "cross_asset_macro_sentinel:pead_earnings_drift_agent": {
+      "agent_a": "cross_asset_macro_sentinel",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 2,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "gamma_squeeze_specialist:pead_earnings_drift_agent": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 2,
+      "co_failure": 1,
+      "synergy_score": 1.15
+    },
+    "options_smart_money_hunter:options_whale_profiler": {
+      "agent_a": "options_smart_money_hunter",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "microstructure_liquidity_sniper:options_whale_profiler": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "options_whale_profiler",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "geopolitical_crisis_strategist:options_whale_profiler": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "options_whale_profiler",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "microstructure_liquidity_sniper:options_smart_money_hunter": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 2,
+      "synergy_score": 1.0
+    },
+    "geopolitical_crisis_strategist:options_smart_money_hunter": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "geopolitical_crisis_strategist:microstructure_liquidity_sniper": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 2,
+      "co_failure": 1,
+      "synergy_score": 1.15
+    },
+    "alpha_breakout_hunter:fundamental_catalyst_auditor": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "fundamental_catalyst_auditor",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:fundamental_health_guardian": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "fundamental_health_guardian",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:intermarket_credit_sentinel": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:sector_rotation_hunter": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:wall_street_consensus_analyst": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:macro_event_horizon_sentinel": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:intraday_vwap_sniper": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 1,
+      "co_failure": 6,
+      "synergy_score": 0.91
+    },
+    "intermarket_credit_sentinel:intraday_vwap_sniper": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 1,
+      "co_failure": 8,
+      "synergy_score": 0.9
+    },
+    "intraday_vwap_sniper:sector_rotation_hunter": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 8,
+      "synergy_score": 0.9
+    },
+    "intraday_vwap_sniper:wall_street_consensus_analyst": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 5,
+      "synergy_score": 0.92
+    },
+    "intraday_vwap_sniper:macro_event_horizon_sentinel": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 1,
+      "co_failure": 8,
+      "synergy_score": 0.9
+    },
+    "fundamental_catalyst_auditor:fundamental_health_guardian": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "fundamental_health_guardian",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "fundamental_catalyst_auditor:intermarket_credit_sentinel": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "fundamental_catalyst_auditor:sector_rotation_hunter": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "fundamental_catalyst_auditor:wall_street_consensus_analyst": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "fundamental_catalyst_auditor:macro_event_horizon_sentinel": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "fundamental_health_guardian:intermarket_credit_sentinel": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 3,
+      "co_failure": 8,
+      "synergy_score": 0.97
+    },
+    "fundamental_health_guardian:sector_rotation_hunter": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 3,
+      "co_failure": 8,
+      "synergy_score": 0.97
+    },
+    "fundamental_health_guardian:wall_street_consensus_analyst": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "fundamental_health_guardian:macro_event_horizon_sentinel": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 3,
+      "co_failure": 8,
+      "synergy_score": 0.97
+    },
+    "intermarket_credit_sentinel:sector_rotation_hunter": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 3,
+      "co_failure": 10,
+      "synergy_score": 0.95
+    },
+    "intermarket_credit_sentinel:wall_street_consensus_analyst": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 2,
+      "co_failure": 5,
+      "synergy_score": 0.98
+    },
+    "intermarket_credit_sentinel:macro_event_horizon_sentinel": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 3,
+      "co_failure": 10,
+      "synergy_score": 0.95
+    },
+    "sector_rotation_hunter:wall_street_consensus_analyst": {
+      "agent_a": "sector_rotation_hunter",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 2,
+      "co_failure": 5,
+      "synergy_score": 0.98
+    },
+    "macro_event_horizon_sentinel:sector_rotation_hunter": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 3,
+      "co_failure": 10,
+      "synergy_score": 0.95
+    },
+    "macro_event_horizon_sentinel:wall_street_consensus_analyst": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 2,
+      "co_failure": 5,
+      "synergy_score": 0.98
+    },
+    "fundamental_health_guardian:options_whale_profiler": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 4,
+      "synergy_score": 1.0
+    },
+    "intermarket_credit_sentinel:options_whale_profiler": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 6,
+      "synergy_score": 0.96
+    },
+    "options_whale_profiler:sector_rotation_hunter": {
+      "agent_a": "options_whale_profiler",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 2,
+      "co_failure": 6,
+      "synergy_score": 0.96
+    },
+    "options_whale_profiler:wall_street_consensus_analyst": {
+      "agent_a": "options_whale_profiler",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 2,
+      "co_failure": 4,
+      "synergy_score": 1.0
+    },
+    "huggingface_sentiment_sentinel:options_whale_profiler": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "options_whale_profiler",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "macro_event_horizon_sentinel:options_whale_profiler": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "options_whale_profiler",
+      "co_success": 2,
+      "co_failure": 6,
+      "synergy_score": 0.96
+    },
+    "huggingface_sentiment_sentinel:intraday_vwap_sniper": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 3,
+      "co_failure": 2,
+      "synergy_score": 1.12
+    },
+    "fundamental_health_guardian:tail_risk_adversary_guard": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "intermarket_credit_sentinel:tail_risk_adversary_guard": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "sector_rotation_hunter:tail_risk_adversary_guard": {
+      "agent_a": "sector_rotation_hunter",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "tail_risk_adversary_guard:wall_street_consensus_analyst": {
+      "agent_a": "tail_risk_adversary_guard",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "huggingface_sentiment_sentinel:tail_risk_adversary_guard": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "macro_event_horizon_sentinel:tail_risk_adversary_guard": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "fundamental_health_guardian:huggingface_sentiment_sentinel": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "huggingface_sentiment_sentinel",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "huggingface_sentiment_sentinel:intermarket_credit_sentinel": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "huggingface_sentiment_sentinel:sector_rotation_hunter": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "huggingface_sentiment_sentinel:wall_street_consensus_analyst": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "huggingface_sentiment_sentinel:macro_event_horizon_sentinel": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "microstructure_liquidity_sniper:supertrend_regime_specialist": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 4,
+      "synergy_score": 0.85
+    },
+    "geopolitical_crisis_strategist:supertrend_regime_specialist": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 3,
+      "co_failure": 3,
+      "synergy_score": 1.07
+    },
+    "fractal_regime_cycler:geopolitical_crisis_strategist": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "geopolitical_crisis_strategist",
+      "co_success": 2,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "alpha_breakout_hunter:tail_risk_adversary_guard": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:supertrend_regime_specialist": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:microstructure_liquidity_sniper": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "options_whale_profiler:supertrend_regime_specialist": {
+      "agent_a": "options_whale_profiler",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "intraday_vwap_sniper:supertrend_regime_specialist": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 2,
+      "co_failure": 7,
+      "synergy_score": 0.95
+    },
+    "intraday_vwap_sniper:microstructure_liquidity_sniper": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:tail_risk_adversary_guard": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:tail_risk_adversary_guard": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "supertrend_regime_specialist:tail_risk_adversary_guard": {
+      "agent_a": "supertrend_regime_specialist",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "microstructure_liquidity_sniper:tail_risk_adversary_guard": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 4,
+      "synergy_score": 0.94
+    },
+    "gamma_squeeze_specialist:supertrend_regime_specialist": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:gamma_squeeze_specialist": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "gamma_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:intermarket_credit_sentinel": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:microstructure_liquidity_sniper": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:sector_rotation_hunter": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:macro_event_horizon_sentinel": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:supertrend_regime_specialist": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:pead_earnings_drift_agent": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "intermarket_credit_sentinel:pead_earnings_drift_agent": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "microstructure_liquidity_sniper:pead_earnings_drift_agent": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:sector_rotation_hunter": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "macro_event_horizon_sentinel:pead_earnings_drift_agent": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:supertrend_regime_specialist": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 4,
+      "synergy_score": 0.85
+    },
+    "intermarket_credit_sentinel:supertrend_regime_specialist": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "sector_rotation_hunter:supertrend_regime_specialist": {
+      "agent_a": "sector_rotation_hunter",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "macro_event_horizon_sentinel:supertrend_regime_specialist": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 5,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:microstructure_liquidity_sniper": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 1,
+      "co_failure": 6,
+      "synergy_score": 0.91
+    },
+    "intermarket_credit_sentinel:microstructure_liquidity_sniper": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 1,
+      "co_failure": 7,
+      "synergy_score": 0.91
+    },
+    "microstructure_liquidity_sniper:sector_rotation_hunter": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 7,
+      "synergy_score": 0.91
+    },
+    "macro_event_horizon_sentinel:microstructure_liquidity_sniper": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 1,
+      "co_failure": 7,
+      "synergy_score": 0.91
+    },
+    "fractal_regime_cycler:tail_risk_adversary_guard": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "geopolitical_crisis_strategist:tail_risk_adversary_guard": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 3,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "intraday_vwap_sniper:options_smart_money_hunter": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:options_smart_money_hunter": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "gamma_squeeze_specialist:wall_street_consensus_analyst": {
+      "agent_a": "gamma_squeeze_specialist",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "intermarket_credit_sentinel:options_smart_money_hunter": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 2,
+      "synergy_score": 1.0
+    },
+    "options_smart_money_hunter:sector_rotation_hunter": {
+      "agent_a": "options_smart_money_hunter",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 2,
+      "synergy_score": 1.0
+    },
+    "options_smart_money_hunter:wall_street_consensus_analyst": {
+      "agent_a": "options_smart_money_hunter",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "macro_event_horizon_sentinel:options_smart_money_hunter": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 2,
+      "synergy_score": 1.0
+    },
+    "microstructure_liquidity_sniper:wall_street_consensus_analyst": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "options_whale_profiler:volatility_squeeze_specialist": {
+      "agent_a": "options_whale_profiler",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "multi_timeframe_alignment_specialist:options_whale_profiler": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "options_whale_profiler",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:options_whale_profiler": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "options_whale_profiler",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "intraday_vwap_sniper:volatility_squeeze_specialist": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "intraday_vwap_sniper:multi_timeframe_alignment_specialist": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 2,
+      "co_failure": 4,
+      "synergy_score": 1.0
+    },
+    "adverse_volatility_shield_sentinel:intraday_vwap_sniper": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 0,
+      "co_failure": 4,
+      "synergy_score": 0.85
+    },
+    "supertrend_regime_specialist:volatility_squeeze_specialist": {
+      "agent_a": "supertrend_regime_specialist",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "intermarket_credit_sentinel:volatility_squeeze_specialist": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "sector_rotation_hunter:volatility_squeeze_specialist": {
+      "agent_a": "sector_rotation_hunter",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "volatility_squeeze_specialist:wall_street_consensus_analyst": {
+      "agent_a": "volatility_squeeze_specialist",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "macro_event_horizon_sentinel:volatility_squeeze_specialist": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "multi_timeframe_alignment_specialist:volatility_squeeze_specialist": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:volatility_squeeze_specialist": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "supertrend_regime_specialist:wall_street_consensus_analyst": {
+      "agent_a": "supertrend_regime_specialist",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "multi_timeframe_alignment_specialist:supertrend_regime_specialist": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 3,
+      "co_failure": 4,
+      "synergy_score": 1.04
+    },
+    "adverse_volatility_shield_sentinel:supertrend_regime_specialist": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "intermarket_credit_sentinel:multi_timeframe_alignment_specialist": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:intermarket_credit_sentinel": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 2,
+      "co_failure": 6,
+      "synergy_score": 0.96
+    },
+    "multi_timeframe_alignment_specialist:sector_rotation_hunter": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:sector_rotation_hunter": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 2,
+      "co_failure": 6,
+      "synergy_score": 0.96
+    },
+    "multi_timeframe_alignment_specialist:wall_street_consensus_analyst": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:wall_street_consensus_analyst": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 2,
+      "synergy_score": 1.0
+    },
+    "macro_event_horizon_sentinel:multi_timeframe_alignment_specialist": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:macro_event_horizon_sentinel": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 2,
+      "co_failure": 6,
+      "synergy_score": 0.96
+    },
+    "adverse_volatility_shield_sentinel:multi_timeframe_alignment_specialist": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "huggingface_sentiment_sentinel:supertrend_regime_specialist": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 3,
+      "co_failure": 2,
+      "synergy_score": 1.12
+    },
+    "geopolitical_crisis_strategist:huggingface_sentiment_sentinel": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "huggingface_sentiment_sentinel",
+      "co_success": 3,
+      "co_failure": 1,
+      "synergy_score": 1.19
+    },
+    "geopolitical_crisis_strategist:multi_timeframe_alignment_specialist": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 3,
+      "co_failure": 2,
+      "synergy_score": 1.12
+    },
+    "huggingface_sentiment_sentinel:multi_timeframe_alignment_specialist": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 3,
+      "co_failure": 1,
+      "synergy_score": 1.19
+    },
+    "intraday_vwap_sniper:penny_stock_rocket_specialist": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "fractal_regime_cycler:intraday_vwap_sniper": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "intraday_vwap_sniper:probabilistic_forecast_sentinel": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "penny_stock_rocket_specialist:tail_risk_adversary_guard": {
+      "agent_a": "penny_stock_rocket_specialist",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "probabilistic_forecast_sentinel:tail_risk_adversary_guard": {
+      "agent_a": "probabilistic_forecast_sentinel",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:tail_risk_adversary_guard": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:penny_stock_rocket_specialist": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "fractal_regime_cycler:pead_earnings_drift_agent": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:probabilistic_forecast_sentinel": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 0,
+      "co_failure": 3,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:pead_earnings_drift_agent": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 4,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:penny_stock_rocket_specialist": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "fractal_regime_cycler:penny_stock_rocket_specialist": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "intermarket_credit_sentinel:penny_stock_rocket_specialist": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "microstructure_liquidity_sniper:penny_stock_rocket_specialist": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "penny_stock_rocket_specialist:sector_rotation_hunter": {
+      "agent_a": "penny_stock_rocket_specialist",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "macro_event_horizon_sentinel:penny_stock_rocket_specialist": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "penny_stock_rocket_specialist:probabilistic_forecast_sentinel": {
+      "agent_a": "penny_stock_rocket_specialist",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "adverse_volatility_shield_sentinel:penny_stock_rocket_specialist": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "penny_stock_rocket_specialist",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "fractal_regime_cycler:fundamental_health_guardian": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "fundamental_health_guardian",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "fundamental_health_guardian:probabilistic_forecast_sentinel": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "adverse_volatility_shield_sentinel:fundamental_health_guardian": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "fundamental_health_guardian",
+      "co_success": 2,
+      "co_failure": 5,
+      "synergy_score": 0.98
+    },
+    "fractal_regime_cycler:intermarket_credit_sentinel": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "intermarket_credit_sentinel",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "fractal_regime_cycler:microstructure_liquidity_sniper": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "fractal_regime_cycler:sector_rotation_hunter": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "fractal_regime_cycler:macro_event_horizon_sentinel": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "macro_event_horizon_sentinel",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "fractal_regime_cycler:probabilistic_forecast_sentinel": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "adverse_volatility_shield_sentinel:fractal_regime_cycler": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "fractal_regime_cycler",
+      "co_success": 2,
+      "co_failure": 3,
+      "synergy_score": 1.03
+    },
+    "intermarket_credit_sentinel:probabilistic_forecast_sentinel": {
+      "agent_a": "intermarket_credit_sentinel",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "microstructure_liquidity_sniper:probabilistic_forecast_sentinel": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "adverse_volatility_shield_sentinel:microstructure_liquidity_sniper": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 1,
+      "co_failure": 5,
+      "synergy_score": 0.92
+    },
+    "probabilistic_forecast_sentinel:sector_rotation_hunter": {
+      "agent_a": "probabilistic_forecast_sentinel",
+      "agent_b": "sector_rotation_hunter",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "macro_event_horizon_sentinel:probabilistic_forecast_sentinel": {
+      "agent_a": "macro_event_horizon_sentinel",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "adverse_volatility_shield_sentinel:probabilistic_forecast_sentinel": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "probabilistic_forecast_sentinel",
+      "co_success": 1,
+      "co_failure": 3,
+      "synergy_score": 0.96
+    },
+    "alpha_breakout_hunter:volatility_squeeze_specialist": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:multi_timeframe_alignment_specialist": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 0,
+      "co_failure": 2,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:alpha_breakout_hunter": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "alpha_breakout_hunter",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "tail_risk_adversary_guard:volatility_squeeze_specialist": {
+      "agent_a": "tail_risk_adversary_guard",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "multi_timeframe_alignment_specialist:tail_risk_adversary_guard": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:volatility_squeeze_specialist": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "pead_earnings_drift_agent:wall_street_consensus_analyst": {
+      "agent_a": "pead_earnings_drift_agent",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "multi_timeframe_alignment_specialist:pead_earnings_drift_agent": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "pead_earnings_drift_agent",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:volatility_squeeze_specialist": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "microstructure_liquidity_sniper:volatility_squeeze_specialist": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "volatility_squeeze_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:multi_timeframe_alignment_specialist": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "microstructure_liquidity_sniper:multi_timeframe_alignment_specialist": {
+      "agent_a": "microstructure_liquidity_sniper",
+      "agent_b": "multi_timeframe_alignment_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "geopolitical_crisis_strategist:intraday_vwap_sniper": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "intraday_vwap_sniper",
+      "co_success": 2,
+      "co_failure": 2,
+      "synergy_score": 1.07
+    },
+    "options_smart_money_hunter:tail_risk_adversary_guard": {
+      "agent_a": "options_smart_money_hunter",
+      "agent_b": "tail_risk_adversary_guard",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "options_smart_money_hunter:supertrend_regime_specialist": {
+      "agent_a": "options_smart_money_hunter",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "fundamental_health_guardian:options_smart_money_hunter": {
+      "agent_a": "fundamental_health_guardian",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "huggingface_sentiment_sentinel:options_smart_money_hunter": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:options_smart_money_hunter": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 1,
+      "synergy_score": 1.07
+    },
+    "huggingface_sentiment_sentinel:microstructure_liquidity_sniper": {
+      "agent_a": "huggingface_sentiment_sentinel",
+      "agent_b": "microstructure_liquidity_sniper",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "adverse_volatility_shield_sentinel:huggingface_sentiment_sentinel": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "huggingface_sentiment_sentinel",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "fractal_regime_cycler:options_whale_profiler": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "options_whale_profiler",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "fundamental_catalyst_auditor:options_smart_money_hunter": {
+      "agent_a": "fundamental_catalyst_auditor",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "fractal_regime_cycler:fundamental_catalyst_auditor": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "fundamental_catalyst_auditor",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "adverse_volatility_shield_sentinel:fundamental_catalyst_auditor": {
+      "agent_a": "adverse_volatility_shield_sentinel",
+      "agent_b": "fundamental_catalyst_auditor",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "fractal_regime_cycler:options_smart_money_hunter": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "options_smart_money_hunter",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "fractal_regime_cycler:wall_street_consensus_analyst": {
+      "agent_a": "fractal_regime_cycler",
+      "agent_b": "wall_street_consensus_analyst",
+      "co_success": 1,
+      "co_failure": 0,
+      "synergy_score": 1.3
+    },
+    "alpha_breakout_hunter:short_breakdown_bear_agent": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "short_breakdown_bear_agent",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "alpha_breakout_hunter:geopolitical_crisis_strategist": {
+      "agent_a": "alpha_breakout_hunter",
+      "agent_b": "geopolitical_crisis_strategist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "intraday_vwap_sniper:short_breakdown_bear_agent": {
+      "agent_a": "intraday_vwap_sniper",
+      "agent_b": "short_breakdown_bear_agent",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "short_breakdown_bear_agent:supertrend_regime_specialist": {
+      "agent_a": "short_breakdown_bear_agent",
+      "agent_b": "supertrend_regime_specialist",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "geopolitical_crisis_strategist:short_breakdown_bear_agent": {
+      "agent_a": "geopolitical_crisis_strategist",
+      "agent_b": "short_breakdown_bear_agent",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    },
+    "multi_timeframe_alignment_specialist:short_breakdown_bear_agent": {
+      "agent_a": "multi_timeframe_alignment_specialist",
+      "agent_b": "short_breakdown_bear_agent",
+      "co_success": 0,
+      "co_failure": 1,
+      "synergy_score": 0.85
+    }
+  }
+}

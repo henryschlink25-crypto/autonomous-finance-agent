@@ -50,7 +50,7 @@ def main() -> None:
 
     send_telegram_alert(
         "🛡️ <b>Watchdog Supervisor aktiviert:</b>\n\n"
-        "Der autonome Trading-Agent wird während deiner 3-tägigen Reise rund um die Uhr "
+        "Der autonome Trading-Agent läuft im dauerhaften 24/7-Produktionsbetrieb und wird rund um die Uhr "
         "überwacht. Bei Ausfällen erfolgt ein sofortiger, automatischer Neustart."
     )
 

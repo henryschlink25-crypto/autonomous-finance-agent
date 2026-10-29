@@ -191,7 +191,7 @@ class TelegramCommandListener:
                 "⏸️ <b>/pause</b> - Handel pausieren (keine Neukäufe, Stops bleiben aktiv)\n"
                 "▶️ <b>/resume</b> - Handel fortsetzen\n"
                 "💓 <b>/ping</b> - Sofortiger Lebenszeichen- & Status-Check\n"
-                "📋 <b>/report</b> - Ausführlicher 3-Tage-Reise- & PnL-Report\n"
+                "📋 <b>/report</b> - Ausführlicher Performance- & PnL-Report\n"
                 "🔄 <b>/update</b> - Autonomes Live-Update von GitHub laden & neu starten\n"
                 "─────────────────────────────"
             )
@@ -1068,11 +1068,11 @@ class TelegramCommandListener:
                 f"• <b>Status:</b> 🟢 <b>VOLL FUNKTIONSFÄHIG</b>\n"
                 f"• <b>Prozess-PID:</b> <code>{pid}</code>\n"
                 f"• <b>Zeitpunkt:</b> {now_iso}\n"
-                f"• <b>Schwarm:</b> 33 spezialisierte KI-Agenten online\n"
+                f"• <b>Schwarm:</b> 37+ spezialisierte KI-Agenten online\n"
                 f"• <b>Broker:</b> Alpaca Live ($1,000.00)\n"
-                f"• <b>Watchdog & Resilienz:</b> Aktiv & schussfest\n"
+                f"• <b>Watchdog & Resilienz:</b> Aktiv & dauerhaft 24/7\n"
                 f"─────────────────────────────\n"
-                f"<i>Du kannst beruhigt reisen – der Agent wacht autonom über dein Konto.</i>"
+                f"<i>System läuft im permanenten 24/7 Produktionsbetrieb – der Schwarm wacht autonom über dein Konto.</i>"
             )
             self.send_message(msg)
         except Exception as e:
@@ -1090,12 +1090,12 @@ class TelegramCommandListener:
                 "🧬 <b>Autonome Schwarm-Evolution & Bayesianische Rekalibrierung</b>\n"
                 "─────────────────────────────\n"
                 f"• <b>Epoche:</b> #{evo_res.get('epoch', 1)} | Datum: {evo_res.get('date')}\n"
-                f"• <b>Aktive KI-Agenten:</b> {evo_res.get('active_subagents_count', 34)}\n"
+                f"• <b>Aktive KI-Agenten:</b> {evo_res.get('active_subagents_count', 37)}\n"
                 f"• <b>Statistisches Trust-Upgrade:</b> {evo_res.get('upgraded_count', 0)} Agenten gestärkt\n"
                 f"• <b>Trust-Drosselung:</b> {evo_res.get('downgraded_count', 0)} schwache Agenten abgewertet\n\n"
                 f"🏆 <b>Führende Alpha-Agenten:</b>\n{top_str or '• Baseline-Gewichtung aktiv'}\n"
                 "─────────────────────────────\n"
-                "<i>Alle 34 Spezialisten wurden an die jüngste Marktstruktur angepasst!</i>"
+                "<i>Alle Spezialisten wurden an die jüngste Marktstruktur angepasst!</i>"
             )
             self.send_message(evo_msg)
         except Exception as e:
@@ -1119,7 +1119,7 @@ class TelegramCommandListener:
 
             icon = "🟢" if delta >= 0 else "🔴"
             lines = [
-                "📋 <b>Ausführlicher Reise- & PnL-Report</b>\n─────────────────────────────",
+                "📋 <b>Ausführlicher Performance- & PnL-Report</b>\n─────────────────────────────",
                 f"💰 <b>Gesamt-Equity:</b> ${total_eq:,.2f} ({icon} {delta:+.2f}$ / {delta_pct:+.2f}%)",
                 f"💵 <b>Verfügbarer Cash:</b> ${cash:,.2f}",
                 f"📊 <b>Realisierter PnL:</b> ${realized:+,.2f}",

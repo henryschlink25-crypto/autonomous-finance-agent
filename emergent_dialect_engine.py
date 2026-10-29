@@ -308,6 +308,18 @@ class EmergentDialectEngine:
             self._ensure_token("⚡:PEAD_EARNINGS_DRIFT", "CATALYST", "Post-Earnings Announcement Drift Momentum nach explosiven Quartalszahlen")
             tokens_used.append(t)
 
+        # P. Autonom synthetisierte Quantitative Werkzeuge & Gezüchtete Elite-Strategien
+        custom_m = getattr(snapshot, "custom_metrics", {}) or {}
+        if any(k in custom_m for k in ("vw_macd_signal", "rvi_status", "hull_ma_hma_trend", "choppiness_index_regime", "elder_ray_status")):
+            t = "⚙️:SYNTHESIZED_TOOL_BOOST"
+            self._ensure_token("⚙️:SYNTHESIZED_TOOL_BOOST", "ALPHA", "Autonome Validierung durch vom Schwarm synthetisierte Indikatoren")
+            tokens_used.append(t)
+
+        if "Gezüchtete Elite-Strategie" in getattr(signal, "rationale", ""):
+            t = "🧬:BREEDER_GENETIC_ELITE"
+            self._ensure_token("🧬:BREEDER_GENETIC_ELITE", "ALPHA", "Bestätigt durch autonom evolvierte & krisen-geprüfte AlphaZero-Strategie")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

@@ -1,0 +1,1573 @@
+{
+  "WHALE": {
+    "timestamp": 1793301735.3375335,
+    "data": {
+      "symbol": "WHALE",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 1,
+      "top_headlines": [
+        "WHALE trading in market session with active institutional order flow."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:22:15Z"
+    }
+  },
+  "AMD": {
+    "timestamp": 1793301736.6441138,
+    "data": {
+      "symbol": "AMD",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "AMD Has Ripped 170% This Year: Is It Too Late to Buy?",
+        "The Same $10,000 in AMD and Nvidia Could Produce Very Different Results by 2030",
+        "Walmart, Eli Lilly and Cigna File Objections to ICE and OKX’s Tokenized Stock Venue"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:22:16Z"
+    }
+  },
+  "TECH": {
+    "timestamp": 1793301737.2842557,
+    "data": {
+      "symbol": "TECH",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Alphabet tumbles, software and cybersecurity stocks sink as earnings disappoint: AlphaCheck",
+        "What You Need to Know Ahead of Bio-Techne’s Earnings Release",
+        "1 Unpopular Stock That Should Get More Attention and 2 We Question"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:22:17Z"
+    }
+  },
+  "NVDA": {
+    "timestamp": 1793301737.6427784,
+    "data": {
+      "symbol": "NVDA",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "Nvidia's relationship with China just got even more complicated as report says Jensen Huang was target of spy plot",
+        "Wall Street Is Done Giving AI Software a Pass",
+        "Prediction: This Crypto Plunged 50% Overnight. It Could Soar in 2027."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:22:17Z"
+    }
+  },
+  "PUMPBULL": {
+    "timestamp": 1793301738.3458672,
+    "data": {
+      "symbol": "PUMPBULL",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 1,
+      "top_headlines": [
+        "PUMPBULL trading in market session with active institutional order flow."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:22:18Z"
+    }
+  },
+  "BHC": {
+    "timestamp": 1793301822.321721,
+    "data": {
+      "symbol": "BHC",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "BHC Q3 Earnings Beat on Salix Growth, Stock Gains 9% as Outlook Rises",
+        "Bausch: Q3 Earnings Snapshot",
+        "Bausch Health soars on earnings beat and raised outlook"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:42Z"
+    }
+  },
+  "AAPL": {
+    "timestamp": 1793292163.9127634,
+    "data": {
+      "symbol": "AAPL",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Apple Unveils Its First-Ever Touchscreen MacBook Pro. Should Investors Be Concerned About the $2,899 Price Tag?",
+        "HPQ vs. AAPL: Which Computer Stock Offers Better Investment Potential?",
+        "Pick-and-Shovel vs. Edge Gatekeeper: Why Investors Are Splitting Between Nvidia and Apple"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T16:42:43Z"
+    }
+  },
+  "AVGO": {
+    "timestamp": 1793292163.579045,
+    "data": {
+      "symbol": "AVGO",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why Is Broadcom (AVGO) Now Central To AI Funding And Infrastructure?",
+        "Wall Street’s Broadcom Target Sits Above Its 52-Week High. Is the Street Right?",
+        "Wall Street’s New $63 Billion AI Deal Reveals a Risk That Could Spread Beyond Tech"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T16:42:43Z"
+    }
+  },
+  "CROX": {
+    "timestamp": 1793301823.9497244,
+    "data": {
+      "symbol": "CROX",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "Crocs stock soars 25% as HeyDude sales return to growth",
+        "Crocs Lifts Full-Year Guidance Following Third-Quarter Beat; Shares Surge",
+        "Crocs (CROX) Q3 2026 Earnings Call Transcript"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:43Z"
+    }
+  },
+  "GKOS": {
+    "timestamp": 1793301824.301872,
+    "data": {
+      "symbol": "GKOS",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why Glaukos Stock Is Surging 30% and Headed for Record Close After Earnings",
+        "Glaukos Soars 26% on “Exceptional” Quarter and $1 Billion 2027 Sales Outlook",
+        "Glaukos (GKOS) Q3 2026 Earnings Call Transcript"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:44Z"
+    }
+  },
+  "ADT": {
+    "timestamp": 1793301823.2291558,
+    "data": {
+      "symbol": "ADT",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "ADT stock surges to 5-year high after Thrive Holdings agrees to $7.6 billion buyout deal",
+        "ADT to Go Private in $15.3 Billion Acquisition Deal",
+        "ADT Stock Hits Near 4-Year Highs – Joshua Kushner-Backed Thrive Holdings To Acquire ADT At $10 Per Share"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:43Z"
+    }
+  },
+  "PURR": {
+    "timestamp": 1793301822.8035483,
+    "data": {
+      "symbol": "PURR",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Hyperliquid Strategies Ramps Up Buyback Plan to $100M After Stock Sell-Off",
+        "Hyperliquid Strategies Expands PURR Stock Buyback As HYPE Extends Monthly Losses",
+        "Hyperliquid Strategies Inc Announces Increase of Stock Repurchase Program to $100 Million"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:42Z"
+    }
+  },
+  "NOW": {
+    "timestamp": 1793301825.4907043,
+    "data": {
+      "symbol": "NOW",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "ServiceNow just can't seem to escape the SaaSpocalypse — even after strong Q3 AI growth",
+        "Alphabet tumbles, software and cybersecurity stocks sink as earnings disappoint: AlphaCheck",
+        "Tech stocks hit hard after Samsung, Fortinet, and ServiceNow miss earnings"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:23:45Z"
+    }
+  },
+  "PRCH": {
+    "timestamp": 1793301823.585744,
+    "data": {
+      "symbol": "PRCH",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Porch (PRCH) Q3 2026 Earnings Call Transcript",
+        "What Porch Group (PRCH) Said on Its Q3 Earnings Call",
+        "Porch Group, Inc. (PRCH) Q3 Earnings and Revenues Surpass Estimates"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:43Z"
+    }
+  },
+  "MESO": {
+    "timestamp": 1793301825.04028,
+    "data": {
+      "symbol": "MESO",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "Ryoncil Growth Could Change The Case For Mesoblast Stock",
+        "Inside Biotech: Mesoblast surges 24% as Ryoncil sales climb and cash spend falls sharply",
+        "Activity Report for Quarter Ended September 30, 2026 (Appendix 4C)"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:45Z"
+    }
+  },
+  "INSM": {
+    "timestamp": 1793301825.8563643,
+    "data": {
+      "symbol": "INSM",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Insmed Soars 12% on $400 Million Brinsupri Quarter as U.S. Launch “Continues to Exceed Expectations”",
+        "What Insmed (INSM) Said on Its Q3 Earnings Call",
+        "Insmed (INSM) Q3 2026 Earnings Call Transcript"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:45Z"
+    }
+  },
+  "CVNA": {
+    "timestamp": 1793301826.992087,
+    "data": {
+      "symbol": "CVNA",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Carvana Soars 9% on Record 217,000-Unit Quarter, Top-End EBITDA Outlook: “The Moat Is Widening”",
+        "Why Carvana (CVNA) stock is up today",
+        "Carvana CEO has surprising message for used-car buyers"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:46Z"
+    }
+  },
+  "NCLH": {
+    "timestamp": 1793301826.1864624,
+    "data": {
+      "symbol": "NCLH",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Norwegian Cruise Lifts Outlook as Fares Slide: Rapid Earnings Reaction",
+        "Norwegian Cruise Line Soars 11% on Raised Guidance as CEO Sees “Meaningful Acceleration” in 2027",
+        "OneSpaWorld Soars 11% on Q3 Beat, Raised Guidance and New $100 Million Buyback: “22nd Consecutive Record Quarter”"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:46Z"
+    }
+  },
+  "FTAI": {
+    "timestamp": 1793301824.6741595,
+    "data": {
+      "symbol": "FTAI",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why FTAI Aviation Stock Popped on Thursday",
+        "FTAI (FTAI) Q3 2026 Earnings Call Transcript",
+        "What FTAI Aviation (FTAI) Said on Its Q3 Earnings Call"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:44Z"
+    }
+  },
+  "TXT": {
+    "timestamp": 1793301827.7854054,
+    "data": {
+      "symbol": "TXT",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Textron (TXT) Q3 2027 Earnings Call Transcript",
+        "Textron Inc. Q3 2026 Earnings Call Summary",
+        "Why Textron Stock Popped on Thursday"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:47Z"
+    }
+  },
+  "MIR": {
+    "timestamp": 1793300164.3455598,
+    "data": {
+      "symbol": "MIR",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why are Mirion (MIR) shares soaring today",
+        "What Mirion Technologies (MIR) Said on Its Q3 Earnings Call",
+        "Mirion (MIR) Q3 2026 Earnings Call Transcript"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T18:56:04Z"
+    }
+  },
+  "HII": {
+    "timestamp": 1793301826.5533779,
+    "data": {
+      "symbol": "HII",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "Huntington Ingalls (HII) Reports Q3 Earnings: What Key Metrics Have to Say",
+        "Why Huntington Ingalls Stock Popped on Thursday",
+        "Why is Huntington Ingalls (HII) stock rocketing higher today"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:23:46Z"
+    }
+  },
+  "GOOGL": {
+    "timestamp": 1793302168.5514374,
+    "data": {
+      "symbol": "GOOGL",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Can Hyperscalers Keep Supporting the Market?",
+        "Alphabet Stock Drops 12%. Can Its Dividend Survive the AI Spending Boom?",
+        "Alphabet's Cloud Business Just Doubled. The Stock Fell 12%. Is it a Buy?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:28Z"
+    }
+  },
+  "DRS": {
+    "timestamp": 1793301827.3420992,
+    "data": {
+      "symbol": "DRS",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "What Leonardo DRS (DRS) Said on Its Q3 Earnings Call",
+        "Leonardo DRS, Inc. (DRS) Q3 Earnings and Revenues Surpass Estimates",
+        "Leonardo DRS, Inc. (DRS) Q3 Earnings: Taking a Look at Key Metrics Versus Estimates"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:47Z"
+    }
+  },
+  "FLS": {
+    "timestamp": 1793301828.95077,
+    "data": {
+      "symbol": "FLS",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Flowserve (FLS) Q3 Earnings: How Key Metrics Compare to Wall Street Estimates",
+        "Flowserve (NYSE:FLS) posts Q3 2026 sales in line with estimates",
+        "Flowserve (FLS) Q3 Earnings and Revenues Surpass Estimates"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:48Z"
+    }
+  },
+  "GEN": {
+    "timestamp": 1793301829.8702772,
+    "data": {
+      "symbol": "GEN",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "Gen Digital Surges. It Kills M&A Speculation While the Cyber Boom Drives an Earnings Beat.",
+        "Gen Digital surges 11% on raised outlook and strong Q2 beat",
+        "GEN Q2 Earnings Beat Estimates on Financial Wellness Strength"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:49Z"
+    }
+  },
+  "BOOT": {
+    "timestamp": 1793301828.5991962,
+    "data": {
+      "symbol": "BOOT",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "BOOT Q2 Earnings Beat Estimates on Margin Gains, Sales Miss",
+        "Boot Barn: 3 Key Takeaways for Long-Term Investors",
+        "Boot Barn (BOOT) Q2 2027 Earnings Call Transcript"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:48Z"
+    }
+  },
+  "GVA": {
+    "timestamp": 1793300487.2622776,
+    "data": {
+      "symbol": "GVA",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Granite Construction (NYSE:GVA) delivers impressive Q3 2026, full-year outlook slightly exceeds expectations",
+        "Granite Construction (GVA) Q3 Earnings and Revenues Beat Estimates",
+        "Granite Construction: Q3 Earnings Snapshot"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:01:27Z"
+    }
+  },
+  "TRN": {
+    "timestamp": 1793299837.698373,
+    "data": {
+      "symbol": "TRN",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why is Trinity (TRN) stock soaring today",
+        "Trinity Industries, Inc. Q3 2026 Earnings Call Summary",
+        "Trinity Industries (TRN) Q3 2026 Earnings Call Transcript"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T18:50:37Z"
+    }
+  },
+  "FRVO": {
+    "timestamp": 1793290558.919234,
+    "data": {
+      "symbol": "FRVO",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Fervo Energy (FRVO) Stock Fair Value Edges Lower As Analysts Weigh Cape Station Timing",
+        "Fervo Energy Invites Investors to See the World’s First Commercial Greenfield Enhanced Geothermal Deployment",
+        "Fervo Energy (FRVO) Could Be 65% Undervalued As Cape Station Starts Revenue"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T16:15:58Z"
+    }
+  },
+  "FCN": {
+    "timestamp": 1793300163.7592974,
+    "data": {
+      "symbol": "FCN",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "FTI Consulting (FCN) Q3 2026 Earnings Call Transcript",
+        "FTI Consulting (FCN) Beats Q3 Earnings and Revenue Estimates",
+        "FTI Consulting’s (NYSE:FCN) Q3 2026 earnings results: revenue in line with expectations"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T18:56:03Z"
+    }
+  },
+  "PGEN": {
+    "timestamp": 1793299146.302513,
+    "data": {
+      "symbol": "PGEN",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Precigen to Announce Third Quarter 2026 Financial Results and Provide Business Updates on November 4",
+        "Precigen (PGEN) Stock May Be Fully Priced On Its Huge 3 Year Run",
+        "Precigen (PGEN) Soars 6.3%: Is Further Upside Left in the Stock?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T18:39:06Z"
+    }
+  },
+  "NEXT": {
+    "timestamp": 1793291838.6697671,
+    "data": {
+      "symbol": "NEXT",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "NextDecade: Q3 Earnings Snapshot",
+        "NextDecade Provides Third Quarter 2026 Business Update",
+        "NextDecade Announces Timing of Third Quarter 2026 Investor Call"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T16:37:18Z"
+    }
+  },
+  "ATI": {
+    "timestamp": 1793296995.2225878,
+    "data": {
+      "symbol": "ATI",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "ATI (ATI) Q3 Earnings and Revenues Surpass Estimates",
+        "ATI (ATI) Q3 Earnings: Taking a Look at Key Metrics Versus Estimates",
+        "ATI (NYSE:ATI) beats expectations in strong Q3 2026"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T18:03:15Z"
+    }
+  },
+  "STGW": {
+    "timestamp": 1793301830.2301037,
+    "data": {
+      "symbol": "STGW",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Allison Worldwide Introduces the Allison Gen Z Collective in Collaboration with American University School of Communication",
+        "Stagwell (STGW) Q3 Earnings Top Estimates",
+        "Stagwell: Q3 Earnings Snapshot"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:50Z"
+    }
+  },
+  "KRMN": {
+    "timestamp": 1793301829.539678,
+    "data": {
+      "symbol": "KRMN",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Karman Holdings Inc. (KRMN) Earnings Expected to Grow: What to Know Ahead of Next Week's Release",
+        "Does Karman Stock's Valuation Make Sense?",
+        "Will Karman Holdings Inc. (KRMN) Beat Estimates Again in Its Next Earnings Report?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:49Z"
+    }
+  },
+  "CAVA": {
+    "timestamp": 1793302168.893877,
+    "data": {
+      "symbol": "CAVA",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Cava Group (CAVA) Reports Next Week: What Awaits?",
+        "Hello, Wisconsin! CAVA Makes Its Milwaukee-Area Debut, With Madison Up Next",
+        "CAVA Group, Inc. (CAVA) is Attracting Investor Attention: Here is What You Should Know"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:28Z"
+    }
+  },
+  "EPAC": {
+    "timestamp": 1793300487.8718288,
+    "data": {
+      "symbol": "EPAC",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Enerpac Tool Group (EPAC) Q4 2026 Earnings Call Transcript",
+        "Is Enerpac Tool Group (EPAC) A Bargain On Its Earnings Beat And Higher Sales Outlook?",
+        "Enerpac Tool Group (EPAC) Stock May Be 20% Undervalued On Cash Flow"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:01:27Z"
+    }
+  },
+  "CHDN": {
+    "timestamp": 1793299837.2790391,
+    "data": {
+      "symbol": "CHDN",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Churchill Downs (CHDN) stock trades up, here is why",
+        "Churchill Downs Q3 Earnings Call Highlights",
+        "Churchill Downs (CHDN) Reports Q3 Results And Buyback, Is It Still A Bargain?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T18:50:37Z"
+    }
+  },
+  "ROAD": {
+    "timestamp": 1793296674.7152133,
+    "data": {
+      "symbol": "ROAD",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Elder Bray & Bankler Advises J.H. Strain & Sons on Sale of Assets & Real Estate",
+        "ROAD's Florida Expansion: Can Infrastructure Demand Drive Growth?",
+        "Construction Partners, Inc. Completes Florida Acquisition"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T17:57:54Z"
+    }
+  },
+  "IOVA": {
+    "timestamp": 1793303194.9710033,
+    "data": {
+      "symbol": "IOVA",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "These 2 Stocks Have Skyrocketed in 2026. Here’s Why I’d Stay Away",
+        "Iovance, A Top 1% Biotech Stock, Crashes In A Surprise Lung Cancer Twist",
+        "Iovance Sinks 31% as Lung Cancer TIL Data Comes In “Consistent With Previously Reported Results”"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:46:34Z"
+    }
+  },
+  "DKI": {
+    "timestamp": 1793302166.3077917,
+    "data": {
+      "symbol": "DKI",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "BC-Most Active Stocks",
+        "DarkIris Inc. Announces Share Consolidation",
+        "DarkIris Prices $6 Million Public Offering at $1.44 Per Unit With Potential for Significant Share Dilution"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:26Z"
+    }
+  },
+  "GOOG": {
+    "timestamp": 1793301462.295909,
+    "data": {
+      "symbol": "GOOG",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Alphabet's Cloud Business Just Doubled. The Stock Fell 12%. Is it a Buy?",
+        "Update: US Equity Indexes Drop as Communication Services Plummets Following Alphabet's Disappointing Results",
+        "Alphabet Just Lost $500 Billion in Market Value. A Once-in-a-Generation Artificial Intelligence (AI) Opportunity Could Be Hiding in Plain Sight."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:17:42Z"
+    }
+  },
+  "SES": {
+    "timestamp": 1793302166.655389,
+    "data": {
+      "symbol": "SES",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "SES AI Announces Date of Conference Call for Third Quarter 2026 Results",
+        "What Comes Next For SES AI After A 67% Slide",
+        "SES AI Completes Ramp of Korea Drone Battery Plant to One Million NDAA-Compliant Cells Per Year, and Plans to Further Expand to Three Million NDAA-Compliant Cells Per Year by Second Quarter 2027"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:26Z"
+    }
+  },
+  "BLDR": {
+    "timestamp": 1793301828.2442958,
+    "data": {
+      "symbol": "BLDR",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Builders FirstSource Soars 10% as Q3 Profit Smashes Estimates Despite Housing Slump",
+        "Why are Builders FirstSource (BLDR) shares soaring today",
+        "Builders FirstSource (NYSE:BLDR) exceeds Q3 2026 expectations, stock soars"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:23:48Z"
+    }
+  },
+  "SOXS": {
+    "timestamp": 1793302168.2125893,
+    "data": {
+      "symbol": "SOXS",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "2 ETFs to Watch for Outsized Volume in Semiconductor Trading",
+        "Why the SOXS Semiconductor Bear ETF Is Surging as Chip Stocks Sell Off",
+        "SOXS Jumps 11% as Micron Slides on Fears of Fiercer Chinese Memory Chip Competition"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:28Z"
+    }
+  },
+  "TDOC": {
+    "timestamp": 1793302164.3407934,
+    "data": {
+      "symbol": "TDOC",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Teladoc Soars 11% on Q3 Beat and Raised Outlook as “Insurance Revenue Exceeded Our Expectations”",
+        "Teladoc (TDOC) stock trades up, here is why",
+        "Teladoc Health Q3 Earnings Call Highlights"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:24Z"
+    }
+  },
+  "LUNG": {
+    "timestamp": 1793302164.8357182,
+    "data": {
+      "symbol": "LUNG",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Pulmonx to Participate in Upcoming Investor Conferences",
+        "Pulmonx (LUNG) Q3 2026 Earnings Call Transcript",
+        "What Pulmonx (LUNG) Said on Its Q3 Earnings Call"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:24Z"
+    }
+  },
+  "ALNY": {
+    "timestamp": 1793302165.2027154,
+    "data": {
+      "symbol": "ALNY",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "ALNY Stock Hits Fresh 52-Week Low On Medicare Access Worries And Pipeline Delays",
+        "Alnylam (ALNY) Q3 2026 Earnings Call Transcript",
+        "Alnylam Pharmaceuticals Q3 Earnings Call Highlights"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:25Z"
+    }
+  },
+  "SFM": {
+    "timestamp": 1793302165.6107786,
+    "data": {
+      "symbol": "SFM",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.92,
+      "positive_prob": 0.03,
+      "negative_prob": 0.95,
+      "neutral_prob": 0.02,
+      "headline_count": 5,
+      "top_headlines": [
+        "Sprouts Guides to Steeper Store Sales Drop: Rapid Earnings Reaction",
+        "Why Sprouts (SFM) stock is nosediving",
+        "Sprouts Farmers Market Sinks 23% on Q3 Miss and Guidance Cut: “Need to Improve Our Performance”"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:25Z"
+    }
+  },
+  "FTNT": {
+    "timestamp": 1793302165.978131,
+    "data": {
+      "symbol": "FTNT",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "ServiceNow, Fortinet Q3 earnings reports lead software stocks lower as outlooks disappoint",
+        "Tech stocks hit hard after Samsung, Fortinet, and ServiceNow miss earnings",
+        "Wall Street Is Done Giving AI Software a Pass"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:25Z"
+    }
+  },
+  "REPL": {
+    "timestamp": 1793302167.0937665,
+    "data": {
+      "symbol": "REPL",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Replimune Soars 17% as TUDRIQEV Melanoma Launch Draws “Enthusiastic” Response From Physicians",
+        "Why Did ETSY, REPL, GMAB Stocks Surge To 52-Week Highs Today?",
+        "Is Replimune Group (REPL) Cheap Following Its Reduced Net Loss Results?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:27Z"
+    }
+  },
+  "HLN": {
+    "timestamp": 1793302167.5160112,
+    "data": {
+      "symbol": "HLN",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "Haleon Sinks 14% on Growth Downgrade Despite £500 Million Buyback: “Q3 Was Below Our Expectations”",
+        "Haleon Catches a Cold at the Worst Possible Time",
+        "ASAIY or HLN: Which Is the Better Value Stock Right Now?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:27Z"
+    }
+  },
+  "HAPN": {
+    "timestamp": 1793302167.854946,
+    "data": {
+      "symbol": "HAPN",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why Happen Bank (HAPN) stock is up today",
+        "Happen (HAPN) Q3 2026 Earnings Call Transcript",
+        "What LendingClub (LC) Said on Its Q3 Earnings Call"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:27Z"
+    }
+  },
+  "TE": {
+    "timestamp": 1793302169.3231566,
+    "data": {
+      "symbol": "TE",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "T1 Energy Announces Third Quarter 2026 Earnings Release and Conference Call Schedule",
+        "T1 Receives Commerce Department Polysilicon 232 Waiver",
+        "Can T1 Energy's Acquisitions Strengthen Its Integrated Energy Strategy?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:29Z"
+    }
+  },
+  "ADS.DE": {
+    "timestamp": 1793302169.7712793,
+    "data": {
+      "symbol": "ADS.DE",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "adidas Q3 Earnings Call Highlights",
+        "Adidas’ Record-Breaking Q3 Is the Basis for ‘Balanced’ Future, Execs Say",
+        "Adidas stock gains on record Q3 profit, upgraded full-year outlook"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:29Z"
+    }
+  },
+  "BBAI": {
+    "timestamp": 1793302170.1062236,
+    "data": {
+      "symbol": "BBAI",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "BigBear.ai vs. Booz Allen: Which Government AI Stock is Better Now?",
+        "Is BigBear.ai Holdings (BBAI) Pricing In Too Much Sales Growth?",
+        "BigBear.ai: 3 Key Takeaways for Long-Term Investors"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:30Z"
+    }
+  },
+  "PCT": {
+    "timestamp": 1793302170.5076318,
+    "data": {
+      "symbol": "PCT",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "PureCycle to Report Third Quarter 2026 Financial Results on November 4, 2026",
+        "PureCycle (PCT) Expands PureFive Use as Regulatory Tailwinds Meet Execution Risk",
+        "PureCycle (PCT) Turns Lab Promises Into Detergent Cap Reality"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:30Z"
+    }
+  },
+  "BLMN": {
+    "timestamp": 1793302170.9296489,
+    "data": {
+      "symbol": "BLMN",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "3 Russell 2000 stocks we’re skeptical of",
+        "CBRL vs. BLMN: Which Restaurant Stock Is the Better Buy Now?",
+        "Here Is Why Bargain Hunters Would Love Fast-paced Mover Bloomin' Brands (BLMN)"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:30Z"
+    }
+  },
+  "CAPR": {
+    "timestamp": 1793302171.2878144,
+    "data": {
+      "symbol": "CAPR",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "CAPR Stock on Track For Worst Month Since July AdCom Vote On Deramiocel As November FDA Decision Nears",
+        "CAPR Stock Rises Nearly 5% As Capricor Presents Heart Data For Deramiocel Ahead Of November FDA Decision",
+        "Capricor Highlights Two-Year Deramiocel Data as FDA Decision Nears"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:31Z"
+    }
+  },
+  "JBLU": {
+    "timestamp": 1793302171.70889,
+    "data": {
+      "symbol": "JBLU",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.92,
+      "positive_prob": 0.03,
+      "negative_prob": 0.95,
+      "neutral_prob": 0.02,
+      "headline_count": 5,
+      "top_headlines": [
+        "JetBlue gets UBS backing as rising fares and asset sales ease cash concerns",
+        "JetBlue CEO says creditors are wrong about restructuring",
+        "JetBlue Airways Q3 Earnings Miss Estimates on Higher Fuel Costs"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:31Z"
+    }
+  },
+  "VG": {
+    "timestamp": 1793302172.104941,
+    "data": {
+      "symbol": "VG",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "Venture Global's LNG Expansion and Demand Trends Support Growth",
+        "VG vs. LNG: Which Energy Stock Offers More Upside for Investors?",
+        "Wall Street Analysts Think Venture Global (VG) Could Surge 25.15%: Read This Before Placing a Bet"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:32Z"
+    }
+  },
+  "CABA": {
+    "timestamp": 1793302172.4415839,
+    "data": {
+      "symbol": "CABA",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Cabaletta Bio to Participate in Upcoming Investor Conferences",
+        "Cabaletta Bio Inc. (CABA) A Top Penny Stock Eyeing Rese-Cel Commercial Launch for Autoimmune Diseases",
+        "Cabaletta Bio Announces New Rese-cel Data and Development Updates Across Autoimmune Portfolio, Including Encouraging Early PC-Free Lupus Findings, at EULAR 2026 Congress"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:32Z"
+    }
+  },
+  "KLAC": {
+    "timestamp": 1793302172.8558924,
+    "data": {
+      "symbol": "KLAC",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "KLAC Q1 Earnings Beat Estimates, Revenues Rise on AI Demand",
+        "KLA (KLAC) Q1 2027 Earnings Call Transcript",
+        "KLA Q1 Earnings Call Highlights"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:32Z"
+    }
+  },
+  "LLY": {
+    "timestamp": 1793302173.2077112,
+    "data": {
+      "symbol": "LLY",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.88,
+      "positive_prob": 0.92,
+      "negative_prob": 0.04,
+      "neutral_prob": 0.04,
+      "headline_count": 5,
+      "top_headlines": [
+        "How much can GLP-1s raise the bar for healthcare stocks?",
+        "Eli Lilly CFO On Acquisition Spree: 'We Are Taking Bets' On Future Revenue",
+        "Eli Lilly Soars 5% as Mounjaro and Zepbound Demand Drives $5.5 Billion Guidance Raise"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:33Z"
+    }
+  },
+  "WHR": {
+    "timestamp": 1793302173.5314908,
+    "data": {
+      "symbol": "WHR",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.92,
+      "positive_prob": 0.03,
+      "negative_prob": 0.95,
+      "neutral_prob": 0.02,
+      "headline_count": 5,
+      "top_headlines": [
+        "Whirlpool downgraded to B by S&P as earnings slump pushes leverage to 11x",
+        "Whirlpool (WHR) Adds Former Vanguard Executive Karin Risi To Its Board",
+        "Goldman Sachs lowers Whirlpool stock price target"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.92 | Pos: 3%, Neg: 95%, Neu: 2%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:29:33Z"
+    }
+  },
+  "UNIT": {
+    "timestamp": 1793302173.8804693,
+    "data": {
+      "symbol": "UNIT",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Uniti Group (UNIT) Stock Still Looks Like A Bargain As Shares Fell 73%",
+        "Uniti Group Stock Eyes Enterprise AI Security Launch",
+        "Uniti (UNIT) Moves 6.5% Higher: Will This Strength Last?"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:33Z"
+    }
+  },
+  "MRVL": {
+    "timestamp": 1793302174.3923705,
+    "data": {
+      "symbol": "MRVL",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Why Marvell Stock Is Down Today",
+        "Marvell Stock Slides. Why the Market Hates Idea of a Lumentum Buyout.",
+        "IBD Live Q&A Summary, Stock Lists, Transcript For Thursday, Oct. 29, 2026"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:34Z"
+    }
+  },
+  "FTRE": {
+    "timestamp": 1793302174.765768,
+    "data": {
+      "symbol": "FTRE",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Fortrea (FTRE) Q3 2026 Earnings Call Transcript",
+        "What Fortrea (FTRE) Said on Its Q3 Earnings Call",
+        "Fortrea (NASDAQ:FTRE) surprises with strong Q3 2026"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:34Z"
+    }
+  },
+  "FORM": {
+    "timestamp": 1793302175.1910853,
+    "data": {
+      "symbol": "FORM",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "FormFactor's Q3 Earnings Beat Estimates, Revenues Increase Y/Y",
+        "FormFactor (FORM) Q3 2026 Earnings Call Transcript",
+        "What FormFactor (FORM) Said on Its Q3 Earnings Call"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:29:35Z"
+    }
+  },
+  "HONA": {
+    "timestamp": 1793302510.3771722,
+    "data": {
+      "symbol": "HONA",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "What Is Behind The Move In Honeywell Aerospace Stock?",
+        "HONA Q3 Earnings Call Highlights Supply Chain Recovery and 2027 Growth",
+        "Honeywell International (HON) Unit Set Its First Standalone Quarterly Dividend"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:35:10Z"
+    }
+  },
+  "BBD": {
+    "timestamp": 1793302510.8663955,
+    "data": {
+      "symbol": "BBD",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "What Banco Bradesco (BBD) Said on Its Q3 Earnings Call",
+        "Bradesco Sinks 5% on Itau BBA Downgrade as Brazilian Bank Stocks Slide",
+        "Bradesco: 3 Key Takeaways for Long-Term Investors"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:35:10Z"
+    }
+  },
+  "CAT": {
+    "timestamp": 1793302511.2531502,
+    "data": {
+      "symbol": "CAT",
+      "sentiment_label": "VERY_BEARISH",
+      "compound_score": -0.72,
+      "positive_prob": 0.05,
+      "negative_prob": 0.77,
+      "neutral_prob": 0.18,
+      "headline_count": 5,
+      "top_headlines": [
+        "Caterpillar (CAT) Q3 2026 Earnings Call Transcript",
+        "Update: Equities Fall Intraday Amid Post-Earnings Sell-Offs in Alphabet, Caterpillar",
+        "Caterpillar Sales Up 17%, Margin Hits 20.4%: Rapid Earnings Reaction"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": true,
+      "analyzed_at": "2026-10-29T19:35:11Z"
+    }
+  },
+  "KPTI": {
+    "timestamp": 1793302848.8168602,
+    "data": {
+      "symbol": "KPTI",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Karyopharm Therapeutics Reports Inducement Grant Under Nasdaq Listing Rule 5635(c)(4)",
+        "Karyopharm pushes off debt payment; Amgen eyes broader Imdelltra use",
+        "Karyopharm Therapeutics Reports Inducement Grants Under Nasdaq Listing Rule 5635(c)(4)"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:40:48Z"
+    }
+  },
+  "DBK.DE": {
+    "timestamp": 1793302849.569806,
+    "data": {
+      "symbol": "DBK.DE",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Deutsche Bank starts positive on TK Accelis, citing value-added growth",
+        "Deutsche Bank (XTRA:DBK) Q3 Earnings Lean On Fee Growth And Costs",
+        "Deutsche Bank appointed as Successor Depositary Bank for the American Depositary Receipt Program of Aviva plc"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T19:40:49Z"
+    }
+  }
+}
