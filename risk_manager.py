@@ -286,9 +286,9 @@ class DeterministicRiskManager:
             # Dynamisches R:R: Bei hoher Schwarm-Konfidenz (>= 88%) reicht R:R >= 1.60:1,
             # bei extrem hoher Konfidenz (>= 92%) reicht R:R >= 1.50:1; ansonsten gilt R:R >= 1.80:1
             if signal.confidence >= 0.92:
-                min_rr = max(min_rr, 1.50)
+                min_rr = 1.50
             elif signal.confidence >= 0.88:
-                min_rr = max(min_rr, 1.60)
+                min_rr = 1.60
             else:
                 min_rr = max(min_rr, 1.80)
 
