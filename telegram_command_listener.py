@@ -21,6 +21,7 @@ from __future__ import annotations
 import html
 import json
 import logging
+import os
 import ssl
 import subprocess
 import sys
