@@ -177,6 +177,10 @@ class MarketSnapshot(BaseModel):
     sec_catalyst_type: Optional[str] = None
     sec_catalyst_sentiment: Optional[str] = None
     sec_catalyst_summary: str = ""
+    # Microsoft Qlib Alpha158 Quant Factors
+    qlib_alpha158_score: Optional[float] = None
+    qlib_alpha158_recommendation: Optional[str] = None
+    qlib_alpha158_summary: str = ""
     option_delta: Optional[float] = None
     option_gamma: Optional[float] = None
     option_vega: Optional[float] = None

@@ -1,0 +1,68 @@
+{
+  "AMD": {
+    "symbol": "AMD",
+    "composite_alpha_score": 0.04,
+    "bullish_factors_pct": 51.9,
+    "bearish_factors_pct": 48.1,
+    "top_alpha_factors": {
+      "ROC5": 0.1152,
+      "ROC10": 0.0075,
+      "ROC20": -0.0801,
+      "ROC60": 0.175,
+      "KMID": 0.0079,
+      "CORR10": -0.597,
+      "RSQR10": 0.322,
+      "MA20": 0.018
+    },
+    "trend_quality_r2": 0.322,
+    "volume_price_correlation": -0.597,
+    "confidence": 0.52,
+    "signal_recommendation": "NEUTRAL",
+    "summary_text": "Qlib Alpha158 Neutral (+0.04)",
+    "timestamp": "2026-10-29T21:10:04"
+  },
+  "TECH": {
+    "symbol": "TECH",
+    "composite_alpha_score": 1.0,
+    "bullish_factors_pct": 100.0,
+    "bearish_factors_pct": 0.0,
+    "top_alpha_factors": {
+      "ROC5": 0.0012,
+      "ROC10": 0.0026,
+      "ROC20": 0.0043,
+      "ROC60": 0.011,
+      "KMID": 0.001,
+      "CORR10": 0.304,
+      "RSQR10": 0.552,
+      "MA20": -0.002
+    },
+    "trend_quality_r2": 0.552,
+    "volume_price_correlation": 0.304,
+    "confidence": 0.95,
+    "signal_recommendation": "STRONG_BUY",
+    "summary_text": "Qlib Alpha158 STARK BULLISCH (+1.00, 100% Faktoren positiv)",
+    "timestamp": "2026-10-29T21:10:06"
+  },
+  "NVDA": {
+    "symbol": "NVDA",
+    "composite_alpha_score": 0.4,
+    "bullish_factors_pct": 70.0,
+    "bearish_factors_pct": 30.0,
+    "top_alpha_factors": {
+      "ROC5": 0.0059,
+      "ROC10": 0.022,
+      "ROC20": -0.0194,
+      "ROC60": 0.0,
+      "KMID": 0.0046,
+      "CORR10": -0.183,
+      "RSQR10": 0.046,
+      "MA20": -0.0
+    },
+    "trend_quality_r2": 0.046,
+    "volume_price_correlation": -0.183,
+    "confidence": 0.68,
+    "signal_recommendation": "BUY",
+    "summary_text": "Qlib Alpha158 Moderat Bullisch (+0.40)",
+    "timestamp": "2026-10-29T21:10:40"
+  }
+}

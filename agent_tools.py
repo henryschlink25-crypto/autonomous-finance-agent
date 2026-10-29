@@ -376,4 +376,24 @@ class QuantitativeToolbox:
             pass
         return {"has_material_event": False, "catalyst_type": "NONE", "summary": "Keine aktuellen 8-K Katalysatoren"}
 
+    @staticmethod
+    def calculate_qlib_alpha158_factors(df_daily: pd.DataFrame) -> Dict[str, Any]:
+        """
+        Berechnet die Microsoft Qlib Alpha158 Quantitative Faktoren Suite.
+        """
+        try:
+            from qlib_alpha158_engine import get_qlib_alpha158_engine
+            engine = get_qlib_alpha158_engine()
+            res_df = engine.compute_factors_dataframe(df_daily)
+            if res_df.empty:
+                return {"status": "INSUFFICIENT_DATA"}
+            latest = res_df.iloc[-1].dropna().to_dict()
+            return {
+                "status": "SUCCESS",
+                "factors_count": len(latest),
+                "factors": {k: round(float(v), 4) for k, v in list(latest.items())[:30]},
+            }
+        except Exception as e:
+            return {"status": "ERROR", "error": str(e)}
+
 

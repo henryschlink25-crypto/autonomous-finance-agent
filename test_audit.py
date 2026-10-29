@@ -2510,7 +2510,83 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 54 bestanden: Swarm Blackboard, A2A-Envelope-Protokoll, Dark Pool Block Sentinel (Sub-Agent #39), SEC Edgar Scout (Sub-Agent #40) & Dialekt-Token.")
 
-    print("=== Alle 54 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel- & SEC-Edgar-Scout-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 55: Microsoft Qlib Alpha158 Quant-Faktor Mining (Sub-Agent #41), Background Evolution Daemon & Dialekt
+        # ============================================================================
+        from qlib_alpha158_engine import get_qlib_alpha158_engine, QlibAlpha158Analysis
+        from agent_tools import QuantitativeToolbox
+        from background_evolution_daemon import BackgroundEvolutionDaemon
+
+        # 1. Teste Qlib Alpha158 mathematische Faktoren-Suite
+        qlib_engine = get_qlib_alpha158_engine()
+        dates = pd.date_range("2026-09-01", periods=30, freq="D")
+        np.random.seed(42)
+        base_price = 100.0 + np.cumsum(np.random.normal(0.5, 1.2, 30))
+        sample_df = pd.DataFrame({
+            "Open": base_price - 0.2,
+            "High": base_price + 1.0,
+            "Low": base_price - 0.8,
+            "Close": base_price + 0.3,
+            "Volume": np.random.uniform(1_000_000, 3_000_000, 30),
+        }, index=dates)
+
+        factors_df = qlib_engine.compute_factors_dataframe(sample_df)
+        assert not factors_df.empty, "Qlib Alpha158 Factors DataFrame darf nicht leer sein"
+        for req_f in ["KMID", "KLEN", "ROC5", "ROC10", "MA10", "MA20", "STD10", "CORR10", "RSQR10"]:
+            assert req_f in factors_df.columns, f"Faktor {req_f} muss in Alpha158 vorhanden sein"
+
+        qlib_analysis = qlib_engine.analyze_symbol("NVDA", history_df=sample_df)
+        assert qlib_analysis.composite_alpha_score > 0, "Aufwärtstrend-Sample muss positiven Qlib Alpha Score liefern"
+        assert qlib_analysis.signal_recommendation in ("BUY", "STRONG_BUY")
+
+        # 2. Teste QuantitativeToolbox Integration
+        toolbox_qlib = QuantitativeToolbox.calculate_qlib_alpha158_factors(sample_df)
+        assert toolbox_qlib["status"] == "SUCCESS", "Toolbox muss Alpha158 Faktoren erfolgreich berechnen"
+        assert toolbox_qlib["factors_count"] >= 15
+
+        # 3. Teste Sub-Agent #41 Votierung im Schwarm
+        adas_qlib = ADASMetaArchitect(cfg)
+        needed_qlib = adas_qlib._detect_needed_specialist_agents({"NVDA": snap_fav}, green_macro)
+        for sp in needed_qlib:
+            adas_qlib.state.active_subagents[sp.agent_id] = sp
+        assert "qlib_alpha158_miner" in adas_qlib.state.active_subagents, "Sub-Agent #41 (qlib_alpha158_miner) muss im Schwarm aktiv sein"
+
+        qlib_spec = adas_qlib.state.active_subagents["qlib_alpha158_miner"]
+        snap_qlib_bull = snap_fav.model_copy(update={
+            "qlib_alpha158_score": 0.52,
+            "qlib_alpha158_recommendation": "STRONG_BUY",
+        })
+        vote_qlib_bull, _ = adas_qlib._compute_single_subagent_vote(qlib_spec, snap_qlib_bull, green_macro)
+        assert vote_qlib_bull.vote_action == "BUY"
+        assert vote_qlib_bull.score >= 0.85
+
+        snap_qlib_bear = snap_fav.model_copy(update={
+            "qlib_alpha158_score": -0.45,
+            "qlib_alpha158_recommendation": "STRONG_SELL",
+        })
+        vote_qlib_bear, _ = adas_qlib._compute_single_subagent_vote(qlib_spec, snap_qlib_bear, green_macro)
+        assert vote_qlib_bear.vote_action in ("SELL", "VETO_BUY")
+        assert vote_qlib_bear.score <= -0.75
+
+        # 4. Teste 24/7 Parallele Hintergrund-Zucht
+        bg_daemon = BackgroundEvolutionDaemon(interval_seconds=3600)
+        bg_daemon.log_file = os.path.join(tmpdir, "tournaments.jsonl")
+        tourn_res = bg_daemon.run_single_tournament(pop_size=2)
+        assert isinstance(tourn_res, list), "Turnier muss Liste von Kandidaten zurückgeben"
+        assert bg_daemon.total_tournaments_run == 1
+
+        # 5. Teste Emergent Dialect Token
+        deal_qlib = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_qlib_bull,
+            signal=sig_apex_high,
+            macro=green_macro,
+            risk_evaluation=eval_hrp,
+        )
+        assert "📐:QLIB_ALPHA158_CONFLUENCE" in deal_qlib.dialect_sentence, f"Dialekt muss 📐:QLIB_ALPHA158_CONFLUENCE enthalten: {deal_qlib.dialect_sentence}"
+
+        print(f"[OK] Test 55 bestanden: Microsoft Qlib Alpha158 Factor Mining (Sub-Agent #41), Background Evolution Daemon & Dialekt-Token.")
+
+    print("=== Alle 55 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout- & Microsoft-Qlib-Alpha158-Tests erfolgreich bestanden! ===")
 
 
 

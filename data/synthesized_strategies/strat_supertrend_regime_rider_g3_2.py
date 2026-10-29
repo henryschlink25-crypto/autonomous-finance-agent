@@ -2,7 +2,7 @@
 Synthetisierte Handelsstrategie: SuperTrendRegimeRider_Gen3_2
 Archetyp: SUPERTREND_REGIME_RIDER
 Hypothese: Reitet etablierte Megatrends (SuperTrend grün, Kurs > SMA50 > SMA200) mit Volatilitätsparitäts-Gewichtung und sukzessivem Chandelier Trailing-Stop.
-Generiert am: 2026-10-29T21:47:20.322404
+Generiert am: 2026-10-29T22:09:56.436036
 """
 
 class SuperTrendRegimeRider_Gen3_2:
@@ -15,14 +15,14 @@ class SuperTrendRegimeRider_Gen3_2:
     
     def __init__(self):
         self.genes = {
-        "min_rvol": 1.264,
-        "min_change_pct": 1.481,
-        "max_rsi": 73.998,
-        "min_edge_score": 1.316,
-        "atr_sl_mult": 2.636,
-        "atr_tp_mult": 4.97,
-        "time_stop_days": 6,
-        "penny_max_price": 917.258
+        "min_rvol": 1.332,
+        "min_change_pct": 1.083,
+        "max_rsi": 76.133,
+        "min_edge_score": 1.338,
+        "atr_sl_mult": 2.663,
+        "atr_tp_mult": 5.444,
+        "time_stop_days": 8,
+        "penny_max_price": 1142.59
 }
 
     def evaluate_entry(self, snapshot, macro=None) -> dict:

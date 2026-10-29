@@ -1086,6 +1086,19 @@ class MultiAssetDataCollector:
             except Exception:
                 pass
 
+            # Microsoft Qlib Alpha158 Quant Factor Miner (Sub-Agent #41)
+            qlib_score, qlib_rec, qlib_sum = None, "NEUTRAL", ""
+            try:
+                from qlib_alpha158_engine import get_qlib_alpha158_engine
+                qlib_res = get_qlib_alpha158_engine().analyze_symbol(
+                    item.symbol, history_df=df, current_price=current_price
+                )
+                qlib_score = qlib_res.composite_alpha_score
+                qlib_rec = qlib_res.signal_recommendation
+                qlib_sum = qlib_res.summary_text
+            except Exception:
+                pass
+
             return MarketSnapshot(
                 symbol=item.symbol,
                 name=item.name,
@@ -1140,6 +1153,9 @@ class MultiAssetDataCollector:
                 sec_catalyst_type=sec_cat_type,
                 sec_catalyst_sentiment=sec_cat_sent,
                 sec_catalyst_summary=sec_cat_summary,
+                qlib_alpha158_score=qlib_score,
+                qlib_alpha158_recommendation=qlib_rec,
+                qlib_alpha158_summary=qlib_sum,
                 option_delta=opt_delta,
                 option_gamma=opt_gamma,
                 option_vega=opt_vega,

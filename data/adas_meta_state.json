@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-29T21:01:38",
+  "updated_at": "2026-10-29T21:10:40",
   "evolution_generation": 24,
-  "evolution_epoch": 26,
-  "total_evolution_cycles": 193,
+  "evolution_epoch": 28,
+  "total_evolution_cycles": 196,
   "active_subagents": {
     "alpha_breakout_hunter": {
       "agent_id": "alpha_breakout_hunter",
@@ -12,12 +12,12 @@
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "MOMENTUM_RVOL_RS",
-      "trust_weight": 1.192,
+      "trust_weight": 1.185,
       "signals_evaluated": 27,
       "correct_votes": 18,
       "false_votes": 9,
       "cumulative_edge_contributed": 9.76,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: SELL (-0.65)",
       "rule_parameters": {
         "min_rvol": 1.8662,
         "min_rs_spy": 4.0,
@@ -69,12 +69,12 @@
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "OPTIONS_WHALE_FLOW",
-      "trust_weight": 1.065,
+      "trust_weight": 1.054,
       "signals_evaluated": 53,
       "correct_votes": 28,
       "false_votes": 25,
       "cumulative_edge_contributed": 8.18,
-      "last_verdict_summary": "VG: BUY (+0.75)",
+      "last_verdict_summary": "CAT: SELL (-0.65)",
       "rule_parameters": {
         "whale_vol_oi_threshold": 1.8785,
         "bullish_pc_max": 0.68,
@@ -140,12 +140,12 @@
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "INTRADAY_MICROSTRUCTURE",
-      "trust_weight": 1.026,
+      "trust_weight": 1.021,
       "signals_evaluated": 63,
       "correct_votes": 32,
       "false_votes": 31,
       "cumulative_edge_contributed": 5.72,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: SELL (-0.50)",
       "rule_parameters": {
         "fading_penalty": -0.5502,
         "vwap_confirm_boost": 0.45
@@ -182,12 +182,12 @@
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "FUNDAMENTALS_AND_NEWS",
-      "trust_weight": 1.123,
+      "trust_weight": 1.12,
       "signals_evaluated": 18,
       "correct_votes": 11,
       "false_votes": 7,
       "cumulative_edge_contributed": 1.59,
-      "last_verdict_summary": "VG: BUY (+0.59)",
+      "last_verdict_summary": "CAT: BUY (+0.48)",
       "rule_parameters": {
         "min_rev_growth": 16.2,
         "max_healthy_pe": 42.0,
@@ -242,7 +242,7 @@
       "correct_votes": 1,
       "false_votes": 0,
       "cumulative_edge_contributed": 6.56,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "max_corr_tolerance": 0.9098
       },
@@ -268,12 +268,12 @@
       "is_spawned_by_adas": false,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "RISK_VETO_GUARD",
-      "trust_weight": 1.035,
+      "trust_weight": 1.025,
       "signals_evaluated": 40,
       "correct_votes": 20,
       "false_votes": 20,
       "cumulative_edge_contributed": 0.31,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "overbought_rsi_veto": 72.0,
         "max_volatility_pct": 115.0,
@@ -370,7 +370,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "oversold_rsi": 37.0,
         "min_rev_growth": 15.0
@@ -398,12 +398,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T00:25:44",
       "specialty_focus": "SHORT_SELL_SPECIALIST",
-      "trust_weight": 1.134,
+      "trust_weight": 1.132,
       "signals_evaluated": 8,
       "correct_votes": 5,
       "false_votes": 3,
       "cumulative_edge_contributed": 0.78,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: SELL (-0.82)",
       "rule_parameters": {
         "min_put_call_ratio": 1.35,
         "max_price_to_sma20": 0.995,
@@ -440,12 +440,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T00:27:27",
       "specialty_focus": "GAMMA_SQUEEZE",
-      "trust_weight": 1.111,
+      "trust_weight": 1.115,
       "signals_evaluated": 8,
       "correct_votes": 5,
       "false_votes": 3,
       "cumulative_edge_contributed": 7.18,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "min_vol_oi_ratio": 4.0824,
         "max_pc_ratio": 0.35
@@ -484,12 +484,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T00:27:27",
       "specialty_focus": "PEAD_DRIFT",
-      "trust_weight": 1.132,
+      "trust_weight": 1.13,
       "signals_evaluated": 16,
       "correct_votes": 10,
       "false_votes": 6,
       "cumulative_edge_contributed": 7.72,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "min_gap_pct": 9.605,
         "min_rvol": 1.995,
@@ -571,7 +571,7 @@
       "correct_votes": 8,
       "false_votes": 4,
       "cumulative_edge_contributed": 2.54,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "min_penny_rvol": 2.2162,
         "min_penny_chg": 3.8,
@@ -621,7 +621,7 @@
       "correct_votes": 8,
       "false_votes": 3,
       "cumulative_edge_contributed": 1.61,
-      "last_verdict_summary": "VG: BUY (+1.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "min_squeeze_mom": 0.064
       },
@@ -674,7 +674,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -697,7 +697,7 @@
       "correct_votes": 27,
       "false_votes": 23,
       "cumulative_edge_contributed": -0.02,
-      "last_verdict_summary": "VG: BUY (+0.99)",
+      "last_verdict_summary": "CAT: SELL (-0.60)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 37.0,
@@ -736,7 +736,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {
         "min_rvol": 1.271,
         "min_change_pct": 1.183,
@@ -770,7 +770,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {
         "min_rvol": 1.425,
         "min_change_pct": 1.531,
@@ -804,7 +804,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {
         "min_rvol": 1.25,
         "min_change_pct": 1.035,
@@ -833,12 +833,12 @@
       "is_spawned_by_adas": false,
       "created_at": "",
       "specialty_focus": "OPTIONS_SMART_MONEY",
-      "trust_weight": 0.855,
+      "trust_weight": 0.861,
       "signals_evaluated": 16,
       "correct_votes": 6,
       "false_votes": 10,
       "cumulative_edge_contributed": -1.4,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "min_flow_score": 0.3675,
         "max_flow_bear": -0.3675
@@ -902,12 +902,12 @@
       "is_spawned_by_adas": false,
       "created_at": "",
       "specialty_focus": "FUNDAMENTAL_HEALTH",
-      "trust_weight": 1.117,
+      "trust_weight": 1.105,
       "signals_evaluated": 54,
       "correct_votes": 31,
       "false_votes": 23,
       "cumulative_edge_contributed": 4.66,
-      "last_verdict_summary": "VG: BUY (+0.99)",
+      "last_verdict_summary": "CAT: BUY (+0.88)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 47.0,
@@ -946,7 +946,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -964,12 +964,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T12:30:06",
       "specialty_focus": "FRACTAL_REGIME",
-      "trust_weight": 0.969,
+      "trust_weight": 0.973,
       "signals_evaluated": 33,
       "correct_votes": 16,
       "false_votes": 17,
       "cumulative_edge_contributed": 0.8,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: BUY (+0.81)",
       "rule_parameters": {
         "min_hurst_trend": 0.58,
         "max_hurst_mean_rev": 0.44
@@ -1012,12 +1012,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T12:30:06",
       "specialty_focus": "INTERMARKET_CREDIT",
-      "trust_weight": 1.178,
+      "trust_weight": 1.154,
       "signals_evaluated": 64,
       "correct_votes": 38,
       "false_votes": 26,
       "cumulative_edge_contributed": 6.1,
-      "last_verdict_summary": "VG: BUY (+0.86)",
+      "last_verdict_summary": "CAT: BUY (+0.75)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 54.0,
@@ -1056,7 +1056,7 @@
       "correct_votes": 30,
       "false_votes": 28,
       "cumulative_edge_contributed": 0.73,
-      "last_verdict_summary": "VG: SELL (-0.88)",
+      "last_verdict_summary": "CAT: BUY (+0.63)",
       "rule_parameters": {
         "max_tight_spread": 0.13
       },
@@ -1117,12 +1117,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T12:33:20",
       "specialty_focus": "SECTOR_ROTATION",
-      "trust_weight": 1.178,
+      "trust_weight": 1.154,
       "signals_evaluated": 64,
       "correct_votes": 38,
       "false_votes": 26,
       "cumulative_edge_contributed": 6.1,
-      "last_verdict_summary": "VG: HOLD (+0.20)",
+      "last_verdict_summary": "CAT: BUY (+0.87)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 54.0,
@@ -1156,12 +1156,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T12:45:45",
       "specialty_focus": "GEOPOLITICAL_STRATEGY",
-      "trust_weight": 0.788,
+      "trust_weight": 0.818,
       "signals_evaluated": 63,
       "correct_votes": 25,
       "false_votes": 38,
       "cumulative_edge_contributed": -6.54,
-      "last_verdict_summary": "VG: SELL (-0.80)",
+      "last_verdict_summary": "CAT: SELL (-0.80)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 0.0,
@@ -1195,12 +1195,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T17:15:14",
       "specialty_focus": "HUGGINGFACE_SENTIMENT",
-      "trust_weight": 0.883,
+      "trust_weight": 0.891,
       "signals_evaluated": 34,
       "correct_votes": 14,
       "false_votes": 20,
       "cumulative_edge_contributed": -2.8,
-      "last_verdict_summary": "VG: BUY (+1.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.10)",
       "rule_parameters": {
         "min_positive_score": 0.3675,
         "max_negative_veto_score": -0.4
@@ -1257,7 +1257,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (-0.10)",
+      "last_verdict_summary": "CAT: HOLD (-0.10)",
       "rule_parameters": {
         "min_sweep_edge": 0.5,
         "max_exhaustion_score": -0.6
@@ -1278,12 +1278,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T17:15:14",
       "specialty_focus": "MACRO_EVENT_HORIZON",
-      "trust_weight": 1.178,
+      "trust_weight": 1.154,
       "signals_evaluated": 64,
       "correct_votes": 38,
       "false_votes": 26,
       "cumulative_edge_contributed": 6.1,
-      "last_verdict_summary": "VG: BUY (+0.64)",
+      "last_verdict_summary": "CAT: BUY (+0.53)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 54.0,
@@ -1317,12 +1317,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T17:15:14",
       "specialty_focus": "PROBABILISTIC_FORECAST",
-      "trust_weight": 1.095,
+      "trust_weight": 1.093,
       "signals_evaluated": 17,
       "correct_votes": 10,
       "false_votes": 7,
       "cumulative_edge_contributed": 1.88,
-      "last_verdict_summary": "VG: HOLD (+0.10)",
+      "last_verdict_summary": "CAT: HOLD (+0.10)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.5,
@@ -1356,12 +1356,12 @@
       "is_spawned_by_adas": false,
       "created_at": "",
       "specialty_focus": "TIMEFRAME_CONFLUENCE",
-      "trust_weight": 0.978,
+      "trust_weight": 0.98,
       "signals_evaluated": 29,
       "correct_votes": 14,
       "false_votes": 15,
       "cumulative_edge_contributed": -0.87,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (-0.20)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 32.5,
@@ -1395,12 +1395,12 @@
       "is_spawned_by_adas": false,
       "created_at": "",
       "specialty_focus": "ADVERSE_VOLATILITY_SHIELD",
-      "trust_weight": 1.181,
+      "trust_weight": 1.163,
       "signals_evaluated": 47,
       "correct_votes": 29,
       "false_votes": 18,
       "cumulative_edge_contributed": 5.69,
-      "last_verdict_summary": "VG: BUY (+0.59)",
+      "last_verdict_summary": "CAT: BUY (+0.48)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 59.5,
@@ -1439,7 +1439,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1462,7 +1462,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1480,12 +1480,12 @@
       "is_spawned_by_adas": true,
       "created_at": "2026-10-29T19:17:41",
       "specialty_focus": "WALL_STREET_CONSENSUS",
-      "trust_weight": 1.357,
+      "trust_weight": 1.341,
       "signals_evaluated": 15,
       "correct_votes": 12,
       "false_votes": 3,
       "cumulative_edge_contributed": 3.92,
-      "last_verdict_summary": "VG: BUY (+0.90)",
+      "last_verdict_summary": "CAT: BUY (+0.93)",
       "rule_parameters": {
         "min_analyst_upside": 15.0
       },
@@ -1530,7 +1530,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {
         "min_euro_volume_ratio": 1.35,
         "min_euro_chg": 1.2,
@@ -1561,7 +1561,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1584,7 +1584,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.00)",
+      "last_verdict_summary": "CAT: HOLD (+0.00)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1607,7 +1607,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1630,7 +1630,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1653,7 +1653,7 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: BUY (+0.83)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
@@ -1676,10 +1676,65 @@
       "correct_votes": 0,
       "false_votes": 0,
       "cumulative_edge_contributed": 0.0,
-      "last_verdict_summary": "VG: HOLD (+0.05)",
+      "last_verdict_summary": "CAT: HOLD (+0.05)",
       "rule_parameters": {},
       "prompt_directive": "",
       "fitness_score": 50.0,
+      "param_defaults": {},
+      "blame_counts": {},
+      "near_miss_counts": {},
+      "param_history": [],
+      "reflection_log": []
+    },
+    "qlib_alpha158_miner": {
+      "agent_id": "qlib_alpha158_miner",
+      "name": "📐 Microsoft Qlib Alpha158 Factor Miner",
+      "role": "Berechnet 158 tiefgehende quantitative Faktoren (K-Line Geometrie, Multi-Horizont Momentum, Volatilitäts-Skew, Preis-Volumen-Korrelation). Verleiht Conviction-Boost bei multifaktorieller Konfluenz.",
+      "generation": 1,
+      "is_spawned_by_adas": false,
+      "created_at": "",
+      "specialty_focus": "QLIB_ALPHA158",
+      "trust_weight": 1.32,
+      "signals_evaluated": 0,
+      "correct_votes": 0,
+      "false_votes": 0,
+      "cumulative_edge_contributed": 0.0,
+      "last_verdict_summary": "",
+      "rule_parameters": {},
+      "prompt_directive": "",
+      "fitness_score": 50.0,
+      "param_defaults": {},
+      "blame_counts": {},
+      "near_miss_counts": {},
+      "param_history": [],
+      "reflection_log": []
+    },
+    "subagent_strat_whale_orderflow_accumulator_g1_1": {
+      "agent_id": "subagent_strat_whale_orderflow_accumulator_g1_1",
+      "name": "🧬 WhaleOrderflowAccumulator_Gen1_1",
+      "role": "Gezüchtete Elite-Strategie (WHALE_ORDERFLOW_ACCUMULATOR): Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 1,
+      "is_spawned_by_adas": true,
+      "created_at": "2026-10-29T22:10:40.780250",
+      "specialty_focus": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "trust_weight": 1.25,
+      "signals_evaluated": 0,
+      "correct_votes": 0,
+      "false_votes": 0,
+      "cumulative_edge_contributed": 0.0,
+      "last_verdict_summary": "",
+      "rule_parameters": {
+        "min_rvol": 1.58,
+        "min_change_pct": 0.927,
+        "max_rsi": 69.65,
+        "min_edge_score": 1.541,
+        "atr_sl_mult": 2.143,
+        "atr_tp_mult": 4.413,
+        "time_stop_days": 6.0,
+        "penny_max_price": 1108.261
+      },
+      "prompt_directive": "Fokussiere auf WHALE_ORDERFLOW_ACCUMULATOR. Kaufe nur bei Erfüllung der Backtest-Regeln.",
+      "fitness_score": 85.0,
       "param_defaults": {},
       "blame_counts": {},
       "near_miss_counts": {},
@@ -1720,7 +1775,8 @@
     "[2026-10-29 19:35] 🔧 🛡️ Adversarial Tail-Risk & Trap Guard: Schwelle 'overbought_rsi_veto' verschärft 68.558 → 72.000 (3× als Fehlerursache identifiziert)",
     "[2026-10-29 19:35] 🔧 ⚡ Options Smart-Money & Max-Pain Hunter: Schwelle 'max_flow_bear' verschärft -0.350 → -0.367 (3× als Fehlerursache identifiziert)",
     "[2026-10-29 19:46] 🔧 🎯 Order-Book Depth & Liquidity Sniper: Schwelle 'max_tight_spread' verschärft 0.140 → 0.130 (3× als Fehlerursache identifiziert)",
-    "[19:48:25] 🧬 Elite-Strategie gezüchtet & scharfgeschaltet: 'WhaleOrderflowAccumulator_Gen24_3' (Sharpe 8.08, Win-Rate 70.4%)"
+    "[19:48:25] 🧬 Elite-Strategie gezüchtet & scharfgeschaltet: 'WhaleOrderflowAccumulator_Gen24_3' (Sharpe 8.08, Win-Rate 70.4%)",
+    "[22:10:40] 🧬 Elite-Strategie integriert: '🧬 WhaleOrderflowAccumulator_Gen1_1' (Sharpe 6.3 · Win 59.6%)"
   ],
   "Active_entry_prices": {
     "AVGO": 351.81,
@@ -1814,7 +1870,8 @@
     "AUR": 4.405,
     "SHOE": 15.07,
     "FMC": 4.75,
-    "MRVL": 218.34
+    "MRVL": 218.34,
+    "PINS": 19.92
   },
   "entry_times": {
     "AVGO": "2026-10-29T08:41:19",
@@ -1908,7 +1965,8 @@
     "AUR": "2026-10-29T20:28:00",
     "SHOE": "2026-10-29T20:28:01",
     "FMC": "2026-10-29T20:28:03",
-    "MRVL": "2026-10-29T20:29:20"
+    "MRVL": "2026-10-29T20:29:20",
+    "PINS": "2026-10-29T21:03:29"
   },
   "pending_traces": {
     "AVGO": {
@@ -90072,6 +90130,1334 @@
         ],
         "decisive_idx": [],
         "created_at": "2026-10-29T20:29:20"
+      }
+    },
+    "PINS": {
+      "alpha_breakout_hunter": {
+        "agent_id": "alpha_breakout_hunter",
+        "symbol": "PINS",
+        "score": -0.65,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "RVOL",
+            "observed": 3.39,
+            "op": ">=",
+            "param_key": "min_rvol",
+            "threshold": 1.8662,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "24h%",
+            "observed": -4.78,
+            "op": ">=",
+            "param_key": "min_chg_bull",
+            "threshold": 2.5,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "RS vs SPY",
+            "observed": -9.22,
+            "op": ">=",
+            "param_key": "min_rs_spy",
+            "threshold": 4.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "TTM Squeeze Fired",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "24h% Schwäche",
+            "observed": -4.78,
+            "op": "<=",
+            "param_key": "max_chg_bear",
+            "threshold": -3.0,
+            "passed": true,
+            "direction": "bear"
+          },
+          {
+            "label": "RS Schwäche",
+            "observed": -9.22,
+            "op": "<=",
+            "param_key": "max_rs_bear",
+            "threshold": -4.0,
+            "passed": true,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [
+          4,
+          5
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "options_whale_profiler": {
+        "agent_id": "options_whale_profiler",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Vol/OI Whale",
+            "observed": 0.26,
+            "op": ">=",
+            "param_key": "whale_vol_oi_threshold",
+            "threshold": 1.8785,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Put/Call Bull",
+            "observed": 1.14,
+            "op": "<=",
+            "param_key": "bullish_pc_max",
+            "threshold": 0.68,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Bullish Call Flow",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Bearish Put Flow",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Option Gamma",
+            "observed": 0.06675,
+            "op": ">=",
+            "param_key": "min_gamma",
+            "threshold": 0.0225,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          2,
+          4
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "intraday_vwap_sniper": {
+        "agent_id": "intraday_vwap_sniper",
+        "symbol": "PINS",
+        "score": -0.5,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "Kurs > VWAP",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Abverkauf vom Hoch",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Kurs < VWAP",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [
+          2
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "fundamental_catalyst_auditor": {
+        "agent_id": "fundamental_catalyst_auditor",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Umsatzwachstum",
+            "observed": 18.2,
+            "op": ">=",
+            "param_key": "min_rev_growth",
+            "threshold": 16.2,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Gewinnmarge",
+            "observed": 5.5,
+            "op": ">=",
+            "param_key": "min_profit_margin",
+            "threshold": 8.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "News Sentiment Bull",
+            "observed": 0.11,
+            "op": ">=",
+            "param_key": "min_news_bull",
+            "threshold": 0.35,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "News Sentiment Bear",
+            "observed": 0.11,
+            "op": "<=",
+            "param_key": "max_news_bear",
+            "threshold": -0.35,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "SEC Insider Buying",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "cross_asset_macro_sentinel": {
+        "agent_id": "cross_asset_macro_sentinel",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Macro Risk-On",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Portfolio Korrelation",
+            "observed": 0.14,
+            "op": "<=",
+            "param_key": "max_corr_tolerance",
+            "threshold": 0.9098,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Macro Defensiv",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "tail_risk_adversary_guard": {
+        "agent_id": "tail_risk_adversary_guard",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Überhitzter RSI",
+            "observed": 41.52,
+            "op": ">=",
+            "param_key": "overbought_rsi_veto",
+            "threshold": 72.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Starke News",
+            "observed": 0.11,
+            "op": ">=",
+            "param_key": "news_override",
+            "threshold": 0.5,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Blow-Off 24h%",
+            "observed": -4.78,
+            "op": ">=",
+            "param_key": "blowoff_min_chg",
+            "threshold": 12.6,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Abverkauf vom Hoch",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Moderater RSI",
+            "observed": 41.52,
+            "op": "<=",
+            "param_key": "safe_rsi_max",
+            "threshold": 70.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Kurs > VWAP",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "oversold_quality_dip_buyer": {
+        "agent_id": "oversold_quality_dip_buyer",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Überverkaufter RSI",
+            "observed": 41.52,
+            "op": "<=",
+            "param_key": "oversold_rsi",
+            "threshold": 37.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Umsatzstark",
+            "observed": 18.2,
+            "op": ">=",
+            "param_key": "min_rev_growth",
+            "threshold": 15.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Kurs > VWAP",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "short_breakdown_bear_agent": {
+        "agent_id": "short_breakdown_bear_agent",
+        "symbol": "PINS",
+        "score": -0.82,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "Kurs / SMA20",
+            "observed": 0.9309933867688641,
+            "op": "<=",
+            "param_key": "max_price_to_sma20",
+            "threshold": 0.995,
+            "passed": true,
+            "direction": "bear"
+          },
+          {
+            "label": "Intraday bärisch",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bear"
+          },
+          {
+            "label": "MACD negativ",
+            "observed": -0.2188,
+            "op": "<=",
+            "param_key": "max_macd_hist",
+            "threshold": 0.0,
+            "passed": true,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [
+          0,
+          1,
+          2
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "gamma_squeeze_specialist": {
+        "agent_id": "gamma_squeeze_specialist",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Vol/OI Extreme",
+            "observed": 0.26,
+            "op": ">=",
+            "param_key": "min_vol_oi_ratio",
+            "threshold": 4.0824,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Put/Call Niedrig",
+            "observed": 1.14,
+            "op": "<=",
+            "param_key": "max_pc_ratio",
+            "threshold": 0.35,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "pead_earnings_drift_agent": {
+        "agent_id": "pead_earnings_drift_agent",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Gap 24h%",
+            "observed": -4.78,
+            "op": ">=",
+            "param_key": "min_gap_pct",
+            "threshold": 9.605,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "PEAD RVOL",
+            "observed": 3.39,
+            "op": ">=",
+            "param_key": "min_rvol",
+            "threshold": 1.995,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "RSI Decke",
+            "observed": 41.52,
+            "op": "<=",
+            "param_key": "max_rsi_ceiling",
+            "threshold": 78.0,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "penny_stock_rocket_specialist": {
+        "agent_id": "penny_stock_rocket_specialist",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Penny Preis",
+            "observed": 19.92,
+            "op": "<=",
+            "param_key": "max_penny_price",
+            "threshold": 5.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Penny RVOL",
+            "observed": 3.39,
+            "op": ">=",
+            "param_key": "min_penny_rvol",
+            "threshold": 2.2162,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Penny 24h%",
+            "observed": -4.78,
+            "op": ">=",
+            "param_key": "min_penny_chg",
+            "threshold": 3.8,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Penny Dump",
+            "observed": -4.78,
+            "op": "<=",
+            "param_key": "max_penny_dump",
+            "threshold": -5.5,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "volatility_squeeze_specialist": {
+        "agent_id": "volatility_squeeze_specialist",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "TTM Squeeze Fired",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "TTM Compression",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Squeeze Momentum",
+            "observed": -1.4583,
+            "op": ">=",
+            "param_key": "min_squeeze_mom",
+            "threshold": 0.064,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "sec_insider_whale_follower": {
+        "agent_id": "sec_insider_whale_follower",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Form-4 Cluster Buy",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Form-4 Whale Buy",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Form-4 Insider Sell",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "supertrend_regime_specialist": {
+        "agent_id": "supertrend_regime_specialist",
+        "symbol": "PINS",
+        "score": -0.6,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "SuperTrend Bullish",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "SuperTrend Flip",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "subagent_strat_supertrend_regime_rider_g1_1": {
+        "agent_id": "subagent_strat_supertrend_regime_rider_g1_1",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "SuperTrend Bullish",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Trend RVOL",
+            "observed": 3.39,
+            "op": ">=",
+            "param_key": "min_rvol",
+            "threshold": 1.271,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "subagent_strat_supertrend_regime_rider_g1_3": {
+        "agent_id": "subagent_strat_supertrend_regime_rider_g1_3",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "SuperTrend Bullish",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Trend RVOL",
+            "observed": 3.39,
+            "op": ">=",
+            "param_key": "min_rvol",
+            "threshold": 1.425,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "subagent_strat_supertrend_regime_rider_g2_2": {
+        "agent_id": "subagent_strat_supertrend_regime_rider_g2_2",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "SuperTrend Bullish",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Trend RVOL",
+            "observed": 3.39,
+            "op": ">=",
+            "param_key": "min_rvol",
+            "threshold": 1.25,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "options_smart_money_hunter": {
+        "agent_id": "options_smart_money_hunter",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Options Flow Bull",
+            "observed": -0.2,
+            "op": ">=",
+            "param_key": "min_flow_score",
+            "threshold": 0.3675,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Options Flow Bear",
+            "observed": -0.2,
+            "op": "<=",
+            "param_key": "max_flow_bear",
+            "threshold": -0.3675,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "fundamental_health_guardian": {
+        "agent_id": "fundamental_health_guardian",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Elite Growth",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Toxic Distressed",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [
+          0
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "pairs_stat_arb_specialist": {
+        "agent_id": "pairs_stat_arb_specialist",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "fractal_regime_cycler": {
+        "agent_id": "fractal_regime_cycler",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Hurst Persistenter Trend",
+            "observed": 0.676,
+            "op": ">=",
+            "param_key": "min_hurst_trend",
+            "threshold": 0.58,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Hurst Mean-Reversion",
+            "observed": 0.676,
+            "op": "<=",
+            "param_key": "max_hurst_mean_rev",
+            "threshold": 0.44,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Random Walk Chop",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [
+          0
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "intermarket_credit_sentinel": {
+        "agent_id": "intermarket_credit_sentinel",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Credit Crunch Stress",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Credit Tailwind",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          1
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "microstructure_liquidity_sniper": {
+        "agent_id": "microstructure_liquidity_sniper",
+        "symbol": "PINS",
+        "score": -0.88,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "Slippage Trap",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bear"
+          },
+          {
+            "label": "Enge Spreads",
+            "observed": 0.64,
+            "op": "<=",
+            "param_key": "max_tight_spread",
+            "threshold": 0.13,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          0
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "sector_rotation_hunter": {
+        "agent_id": "sector_rotation_hunter",
+        "symbol": "PINS",
+        "score": 0.8,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Sector Leader Stock",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "geopolitical_crisis_strategist": {
+        "agent_id": "geopolitical_crisis_strategist",
+        "symbol": "PINS",
+        "score": -0.8,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "Geopolitische Eskalation",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bear"
+          },
+          {
+            "label": "Defense Hedge Asset",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          0
+        ],
+        "created_at": "2026-10-29T21:03:28"
+      },
+      "huggingface_sentiment_sentinel": {
+        "agent_id": "huggingface_sentiment_sentinel",
+        "symbol": "PINS",
+        "score": -0.88,
+        "vote_action": "SELL",
+        "steps": [
+          {
+            "label": "FinBERT Negative Shock",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bear"
+          },
+          {
+            "label": "FinBERT Bullish",
+            "observed": -0.72,
+            "op": ">=",
+            "param_key": "min_positive_score",
+            "threshold": 0.3675,
+            "passed": false,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          0
+        ],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "institutional_vwap_liquidity_sweeper": {
+        "agent_id": "institutional_vwap_liquidity_sweeper",
+        "symbol": "PINS",
+        "score": -0.1,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Bullish Liquidity Sweep",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "VWAP -2 Sigma Dip",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Bearish Climax Sweep",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "macro_event_horizon_sentinel": {
+        "agent_id": "macro_event_horizon_sentinel",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Event Horizon Active",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Approaching Event",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "probabilistic_forecast_sentinel": {
+        "agent_id": "probabilistic_forecast_sentinel",
+        "symbol": "PINS",
+        "score": 0.6,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Favorable Asymmetry",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Unfavorable Skew",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "multi_timeframe_alignment_specialist": {
+        "agent_id": "multi_timeframe_alignment_specialist",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [
+          {
+            "label": "Triple Bull Alignment",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "Triple Bear Alignment",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "adverse_volatility_shield_sentinel": {
+        "agent_id": "adverse_volatility_shield_sentinel",
+        "symbol": "PINS",
+        "score": 0.95,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Liquidity Void Hazard",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Volatility Shock",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Microstructure Stability",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          2
+        ],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "tactical_timing_optimizer": {
+        "agent_id": "tactical_timing_optimizer",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "pead_drift_hunter": {
+        "agent_id": "pead_drift_hunter",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "wall_street_consensus_analyst": {
+        "agent_id": "wall_street_consensus_analyst",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Analyst Strong Buy",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Analyst Upside %",
+            "observed": 45.7,
+            "op": ">=",
+            "param_key": "min_analyst_upside",
+            "threshold": 15.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Analyst Underperform",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [
+          0,
+          1
+        ],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "xetra_opening_arbitrageur": {
+        "agent_id": "xetra_opening_arbitrageur",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "biopharma_catalyst_sentinel": {
+        "agent_id": "biopharma_catalyst_sentinel",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Biopharma Catalyst Present",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Biopharma Volume Surge",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "crypto_macro_lead_lag_specialist": {
+        "agent_id": "crypto_macro_lead_lag_specialist",
+        "symbol": "PINS",
+        "score": 0.0,
+        "vote_action": "HOLD",
+        "steps": [],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "short_squeeze_ctb_hunter": {
+        "agent_id": "short_squeeze_ctb_hunter",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "tradingview_consensus_sentinel": {
+        "agent_id": "tradingview_consensus_sentinel",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "TV Strong Buy",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "TV Buy",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "TV Strong Sell Veto",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "dark_pool_block_sentinel": {
+        "agent_id": "dark_pool_block_sentinel",
+        "symbol": "PINS",
+        "score": 1.0,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "Dark Pool Akkumulation",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          },
+          {
+            "label": "Dark Pool Distribution",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          },
+          {
+            "label": "Block Trade Alert",
+            "observed": 1.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": true,
+            "direction": "bull"
+          }
+        ],
+        "decisive_idx": [
+          0
+        ],
+        "created_at": "2026-10-29T21:03:29"
+      },
+      "sec_edgar_scout": {
+        "agent_id": "sec_edgar_scout",
+        "symbol": "PINS",
+        "score": 0.55,
+        "vote_action": "BUY",
+        "steps": [
+          {
+            "label": "SEC Cluster/Whale Buy",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "SEC Positive 8-K",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bull"
+          },
+          {
+            "label": "SEC Verwässerung VETO",
+            "observed": 0.0,
+            "op": "==",
+            "param_key": "",
+            "threshold": 1.0,
+            "passed": false,
+            "direction": "bear"
+          }
+        ],
+        "decisive_idx": [],
+        "created_at": "2026-10-29T21:03:29"
       }
     }
   },

@@ -375,6 +375,18 @@ class EmergentDialectEngine:
         except Exception:
             pass
 
+        # V. Microsoft Qlib Alpha158 Quant Factor Miner (Sub-Agent #41)
+        qlib_sc = getattr(snapshot, "qlib_alpha158_score", None)
+        qlib_rc = getattr(snapshot, "qlib_alpha158_recommendation", None)
+        if qlib_rc in ("STRONG_BUY", "BUY") or (qlib_sc is not None and qlib_sc >= 0.25):
+            t = f"📐:QLIB_ALPHA158_CONFLUENCE[+{qlib_sc:.2f}]"
+            self._ensure_token("📐:QLIB_ALPHA158_CONFLUENCE", "QUANT", f"Bestätigt durch Microsoft Qlib Alpha158 Quant-Faktor-Matrix (+{qlib_sc:.2f})")
+            tokens_used.append(t)
+        elif qlib_rc in ("STRONG_SELL", "SELL") or (qlib_sc is not None and qlib_sc <= -0.30):
+            t = f"🛑:QLIB_ALPHA158_HEADWIND_VETO[{qlib_sc:.2f}]"
+            self._ensure_token("🛑:QLIB_ALPHA158_HEADWIND_VETO", "RISK", f"VETO: Qlib Alpha158 meldet quantitativen Gegenwind ({qlib_sc:.2f})")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

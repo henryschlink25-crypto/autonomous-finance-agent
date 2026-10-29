@@ -823,6 +823,16 @@ class ADASMetaArchitect:
                 trust_weight=1.30,
             ))
 
+        # 28. Microsoft Qlib Alpha158 Quantitative Factor Miner (Sub-Agent #41)
+        if "qlib_alpha158_miner" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="qlib_alpha158_miner",
+                name="📐 Microsoft Qlib Alpha158 Factor Miner",
+                role="Berechnet 158 tiefgehende quantitative Faktoren (K-Line Geometrie, Multi-Horizont Momentum, Volatilitäts-Skew, Preis-Volumen-Korrelation). Verleiht Conviction-Boost bei multifaktorieller Konfluenz.",
+                specialty_focus="QLIB_ALPHA158",
+                trust_weight=1.32,
+            ))
+
         return new_specs
 
 
@@ -1961,6 +1971,44 @@ class ADASMetaArchitect:
                 score = 0.05
                 conf = 0.50
                 rationale = f"SEC Edgar Scout neutral ({e})"
+
+        elif focus == "QLIB_ALPHA158":
+            try:
+                qlib_sc = getattr(snap, "qlib_alpha158_score", None)
+                qlib_rc = getattr(snap, "qlib_alpha158_recommendation", None)
+                if qlib_sc is None:
+                    from qlib_alpha158_engine import get_qlib_alpha158_engine
+                    res = get_qlib_alpha158_engine().analyze_symbol(snap.symbol, current_price=snap.current_price)
+                    qlib_sc = res.composite_alpha_score
+                    qlib_rc = res.signal_recommendation
+
+                s_strong_buy = rec.flag("Qlib Strong Buy", qlib_rc == "STRONG_BUY" or (qlib_sc is not None and qlib_sc >= 0.40), "bull")
+                s_buy = rec.flag("Qlib Buy", qlib_rc == "BUY" or (qlib_sc is not None and qlib_sc >= 0.20), "bull")
+                s_veto = rec.flag("Qlib Bear Veto", qlib_rc in ("STRONG_SELL", "SELL") or (qlib_sc is not None and qlib_sc <= -0.30), "bear")
+
+                if s_veto.passed:
+                    score = -0.85
+                    conf = 0.90
+                    rationale = f"🛑 VETO: Microsoft Qlib Alpha158 signalisiert quantitativen Gegenwind ({qlib_sc:+.2f})"
+                    decisive_idx = rec.idx(s_veto)
+                elif s_strong_buy.passed:
+                    score = min(0.96, 0.78 + (qlib_sc if qlib_sc is not None else 0.45) * 0.35)
+                    conf = 0.92
+                    rationale = f"📐 Microsoft Qlib Alpha158 stark bullisch (+{qlib_sc:.2f}, quantitative Konfluenz)"
+                    decisive_idx = rec.idx(s_strong_buy)
+                elif s_buy.passed:
+                    score = 0.70
+                    conf = 0.82
+                    rationale = f"📐 Microsoft Qlib Alpha158 bestätigt (+{qlib_sc:.2f})"
+                    decisive_idx = rec.idx(s_buy)
+                else:
+                    score = 0.05
+                    conf = 0.55
+                    rationale = f"Qlib Alpha158 neutral ({qlib_sc:+.2f})"
+            except Exception as e:
+                score = 0.05
+                conf = 0.50
+                rationale = f"Qlib Alpha158 neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

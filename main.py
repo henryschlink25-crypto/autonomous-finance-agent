@@ -654,6 +654,15 @@ def main() -> None:
         except Exception as e:
             console.print(f"[yellow]Warnung: Telegram-Listener konnte nicht gestartet werden: {e}[/yellow]")
 
+    # 24/7 Parallele Hintergrund-Strategie-Zucht starten
+    try:
+        from background_evolution_daemon import get_background_evolution_daemon
+        bg_evo = get_background_evolution_daemon(interval_seconds=1800)
+        bg_evo.start()
+        console.print("[bold magenta]🧬 24/7 Parallele Hintergrund-Strategie-Zucht aktiv[/bold magenta] (Evolviert alle 30 Min neue Elite-Agenten)")
+    except Exception as e:
+        logger.debug(f"Hintergrund-Zucht Start: {e}")
+
     if args.loop > 0:
         console.print(f"[bold green]Starte autonomen Dauerbetrieb (Intervall: {args.loop} Sekunden)...[/bold green]")
         while True:

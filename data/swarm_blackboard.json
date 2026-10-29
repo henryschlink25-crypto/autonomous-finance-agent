@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-10-29T21:01:45",
+  "updated_at": "2026-10-29T21:10:40",
   "threads": {
-    "TEST_ALPHA::TEST_SYM_1793307705": {
-      "topic_id": "TEST_ALPHA::TEST_SYM_1793307705",
+    "TEST_ALPHA::TEST_SYM_1793308240": {
+      "topic_id": "TEST_ALPHA::TEST_SYM_1793308240",
       "symbol": "TEST_SYM",
-      "created_at": "2026-10-29T21:01:45",
-      "updated_at": "2026-10-29T21:01:45",
+      "created_at": "2026-10-29T21:10:40",
+      "updated_at": "2026-10-29T21:10:40",
       "status": "VETOED_CLOSED",
       "consensus_score": -1.0,
       "leading_action": "VETO",
       "messages": [
         {
-          "message_id": "9223a037",
-          "topic": "TEST_ALPHA::TEST_SYM_1793307705",
+          "message_id": "9e9242e7",
+          "topic": "TEST_ALPHA::TEST_SYM_1793308240",
           "from_agent": "alpha_breakout_hunter",
           "to_agent": "ALL",
           "intent": "PROPOSE_TRADE",
@@ -23,11 +23,11 @@
             "target": 150.0
           },
           "summary_de": "Alpha Breakout erkannt",
-          "timestamp": "2026-10-29T21:01:45"
+          "timestamp": "2026-10-29T21:10:40"
         },
         {
-          "message_id": "a33cf8b9",
-          "topic": "TEST_ALPHA::TEST_SYM_1793307705",
+          "message_id": "2dce795e",
+          "topic": "TEST_ALPHA::TEST_SYM_1793308240",
           "from_agent": "dark_pool_block_sentinel",
           "to_agent": "ALL",
           "intent": "CONFIRM_CONSENSUS",
@@ -37,11 +37,11 @@
             "dark_pool_ratio": 0.52
           },
           "summary_de": "Bestätigt durch Dark Pool Akkumulation",
-          "timestamp": "2026-10-29T21:01:45"
+          "timestamp": "2026-10-29T21:10:40"
         },
         {
-          "message_id": "8182f610",
-          "topic": "TEST_ALPHA::TEST_SYM_1793307705",
+          "message_id": "4c8db6e0",
+          "topic": "TEST_ALPHA::TEST_SYM_1793308240",
           "from_agent": "red_team_adversarial_critic",
           "to_agent": "ALL",
           "intent": "EMERGENCY_VETO",
@@ -49,7 +49,7 @@
           "confidence": 0.95,
           "payload": {},
           "summary_de": "Toxische Finanzierung / Verwässerungsrisiko!",
-          "timestamp": "2026-10-29T21:01:45"
+          "timestamp": "2026-10-29T21:10:40"
         }
       ]
     },
@@ -57,7 +57,7 @@
       "topic_id": "ALPHA::NVDA",
       "symbol": "NVDA",
       "created_at": "2026-10-29T20:47:22",
-      "updated_at": "2026-10-29T21:01:01",
+      "updated_at": "2026-10-29T21:10:13",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 1.0,
       "leading_action": "BUY",
@@ -252,37 +252,16 @@
           "timestamp": "2026-10-29T20:54:13"
         },
         {
-          "message_id": "31e07580",
+          "message_id": "44dba600",
           "topic": "ALPHA::NVDA",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
+          "intent": "CHALLENGE_CRITIQUE",
           "symbol": "NVDA",
-          "confidence": 0.91,
+          "confidence": 0.87,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.62,
-            "bull_supporters": [
-              "🎯 Intraday",
-              "📊 Fundamental",
-              "🛡️ Adversarial"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: BUY (91% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:13"
-        },
-        {
-          "message_id": "c1e59553",
-          "topic": "ALPHA::NVDA",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "NVDA",
-          "confidence": 0.95,
-          "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.56,
+            "action": "HOLD",
+            "swarm_consensus": 0.51,
             "bull_supporters": [
               "🌐 Cross-Asset",
               "🚨 High-Yield",
@@ -290,20 +269,20 @@
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (95% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:59"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (87% Konfidenz)",
+          "timestamp": "2026-10-29T21:10:08"
         },
         {
-          "message_id": "3c276d86",
+          "message_id": "a3f802d6",
           "topic": "ALPHA::NVDA",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
+          "intent": "CHALLENGE_CRITIQUE",
           "symbol": "NVDA",
-          "confidence": 0.98,
+          "confidence": 0.89,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.59,
+            "action": "HOLD",
+            "swarm_consensus": 0.54,
             "bull_supporters": [
               "🌐 Cross-Asset",
               "🚨 High-Yield",
@@ -311,20 +290,20 @@
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
-          "timestamp": "2026-10-29T21:01:00"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (89% Konfidenz)",
+          "timestamp": "2026-10-29T21:10:09"
         },
         {
-          "message_id": "05847e68",
+          "message_id": "a7c4578e",
           "topic": "ALPHA::NVDA",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
+          "intent": "CHALLENGE_CRITIQUE",
           "symbol": "NVDA",
-          "confidence": 0.9,
+          "confidence": 0.82,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.56,
+            "action": "HOLD",
+            "swarm_consensus": 0.51,
             "bull_supporters": [
               "🌐 Cross-Asset",
               "🚨 High-Yield",
@@ -332,22 +311,22 @@
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (90% Konfidenz)",
-          "timestamp": "2026-10-29T21:01:01"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (82% Konfidenz)",
+          "timestamp": "2026-10-29T21:10:13"
         }
       ]
     },
     "ALPHA::PUMPBULL": {
       "topic_id": "ALPHA::PUMPBULL",
       "symbol": "PUMPBULL",
-      "created_at": "2026-10-29T21:01:00",
-      "updated_at": "2026-10-29T21:01:00",
+      "created_at": "2026-10-29T21:10:12",
+      "updated_at": "2026-10-29T21:10:12",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 0.8,
       "leading_action": "BUY",
       "messages": [
         {
-          "message_id": "5c31da1e",
+          "message_id": "6ead1b54",
           "topic": "ALPHA::PUMPBULL",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
@@ -356,7 +335,7 @@
           "confidence": 0.8,
           "payload": {
             "action": "BUY",
-            "swarm_consensus": 0.16,
+            "swarm_consensus": 0.15,
             "bull_supporters": [
               "🌐 Cross-Asset",
               "🎯 Penny",
@@ -365,21 +344,53 @@
             "veto_reasons": []
           },
           "summary_de": "ADAS Schwarm-Votum: BUY (80% Konfidenz)",
-          "timestamp": "2026-10-29T21:01:00"
+          "timestamp": "2026-10-29T21:10:12"
+        }
+      ]
+    },
+    "ALPHA::TECH": {
+      "topic_id": "ALPHA::TECH",
+      "symbol": "TECH",
+      "created_at": "2026-10-29T21:10:06",
+      "updated_at": "2026-10-29T21:10:06",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "ab943c22",
+          "topic": "ALPHA::TECH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "TECH",
+          "confidence": 0.82,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.23,
+            "bull_supporters": [
+              "🌀 Hurst",
+              "🎯 Order-Book",
+              "🚀 Sector"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (82% Konfidenz)",
+          "timestamp": "2026-10-29T21:10:06"
         }
       ]
     },
     "ALPHA::AMD": {
       "topic_id": "ALPHA::AMD",
       "symbol": "AMD",
-      "created_at": "2026-10-29T21:00:59",
-      "updated_at": "2026-10-29T21:00:59",
+      "created_at": "2026-10-29T21:10:04",
+      "updated_at": "2026-10-29T21:10:04",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
       "messages": [
         {
-          "message_id": "d563a6f2",
+          "message_id": "2f5a13a9",
           "topic": "ALPHA::AMD",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
@@ -397,53 +408,21 @@
             "veto_reasons": []
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (50% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:59"
-        }
-      ]
-    },
-    "ALPHA::TECH": {
-      "topic_id": "ALPHA::TECH",
-      "symbol": "TECH",
-      "created_at": "2026-10-29T21:00:59",
-      "updated_at": "2026-10-29T21:00:59",
-      "status": "OPEN_DISCUSSION",
-      "consensus_score": 0.0,
-      "leading_action": "HOLD",
-      "messages": [
-        {
-          "message_id": "81bd8780",
-          "topic": "ALPHA::TECH",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "TECH",
-          "confidence": 0.82,
-          "payload": {
-            "action": "HOLD",
-            "swarm_consensus": 0.2,
-            "bull_supporters": [
-              "🌀 Hurst",
-              "🎯 Order-Book",
-              "🚀 Sector"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (82% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:59"
+          "timestamp": "2026-10-29T21:10:04"
         }
       ]
     },
     "ALPHA::WHALE": {
       "topic_id": "ALPHA::WHALE",
       "symbol": "WHALE",
-      "created_at": "2026-10-29T21:00:58",
-      "updated_at": "2026-10-29T21:00:58",
+      "created_at": "2026-10-29T21:10:01",
+      "updated_at": "2026-10-29T21:10:01",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 0.82,
       "leading_action": "BUY",
       "messages": [
         {
-          "message_id": "e300a077",
+          "message_id": "b46504ea",
           "topic": "ALPHA::WHALE",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
@@ -461,158 +440,453 @@
             "veto_reasons": []
           },
           "summary_de": "ADAS Schwarm-Votum: BUY (82% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:58"
+          "timestamp": "2026-10-29T21:10:01"
         }
       ]
     },
-    "ALPHA::SOL/USD": {
-      "topic_id": "ALPHA::SOL/USD",
-      "symbol": "SOL/USD",
-      "created_at": "2026-10-29T21:00:16",
-      "updated_at": "2026-10-29T21:00:16",
+    "ALPHA::CAT": {
+      "topic_id": "ALPHA::CAT",
+      "symbol": "CAT",
+      "created_at": "2026-10-29T21:09:39",
+      "updated_at": "2026-10-29T21:09:39",
       "status": "CONSENSUS_REACHED",
-      "consensus_score": -0.94,
+      "consensus_score": -0.8,
       "leading_action": "SELL",
       "messages": [
         {
-          "message_id": "45c7bfa4",
-          "topic": "ALPHA::SOL/USD",
+          "message_id": "df89da35",
+          "topic": "ALPHA::CAT",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "PROPOSE_TRADE",
-          "symbol": "SOL/USD",
-          "confidence": 0.94,
+          "symbol": "CAT",
+          "confidence": 0.8,
           "payload": {
             "action": "SELL",
-            "swarm_consensus": -0.04,
+            "swarm_consensus": 0.13,
             "bull_supporters": [
-              "🚨 High-Yield",
-              "🏛️ Macro",
-              "⚡ Adverse"
+              "📊 Fundamental",
+              "🛡️ Fundamental",
+              "🌀 Hurst"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:16"
+          "summary_de": "ADAS Schwarm-Votum: SELL (80% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:39"
         }
       ]
     },
-    "ALPHA::COIN": {
-      "topic_id": "ALPHA::COIN",
-      "symbol": "COIN",
-      "created_at": "2026-10-29T21:00:15",
-      "updated_at": "2026-10-29T21:00:15",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": -0.92,
-      "leading_action": "SELL",
+    "ALPHA::UNIT": {
+      "topic_id": "ALPHA::UNIT",
+      "symbol": "UNIT",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:38",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
       "messages": [
         {
-          "message_id": "eb97ffff",
-          "topic": "ALPHA::COIN",
+          "message_id": "9ad1259f",
+          "topic": "ALPHA::UNIT",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "COIN",
-          "confidence": 0.92,
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "UNIT",
+          "confidence": 0.54,
           "payload": {
-            "action": "SELL",
-            "swarm_consensus": 0.09,
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "📊 Fundamental",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "69764e3a",
+          "topic": "ALPHA::UNIT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "UNIT",
+          "confidence": 0.54,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "📊 Fundamental",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "5bed2172",
+          "topic": "ALPHA::UNIT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "UNIT",
+          "confidence": 0.54,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "📊 Fundamental",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:27"
+        },
+        {
+          "message_id": "c1e3cc86",
+          "topic": "ALPHA::UNIT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "UNIT",
+          "confidence": 0.54,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "📊 Fundamental",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:38"
+        }
+      ]
+    },
+    "ALPHA::FTRE": {
+      "topic_id": "ALPHA::FTRE",
+      "symbol": "FTRE",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:38",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "99afe9b5",
+          "topic": "ALPHA::FTRE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTRE",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.32,
             "bull_supporters": [
               "🐋 Options-Whale",
-              "🌀 Hurst",
-              "🚨 High-Yield"
+              "🌊 SuperTrend",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (92% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:15"
-        }
-      ]
-    },
-    "ALPHA::BTC/USD": {
-      "topic_id": "ALPHA::BTC/USD",
-      "symbol": "BTC/USD",
-      "created_at": "2026-10-29T21:00:15",
-      "updated_at": "2026-10-29T21:00:15",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": -0.88,
-      "leading_action": "SELL",
-      "messages": [
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
         {
-          "message_id": "64305704",
-          "topic": "ALPHA::BTC/USD",
+          "message_id": "c72cfec0",
+          "topic": "ALPHA::FTRE",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "BTC/USD",
-          "confidence": 0.88,
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTRE",
+          "confidence": 0.59,
           "payload": {
-            "action": "SELL",
-            "swarm_consensus": 0.02,
+            "action": "HOLD",
+            "swarm_consensus": 0.32,
             "bull_supporters": [
-              "🌀 Hurst",
-              "🚨 High-Yield",
-              "🏛️ Macro"
+              "🐋 Options-Whale",
+              "🌊 SuperTrend",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (88% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:15"
-        }
-      ]
-    },
-    "ALPHA::ETH/USD": {
-      "topic_id": "ALPHA::ETH/USD",
-      "symbol": "ETH/USD",
-      "created_at": "2026-10-29T21:00:15",
-      "updated_at": "2026-10-29T21:00:15",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": -0.78,
-      "leading_action": "SELL",
-      "messages": [
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
         {
-          "message_id": "c4f7218e",
-          "topic": "ALPHA::ETH/USD",
+          "message_id": "7e738932",
+          "topic": "ALPHA::FTRE",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "ETH/USD",
-          "confidence": 0.78,
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTRE",
+          "confidence": 0.59,
           "payload": {
-            "action": "SELL",
-            "swarm_consensus": -0.02,
+            "action": "HOLD",
+            "swarm_consensus": 0.32,
             "bull_supporters": [
-              "🚨 High-Yield",
-              "🎯 Order-Book",
-              "🏛️ Macro"
+              "🐋 Options-Whale",
+              "🌊 SuperTrend",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (78% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:15"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:29"
+        },
+        {
+          "message_id": "cde13dbf",
+          "topic": "ALPHA::FTRE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTRE",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.32,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🌊 SuperTrend",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:38"
         }
       ]
     },
-    "ALPHA::PLTR": {
-      "topic_id": "ALPHA::PLTR",
-      "symbol": "PLTR",
-      "created_at": "2026-10-29T21:00:14",
-      "updated_at": "2026-10-29T21:00:14",
+    "ALPHA::PINS": {
+      "topic_id": "ALPHA::PINS",
+      "symbol": "PINS",
+      "created_at": "2026-10-29T21:03:29",
+      "updated_at": "2026-10-29T21:09:38",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "d75c7c42",
+          "topic": "ALPHA::PINS",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "PINS",
+          "confidence": 0.51,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.29,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:29"
+        },
+        {
+          "message_id": "50ab900c",
+          "topic": "ALPHA::PINS",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "PINS",
+          "confidence": 0.53,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.29,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:38"
+        }
+      ]
+    },
+    "ALPHA::MRVL": {
+      "topic_id": "ALPHA::MRVL",
+      "symbol": "MRVL",
+      "created_at": "2026-10-29T21:09:38",
+      "updated_at": "2026-10-29T21:09:38",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "5e3b6cdc",
+          "topic": "ALPHA::MRVL",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "MRVL",
+          "confidence": 0.53,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.12,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🛡️ Fundamental",
+              "🌀 Hurst"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:38"
+        }
+      ]
+    },
+    "ALPHA::CVNA": {
+      "topic_id": "ALPHA::CVNA",
+      "symbol": "CVNA",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
-      "consensus_score": 0.85,
+      "consensus_score": 1.0,
       "leading_action": "BUY",
       "messages": [
         {
-          "message_id": "137239cd",
-          "topic": "ALPHA::PLTR",
+          "message_id": "a0230404",
+          "topic": "ALPHA::CVNA",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "PROPOSE_TRADE",
-          "symbol": "PLTR",
-          "confidence": 0.85,
+          "symbol": "CVNA",
+          "confidence": 0.98,
           "payload": {
             "action": "BUY",
-            "swarm_consensus": 0.25,
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "f4ab259e",
+          "topic": "ALPHA::CVNA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "CVNA",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "b981eb96",
+          "topic": "ALPHA::CVNA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "CVNA",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:02:02"
+        },
+        {
+          "message_id": "8f3273ab",
+          "topic": "ALPHA::CVNA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "CVNA",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:11"
+        },
+        {
+          "message_id": "49c9eda9",
+          "topic": "ALPHA::CVNA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "CVNA",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.51,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
+        }
+      ]
+    },
+    "ALPHA::FTAI": {
+      "topic_id": "ALPHA::FTAI",
+      "symbol": "FTAI",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:37",
+      "status": "OPEN_DISCUSSION",
+      "consensus_score": 0.0,
+      "leading_action": "HOLD",
+      "messages": [
+        {
+          "message_id": "1ab8e3c1",
+          "topic": "ALPHA::FTAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTAI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.41,
             "bull_supporters": [
               "🐋 Options-Whale",
               "🎯 Intraday",
@@ -620,72 +894,440 @@
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (85% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:14"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "941b2377",
+          "topic": "ALPHA::FTAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTAI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.4,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "2a801903",
+          "topic": "ALPHA::FTAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTAI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T21:02:02"
+        },
+        {
+          "message_id": "0c8748e7",
+          "topic": "ALPHA::FTAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTAI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:10"
+        },
+        {
+          "message_id": "008f8f92",
+          "topic": "ALPHA::FTAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTAI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
-    "ALPHA::TSLA": {
-      "topic_id": "ALPHA::TSLA",
-      "symbol": "TSLA",
-      "created_at": "2026-10-29T21:00:14",
-      "updated_at": "2026-10-29T21:00:14",
+    "ALPHA::NOW": {
+      "topic_id": "ALPHA::NOW",
+      "symbol": "NOW",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:37",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": -0.74,
+      "leading_action": "SELL",
+      "messages": [
+        {
+          "message_id": "03247106",
+          "topic": "ALPHA::NOW",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "NOW",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.12,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "b78bb436",
+          "topic": "ALPHA::NOW",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "NOW",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.12,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "9ebed464",
+          "topic": "ALPHA::NOW",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "NOW",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.11,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:02:01"
+        },
+        {
+          "message_id": "8f60c193",
+          "topic": "ALPHA::NOW",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "NOW",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.11,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:10"
+        },
+        {
+          "message_id": "f02cf26b",
+          "topic": "ALPHA::NOW",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "NOW",
+          "confidence": 0.74,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.08,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (74% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
+        }
+      ]
+    },
+    "ALPHA::MESO": {
+      "topic_id": "ALPHA::MESO",
+      "symbol": "MESO",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:37",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": 1.0,
+      "leading_action": "BUY",
+      "messages": [
+        {
+          "message_id": "ae1dfda2",
+          "topic": "ALPHA::MESO",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "MESO",
+          "confidence": 0.98,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.59,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "2f605db8",
+          "topic": "ALPHA::MESO",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "MESO",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.59,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "92176075",
+          "topic": "ALPHA::MESO",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "MESO",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.61,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:02:00"
+        },
+        {
+          "message_id": "16317271",
+          "topic": "ALPHA::MESO",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "MESO",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.58,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:09"
+        },
+        {
+          "message_id": "f16e5e94",
+          "topic": "ALPHA::MESO",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "MESO",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.61,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
+        }
+      ]
+    },
+    "ALPHA::IOVA": {
+      "topic_id": "ALPHA::IOVA",
+      "symbol": "IOVA",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
       "messages": [
         {
-          "message_id": "6242c833",
-          "topic": "ALPHA::TSLA",
+          "message_id": "16799a12",
+          "topic": "ALPHA::IOVA",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "TSLA",
-          "confidence": 0.59,
+          "symbol": "IOVA",
+          "confidence": 0.51,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.19,
+            "swarm_consensus": 0.34,
             "bull_supporters": [
               "🐋 Options-Whale",
-              "🌊 SuperTrend",
-              "🚨 High-Yield"
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:14"
-        }
-      ]
-    },
-    "ALPHA::AAPL": {
-      "topic_id": "ALPHA::AAPL",
-      "symbol": "AAPL",
-      "created_at": "2026-10-29T21:00:13",
-      "updated_at": "2026-10-29T21:00:13",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": 0.88,
-      "leading_action": "BUY",
-      "messages": [
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
         {
-          "message_id": "cd11d75a",
-          "topic": "ALPHA::AAPL",
+          "message_id": "30305b58",
+          "topic": "ALPHA::IOVA",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "AAPL",
-          "confidence": 0.88,
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "IOVA",
+          "confidence": 0.51,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.27,
+            "action": "HOLD",
+            "swarm_consensus": 0.34,
             "bull_supporters": [
               "🐋 Options-Whale",
-              "📊 Fundamental",
-              "🌊 SuperTrend"
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (88% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:13"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "99e478f4",
+          "topic": "ALPHA::IOVA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "IOVA",
+          "confidence": 0.51,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.33,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:59"
+        },
+        {
+          "message_id": "6b7ae2f5",
+          "topic": "ALPHA::IOVA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "IOVA",
+          "confidence": 0.51,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.33,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "3bf5543e",
+          "topic": "ALPHA::IOVA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "IOVA",
+          "confidence": 0.51,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.33,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -693,7 +1335,7 @@
       "topic_id": "ALPHA::SOXS",
       "symbol": "SOXS",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T21:00:12",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -741,16 +1383,16 @@
           "timestamp": "2026-10-29T20:55:50"
         },
         {
-          "message_id": "b369ea80",
+          "message_id": "e33d059b",
           "topic": "ALPHA::SOXS",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "CHALLENGE_CRITIQUE",
           "symbol": "SOXS",
-          "confidence": 0.54,
+          "confidence": 0.57,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.19,
+            "swarm_consensus": 0.18,
             "bull_supporters": [
               "🐋 Options-Whale",
               "🌊 SuperTrend",
@@ -758,61 +1400,174 @@
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
-          "timestamp": "2026-10-29T21:00:12"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (57% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:59"
+        },
+        {
+          "message_id": "bd81ac99",
+          "topic": "ALPHA::SOXS",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "SOXS",
+          "confidence": 0.57,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.18,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🌊 SuperTrend",
+              "⚡ Options"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (57% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "5024ec00",
+          "topic": "ALPHA::SOXS",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "SOXS",
+          "confidence": 0.57,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.18,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🌊 SuperTrend",
+              "⚡ Options"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (57% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
-    "ALPHA::IOVA": {
-      "topic_id": "ALPHA::IOVA",
-      "symbol": "IOVA",
+    "ALPHA::CROX": {
+      "topic_id": "ALPHA::CROX",
+      "symbol": "CROX",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "OPEN_DISCUSSION",
-      "consensus_score": 0.0,
-      "leading_action": "HOLD",
+      "updated_at": "2026-10-29T21:09:37",
+      "status": "VETOED_CLOSED",
+      "consensus_score": -1.0,
+      "leading_action": "VETO",
       "messages": [
         {
-          "message_id": "16799a12",
-          "topic": "ALPHA::IOVA",
+          "message_id": "24c1a824",
+          "topic": "ALPHA::CROX",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "IOVA",
-          "confidence": 0.51,
+          "intent": "EMERGENCY_VETO",
+          "symbol": "CROX",
+          "confidence": 0.56,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.34,
+            "swarm_consensus": 0.42,
             "bull_supporters": [
-              "🐋 Options-Whale",
-              "🧬 SuperTrendRegimeRider_Gen1_1",
-              "🧬 SuperTrendRegimeRider_Gen1_3"
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
             ],
-            "veto_reasons": []
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 77.6 >= 72 ohne News)"
+            ]
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
           "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "30305b58",
-          "topic": "ALPHA::IOVA",
+          "message_id": "edec78a7",
+          "topic": "ALPHA::CROX",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "CROX",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 77.6 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
+        },
+        {
+          "message_id": "2fecda39",
+          "topic": "ALPHA::CROX",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "CROX",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 77.6 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "c8223a36",
+          "topic": "ALPHA::CROX",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "CROX",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 77.6 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "9ebe07de",
+          "topic": "ALPHA::CROX",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "IOVA",
-          "confidence": 0.51,
+          "symbol": "CROX",
+          "confidence": 0.56,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.34,
+            "swarm_consensus": 0.45,
             "bull_supporters": [
-              "🐋 Options-Whale",
-              "🧬 SuperTrendRegimeRider_Gen1_1",
-              "🧬 SuperTrendRegimeRider_Gen1_3"
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -820,7 +1575,7 @@
       "topic_id": "ALPHA::ADT",
       "symbol": "ADT",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "VETOED_CLOSED",
       "consensus_score": -1.0,
       "leading_action": "VETO",
@@ -870,59 +1625,327 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "0d699ecb",
+          "topic": "ALPHA::ADT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "ADT",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 88.6 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "205fe704",
+          "topic": "ALPHA::ADT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "ADT",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.4,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 88.6 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "80cd03b6",
+          "topic": "ALPHA::ADT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "ADT",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 88.6 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
-    "ALPHA::MESO": {
-      "topic_id": "ALPHA::MESO",
-      "symbol": "MESO",
+    "ALPHA::TDOC": {
+      "topic_id": "ALPHA::TDOC",
+      "symbol": "TDOC",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": 1.0,
-      "leading_action": "BUY",
+      "updated_at": "2026-10-29T21:09:37",
+      "status": "VETOED_CLOSED",
+      "consensus_score": -1.0,
+      "leading_action": "VETO",
       "messages": [
         {
-          "message_id": "ae1dfda2",
-          "topic": "ALPHA::MESO",
+          "message_id": "3e7bea5e",
+          "topic": "ALPHA::TDOC",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "MESO",
-          "confidence": 0.98,
+          "intent": "EMERGENCY_VETO",
+          "symbol": "TDOC",
+          "confidence": 0.55,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.59,
+            "action": "HOLD",
+            "swarm_consensus": 0.39,
             "bull_supporters": [
               "🚀 Alpha-Breakout",
               "🐋 Options-Whale",
-              "🎯 Intraday"
+              "🧬 SuperTrendRegimeRider_Gen1_1"
             ],
-            "veto_reasons": []
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 82.3 >= 72 ohne News)"
+            ]
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
+          "summary_de": "ADAS Schwarm-Votum: HOLD (55% Konfidenz)",
           "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "2f605db8",
-          "topic": "ALPHA::MESO",
+          "message_id": "87459665",
+          "topic": "ALPHA::TDOC",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "MESO",
-          "confidence": 0.99,
+          "intent": "EMERGENCY_VETO",
+          "symbol": "TDOC",
+          "confidence": 0.55,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.59,
+            "action": "HOLD",
+            "swarm_consensus": 0.38,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 82.3 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (55% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
+        },
+        {
+          "message_id": "503bd7f7",
+          "topic": "ALPHA::TDOC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "TDOC",
+          "confidence": 0.55,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.41,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 82.3 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (55% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "cd37cde3",
+          "topic": "ALPHA::TDOC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "TDOC",
+          "confidence": 0.55,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.38,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 82.3 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (55% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "d1b1486b",
+          "topic": "ALPHA::TDOC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "TDOC",
+          "confidence": 0.79,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.41,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 82.3 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (79% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
+        }
+      ]
+    },
+    "ALPHA::BHC": {
+      "topic_id": "ALPHA::BHC",
+      "symbol": "BHC",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:37",
+      "status": "VETOED_CLOSED",
+      "consensus_score": -1.0,
+      "leading_action": "VETO",
+      "messages": [
+        {
+          "message_id": "7a40fa64",
+          "topic": "ALPHA::BHC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "BHC",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
             "bull_supporters": [
               "🚀 Alpha-Breakout",
               "🐋 Options-Whale",
               "🎯 Intraday"
             ],
-            "veto_reasons": []
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 87.7 >= 72 ohne News)"
+            ]
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "31b611bc",
+          "topic": "ALPHA::BHC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "BHC",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 87.7 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
+        },
+        {
+          "message_id": "fb8dc8fc",
+          "topic": "ALPHA::BHC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "BHC",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.45,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 87.7 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "102b6df9",
+          "topic": "ALPHA::BHC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "BHC",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 87.7 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "c773cca6",
+          "topic": "ALPHA::BHC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "BHC",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.45,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 87.7 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -930,7 +1953,7 @@
       "topic_id": "ALPHA::ALNY",
       "symbol": "ALNY",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": -1.0,
       "leading_action": "SELL",
@@ -976,59 +1999,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: SELL (81% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
-        }
-      ]
-    },
-    "ALPHA::CVNA": {
-      "topic_id": "ALPHA::CVNA",
-      "symbol": "CVNA",
-      "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": 1.0,
-      "leading_action": "BUY",
-      "messages": [
-        {
-          "message_id": "a0230404",
-          "topic": "ALPHA::CVNA",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "CVNA",
-          "confidence": 0.98,
-          "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.49,
-            "bull_supporters": [
-              "🚀 Alpha-Breakout",
-              "🐋 Options-Whale",
-              "🎯 Intraday"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
-          "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "f4ab259e",
-          "topic": "ALPHA::CVNA",
+          "message_id": "3f082eb8",
+          "topic": "ALPHA::ALNY",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "PROPOSE_TRADE",
-          "symbol": "CVNA",
-          "confidence": 0.99,
+          "symbol": "ALNY",
+          "confidence": 0.81,
           "payload": {
-            "action": "BUY",
-            "swarm_consensus": 0.49,
+            "action": "SELL",
+            "swarm_consensus": 0.15,
             "bull_supporters": [
-              "🚀 Alpha-Breakout",
               "🐋 Options-Whale",
-              "🎯 Intraday"
+              "📊 Fundamental",
+              "⚡ Options"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: SELL (81% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:09"
+        },
+        {
+          "message_id": "57977bb8",
+          "topic": "ALPHA::ALNY",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "ALNY",
+          "confidence": 0.81,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.15,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "⚡ Options"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (81% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1036,7 +2048,7 @@
       "topic_id": "ALPHA::NCLH",
       "symbol": "NCLH",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "VETOED_CLOSED",
       "consensus_score": -1.0,
       "leading_action": "VETO",
@@ -1086,59 +2098,52 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
-        }
-      ]
-    },
-    "ALPHA::FTAI": {
-      "topic_id": "ALPHA::FTAI",
-      "symbol": "FTAI",
-      "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "OPEN_DISCUSSION",
-      "consensus_score": 0.0,
-      "leading_action": "HOLD",
-      "messages": [
-        {
-          "message_id": "1ab8e3c1",
-          "topic": "ALPHA::FTAI",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "FTAI",
-          "confidence": 0.63,
-          "payload": {
-            "action": "HOLD",
-            "swarm_consensus": 0.41,
-            "bull_supporters": [
-              "🐋 Options-Whale",
-              "🎯 Intraday",
-              "📊 Fundamental"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
-          "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "941b2377",
-          "topic": "ALPHA::FTAI",
+          "message_id": "6f7b6210",
+          "topic": "ALPHA::NCLH",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "FTAI",
-          "confidence": 0.63,
+          "intent": "EMERGENCY_VETO",
+          "symbol": "NCLH",
+          "confidence": 0.59,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.4,
+            "swarm_consensus": 0.6,
             "bull_supporters": [
+              "🚀 Alpha-Breakout",
               "🐋 Options-Whale",
-              "🎯 Intraday",
-              "📊 Fundamental"
+              "🎯 Intraday"
             ],
-            "veto_reasons": []
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 73.9 >= 72 ohne News)"
+            ]
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:10"
+        },
+        {
+          "message_id": "764628e0",
+          "topic": "ALPHA::NCLH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "NCLH",
+          "confidence": 0.59,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.61,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 73.9 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1146,7 +2151,7 @@
       "topic_id": "ALPHA::SFM",
       "symbol": "SFM",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": -1.0,
       "leading_action": "SELL",
@@ -1192,59 +2197,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
-        }
-      ]
-    },
-    "ALPHA::NOW": {
-      "topic_id": "ALPHA::NOW",
-      "symbol": "NOW",
-      "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "OPEN_DISCUSSION",
-      "consensus_score": 0.0,
-      "leading_action": "HOLD",
-      "messages": [
-        {
-          "message_id": "03247106",
-          "topic": "ALPHA::NOW",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "NOW",
-          "confidence": 0.52,
-          "payload": {
-            "action": "HOLD",
-            "swarm_consensus": 0.12,
-            "bull_supporters": [
-              "🐋 Options-Whale",
-              "📊 Fundamental",
-              "🛡️ Fundamental"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
-          "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "b78bb436",
-          "topic": "ALPHA::NOW",
+          "message_id": "d67d1d70",
+          "topic": "ALPHA::SFM",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "NOW",
-          "confidence": 0.52,
+          "intent": "PROPOSE_TRADE",
+          "symbol": "SFM",
+          "confidence": 0.94,
           "payload": {
-            "action": "HOLD",
-            "swarm_consensus": 0.12,
+            "action": "SELL",
+            "swarm_consensus": -0.02,
             "bull_supporters": [
-              "🐋 Options-Whale",
-              "📊 Fundamental",
-              "🛡️ Fundamental"
+              "🌀 Hurst",
+              "🚨 High-Yield",
+              "🏛️ Macro"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:12"
+        },
+        {
+          "message_id": "1e7a4748",
+          "topic": "ALPHA::SFM",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "SFM",
+          "confidence": 0.94,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": -0.02,
+            "bull_supporters": [
+              "🌀 Hurst",
+              "🚨 High-Yield",
+              "🏛️ Macro"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1252,7 +2246,7 @@
       "topic_id": "ALPHA::GEN",
       "symbol": "GEN",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 1.0,
       "leading_action": "BUY",
@@ -1298,6 +2292,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "2e832334",
+          "topic": "ALPHA::GEN",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "GEN",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.36,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:11"
+        },
+        {
+          "message_id": "2b3ea56d",
+          "topic": "ALPHA::GEN",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "GEN",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.36,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1305,7 +2341,7 @@
       "topic_id": "ALPHA::BOOT",
       "symbol": "BOOT",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 1.0,
       "leading_action": "BUY",
@@ -1351,6 +2387,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "873c781e",
+          "topic": "ALPHA::BOOT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "BOOT",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.61,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:13"
+        },
+        {
+          "message_id": "d38fc9ec",
+          "topic": "ALPHA::BOOT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "BOOT",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.63,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1358,7 +2436,7 @@
       "topic_id": "ALPHA::DKI",
       "symbol": "DKI",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1404,6 +2482,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "70e39823",
+          "topic": "ALPHA::DKI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "DKI",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.46,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "🛡️ Adversarial",
+              "📈 Post-Earnings-Announcement-Drift"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:13"
+        },
+        {
+          "message_id": "aecd34dc",
+          "topic": "ALPHA::DKI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "DKI",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.46,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "🛡️ Adversarial",
+              "📈 Post-Earnings-Announcement-Drift"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1411,7 +2531,7 @@
       "topic_id": "ALPHA::TE",
       "symbol": "TE",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1457,6 +2577,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "c647a5a4",
+          "topic": "ALPHA::TE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "TE",
+          "confidence": 0.51,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.28,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:14"
+        },
+        {
+          "message_id": "9fd2e8e8",
+          "topic": "ALPHA::TE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "TE",
+          "confidence": 0.51,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.24,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (51% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1464,7 +2626,7 @@
       "topic_id": "ALPHA::FTNT",
       "symbol": "FTNT",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1510,6 +2672,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "a3c45cc5",
+          "topic": "ALPHA::FTNT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTNT",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.1,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:16"
+        },
+        {
+          "message_id": "3d30a59f",
+          "topic": "ALPHA::FTNT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "FTNT",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.1,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1517,7 +2721,7 @@
       "topic_id": "ALPHA::KPTI",
       "symbol": "KPTI",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1563,6 +2767,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "d0949e8b",
+          "topic": "ALPHA::KPTI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "KPTI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.48,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:17"
+        },
+        {
+          "message_id": "ff83fb5a",
+          "topic": "ALPHA::KPTI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "KPTI",
+          "confidence": 0.63,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.48,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (63% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1570,7 +2816,7 @@
       "topic_id": "ALPHA::BBAI",
       "symbol": "BBAI",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1616,6 +2862,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "9e8f39c0",
+          "topic": "ALPHA::BBAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "BBAI",
+          "confidence": 0.6,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.23,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:18"
+        },
+        {
+          "message_id": "bebebc93",
+          "topic": "ALPHA::BBAI",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "BBAI",
+          "confidence": 0.6,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.23,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1623,7 +2911,7 @@
       "topic_id": "ALPHA::HAPN",
       "symbol": "HAPN",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1669,6 +2957,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (80% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "ee4b03bf",
+          "topic": "ALPHA::HAPN",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "HAPN",
+          "confidence": 0.6,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.5,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:19"
+        },
+        {
+          "message_id": "cb26fdf5",
+          "topic": "ALPHA::HAPN",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "HAPN",
+          "confidence": 0.6,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.5,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1676,7 +3006,7 @@
       "topic_id": "ALPHA::SES",
       "symbol": "SES",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1722,6 +3052,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (97% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "5f846fe1",
+          "topic": "ALPHA::SES",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "SES",
+          "confidence": 0.97,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.32,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (97% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:17"
+        },
+        {
+          "message_id": "302ca942",
+          "topic": "ALPHA::SES",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "SES",
+          "confidence": 0.97,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.35,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (97% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1729,7 +3101,7 @@
       "topic_id": "ALPHA::HLN",
       "symbol": "HLN",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1775,6 +3147,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "6856146c",
+          "topic": "ALPHA::HLN",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "HLN",
+          "confidence": 0.53,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.11,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "⚡ Options",
+              "🌀 Hurst"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:15"
+        },
+        {
+          "message_id": "07c6a913",
+          "topic": "ALPHA::HLN",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "HLN",
+          "confidence": 0.53,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.07,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "⚡ Options",
+              "🌀 Hurst"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1782,7 +3196,7 @@
       "topic_id": "ALPHA::GOOG",
       "symbol": "GOOG",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": -1.0,
       "leading_action": "SELL",
@@ -1828,6 +3242,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: SELL (80% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "2d933181",
+          "topic": "ALPHA::GOOG",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "GOOG",
+          "confidence": 0.8,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.19,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (80% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:19"
+        },
+        {
+          "message_id": "a426e5b0",
+          "topic": "ALPHA::GOOG",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "GOOG",
+          "confidence": 0.8,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.19,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "📊 Fundamental",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (80% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1835,7 +3291,7 @@
       "topic_id": "ALPHA::GOOGL",
       "symbol": "GOOGL",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": -1.0,
       "leading_action": "SELL",
@@ -1881,6 +3337,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "30b893e2",
+          "topic": "ALPHA::GOOGL",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "GOOGL",
+          "confidence": 0.94,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.09,
+            "bull_supporters": [
+              "📊 Fundamental",
+              "🛡️ Fundamental",
+              "🌀 Hurst"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:20"
+        },
+        {
+          "message_id": "33e156b0",
+          "topic": "ALPHA::GOOGL",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "GOOGL",
+          "confidence": 0.94,
+          "payload": {
+            "action": "SELL",
+            "swarm_consensus": 0.06,
+            "bull_supporters": [
+              "📊 Fundamental",
+              "🛡️ Fundamental",
+              "🌀 Hurst"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: SELL (94% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1888,7 +3386,7 @@
       "topic_id": "ALPHA::CAVA",
       "symbol": "CAVA",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1934,6 +3432,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "c7214655",
+          "topic": "ALPHA::CAVA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "CAVA",
+          "confidence": 0.58,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.26,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:20"
+        },
+        {
+          "message_id": "ba7b40e3",
+          "topic": "ALPHA::CAVA",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "CAVA",
+          "confidence": 0.58,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.29,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1941,7 +3481,7 @@
       "topic_id": "ALPHA::CAPR",
       "symbol": "CAPR",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -1987,6 +3527,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "e16689f1",
+          "topic": "ALPHA::CAPR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "CAPR",
+          "confidence": 0.54,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.09,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:21"
+        },
+        {
+          "message_id": "30f8c120",
+          "topic": "ALPHA::CAPR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "CAPR",
+          "confidence": 0.54,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.09,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -1994,7 +3576,7 @@
       "topic_id": "ALPHA::ULCC",
       "symbol": "ULCC",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 1.0,
       "leading_action": "BUY",
@@ -2040,6 +3622,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "ae15fc43",
+          "topic": "ALPHA::ULCC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "ULCC",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.35,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:23"
+        },
+        {
+          "message_id": "ee5caea2",
+          "topic": "ALPHA::ULCC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "ULCC",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.35,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2047,7 +3671,7 @@
       "topic_id": "ALPHA::WHR",
       "symbol": "WHR",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -2093,6 +3717,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "ba6e02a3",
+          "topic": "ALPHA::WHR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "WHR",
+          "confidence": 0.53,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.34,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "🛡️ Adversarial",
+              "🔥 TTM"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:22"
+        },
+        {
+          "message_id": "7cc6d90d",
+          "topic": "ALPHA::WHR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "WHR",
+          "confidence": 0.53,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.34,
+            "bull_supporters": [
+              "🎯 Intraday",
+              "🛡️ Adversarial",
+              "🔥 TTM"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (53% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2100,7 +3766,7 @@
       "topic_id": "ALPHA::LLY",
       "symbol": "LLY",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "VETOED_CLOSED",
       "consensus_score": -1.0,
       "leading_action": "VETO",
@@ -2150,6 +3816,52 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (64% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "dd4f285b",
+          "topic": "ALPHA::LLY",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LLY",
+          "confidence": 0.64,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.32,
+            "bull_supporters": [
+              "📊 Fundamental",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 74.5 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (64% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:27"
+        },
+        {
+          "message_id": "44d688c9",
+          "topic": "ALPHA::LLY",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LLY",
+          "confidence": 0.64,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.35,
+            "bull_supporters": [
+              "📊 Fundamental",
+              "🧬 SuperTrendRegimeRider_Gen1_1",
+              "🧬 SuperTrendRegimeRider_Gen1_3"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 74.5 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (64% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2157,7 +3869,7 @@
       "topic_id": "ALPHA::JBLU",
       "symbol": "JBLU",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -2203,59 +3915,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
-        }
-      ]
-    },
-    "ALPHA::AUR": {
-      "topic_id": "ALPHA::AUR",
-      "symbol": "AUR",
-      "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": -1.0,
-      "leading_action": "SELL",
-      "messages": [
-        {
-          "message_id": "c6a22d56",
-          "topic": "ALPHA::AUR",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "AUR",
-          "confidence": 0.85,
-          "payload": {
-            "action": "SELL",
-            "swarm_consensus": 0.08,
-            "bull_supporters": [
-              "🐋 Options-Whale",
-              "⚡ Gamma-Squeeze",
-              "⚡ Options"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: SELL (85% Konfidenz)",
-          "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "2f4c22dc",
-          "topic": "ALPHA::AUR",
+          "message_id": "d0b27293",
+          "topic": "ALPHA::JBLU",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "AUR",
-          "confidence": 0.85,
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "JBLU",
+          "confidence": 0.52,
           "payload": {
-            "action": "SELL",
-            "swarm_consensus": 0.08,
+            "action": "HOLD",
+            "swarm_consensus": 0.33,
             "bull_supporters": [
               "🐋 Options-Whale",
-              "⚡ Gamma-Squeeze",
-              "⚡ Options"
+              "🎯 Intraday",
+              "🛡️ Adversarial"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (85% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:22"
+        },
+        {
+          "message_id": "3ec73076",
+          "topic": "ALPHA::JBLU",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "JBLU",
+          "confidence": 0.52,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.33,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "🎯 Intraday",
+              "🛡️ Adversarial"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (52% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2263,7 +3964,7 @@
       "topic_id": "ALPHA::SHOE",
       "symbol": "SHOE",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -2309,6 +4010,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (57% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "4d1db93e",
+          "topic": "ALPHA::SHOE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "SHOE",
+          "confidence": 0.57,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (57% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:26"
+        },
+        {
+          "message_id": "9bb794b2",
+          "topic": "ALPHA::SHOE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "SHOE",
+          "confidence": 0.57,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.43,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (57% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2316,7 +4059,7 @@
       "topic_id": "ALPHA::PCT",
       "symbol": "PCT",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -2362,59 +4105,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
-        }
-      ]
-    },
-    "ALPHA::UNIT": {
-      "topic_id": "ALPHA::UNIT",
-      "symbol": "UNIT",
-      "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "OPEN_DISCUSSION",
-      "consensus_score": 0.0,
-      "leading_action": "HOLD",
-      "messages": [
-        {
-          "message_id": "9ad1259f",
-          "topic": "ALPHA::UNIT",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "UNIT",
-          "confidence": 0.54,
-          "payload": {
-            "action": "HOLD",
-            "swarm_consensus": 0.43,
-            "bull_supporters": [
-              "🎯 Intraday",
-              "📊 Fundamental",
-              "🛡️ Adversarial"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
-          "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "69764e3a",
-          "topic": "ALPHA::UNIT",
+          "message_id": "16e31fad",
+          "topic": "ALPHA::PCT",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "UNIT",
-          "confidence": 0.54,
+          "symbol": "PCT",
+          "confidence": 0.56,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.42,
+            "swarm_consensus": 0.39,
             "bull_supporters": [
-              "🎯 Intraday",
-              "📊 Fundamental",
-              "🛡️ Adversarial"
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (54% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:25"
+        },
+        {
+          "message_id": "d6981ce8",
+          "topic": "ALPHA::PCT",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "PCT",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.39,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze",
+              "🧬 SuperTrendRegimeRider_Gen1_1"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2422,7 +4154,7 @@
       "topic_id": "ALPHA::KLAC",
       "symbol": "KLAC",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
@@ -2468,6 +4200,48 @@
           },
           "summary_de": "ADAS Schwarm-Votum: HOLD (61% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "e8f45ce6",
+          "topic": "ALPHA::KLAC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "KLAC",
+          "confidence": 0.61,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.24,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (61% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:24"
+        },
+        {
+          "message_id": "401d0aa4",
+          "topic": "ALPHA::KLAC",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "KLAC",
+          "confidence": 0.61,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.24,
+            "bull_supporters": [
+              "🐋 Options-Whale",
+              "⚡ Gamma-Squeeze",
+              "🛡️ Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (61% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
@@ -2475,7 +4249,7 @@
       "topic_id": "ALPHA::ADS.DE",
       "symbol": "ADS.DE",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:37",
       "status": "CONSENSUS_REACHED",
       "consensus_score": 1.0,
       "leading_action": "BUY",
@@ -2521,165 +4295,522 @@
           },
           "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
           "timestamp": "2026-10-29T20:55:50"
+        },
+        {
+          "message_id": "a5e5124f",
+          "topic": "ALPHA::ADS.DE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "ADS.DE",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.62,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "🌊 SuperTrend"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:28"
+        },
+        {
+          "message_id": "ea5e998d",
+          "topic": "ALPHA::ADS.DE",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "ADS.DE",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.63,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "🌊 SuperTrend"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:37"
         }
       ]
     },
-    "ALPHA::FTRE": {
-      "topic_id": "ALPHA::FTRE",
-      "symbol": "FTRE",
+    "ALPHA::PRCH": {
+      "topic_id": "ALPHA::PRCH",
+      "symbol": "PRCH",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
+      "updated_at": "2026-10-29T21:09:36",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": 1.0,
+      "leading_action": "BUY",
+      "messages": [
+        {
+          "message_id": "b5621809",
+          "topic": "ALPHA::PRCH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PRCH",
+          "confidence": 0.98,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.53,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "86d0c75f",
+          "topic": "ALPHA::PRCH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PRCH",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.53,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
+        },
+        {
+          "message_id": "076ce211",
+          "topic": "ALPHA::PRCH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PRCH",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.52,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "d3c1ffec",
+          "topic": "ALPHA::PRCH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PRCH",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.52,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "b8f70aa6",
+          "topic": "ALPHA::PRCH",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PRCH",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.52,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:36"
+        }
+      ]
+    },
+    "ALPHA::GKOS": {
+      "topic_id": "ALPHA::GKOS",
+      "symbol": "GKOS",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:36",
       "status": "OPEN_DISCUSSION",
       "consensus_score": 0.0,
       "leading_action": "HOLD",
       "messages": [
         {
-          "message_id": "99afe9b5",
-          "topic": "ALPHA::FTRE",
+          "message_id": "458feb45",
+          "topic": "ALPHA::GKOS",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "FTRE",
-          "confidence": 0.59,
+          "symbol": "GKOS",
+          "confidence": 0.58,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.32,
+            "swarm_consensus": 0.4,
             "bull_supporters": [
-              "🐋 Options-Whale",
-              "🌊 SuperTrend",
-              "🧬 SuperTrendRegimeRider_Gen1_1"
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
           "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "c72cfec0",
-          "topic": "ALPHA::FTRE",
+          "message_id": "725b6ddc",
+          "topic": "ALPHA::GKOS",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
           "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "FTRE",
-          "confidence": 0.59,
+          "symbol": "GKOS",
+          "confidence": 0.58,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.32,
-            "bull_supporters": [
-              "🐋 Options-Whale",
-              "🌊 SuperTrend",
-              "🧬 SuperTrendRegimeRider_Gen1_1"
-            ],
-            "veto_reasons": []
-          },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (59% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
-        }
-      ]
-    },
-    "ALPHA::FMC": {
-      "topic_id": "ALPHA::FMC",
-      "symbol": "FMC",
-      "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "CONSENSUS_REACHED",
-      "consensus_score": -1.0,
-      "leading_action": "SELL",
-      "messages": [
-        {
-          "message_id": "69755d8c",
-          "topic": "ALPHA::FMC",
-          "from_agent": "adas_meta_architect",
-          "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "FMC",
-          "confidence": 0.89,
-          "payload": {
-            "action": "SELL",
             "swarm_consensus": 0.37,
             "bull_supporters": [
+              "🚀 Alpha-Breakout",
               "🎯 Intraday",
-              "🛡️ Adversarial",
-              "🧬 SuperTrendRegimeRider_Gen1_1"
+              "📊 Fundamental"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (89% Konfidenz)",
-          "timestamp": "2026-10-29T20:48:39"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
         },
         {
-          "message_id": "aebaf372",
-          "topic": "ALPHA::FMC",
+          "message_id": "27666b11",
+          "topic": "ALPHA::GKOS",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "PROPOSE_TRADE",
-          "symbol": "FMC",
-          "confidence": 0.89,
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "GKOS",
+          "confidence": 0.58,
           "payload": {
-            "action": "SELL",
-            "swarm_consensus": 0.36,
+            "action": "HOLD",
+            "swarm_consensus": 0.4,
             "bull_supporters": [
+              "🚀 Alpha-Breakout",
               "🎯 Intraday",
-              "🛡️ Adversarial",
-              "🧬 SuperTrendRegimeRider_Gen1_1"
+              "📊 Fundamental"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: SELL (89% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "0bc9b1a6",
+          "topic": "ALPHA::GKOS",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "GKOS",
+          "confidence": 0.58,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.37,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "7c77b0de",
+          "topic": "ALPHA::GKOS",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "CHALLENGE_CRITIQUE",
+          "symbol": "GKOS",
+          "confidence": 0.58,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.42,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🎯 Intraday",
+              "📊 Fundamental"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (58% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:36"
         }
       ]
     },
-    "ALPHA::VG": {
-      "topic_id": "ALPHA::VG",
-      "symbol": "VG",
+    "ALPHA::LUNG": {
+      "topic_id": "ALPHA::LUNG",
+      "symbol": "LUNG",
       "created_at": "2026-10-29T20:48:39",
-      "updated_at": "2026-10-29T20:55:50",
-      "status": "OPEN_DISCUSSION",
-      "consensus_score": 0.0,
-      "leading_action": "HOLD",
+      "updated_at": "2026-10-29T21:09:36",
+      "status": "VETOED_CLOSED",
+      "consensus_score": -1.0,
+      "leading_action": "VETO",
       "messages": [
         {
-          "message_id": "e2719389",
-          "topic": "ALPHA::VG",
+          "message_id": "a3f55b32",
+          "topic": "ALPHA::LUNG",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "VG",
-          "confidence": 0.6,
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LUNG",
+          "confidence": 0.56,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.27,
+            "swarm_consensus": 0.41,
             "bull_supporters": [
+              "🚀 Alpha-Breakout",
               "🐋 Options-Whale",
-              "📊 Fundamental",
-              "🔥 TTM"
+              "🎯 Intraday"
             ],
-            "veto_reasons": []
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 84.1 >= 72 ohne News)"
+            ]
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
           "timestamp": "2026-10-29T20:48:39"
         },
         {
-          "message_id": "16da5024",
-          "topic": "ALPHA::VG",
+          "message_id": "a7a37d0e",
+          "topic": "ALPHA::LUNG",
           "from_agent": "adas_meta_architect",
           "to_agent": "ALL",
-          "intent": "CHALLENGE_CRITIQUE",
-          "symbol": "VG",
-          "confidence": 0.6,
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LUNG",
+          "confidence": 0.56,
           "payload": {
             "action": "HOLD",
-            "swarm_consensus": 0.26,
+            "swarm_consensus": 0.41,
             "bull_supporters": [
+              "🚀 Alpha-Breakout",
               "🐋 Options-Whale",
-              "📊 Fundamental",
-              "🔥 TTM"
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 84.1 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
+        },
+        {
+          "message_id": "1a052806",
+          "topic": "ALPHA::LUNG",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LUNG",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.41,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 84.1 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "a3b66b4b",
+          "topic": "ALPHA::LUNG",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LUNG",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.41,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 84.1 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "3db9b142",
+          "topic": "ALPHA::LUNG",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "EMERGENCY_VETO",
+          "symbol": "LUNG",
+          "confidence": 0.56,
+          "payload": {
+            "action": "HOLD",
+            "swarm_consensus": 0.41,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": [
+              "🛡️ Adversarial Tail-Risk & Trap Guard: Überhitzte Bullenfalle (RSI 84.1 >= 72 ohne News)"
+            ]
+          },
+          "summary_de": "ADAS Schwarm-Votum: HOLD (56% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:36"
+        }
+      ]
+    },
+    "ALPHA::PURR": {
+      "topic_id": "ALPHA::PURR",
+      "symbol": "PURR",
+      "created_at": "2026-10-29T20:48:39",
+      "updated_at": "2026-10-29T21:09:36",
+      "status": "CONSENSUS_REACHED",
+      "consensus_score": 1.0,
+      "leading_action": "BUY",
+      "messages": [
+        {
+          "message_id": "ad5590be",
+          "topic": "ALPHA::PURR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PURR",
+          "confidence": 0.98,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
             ],
             "veto_reasons": []
           },
-          "summary_de": "ADAS Schwarm-Votum: HOLD (60% Konfidenz)",
-          "timestamp": "2026-10-29T20:55:50"
+          "summary_de": "ADAS Schwarm-Votum: BUY (98% Konfidenz)",
+          "timestamp": "2026-10-29T20:48:39"
+        },
+        {
+          "message_id": "b55077b4",
+          "topic": "ALPHA::PURR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PURR",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T20:55:49"
+        },
+        {
+          "message_id": "f40a06ac",
+          "topic": "ALPHA::PURR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PURR",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.51,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:01:57"
+        },
+        {
+          "message_id": "f12da1f2",
+          "topic": "ALPHA::PURR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PURR",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.49,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:03:08"
+        },
+        {
+          "message_id": "d09dae13",
+          "topic": "ALPHA::PURR",
+          "from_agent": "adas_meta_architect",
+          "to_agent": "ALL",
+          "intent": "PROPOSE_TRADE",
+          "symbol": "PURR",
+          "confidence": 0.99,
+          "payload": {
+            "action": "BUY",
+            "swarm_consensus": 0.51,
+            "bull_supporters": [
+              "🚀 Alpha-Breakout",
+              "🐋 Options-Whale",
+              "🎯 Intraday"
+            ],
+            "veto_reasons": []
+          },
+          "summary_de": "ADAS Schwarm-Votum: BUY (99% Konfidenz)",
+          "timestamp": "2026-10-29T21:09:36"
         }
       ]
     }
