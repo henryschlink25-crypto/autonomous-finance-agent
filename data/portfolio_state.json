@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-29T19:47:22.810002+00:00",
+  "updated_at": "2026-10-29T20:25:39.944506+00:00",
   "day_start_date": "2026-10-29",
   "day_start_equity_usd": 0.0,
-  "cash_usd": 1399.4,
-  "realized_pnl_usd": 862.2,
+  "cash_usd": 1653.45,
+  "realized_pnl_usd": 924.51,
   "is_trading_paused": false,
   "positions": {
     "SNIPER_CO": {
@@ -11,18 +11,18 @@
       "asset_class": "EQUITY",
       "cluster": "US_TECH",
       "side": "LONG",
-      "quantity": 12.0,
+      "quantity": 6.924,
       "leverage": 2.0,
       "intrinsic_leverage": 1.0,
-      "margin_used_usd": 600.0,
-      "avg_entry_price": 99.75,
+      "margin_used_usd": 346.2,
+      "avg_entry_price": 99.7501,
       "current_price": 99.7,
       "highest_price": 99.7,
       "stop_loss_price": 95.0,
       "partial_tp_price": 22.25,
       "partial_tp_done": false,
       "take_profit_price": 110.0,
-      "opened_at": "2026-10-29T19:47:22"
+      "opened_at": "2026-10-29T20:25:39"
     }
   },
   "portfolio_risk": {

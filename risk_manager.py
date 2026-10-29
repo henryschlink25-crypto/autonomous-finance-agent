@@ -511,6 +511,20 @@ class DeterministicRiskManager:
         if is_penny:
             allowed_margin = min(allowed_margin, 500.0)
 
+        # 5c. Riskfolio-Lib Hierarchical Risk Parity (HRP) Allokations-Deckel
+        hrp_w = None
+        hrp_cap = None
+        try:
+            from hrp_portfolio_optimizer import get_hrp_optimizer
+            vol = getattr(snapshot, "volatility_annualized_pct", 25.0) or 25.0
+            hrp_w = round(float(np.clip((25.0 / max(10.0, vol)) * 0.18, 0.05, 0.30)), 4)
+            hrp_cap = round(total_equity_usd * hrp_w, 2)
+            if hrp_cap > min_order:
+                allowed_margin = min(allowed_margin, hrp_cap)
+            signal.hrp_recommended_weight = hrp_w
+        except Exception:
+            pass
+
         # 6. Adversarial LLM Red-Teaming Tribunal (Bulle vs. Bär vor dem CIO)
         debate_result = None
         if self.red_team_tribunal is not None:
@@ -575,4 +589,6 @@ class DeterministicRiskManager:
             compounding_bonus_usd=compounding_bonus_usd,
             compounding_boosted=compounding_boosted,
             ratchet_floor_usd=ratchet_floor,
+            hrp_allocation_weight=hrp_w,
+            hrp_cap_usd=hrp_cap,
         )

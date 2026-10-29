@@ -1,6 +1,6 @@
 {
   "WHALE": {
-    "timestamp": 1793301735.3375335,
+    "timestamp": 1793305519.2098455,
     "data": {
       "symbol": "WHALE",
       "sentiment_label": "NEUTRAL",
@@ -15,32 +15,32 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:22:15Z"
+      "analyzed_at": "2026-10-29T20:25:19Z"
     }
   },
   "AMD": {
-    "timestamp": 1793301736.6441138,
+    "timestamp": 1793305520.4360151,
     "data": {
       "symbol": "AMD",
-      "sentiment_label": "NEUTRAL",
-      "compound_score": 0.0,
-      "positive_prob": 0.2,
-      "negative_prob": 0.2,
-      "neutral_prob": 0.6,
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
-        "AMD Has Ripped 170% This Year: Is It Too Late to Buy?",
-        "The Same $10,000 in AMD and Nvidia Could Produce Very Different Results by 2030",
-        "Walmart, Eli Lilly and Cigna File Objections to ICE and OKX’s Tokenized Stock Venue"
+        "AMD faces high expectations as Jefferies sees limited near-term upside",
+        "Is Advanced Micro Devices (AMD) Cheap As Meta Expands Its AI Partnership?",
+        "AMD Has Ripped 170% This Year: Is It Too Late to Buy?"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:22:16Z"
+      "analyzed_at": "2026-10-29T20:25:20Z"
     }
   },
   "TECH": {
-    "timestamp": 1793301737.2842557,
+    "timestamp": 1793305521.0346785,
     "data": {
       "symbol": "TECH",
       "sentiment_label": "NEUTRAL",
@@ -57,32 +57,32 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:22:17Z"
+      "analyzed_at": "2026-10-29T20:25:21Z"
     }
   },
   "NVDA": {
-    "timestamp": 1793301737.6427784,
+    "timestamp": 1793305521.76519,
     "data": {
       "symbol": "NVDA",
-      "sentiment_label": "VERY_BEARISH",
-      "compound_score": -0.72,
-      "positive_prob": 0.05,
-      "negative_prob": 0.77,
-      "neutral_prob": 0.18,
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
-        "Nvidia's relationship with China just got even more complicated as report says Jensen Huang was target of spy plot",
-        "Wall Street Is Done Giving AI Software a Pass",
-        "Prediction: This Crypto Plunged 50% Overnight. It Could Soar in 2027."
+        "Living On The Edge With Nvidia, AI Enabler Analog Devices Enters Buy Zone",
+        "Not Nvidia. Not AMD. This Custom AI Chip Designer Could Outperform Both by 2030.",
+        "SpaceX vs. Nvidia: The Best AI Stock to Buy Now"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: VERY_BEARISH (Score -0.72 | Pos: 5%, Neg: 77%, Neu: 18%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
-      "veto_triggered": true,
-      "analyzed_at": "2026-10-29T19:22:17Z"
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T20:25:21Z"
     }
   },
   "PUMPBULL": {
-    "timestamp": 1793301738.3458672,
+    "timestamp": 1793305522.322157,
     "data": {
       "symbol": "PUMPBULL",
       "sentiment_label": "NEUTRAL",
@@ -97,11 +97,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:22:18Z"
+      "analyzed_at": "2026-10-29T20:25:22Z"
     }
   },
   "BHC": {
-    "timestamp": 1793301822.321721,
+    "timestamp": 1793304475.3143287,
     "data": {
       "symbol": "BHC",
       "sentiment_label": "VERY_BULLISH",
@@ -118,7 +118,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:23:42Z"
+      "analyzed_at": "2026-10-29T20:07:55Z"
     }
   },
   "AAPL": {
@@ -164,7 +164,7 @@
     }
   },
   "CROX": {
-    "timestamp": 1793301823.9497244,
+    "timestamp": 1793304806.8491921,
     "data": {
       "symbol": "CROX",
       "sentiment_label": "VERY_BULLISH",
@@ -181,11 +181,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:23:43Z"
+      "analyzed_at": "2026-10-29T20:13:26Z"
     }
   },
   "GKOS": {
-    "timestamp": 1793301824.301872,
+    "timestamp": 1793304474.8010812,
     "data": {
       "symbol": "GKOS",
       "sentiment_label": "NEUTRAL",
@@ -195,18 +195,18 @@
       "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
+        "Glaukos Sets $1 Billion 2027 Sales Goal: Rapid Earnings Reaction",
         "Why Glaukos Stock Is Surging 30% and Headed for Record Close After Earnings",
-        "Glaukos Soars 26% on “Exceptional” Quarter and $1 Billion 2027 Sales Outlook",
-        "Glaukos (GKOS) Q3 2026 Earnings Call Transcript"
+        "Glaukos Soars 26% on “Exceptional” Quarter and $1 Billion 2027 Sales Outlook"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:23:44Z"
+      "analyzed_at": "2026-10-29T20:07:54Z"
     }
   },
   "ADT": {
-    "timestamp": 1793301823.2291558,
+    "timestamp": 1793304807.2094615,
     "data": {
       "symbol": "ADT",
       "sentiment_label": "VERY_BULLISH",
@@ -223,11 +223,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:23:43Z"
+      "analyzed_at": "2026-10-29T20:13:27Z"
     }
   },
   "PURR": {
-    "timestamp": 1793301822.8035483,
+    "timestamp": 1793304805.842452,
     "data": {
       "symbol": "PURR",
       "sentiment_label": "NEUTRAL",
@@ -244,7 +244,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:23:42Z"
+      "analyzed_at": "2026-10-29T20:13:25Z"
     }
   },
   "NOW": {
@@ -269,7 +269,7 @@
     }
   },
   "PRCH": {
-    "timestamp": 1793301823.585744,
+    "timestamp": 1793304143.682292,
     "data": {
       "symbol": "PRCH",
       "sentiment_label": "NEUTRAL",
@@ -286,7 +286,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:23:43Z"
+      "analyzed_at": "2026-10-29T20:02:23Z"
     }
   },
   "MESO": {
@@ -941,7 +941,7 @@
     }
   },
   "SOXS": {
-    "timestamp": 1793302168.2125893,
+    "timestamp": 1793304475.6692052,
     "data": {
       "symbol": "SOXS",
       "sentiment_label": "VERY_BULLISH",
@@ -958,11 +958,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:29:28Z"
+      "analyzed_at": "2026-10-29T20:07:55Z"
     }
   },
   "TDOC": {
-    "timestamp": 1793302164.3407934,
+    "timestamp": 1793304806.4959476,
     "data": {
       "symbol": "TDOC",
       "sentiment_label": "VERY_BULLISH",
@@ -979,11 +979,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:29:24Z"
+      "analyzed_at": "2026-10-29T20:13:26Z"
     }
   },
   "LUNG": {
-    "timestamp": 1793302164.8357182,
+    "timestamp": 1793304143.1101,
     "data": {
       "symbol": "LUNG",
       "sentiment_label": "NEUTRAL",
@@ -1000,7 +1000,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T19:29:24Z"
+      "analyzed_at": "2026-10-29T20:02:23Z"
     }
   },
   "ALNY": {

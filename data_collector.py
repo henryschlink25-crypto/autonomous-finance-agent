@@ -1047,6 +1047,19 @@ class MultiAssetDataCollector:
                 except Exception:
                     pass
 
+            # TradingView 26-Indicator Matrix Rating abfragen (mit 180s Cache)
+            tv_rec, tv_buy, tv_sell, tv_neutral, tv_summary = None, None, None, None, ""
+            try:
+                from tradingview_sentinel import get_tradingview_sentinel
+                tv_res = get_tradingview_sentinel().analyze_symbol(item.symbol)
+                tv_rec = tv_res.recommendation
+                tv_buy = tv_res.buy_count
+                tv_sell = tv_res.sell_count
+                tv_neutral = tv_res.neutral_count
+                tv_summary = tv_res.summary_text
+            except Exception:
+                pass
+
             return MarketSnapshot(
                 symbol=item.symbol,
                 name=item.name,
@@ -1089,6 +1102,11 @@ class MultiAssetDataCollector:
                 supertrend_val=supertrend_info.get("supertrend_val", 0.0),
                 supertrend_flipped=supertrend_info.get("trend_flipped", False),
                 custom_metrics=synth_metrics,
+                tradingview_recommendation=tv_rec,
+                tradingview_buy_count=tv_buy,
+                tradingview_sell_count=tv_sell,
+                tradingview_neutral_count=tv_neutral,
+                tradingview_summary=tv_summary,
                 sec_form8k_catalyst=sec_8k.get("summary", ""),
                 option_delta=opt_delta,
                 option_gamma=opt_gamma,

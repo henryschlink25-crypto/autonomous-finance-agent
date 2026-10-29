@@ -320,6 +320,24 @@ class EmergentDialectEngine:
             self._ensure_token("🧬:BREEDER_GENETIC_ELITE", "ALPHA", "Bestätigt durch autonom evolvierte & krisen-geprüfte AlphaZero-Strategie")
             tokens_used.append(t)
 
+        # Q. TradingView 26-Indicator Matrix Rating
+        tv_rec = getattr(snapshot, "tradingview_recommendation", "")
+        if tv_rec in ("STRONG_BUY", "BUY"):
+            t = f"📊:TRADINGVIEW_CONSENSUS[{tv_rec}]"
+            self._ensure_token("📊:TRADINGVIEW_CONSENSUS", "CONSENSUS", "Bestätigt durch offizielles TradingView 26-Indikatoren Konsens-Rating")
+            tokens_used.append(t)
+        elif tv_rec in ("STRONG_SELL", "SELL"):
+            t = f"🛑:TRADINGVIEW_HEADWIND_VETO[{tv_rec}]"
+            self._ensure_token("🛑:TRADINGVIEW_HEADWIND_VETO", "RISK", "VETO: TradingView Oszillatoren & MAs signalisieren schweren Gegenwind")
+            tokens_used.append(t)
+
+        # R. Riskfolio-Lib Hierarchical Risk Parity (HRP) Allokation
+        hrp_w = getattr(risk_evaluation, "hrp_allocation_weight", None) or getattr(signal, "hrp_recommended_weight", None)
+        if hrp_w is not None and hrp_w > 0:
+            t = f"⚖️:HRP_RISK_PARITY[{hrp_w*100:.0f}%]"
+            self._ensure_token("⚖️:HRP_RISK_PARITY", "ALLOCATION", f"Mathematisch optimale Risikoparität-Allokation via Riskfolio-Lib ({hrp_w*100:.1f}%)")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

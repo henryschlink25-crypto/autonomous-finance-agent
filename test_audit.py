@@ -2306,7 +2306,86 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 52 bestanden: Autonome Werkzeug-Synthese, Dynamic Toolbox Loading, Genetische Strategie-Zucht & Sub-Agenten Schwarm-Selbsterweiterung (37+ Spezialisten).")
 
-    print("=== Alle 52 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts- & Autonomous-Self-Expansion-Tests erfolgreich bestanden! ===")
+        # --- Test 53: TradingView TA Sentinel (Sub-Agent #38) & Riskfolio-Lib Hierarchical Risk Parity (HRP) ---
+        from tradingview_sentinel import get_tradingview_sentinel, TradingViewAnalysis
+        from hrp_portfolio_optimizer import get_hrp_optimizer
+
+        # 1. Teste TradingView Sentinel & Fallback/Cache
+        tv_sentinel = get_tradingview_sentinel()
+        mock_tv_bull = TradingViewAnalysis(
+            symbol="NVDA",
+            recommendation="STRONG_BUY",
+            buy_count=18,
+            sell_count=2,
+            neutral_count=6,
+            oscillators_recommendation="BUY",
+            moving_averages_recommendation="STRONG_BUY",
+            confidence_score=0.90,
+            summary_text="TV STRONG_BUY (18 Buy / 2 Sell)",
+        )
+
+        # 2. Teste Sub-Agent #38 Votierung
+        adas_tv = ADASMetaArchitect(cfg)
+        needed_tv = adas_tv._detect_needed_specialist_agents({"NVDA": snap_fav}, green_macro)
+        for sp in needed_tv:
+            adas_tv.state.active_subagents[sp.agent_id] = sp
+        assert "tradingview_consensus_sentinel" in adas_tv.state.active_subagents, "Sub-Agent #38 muss registriert sein"
+        tv_spec = adas_tv.state.active_subagents["tradingview_consensus_sentinel"]
+
+        snap_tv_bull = snap_fav.model_copy(update={
+            "tradingview_recommendation": "STRONG_BUY",
+            "tradingview_buy_count": 18,
+            "tradingview_sell_count": 2,
+        })
+        vote_tv_bull, _ = adas_tv._compute_single_subagent_vote(tv_spec, snap_tv_bull, green_macro)
+        assert vote_tv_bull.vote_action == "BUY", "Bei TV STRONG_BUY muss BUY gevotet werden"
+        assert vote_tv_bull.score >= 0.85, f"Score muss >= 0.85 sein, war {vote_tv_bull.score}"
+
+        snap_tv_bear = snap_fav.model_copy(update={
+            "tradingview_recommendation": "STRONG_SELL",
+            "tradingview_buy_count": 1,
+            "tradingview_sell_count": 16,
+        })
+        vote_tv_bear, _ = adas_tv._compute_single_subagent_vote(tv_spec, snap_tv_bear, green_macro)
+        assert vote_tv_bear.vote_action == "SELL", "Bei TV STRONG_SELL muss VETO/SELL gevotet werden"
+        assert vote_tv_bear.score <= -0.70
+
+        # 3. Teste Riskfolio-Lib HRP Portfolio-Optimierer
+        hrp_opt = get_hrp_optimizer()
+        np.random.seed(42)
+        sample_returns = pd.DataFrame({
+            "NVDA": np.random.normal(0.002, 0.03, 40),
+            "AAPL": np.random.normal(0.001, 0.015, 40),
+            "GLD": np.random.normal(0.0005, 0.008, 40),
+        })
+        hrp_res = hrp_opt.optimize_hrp_weights(sample_returns, total_equity_usd=1000.0)
+        assert hrp_res.model_used in ("RISKFOLIO_HRP", "INVERSE_VOLATILITY_PARITY"), f"Modell war {hrp_res.model_used}"
+        assert abs(sum(hrp_res.weights.values()) - 1.0) < 0.01, "HRP-Gewichte müssen zu 1.0 summieren"
+        assert hrp_res.weights["GLD"] > hrp_res.weights["NVDA"], "Niedrig-volatiles Asset GLD muss mehr Risikobudget erhalten als High-Beta NVDA"
+
+        # 4. Teste Emergent Dialect Tokens für TradingView und HRP
+        eval_hrp = risk_mgr.evaluate_signal(
+            signal=sig_apex_high,
+            snapshot=snap_tv_bull,
+            macro=green_macro,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_hrp.hrp_allocation_weight is not None and eval_hrp.hrp_allocation_weight > 0
+        deal_hrp = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_tv_bull,
+            signal=sig_apex_high,
+            macro=green_macro,
+            risk_evaluation=eval_hrp,
+        )
+        assert "📊:TRADINGVIEW_CONSENSUS" in deal_hrp.dialect_sentence, f"Dialekt muss 📊:TRADINGVIEW_CONSENSUS enthalten: {deal_hrp.dialect_sentence}"
+        assert "⚖️:HRP_RISK_PARITY" in deal_hrp.dialect_sentence, f"Dialekt muss ⚖️:HRP_RISK_PARITY enthalten: {deal_hrp.dialect_sentence}"
+
+        print(f"[OK] Test 53 bestanden: TradingView 26-Indicator Matrix Sentinel (Sub-Agent #38), Riskfolio-Lib HRP Portfolio-Optimierung & Dialekt-Token.")
+
+    print("=== Alle 53 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel- & Riskfolio-HRP-Tests erfolgreich bestanden! ===")
 
 
 

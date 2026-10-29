@@ -793,6 +793,16 @@ class ADASMetaArchitect:
                 trust_weight=1.25,
             ))
 
+        # 25. TradingView Consensus & 26-Indicator Matrix Sentinel (Sub-Agent #38)
+        if "tradingview_consensus_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="tradingview_consensus_sentinel",
+                name="📊 TradingView Consensus & 26-Matrix Sentinel",
+                role="Prüft die 26 offiziellen TradingView Oszillatoren & Moving Averages. Verhindert Käufe gegen technischen Gegenwind (STRONG_SELL Veto) und verleiht Conviction-Boost bei STRONG_BUY.",
+                specialty_focus="TRADINGVIEW_CONSENSUS",
+                trust_weight=1.26,
+            ))
+
         return new_specs
 
 
@@ -1768,6 +1778,50 @@ class ADASMetaArchitect:
                 score = 0.05
                 conf = 0.50
                 rationale = "Short-Squeeze Kriterien neutral"
+
+        elif focus == "TRADINGVIEW_CONSENSUS":
+            try:
+                tv_rec = getattr(snap, "tradingview_recommendation", None)
+                tv_buy = getattr(snap, "tradingview_buy_count", None)
+                tv_sell = getattr(snap, "tradingview_sell_count", None)
+                tv_sum = getattr(snap, "tradingview_summary", "")
+
+                if not tv_rec:
+                    from tradingview_sentinel import get_tradingview_sentinel
+                    tv_analysis = get_tradingview_sentinel().analyze_symbol(snap.symbol)
+                    tv_rec = tv_analysis.recommendation
+                    tv_buy = tv_analysis.buy_count
+                    tv_sell = tv_analysis.sell_count
+                    tv_sum = tv_analysis.summary_text
+
+                s_strong_buy = rec.flag("TV Strong Buy", tv_rec == "STRONG_BUY" or (tv_buy is not None and tv_buy >= 14), "bull")
+                s_buy = rec.flag("TV Buy", tv_rec == "BUY", "bull")
+                s_veto_sell = rec.flag("TV Strong Sell Veto", tv_rec in ("STRONG_SELL", "SELL") and (tv_sell is not None and tv_sell >= 10), "bear")
+
+                if s_strong_buy.passed:
+                    b_cnt = tv_buy if tv_buy is not None else 16
+                    score = min(0.96, 0.75 + (b_cnt / 26.0) * 0.22)
+                    conf = 0.92
+                    rationale = f"📊 TradingView Matrix stark bullisch: {tv_rec} ({tv_buy} Buy / {tv_sell} Sell) – Hohe Konfluenz!"
+                    decisive_idx = rec.idx(s_strong_buy)
+                elif s_buy.passed:
+                    score = 0.70
+                    conf = 0.85
+                    rationale = f"📊 TradingView Bestätigung: {tv_rec} ({tv_buy} Buy / {tv_sell} Sell)"
+                    decisive_idx = rec.idx(s_buy)
+                elif s_veto_sell.passed:
+                    score = -0.88
+                    conf = 0.90
+                    rationale = f"🛑 VETO: TradingView Oszillatoren & Moving Averages melden Gegenwind ({tv_rec}: {tv_sell} Sell-Indikatoren)"
+                    decisive_idx = rec.idx(s_veto_sell)
+                else:
+                    score = 0.05
+                    conf = 0.55
+                    rationale = f"TradingView Matrix neutral ({tv_sum or tv_rec})"
+            except Exception as e:
+                score = 0.05
+                conf = 0.50
+                rationale = f"TradingView Sentinel neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

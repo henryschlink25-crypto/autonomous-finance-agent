@@ -126,15 +126,15 @@
       "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 4.18,
-        "max_drawdown_pct": 10.58,
-        "win_rate_pct": 55.6,
-        "profit_factor": 1.88,
-        "total_trades": 45,
-        "net_return_pct": 58.82
+        "sharpe_ratio": 7.89,
+        "max_drawdown_pct": 11.51,
+        "win_rate_pct": 61.2,
+        "profit_factor": 3.69,
+        "total_trades": 49,
+        "net_return_pct": 224.8
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_4.py",
-      "deployed_at": "2026-10-29T20:41:28.843643"
+      "deployed_at": "2026-10-29T21:25:18.033828"
     },
     "strat_whale_orderflow_accumulator_g3_1": {
       "strategy_id": "strat_whale_orderflow_accumulator_g3_1",
@@ -169,6 +169,23 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_3.py",
       "deployed_at": "2026-10-29T20:41:29.014722"
+    },
+    "strat_whale_orderflow_accumulator_g24_3": {
+      "strategy_id": "strat_whale_orderflow_accumulator_g24_3",
+      "class_name": "WhaleOrderflowAccumulator_Gen24_3",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 24,
+      "performance": {
+        "sharpe_ratio": 8.08,
+        "max_drawdown_pct": 8.55,
+        "win_rate_pct": 70.4,
+        "profit_factor": 3.59,
+        "total_trades": 54,
+        "net_return_pct": 278.25
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g24_3.py",
+      "deployed_at": "2026-10-29T20:48:26.050777"
     }
   },
   "history": [
@@ -392,6 +409,40 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_2.py",
       "deployed_at": "2026-10-29T20:47:07.244965"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g24_3",
+      "class_name": "WhaleOrderflowAccumulator_Gen24_3",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 24,
+      "performance": {
+        "sharpe_ratio": 8.08,
+        "max_drawdown_pct": 8.55,
+        "win_rate_pct": 70.4,
+        "profit_factor": 3.59,
+        "total_trades": 54,
+        "net_return_pct": 278.25
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g24_3.py",
+      "deployed_at": "2026-10-29T20:48:26.050777"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g3_4",
+      "class_name": "WhaleOrderflowAccumulator_Gen3_4",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 7.89,
+        "max_drawdown_pct": 11.51,
+        "win_rate_pct": 61.2,
+        "profit_factor": 3.69,
+        "total_trades": 49,
+        "net_return_pct": 224.8
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_4.py",
+      "deployed_at": "2026-10-29T21:25:18.033828"
     }
   ]
 }

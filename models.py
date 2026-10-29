@@ -163,6 +163,12 @@ class MarketSnapshot(BaseModel):
     liquidity_void_detected: bool = False        # Plötzliches Verschwinden der Geldseite (Orderbuch-Vakuum)
     proactive_risk_alert: str = "NORMAL"         # "SURGE_VOLATILITY_HAZARD", "LIQUIDITY_VOID_EVACUATE", "NORMAL"
     custom_metrics: Dict[str, Any] = Field(default_factory=dict)
+    # TradingView 26-Indicator Matrix Consensus
+    tradingview_recommendation: Optional[str] = None
+    tradingview_buy_count: Optional[int] = None
+    tradingview_sell_count: Optional[int] = None
+    tradingview_neutral_count: Optional[int] = None
+    tradingview_summary: str = ""
     sec_form8k_catalyst: str = ""
     option_delta: Optional[float] = None
     option_gamma: Optional[float] = None
@@ -216,6 +222,9 @@ class TradingSignal(BaseModel):
     # Asymmetrisches Compounding & 1.000 € Gewinn-Multiplikator
     compounding_boosted: bool = False
     compounding_bonus_usd: float = 0.0
+    # Externe Bestätigungen & Riskfolio HRP
+    tradingview_confirmed: bool = False
+    hrp_recommended_weight: Optional[float] = None
 
     def model_post_init(self, __context) -> None:
         if self.partial_take_profit_price <= 0 and self.take_profit_price > self.entry_price:
@@ -242,6 +251,8 @@ class RiskEvaluation(BaseModel):
     compounding_bonus_usd: float = 0.0
     compounding_boosted: bool = False
     ratchet_floor_usd: float = 1000.0
+    hrp_allocation_weight: Optional[float] = None
+    hrp_cap_usd: Optional[float] = None
 
 
 class Position(BaseModel):
