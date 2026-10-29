@@ -27,6 +27,7 @@ class MultiAssetExecutionEngine:
         self.positions: Dict[str, Position] = {}
         self.alpaca_live_prices: Dict[str, float] = {}
         self.yahoo_vs_broker_price_diff: Dict[str, Tuple[float, float]] = {}
+        self.is_trading_paused: bool = False
         self.ibkr_bridge = IBKRBridge(config)
         self._load_state()
 
@@ -45,6 +46,7 @@ class MultiAssetExecutionEngine:
                         pos_data["cluster"] = cluster_map.get(sym, "US_TECH")
                     loaded_positions[sym] = Position(**pos_data)
                 self.positions = loaded_positions
+                self.is_trading_paused = bool(data.get("is_trading_paused", False))
 
                 today_str = datetime.date.today().isoformat()
                 saved_day = data.get("day_start_date", "")
@@ -167,6 +169,7 @@ class MultiAssetExecutionEngine:
             "day_start_equity_usd": round(self.day_start_equity_usd, 2),
             "cash_usd": round(self.cash_usd, 2),
             "realized_pnl_usd": round(self.realized_pnl_usd, 2),
+            "is_trading_paused": self.is_trading_paused,
             "positions": {sym: pos.model_dump() for sym, pos in self.positions.items()},
         }
         old_data = {}
@@ -623,10 +626,108 @@ class MultiAssetExecutionEngine:
                 pass
 
 
+    def set_trading_paused(self, paused: bool) -> None:
+        """Pausiert oder reaktiviert neue Einstiege (z. B. ferngesteuert via Telegram)."""
+        self.is_trading_paused = paused
+        self._save_state()
+
+    def emergency_liquidate_all_positions(self, reason: str = "MANUAL_PANIC") -> List[str]:
+        """
+        Schließt sofort ALLE offenen Positionen am Markt und storniert alle offenen Orders.
+        Wird bei Telegram /panic oder automatischem Circuit Breaker ausgelöst.
+        """
+        closed_events: List[str] = []
+        if not self.positions:
+            return ["Keine offenen Positionen im Portfolio vorhanden."]
+
+        # 1. Alpaca Broker-Orders stornieren falls verbunden
+        if "ALPACA" in self.config.execution_mode and hasattr(self, "alpaca_client") and self.alpaca_client:
+            try:
+                self.alpaca_client.cancel_orders()
+            except Exception:
+                pass
+
+        # 2. Alle Positionen auflösen
+        symbols_to_close = list(self.positions.keys())
+        for sym in symbols_to_close:
+            pos = self.positions.pop(sym)
+            exec_price = pos.current_price
+            broker_exit_note = self._sync_broker_exit_or_stop_update(
+                symbol=sym,
+                asset_class=pos.asset_class,
+                sell_qty=pos.quantity,
+                new_stop_loss=None,
+                remaining_qty=0.0,
+            )
+            gross_proceeds = abs(pos.quantity) * exec_price
+            fee_usd = round(gross_proceeds * 0.0005, 2)
+            if pos.side == "LONG":
+                pnl = (abs(pos.quantity) * (exec_price - pos.avg_entry_price)) - fee_usd
+            else:
+                pnl = (abs(pos.quantity) * (pos.avg_entry_price - exec_price)) - fee_usd
+
+            self.cash_usd += pos.margin_used_usd + pnl
+            self.realized_pnl_usd += pnl
+            b_tag = f" [{broker_exit_note}]" if broker_exit_note else ""
+            msg = f"[{reason}] 🚨 NOTAUSSTIEG {sym}: {pos.quantity:g} Stk. @ ${exec_price:,.2f} liquidiert (PnL: ${pnl:+,.2f}){b_tag}"
+            closed_events.append(msg)
+            self._append_audit_log(
+                "EMERGENCY_LIQUIDATION",
+                {
+                    "symbol": sym,
+                    "reason": reason,
+                    "quantity": pos.quantity,
+                    "exit_price": exec_price,
+                    "realized_pnl_usd": round(pnl, 2),
+                },
+            )
+
+        self._save_state()
+        self._send_push_alert("🚨 NOTAUSSTIEG: Alle Positionen liquidiert", "\n".join(closed_events))
+        return closed_events
+
+    def weekend_risk_guardian(self, snapshots: Dict[str, MarketSnapshot]) -> List[str]:
+        """
+        Prüft freitags vor US-Börsenschluss (nach 21:00 MEZ / 15:00 NY):
+        Sichert gehebelte 3x Positionen (SOXL, TQQQ, SPXL) vor Wochenend-Gap-Risiken ab
+        durch automatisches Nachziehen der Stop-Losses auf Breakeven.
+        """
+        now_utc = datetime.datetime.now(datetime.timezone.utc)
+        # Freitag = weekday 4 (Montag=0, Sonntag=6)
+        if now_utc.weekday() != 4:
+            return []
+        # Ab 20:30 UTC (15:30 NY)
+        if now_utc.hour < 20 or (now_utc.hour == 20 and now_utc.minute < 30):
+            return []
+
+        events: List[str] = []
+        for sym, pos in self.positions.items():
+            if pos.cluster in ("LEVERAGED_3X", "HIGH_BETA") or pos.quantity > 0:
+                if pos.current_price > pos.avg_entry_price and pos.stop_loss_price < pos.avg_entry_price:
+                    old_sl = pos.stop_loss_price
+                    pos.stop_loss_price = round(pos.avg_entry_price * 1.001, 2)
+                    self._sync_broker_exit_or_stop_update(
+                        symbol=sym,
+                        asset_class=pos.asset_class,
+                        sell_qty=0.0,
+                        new_stop_loss=pos.stop_loss_price,
+                        remaining_qty=pos.quantity,
+                    )
+                    ev = f"🛡️ WOCHENEND-SCHUTZ {sym}: Stop-Loss von ${old_sl:.2f} auf Breakeven (${pos.stop_loss_price:.2f}) angehoben (Wochenend-Gap-Schutz)"
+                    events.append(ev)
+                    self._send_push_alert(f"🛡️ Wochenend-Schutz {sym}", ev)
+
+        if events:
+            self._save_state()
+        return events
+
     def execute_order(self, signal: TradingSignal, risk_eval: RiskEvaluation) -> str:
         """Führt eine vom Risk-Manager genehmigte Order (Long-Kauf, Scale-In, Verkauf oder Short-Sell) aus."""
         if not risk_eval.approved or risk_eval.adjusted_action == "HOLD":
             return f"SKIPPED ({risk_eval.reason})"
+
+        if self.is_trading_paused and risk_eval.adjusted_action == "BUY":
+            return "SKIPPED (TRADING_PAUSED_BY_USER: Neuer Einstieg pausiert – Reaktivierung mit Telegram /resume)"
 
         symbol = signal.symbol
         qty = risk_eval.recommended_quantity

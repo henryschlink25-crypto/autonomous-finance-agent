@@ -370,6 +370,11 @@ def run_autonomous_cycle(
     for ev in stop_events:
         console.print(f"[bold yellow]⚡ {ev}[/bold yellow]")
 
+    # 1a. Wochenend-Schutz vor Gap-Downs bei gehebelten 3x ETFs (freitags vor Börsenschluss)
+    weekend_events = engine.weekend_risk_guardian(snapshots)
+    for wev in weekend_events:
+        console.print(f"[bold cyan]🛡️ {wev}[/bold cyan]")
+
     # 1b. Selbstlernendes Shadow-Tracking initialisieren, inaktive Aktien aussortieren & laufende Hypothesen prüfen
     shadow_tracker = SelfLearningShadowTracker(config)
     shadow_tracker.prune_inactive_symbols(set(snapshots.keys()), set(engine.positions.keys()))
@@ -615,12 +620,22 @@ def main() -> None:
                 run_strategy_breeding_cycle(num_generations=1, pop_per_gen=4)
                 return "1 Generation erfolgreich gezüchtet & im Schwarm integriert!"
 
+            def _panic_action():
+                return engine.emergency_liquidate_all_positions(reason="TELEGRAM_PANIC_TRIGGERED")
+
+            def _pause_action(paused: bool):
+                engine.set_trading_paused(paused)
+                return "Handel pausiert" if paused else "Handel aktiv"
+
             tg_listener = TelegramCommandListener(
                 bot_token=config.telegram_bot_token,
                 authorized_chat_id=config.telegram_chat_id,
                 portfolio_callback=_get_live_portfolio,
                 status_callback=_get_live_status,
                 breed_callback=_trigger_breed,
+                panic_callback=_panic_action,
+                pause_callback=_pause_action,
+                engine_ref=engine,
             )
             tg_listener.start()
             console.print("[bold green]✔ Telegram-Fernsteuerungs-Listener aktiv[/bold green] (Antwortet auf /status, /portfolio, /trades, /debates, /breed)")

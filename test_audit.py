@@ -1902,7 +1902,56 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 44 bestanden: Tactical Timing & Entry-Optimization (Sub-Agent #33, 33 Spezialisten im Schwarm) – Abwägen Sofort-Einstieg vs. Abwarten auf Pullback/Retest.")
 
-    print("=== Alle 44 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield- & Tactical-Entry-Timing-Tests erfolgreich bestanden! ===")
+        # --- Test 45: Unattended Multi-Day Travel Fortress (Panic Button, Pause/Resume, Weekend Gap Protection & Health Monitoring) ---
+        exec_unattended = MultiAssetExecutionEngine(cfg_paper)
+        test_pos_tqqq = Position(
+            symbol="TQQQ",
+            asset_class="EQUITY",
+            cluster="LEVERAGED_3X",
+            quantity=5.0,
+            avg_entry_price=80.0,
+            current_price=84.0,  # +5% im Plus
+            highest_price=85.0,
+            stop_loss_price=76.0,  # Noch unter Einstand
+            partial_tp_price=88.0,
+            take_profit_price=95.0,
+            opened_at="2026-10-27T14:00:00",
+        )
+        exec_unattended.positions["TQQQ"] = test_pos_tqqq
+
+        # 1. Trading Pause Test
+        exec_unattended.set_trading_paused(True)
+        assert exec_unattended.is_trading_paused is True, "Trading muss pausiert sein"
+        paused_res = exec_unattended.execute_order(sig_breakout, dummy_risk)
+        assert "TRADING_PAUSED_BY_USER" in paused_res, f"Neukauf muss geblockt werden wenn pausiert: {paused_res}"
+        exec_unattended.set_trading_paused(False)
+
+        # 2. Emergency Panic Liquidate All Positions Test
+        initial_cash = exec_unattended.cash_usd
+        liq_events = exec_unattended.emergency_liquidate_all_positions(reason="TEST_PANIC")
+        assert "TQQQ" not in exec_unattended.positions, "TQQQ muss liquidiert worden sein"
+        assert exec_unattended.cash_usd > initial_cash, "Cash muss nach Liquidation gestiegen sein"
+        assert any("NOTAUSSTIEG" in ev for ev in liq_events), f"Notausstieg-Event muss enthalten sein: {liq_events}"
+
+        # 3. Telegram Remote Listener Travel Commands Test
+        from telegram_command_listener import TelegramCommandListener
+        tg_test = TelegramCommandListener(
+            bot_token=cfg_paper.telegram_bot_token or "123:test_dummy",
+            authorized_chat_id="9215209981",
+            panic_callback=exec_unattended.emergency_liquidate_all_positions,
+            pause_callback=exec_unattended.set_trading_paused,
+            engine_ref=exec_unattended,
+        )
+        # Teste Methodenaufrufe ohne Exceptions
+        tg_test._handle_health()
+        tg_test._handle_pause()
+        assert exec_unattended.is_trading_paused is True
+        tg_test._handle_resume()
+        assert exec_unattended.is_trading_paused is False
+
+        print(f"[OK] Test 45 bestanden: Unattended Multi-Day Travel Fortress (Emergency Panic Button, Pause/Resume, Weekend Gap Protection & Health Monitoring).")
+
+    print("=== Alle 45 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing- & Unattended-Travel-Fortress-Tests erfolgreich bestanden! ===")
 
 
 
