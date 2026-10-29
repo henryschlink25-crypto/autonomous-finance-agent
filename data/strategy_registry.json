@@ -109,15 +109,15 @@
       "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 4.59,
-        "max_drawdown_pct": 11.26,
-        "win_rate_pct": 62.8,
-        "profit_factor": 1.98,
-        "total_trades": 43,
-        "net_return_pct": 76.84
+        "sharpe_ratio": 6.8,
+        "max_drawdown_pct": 8.69,
+        "win_rate_pct": 62.0,
+        "profit_factor": 2.93,
+        "total_trades": 50,
+        "net_return_pct": 201.56
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_3.py",
-      "deployed_at": "2026-10-29T20:41:11.339356"
+      "deployed_at": "2026-10-29T21:53:07.212811"
     },
     "strat_whale_orderflow_accumulator_g3_4": {
       "strategy_id": "strat_whale_orderflow_accumulator_g3_4",
@@ -186,6 +186,23 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g24_3.py",
       "deployed_at": "2026-10-29T20:48:26.050777"
+    },
+    "strat_volatility_squeeze_explosion_g3_4": {
+      "strategy_id": "strat_volatility_squeeze_explosion_g3_4",
+      "class_name": "VolSqueezeExplosion_Gen3_4",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 8.87,
+        "max_drawdown_pct": 10.26,
+        "win_rate_pct": 66.1,
+        "profit_factor": 3.66,
+        "total_trades": 59,
+        "net_return_pct": 449.87
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g3_4.py",
+      "deployed_at": "2026-10-29T21:53:39.281769"
     }
   },
   "history": [
@@ -460,6 +477,57 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supertrend_regime_rider_g3_2.py",
       "deployed_at": "2026-10-29T21:47:20.348469"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g3_3",
+      "class_name": "WhaleOrderflowAccumulator_Gen3_3",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 9.77,
+        "max_drawdown_pct": 11.58,
+        "win_rate_pct": 70.2,
+        "profit_factor": 4.53,
+        "total_trades": 47,
+        "net_return_pct": 346.36
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_3.py",
+      "deployed_at": "2026-10-29T21:53:07.146947"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g3_3",
+      "class_name": "WhaleOrderflowAccumulator_Gen3_3",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 6.8,
+        "max_drawdown_pct": 8.69,
+        "win_rate_pct": 62.0,
+        "profit_factor": 2.93,
+        "total_trades": 50,
+        "net_return_pct": 201.56
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_3.py",
+      "deployed_at": "2026-10-29T21:53:07.212811"
+    },
+    {
+      "strategy_id": "strat_volatility_squeeze_explosion_g3_4",
+      "class_name": "VolSqueezeExplosion_Gen3_4",
+      "archetype": "VOLATILITY_SQUEEZE_EXPLOSION",
+      "hypothesis": "Erkennt Volatilitätskompression (Bollinger Bands innerhalb Keltner-Kanälen) gefolgt von einer dynamischen Kurs- und MACD-Histogramm-Expansion.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 8.87,
+        "max_drawdown_pct": 10.26,
+        "win_rate_pct": 66.1,
+        "profit_factor": 3.66,
+        "total_trades": 59,
+        "net_return_pct": 449.87
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_volatility_squeeze_explosion_g3_4.py",
+      "deployed_at": "2026-10-29T21:53:39.281769"
     }
   ]
 }

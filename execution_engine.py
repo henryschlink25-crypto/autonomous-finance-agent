@@ -144,8 +144,20 @@ class MultiAssetExecutionEngine:
                         opened_at=datetime.datetime.now(datetime.timezone.utc).isoformat()[:19],
                     )
 
+            # Prüfe auch offene / wartende Orders bei Alpaca (verhindert Order-Stacking bei geschlossener Börse)
+            pending_order_symbols = set()
+            try:
+                from alpaca.trading.requests import GetOrdersRequest
+                from alpaca.trading.enums import QueryOrderStatus
+                open_orders = client.get_orders(filter=GetOrdersRequest(status=QueryOrderStatus.OPEN))
+                pending_order_symbols = {str(o.symbol).upper() for o in open_orders}
+                self.alpaca_pending_symbols = pending_order_symbols
+            except Exception:
+                self.alpaca_pending_symbols = set()
+
             # Bereinige Positionen, die beim Broker nicht mehr existieren (z.B. Wechsel von Paper auf Live)
-            missing_on_broker = [s for s in list(self.positions.keys()) if s not in broker_symbols]
+            # WICHTIG: Lösche KEINE Position, wenn noch eine offene/wartende Order für dieses Symbol aktiv ist!
+            missing_on_broker = [s for s in list(self.positions.keys()) if s not in broker_symbols and s not in pending_order_symbols]
             for s in missing_on_broker:
                 del self.positions[s]
 
@@ -728,6 +740,10 @@ class MultiAssetExecutionEngine:
 
         if self.is_trading_paused and risk_eval.adjusted_action == "BUY":
             return "SKIPPED (TRADING_PAUSED_BY_USER: Neuer Einstieg pausiert – Reaktivierung mit Telegram /resume)"
+
+        # Verhindere Order-Stacking: Keine neuen Kauforders, wenn für das Symbol bereits eine Order beim Broker wartet
+        if risk_eval.adjusted_action == "BUY" and getattr(self, "alpaca_pending_symbols", None) and symbol in self.alpaca_pending_symbols:
+            return f"SKIPPED (ORDER_STACKING_SCHUTZ: Bereits eine offene/wartende Order für {symbol} beim Broker)"
 
         symbol = signal.symbol
         qty = risk_eval.recommended_quantity

@@ -367,6 +367,7 @@ def test_all_audit_fixes() -> None:
         # ============================================================================
         from genetic_strategy_breeder import GeneticStrategyBreeder, STRATEGY_ARCHETYPES
         cfg_breed = AgentConfig(execution_mode="LOCAL_PAPER", alpaca_paper=True)
+        cfg_breed.enforce_market_hours = False
         breeder = GeneticStrategyBreeder(cfg_breed)
         test_genes = {
             "min_rvol": 1.8,
@@ -1621,9 +1622,14 @@ def test_all_audit_fixes() -> None:
         # --- Test 42: Dual-Mode Execution & Live Ultra-Conviction Fortress (Experimentieren im Paper vs. Höchste Gewinne im Live-Trading) ---
         # 1. Prüfe Erkennung von Paper- vs. Live-Modus
         cfg_paper = AgentConfig(execution_mode="ALPACA_PAPER", alpaca_paper=True)
+        cfg_paper.enforce_market_hours = False
+        cfg_paper.portfolio_state_file = os.path.join(tmpdir, "paper_state.json")
+        cfg_paper.audit_journal_file = os.path.join(tmpdir, "paper_audit.jsonl")
+        cfg_paper.audit_log_file = os.path.join(tmpdir, "paper_audit.jsonl")
         assert cfg_paper.is_live_trading is False, "Alpaca Paper muss is_live_trading == False liefern"
 
         cfg_live = AgentConfig(execution_mode="ALPACA", alpaca_paper=False)
+        cfg_live.enforce_market_hours = False
         assert cfg_live.is_live_trading is True, "Alpaca Live muss is_live_trading == True liefern"
 
         risk_paper = DeterministicRiskManager(cfg_paper)
@@ -2163,6 +2169,10 @@ def test_all_audit_fixes() -> None:
 
         # --- Test 49: Micro-Dip Limit-Sniper (Zero-Slippage & Pullback Execution) ---
         cfg_sniper = AgentConfig(execution_mode="PAPER", enable_micro_dip_sniper=True)
+        cfg_sniper.enforce_market_hours = False
+        cfg_sniper.portfolio_state_file = os.path.join(tmpdir, "sniper_state.json")
+        cfg_sniper.audit_journal_file = os.path.join(tmpdir, "sniper_audit.jsonl")
+        cfg_sniper.audit_log_file = os.path.join(tmpdir, "sniper_audit.jsonl")
         exec_sniper = MultiAssetExecutionEngine(cfg_sniper)
         exec_sniper.cash_usd = 2000.0
 

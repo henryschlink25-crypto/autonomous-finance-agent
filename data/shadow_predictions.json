@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T20:46:36",
+  "updated_at": "2026-10-29T20:54:21",
   "active": {
     "NOW": {
       "prediction_id": "NOW_2026-10-29T19:29:39",
@@ -727,30 +727,30 @@
       }
     },
     "HLN": {
-      "prediction_id": "HLN_2026-10-29T19:46:37",
-      "opened_at": "2026-10-29T19:46:37",
+      "prediction_id": "HLN_2026-10-29T20:48:44",
+      "opened_at": "2026-10-29T20:48:44",
       "symbol": "HLN",
       "asset_class": "EQUITY",
-      "predicted_action": "SELL",
-      "confidence": 0.77,
+      "predicted_action": "HOLD",
+      "confidence": 0.53,
       "was_executed": false,
-      "execution_note": "SKIPPED (Kein Bestand zum Verkaufen (und Short-Schwelle >= 85% ni",
-      "entry_price": 8.605,
+      "execution_note": "SKIPPED (⏸️ ABWARTEN: Kein erstklassiges A+ Setup – Cash bleibt g",
+      "entry_price": 8.57,
       "current_price": 8.57,
-      "target_price": 8.0074,
-      "invalidation_price": 9.2624,
-      "directional_return_pct": 0.41,
-      "max_favorable_pct": 0.64,
+      "target_price": 9.2274,
+      "invalidation_price": 7.9126,
+      "directional_return_pct": -0.0,
+      "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",
       "lesson_learned": "",
       "factor_contributions": {
         "trend": 0.0,
-        "momentum": -0.19,
+        "momentum": -0.195,
         "volume": 0.0,
         "fundamentals": 0.0,
-        "news_sentiment": -0.261,
-        "options_flow": 0.166,
+        "news_sentiment": 0.0,
+        "options_flow": 0.159,
         "cross_asset_lead_lag": -0.193,
         "intraday_vwap_rs": 0.0
       }
@@ -1219,19 +1219,19 @@
         "intraday_vwap_rs": 0.11
       }
     },
-    "FMC": {
-      "prediction_id": "FMC_2026-10-29T20:46:30",
-      "opened_at": "2026-10-29T20:46:30",
-      "symbol": "FMC",
+    "CAT": {
+      "prediction_id": "CAT_2026-10-29T20:54:15",
+      "opened_at": "2026-10-29T20:54:15",
+      "symbol": "CAT",
       "asset_class": "EQUITY",
       "predicted_action": "SELL",
-      "confidence": 0.89,
+      "confidence": 0.9,
       "was_executed": false,
-      "execution_note": "SKIPPED (Kein Bestand zum Verkaufen (und Short-Schwelle >= 85% ni",
-      "entry_price": 4.75,
-      "current_price": 4.75,
-      "target_price": 3.5664,
-      "invalidation_price": 6.052,
+      "execution_note": "SKIPPED (EARNINGS-SCHUTZ: Quartalszahlen in 0 Tag(en) – Kein Leer",
+      "entry_price": 647.39,
+      "current_price": 647.39,
+      "target_price": 585.6238,
+      "invalidation_price": 715.3328,
       "directional_return_pct": 0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
@@ -1240,27 +1240,27 @@
       "factor_contributions": {
         "trend": -0.259,
         "momentum": -0.195,
-        "volume": 0.134,
-        "fundamentals": -0.167,
-        "news_sentiment": -0.252,
-        "options_flow": 0.0,
+        "volume": 0.0,
+        "fundamentals": 0.0,
+        "news_sentiment": 0.0,
+        "options_flow": -0.177,
         "cross_asset_lead_lag": 0.0,
-        "intraday_vwap_rs": 0.0
+        "intraday_vwap_rs": -0.147
       }
     },
-    "FORM": {
-      "prediction_id": "FORM_2026-10-29T20:46:36",
-      "opened_at": "2026-10-29T20:46:36",
-      "symbol": "FORM",
+    "MRVL": {
+      "prediction_id": "MRVL_2026-10-29T20:54:21",
+      "opened_at": "2026-10-29T20:54:21",
+      "symbol": "MRVL",
       "asset_class": "EQUITY",
       "predicted_action": "HOLD",
-      "confidence": 0.52,
+      "confidence": 0.53,
       "was_executed": false,
       "execution_note": "SKIPPED (⏸️ ABWARTEN: Kein erstklassiges A+ Setup – Cash bleibt g",
-      "entry_price": 97.46,
-      "current_price": 97.46,
-      "target_price": 117.4279,
-      "invalidation_price": 77.4921,
+      "entry_price": 218.34,
+      "current_price": 218.34,
+      "target_price": 257.8892,
+      "invalidation_price": 178.7908,
       "directional_return_pct": 0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
@@ -1270,11 +1270,11 @@
         "trend": 0.0,
         "momentum": -0.195,
         "volume": 0.0,
-        "fundamentals": 0.0,
-        "news_sentiment": 0.233,
-        "options_flow": 0.0,
+        "fundamentals": 0.149,
+        "news_sentiment": -0.252,
+        "options_flow": 0.212,
         "cross_asset_lead_lag": 0.0,
-        "intraday_vwap_rs": -0.166
+        "intraday_vwap_rs": -0.147
       }
     }
   },

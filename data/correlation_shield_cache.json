@@ -8,11 +8,11 @@
   "high_correlation_pairs": [
     "GOOG ↔ GOOGL (r=+1.00)",
     "ADT ↔ BHC (r=+0.92)",
-    "ADT ↔ CROX (r=+0.92)",
+    "CROX ↔ ADT (r=+0.92)",
     "CVNA ↔ NCLH (r=+0.86)",
     "CROX ↔ BHC (r=+0.86)"
   ],
-  "monitored_assets_count": 49,
-  "calculated_at": "2026-10-29T20:46:36Z",
+  "monitored_assets_count": 47,
+  "calculated_at": "2026-10-29T20:54:21Z",
   "summary": "🟢 Gesunde Diversifikation: Mittlere Korrelation 0.10 im sicheren Bereich (< 0.60). Volle Allokationsfreiheit aktiv."
 }

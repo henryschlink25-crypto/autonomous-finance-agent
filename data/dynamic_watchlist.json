@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-29T20:47:36",
-  "scan_cycle": 225,
-  "total_scanned_count": 91,
+  "updated_at": "2026-10-29T20:54:26",
+  "scan_cycle": 228,
+  "total_scanned_count": 97,
   "hot_action_count": 2,
-  "watch_closely_count": 11,
+  "watch_closely_count": 16,
   "discarded_count": 0,
   "hot_action_highlights": [
     "ADT (Live-Screener, Move +33.2%, Vol 10.8x, 5d +41.2%, RS +33.6% vs SPY)",
@@ -17,14 +17,16 @@
   ],
   "promoted_from_watch": [
     "BBD (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.7%, Vol-Anstieg 1.17x, 5d -33.4%)",
-    "F (🚀 Aus 'Weiterbeobachten' gezündet: Move +3.4%, Vol 1.7x, Knapp unter 20d-High, RS +3.8% vs SPY)",
+    "SOFI (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.7%, Vol-Anstieg 1.17x, 5d +19.2%, RS +3.1% vs SPY)",
     "INTR (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.5%, 5d -38.1%, RS +1.8% vs SPY)",
-    "CAT (🚀 Aus 'Weiterbeobachten' gezündet: Move -9.3%, Vol 2.7x, 5d -7.8%, Sektor-Leader)",
+    "VG (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.9%, Vol-Anstieg 1.17x, 5d +15.3%, RS +3.3% vs SPY)",
+    "FMC (🚀 Aus 'Weiterbeobachten' gezündet: Move +6.3%, Vol 1.3x, 5d -5.4%, RS +6.6% vs SPY)",
     "CVX (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.0%, Knapp unter 20d-High, Sektor-Leader)",
-    "MRVL (🚀 Aus 'Weiterbeobachten' gezündet: Move -13.2%, Vol 1.9x)",
-    "M (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.1%, Knapp unter 20d-High, RS +4.5% vs SPY)",
-    "PLXS (🚀 Aus 'Weiterbeobachten' gezündet: Move -9.6%, Vol 2.2x)",
     "DBK.DE (🚀 Aus 'Weiterbeobachten' gezündet: Move +3.8%, Vol 1.4x, 5d +11.2%, RS +4.2% vs SPY)",
+    "FORM (🚀 Aus 'Weiterbeobachten' gezündet: Move -11.6%, Vol 1.5x)",
+    "PLXS (🚀 Aus 'Weiterbeobachten' gezündet: Move -9.6%, Vol 2.2x)",
+    "CCL (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.8%, Vol-Anstieg 1.23x, 5d +6.5%, RS +3.2% vs SPY)",
+    "MRNA (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.0%, 5d +9.9%, RS +4.4% vs SPY)",
     "JPM (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.3%, Knapp unter 20d-High, RS +1.6% vs SPY)",
     "GLD (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau -1.3%, Vol-Anstieg 1.08x, Markt-Hedge)"
   ],
@@ -138,6 +140,61 @@
       "reason": "Live-Screener, Move -26.9%, Vol 4.8x, 5d -30.1%",
       "last_price": 0.0,
       "cycles_watched": 1
+    },
+    "ALV.DE": {
+      "symbol": "ALV.DE",
+      "yf_ticker": "ALV.DE",
+      "asset_class": "EQUITY",
+      "cluster": "EU_LEADERS",
+      "name": "Allianz SE (Xetra Insurance)",
+      "activity_score": 1.08,
+      "reason": "Aufbau +1.0%, Vol-Anstieg 1.25x, Knapp unter 20d-High",
+      "last_price": 439.6,
+      "cycles_watched": 3
+    },
+    "HOOD": {
+      "symbol": "HOOD",
+      "yf_ticker": "HOOD",
+      "asset_class": "EQUITY",
+      "cluster": "HIGH_BETA",
+      "name": "Robinhood Markets",
+      "activity_score": 1.03,
+      "reason": "5d -5.2%",
+      "last_price": 91.59,
+      "cycles_watched": 3
+    },
+    "UBER": {
+      "symbol": "UBER",
+      "yf_ticker": "UBER",
+      "asset_class": "EQUITY",
+      "cluster": "HIGH_BETA",
+      "name": "Uber Technologies",
+      "activity_score": 0.96,
+      "reason": "5d -4.8%",
+      "last_price": 65.74,
+      "cycles_watched": 3
+    },
+    "ISRG": {
+      "symbol": "ISRG",
+      "yf_ticker": "ISRG",
+      "asset_class": "EQUITY",
+      "cluster": "VALUE_CYCLICAL",
+      "name": "Intuitive Surgical (MedTech Robotics)",
+      "activity_score": 0.84,
+      "reason": "Aufbau +1.0%, Knapp unter 20d-High",
+      "last_price": 448.76,
+      "cycles_watched": 3
+    },
+    "USO": {
+      "symbol": "USO",
+      "yf_ticker": "USO",
+      "asset_class": "EQUITY",
+      "cluster": "VALUE_CYCLICAL",
+      "name": "United States Oil Fund (WTI Crude)",
+      "activity_score": 0.82,
+      "reason": "Aufbau +1.0%, Knapp unter 20d-High",
+      "last_price": 168.19,
+      "cycles_watched": 3
     },
     "XOM": {
       "symbol": "XOM",
