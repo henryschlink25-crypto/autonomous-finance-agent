@@ -22,6 +22,8 @@ import html
 import json
 import logging
 import ssl
+import subprocess
+import sys
 import threading
 import time
 import urllib.request
@@ -163,6 +165,7 @@ class TelegramCommandListener:
                 "🔔 <b>/alerts</b> [trades|balanced|all] - Benachrichtigungen drosseln & Limit prüfen\n"
                 "🧠 <b>/knowledge</b> - Geteilter Schwarm-Wissensspeicher & Agenten-Synergien\n"
                 "🗣️ <b>/deals</b> - Ausgehandelte Deals im Agenten-Dialekt\n"
+                "🔄 <b>/update</b> - Autonomes Live-Update von GitHub laden & neu starten\n"
                 "─────────────────────────────"
             )
             self.send_message(help_msg)
@@ -217,6 +220,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/deals", "/deal", "/dialect", "/dialekt", "/sprache"]:
             self._handle_dialect()
+
+        elif cmd in ["/update", "/upgrade", "/pull", "/sync"]:
+            self._handle_update()
 
         elif cmd == "/breed":
             self.send_message("🧬 <i>Starte autonome genetische Strategie-Zucht und Krisen-Stresstest im Hintergrund...</i>")
@@ -650,6 +656,34 @@ class TelegramCommandListener:
             self.send_message(summary)
         except Exception as e:
             self.send_message(f"❌ Fehler beim Dekodieren des Agenten-Dialekts: {e}")
+
+    def _handle_update(self) -> None:
+        self.send_message("🔄 <i>Starte autonomes Update: Ziehe neusten Code von GitHub (origin/main)...</i>")
+        try:
+            # Sicherheitskonfiguration für git in Docker
+            subprocess.run(["git", "config", "--global", "--add", "safe.directory", "*"], capture_output=True, text=True, timeout=10)
+
+            # Neuesten Code von origin/main laden
+            res = subprocess.run(["git", "pull", "origin", "main"], capture_output=True, text=True, timeout=35)
+            output = (res.stdout or "") + ("\n" + res.stderr if res.stderr else "")
+            output_clean = output.strip() or "Keine Ausgabe erhalten."
+
+            if res.returncode == 0:
+                self.send_message(
+                    f"✅ <b>Update erfolgreich geladen!</b>\n\n"
+                    f"<code>{html.escape(output_clean[:500])}</code>\n\n"
+                    f"🔄 <i>Der Bot startet sich jetzt automatisch neu, um alle Änderungen live zu schalten...</i>"
+                )
+                time.sleep(2.0)
+                # Beende den Prozess sauber; Docker Compose (restart: unless-stopped) startet den Container sofort neu
+                sys.exit(0)
+            else:
+                self.send_message(
+                    f"⚠️ <b>Git Pull mit Warnung / Fehler beendet (Exit-Code {res.returncode}):</b>\n\n"
+                    f"<code>{html.escape(output_clean[:500])}</code>"
+                )
+        except Exception as e:
+            self.send_message(f"❌ <b>Fehler beim autonomen Update:</b> {e}")
 
     def _run_breed_task(self) -> None:
         try:

@@ -8,6 +8,8 @@ services:
     env_file:
       - .env
     volumes:
+      # Live-Code-Mount für sofortige Aktualisierungen
+      - .:/app
       # Dauerhafte Speicherung der Lern-Zustände, Strategien und Transaktions-Logs
       - ./data:/app/data
     deploy:
