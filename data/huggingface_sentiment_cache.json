@@ -1,6 +1,6 @@
 {
   "WHALE": {
-    "timestamp": 1793305519.2098455,
+    "timestamp": 1793307657.8551834,
     "data": {
       "symbol": "WHALE",
       "sentiment_label": "NEUTRAL",
@@ -15,11 +15,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:25:19Z"
+      "analyzed_at": "2026-10-29T21:00:57Z"
     }
   },
   "AMD": {
-    "timestamp": 1793305520.4360151,
+    "timestamp": 1793307658.625301,
     "data": {
       "symbol": "AMD",
       "sentiment_label": "VERY_BULLISH",
@@ -36,11 +36,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:25:20Z"
+      "analyzed_at": "2026-10-29T21:00:58Z"
     }
   },
   "TECH": {
-    "timestamp": 1793305521.0346785,
+    "timestamp": 1793307659.161108,
     "data": {
       "symbol": "TECH",
       "sentiment_label": "NEUTRAL",
@@ -57,11 +57,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:25:21Z"
+      "analyzed_at": "2026-10-29T21:00:59Z"
     }
   },
   "NVDA": {
-    "timestamp": 1793305521.76519,
+    "timestamp": 1793307612.8419242,
     "data": {
       "symbol": "NVDA",
       "sentiment_label": "VERY_BULLISH",
@@ -71,18 +71,18 @@
       "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
+        "Novo Has Big Plans for 2030. Should You Buy the Stock Now?",
         "Living On The Edge With Nvidia, AI Enabler Analog Devices Enters Buy Zone",
-        "Not Nvidia. Not AMD. This Custom AI Chip Designer Could Outperform Both by 2030.",
-        "SpaceX vs. Nvidia: The Best AI Stock to Buy Now"
+        "Not Nvidia. Not AMD. This Custom AI Chip Designer Could Outperform Both by 2030."
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:25:21Z"
+      "analyzed_at": "2026-10-29T21:00:12Z"
     }
   },
   "PUMPBULL": {
-    "timestamp": 1793305522.322157,
+    "timestamp": 1793307660.128017,
     "data": {
       "symbol": "PUMPBULL",
       "sentiment_label": "NEUTRAL",
@@ -97,7 +97,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T20:25:22Z"
+      "analyzed_at": "2026-10-29T21:01:00Z"
     }
   },
   "BHC": {
@@ -122,7 +122,7 @@
     }
   },
   "AAPL": {
-    "timestamp": 1793292163.9127634,
+    "timestamp": 1793307613.3317847,
     "data": {
       "symbol": "AAPL",
       "sentiment_label": "VERY_BULLISH",
@@ -132,14 +132,14 @@
       "neutral_prob": 0.225,
       "headline_count": 5,
       "top_headlines": [
+        "Nvidia Is Getting Dangerously Close to Getting Surpassed by Apple in Market Cap. Here's the Better Growth Stock to Buy Now.",
         "Apple Unveils Its First-Ever Touchscreen MacBook Pro. Should Investors Be Concerned About the $2,899 Price Tag?",
-        "HPQ vs. AAPL: Which Computer Stock Offers Better Investment Potential?",
-        "Pick-and-Shovel vs. Edge Gatekeeper: Why Investors Are Splitting Between Nvidia and Apple"
+        "HPQ vs. AAPL: Which Computer Stock Offers Better Investment Potential?"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T16:42:43Z"
+      "analyzed_at": "2026-10-29T21:00:13Z"
     }
   },
   "AVGO": {
@@ -1652,6 +1652,126 @@
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
       "analyzed_at": "2026-10-29T20:28:03Z"
+    }
+  },
+  "PLTR": {
+    "timestamp": 1793307613.710618,
+    "data": {
+      "symbol": "PLTR",
+      "sentiment_label": "VERY_BULLISH",
+      "compound_score": 0.665,
+      "positive_prob": 0.72,
+      "negative_prob": 0.055,
+      "neutral_prob": 0.225,
+      "headline_count": 5,
+      "top_headlines": [
+        "Could $1,000 Invested in Palantir Turn Into $100,000?",
+        "Why J.P. Morgan Believes Palantir Stock Is Just Getting Going After a Lackluster 2026",
+        "Palantir Seen Beating Revenue Estimates, Raising Guidance, Oppenheimer Says"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:00:13Z"
+    }
+  },
+  "TSLA": {
+    "timestamp": 1793307614.0318756,
+    "data": {
+      "symbol": "TSLA",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Barclays sees major Tesla upside for retirement investors",
+        "Tesla Just Gained 13% in a Month: Take Profits, or Buy More?",
+        "Tesla Stock Gets Dragged Down by Alphabet’s Misery"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:00:14Z"
+    }
+  },
+  "COIN": {
+    "timestamp": 1793307614.3468816,
+    "data": {
+      "symbol": "COIN",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Coinbase Swings to $719 Million Q3 Profit on Crypto Gains",
+        "Coinbase Posts Surprise Profit as Insiders Plan $2 Billion Share Sales: Why Now?",
+        "Coinbase Posts Earnings Surprise Despite Tumbling Volumes, Revenue"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:00:14Z"
+    }
+  },
+  "BTC/USD": {
+    "timestamp": 1793307615.0406585,
+    "data": {
+      "symbol": "BTC/USD",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 1,
+      "top_headlines": [
+        "BTC/USD trading in market session with active institutional order flow."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:00:15Z"
+    }
+  },
+  "ETH/USD": {
+    "timestamp": 1793307615.3486798,
+    "data": {
+      "symbol": "ETH/USD",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 1,
+      "top_headlines": [
+        "ETH/USD trading in market session with active institutional order flow."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:00:15Z"
+    }
+  },
+  "SOL/USD": {
+    "timestamp": 1793307615.814704,
+    "data": {
+      "symbol": "SOL/USD",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 1,
+      "top_headlines": [
+        "SOL/USD trading in market session with active institutional order flow."
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T21:00:15Z"
     }
   }
 }

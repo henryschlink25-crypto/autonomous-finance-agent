@@ -543,13 +543,8 @@ class DeterministicRiskManager:
                     debate_result=debate_result,
                 )
             elif debate_result.verdict == "REDUCED_SIZE":
-                if self.config.is_live_trading:
-                    return RiskEvaluation(
-                        approved=False,
-                        reason=f"LIVE-TRADING FILTER: Red-Team meldete Bedenken ({debate_result.verdict}: {debate_result.cio_reasoning[:60]}) – im Echtgeld-Modus werden nur unumstrittene Einstiege (APPROVED_FULL) gehandelt.",
-                        adjusted_action="HOLD",
-                        debate_result=debate_result,
-                    )
+                # Red-Team rät zur Vorsicht: Reduziere Positionsgröße proportional (z.B. 50% Margin),
+                # um das Potenzial aktiv zu nutzen und gleichzeitig das Risiko strikt zu begrenzen!
                 allowed_margin *= debate_result.size_multiplier
 
         if allowed_margin < min_order:

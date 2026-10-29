@@ -402,6 +402,18 @@ def run_autonomous_cycle(
     for aev in adas_events:
         console.print(f"[bold magenta]{aev}[/bold magenta]")
 
+    # 1e. Kontinuierliche genetische Strategie-Zucht & Code-Evolution (alle 20 Zyklen / ~100 Minuten)
+    current_cycle = getattr(adas.state, "total_evolution_cycles", 0)
+    if current_cycle > 0 and current_cycle % 20 == 0:
+        try:
+            from genetic_strategy_breeder import run_strategy_breeding_cycle
+            console.print("[bold magenta]🧬 Autonomer Evolutions-Zyklus: Züchte neue Strategie-Kandidaten & bilde Generationen...[/bold magenta]")
+            new_elites = run_strategy_breeding_cycle(num_generations=1, pop_per_gen=4)
+            if new_elites:
+                console.print(f"[bold green]✨ {len(new_elites)} neue Elite-Strategie(n) erfolgreich evolviert und als Sub-Agenten registriert![/bold green]")
+        except Exception as e:
+            logger.debug(f"Evolutions-Zyklus Hinweis: {e}")
+
     # 2. Cross-Sectional Signal-Analyse, ADAS-Schwarm-Abstimmung & Priorisierung
     analyzed_pairs: List[Tuple[MarketSnapshot, TradingSignal]] = []
     for sym, snap in snapshots.items():
@@ -442,7 +454,7 @@ def run_autonomous_cycle(
     if all(sig.action != "BUY" for _, sig in sorted_pairs):
         console.print(
             Panel(
-                "[bold cyan]⏸️ SNIPER-GEDULD-MODUS AKTIV:[/bold cyan] Aktuell erfüllt keines der 11 Assets die strengen A+ Kaufsignale "
+                f"[bold cyan]⏸️ SNIPER-GEDULD-MODUS AKTIV:[/bold cyan] Aktuell erfüllt keines der {len(sorted_pairs)} gescannten Assets die strengen A+ Kaufsignale "
                 f"(Min-Konfidenz {config.min_signal_confidence*100:.0f}%, Min-Edge {config.min_expected_edge_score:.2f}, mind. 2 bestätigte Faktoren ohne Gegenwind).\n"
                 "👉 [bold green]Der Agent erzwingt keine mittelmäßigen Trades und hält dein freies Kapital sicher in Cash, bis eine glasklare Chance entsteht![/bold green]",
                 border_style="cyan",

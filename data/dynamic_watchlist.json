@@ -1,34 +1,34 @@
 {
-  "updated_at": "2026-10-29T20:54:26",
-  "scan_cycle": 228,
+  "updated_at": "2026-10-29T21:01:36",
+  "scan_cycle": 231,
   "total_scanned_count": 97,
   "hot_action_count": 2,
   "watch_closely_count": 16,
-  "discarded_count": 0,
+  "discarded_count": 2,
   "hot_action_highlights": [
     "ADT (Live-Screener, Move +33.2%, Vol 10.8x, 5d +41.2%, RS +33.6% vs SPY)",
     "GKOS (Live-Screener, Move +33.6%, Vol 4.1x, 5d +37.2%, RS +34.0% vs SPY)",
-    "BHC (Live-Screener, Move +28.8%, Vol 6.9x, 5d +37.3%, RS +29.1% vs SPY)",
-    "LUNG (Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)",
+    "BHC (Live-Screener, Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY)",
     "TDOC (Live-Screener, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY)",
     "PRCH (Live-Screener, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY)",
-    "PURR (Live-Screener, Move +23.3%, Vol 4.1x, 5d +41.6%, RS +23.7% vs SPY)",
-    "CROX (Live-Screener, Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY)"
+    "PURR (Live-Screener, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)",
+    "CROX (Live-Screener, Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY)",
+    "IOVA (Live-Screener, Move -35.4%, Vol 4.2x, 5d -32.4%)"
   ],
   "promoted_from_watch": [
     "BBD (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.7%, Vol-Anstieg 1.17x, 5d -33.4%)",
-    "SOFI (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.7%, Vol-Anstieg 1.17x, 5d +19.2%, RS +3.1% vs SPY)",
+    "SOFI (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.7%, Vol-Anstieg 1.18x, 5d +19.2%, RS +3.1% vs SPY)",
     "INTR (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.5%, 5d -38.1%, RS +1.8% vs SPY)",
-    "VG (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.9%, Vol-Anstieg 1.17x, 5d +15.3%, RS +3.3% vs SPY)",
+    "VG (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.9%, Vol-Anstieg 1.18x, 5d +15.3%, RS +3.3% vs SPY)",
     "FMC (🚀 Aus 'Weiterbeobachten' gezündet: Move +6.3%, Vol 1.3x, 5d -5.4%, RS +6.6% vs SPY)",
     "CVX (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.0%, Knapp unter 20d-High, Sektor-Leader)",
     "DBK.DE (🚀 Aus 'Weiterbeobachten' gezündet: Move +3.8%, Vol 1.4x, 5d +11.2%, RS +4.2% vs SPY)",
     "FORM (🚀 Aus 'Weiterbeobachten' gezündet: Move -11.6%, Vol 1.5x)",
     "PLXS (🚀 Aus 'Weiterbeobachten' gezündet: Move -9.6%, Vol 2.2x)",
+    "RDDT (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.8%, Vol 3.5x, 5d -13.7%)",
     "CCL (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.8%, Vol-Anstieg 1.23x, 5d +6.5%, RS +3.2% vs SPY)",
-    "MRNA (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.0%, 5d +9.9%, RS +4.4% vs SPY)",
     "JPM (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.3%, Knapp unter 20d-High, RS +1.6% vs SPY)",
-    "GLD (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau -1.3%, Vol-Anstieg 1.08x, Markt-Hedge)"
+    "GLD (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau -1.3%, Vol-Anstieg 1.12x, Markt-Hedge)"
   ],
   "watch_closely_queue": {
     "BHC": {
@@ -37,19 +37,8 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "Bausch Health Companies Inc. (🔥 Breakout)",
-      "activity_score": 57.3,
-      "reason": "Live-Screener, Move +28.8%, Vol 6.9x, 5d +37.3%, RS +29.1% vs SPY",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "LUNG": {
-      "symbol": "LUNG",
-      "yf_ticker": "LUNG",
-      "asset_class": "EQUITY",
-      "cluster": "PENNY_STOCKS",
-      "name": "Pulmonx Corporation (🎯 Penny Stock In-Play)",
-      "activity_score": 55.48,
-      "reason": "Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY",
+      "activity_score": 59.8,
+      "reason": "Live-Screener, Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY",
       "last_price": 0.0,
       "cycles_watched": 1
     },
@@ -59,7 +48,7 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "Teladoc Health, Inc. (🔥 Breakout)",
-      "activity_score": 51.12,
+      "activity_score": 51.14,
       "reason": "Live-Screener, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY",
       "last_price": 0.0,
       "cycles_watched": 1
@@ -70,7 +59,7 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "Porch Group, Inc. (🔥 Breakout)",
-      "activity_score": 47.91,
+      "activity_score": 47.92,
       "reason": "Live-Screener, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY",
       "last_price": 0.0,
       "cycles_watched": 1
@@ -81,8 +70,8 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "Hyperliquid Strategies Inc (🔥 Breakout)",
-      "activity_score": 46.71,
-      "reason": "Live-Screener, Move +23.3%, Vol 4.1x, 5d +41.6%, RS +23.7% vs SPY",
+      "activity_score": 46.8,
+      "reason": "Live-Screener, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY",
       "last_price": 0.0,
       "cycles_watched": 1
     },
@@ -103,7 +92,7 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "Iovance Biotherapeutics, Inc (⚡ Reversal/Short)",
-      "activity_score": 35.41,
+      "activity_score": 35.42,
       "reason": "Live-Screener, Move -35.4%, Vol 4.2x, 5d -32.4%",
       "last_price": 0.0,
       "cycles_watched": 1
@@ -136,8 +125,19 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "ServiceNow, Inc. (⚡ Reversal/Short)",
-      "activity_score": 30.21,
+      "activity_score": 30.23,
       "reason": "Live-Screener, Move -26.9%, Vol 4.8x, 5d -30.1%",
+      "last_price": 0.0,
+      "cycles_watched": 1
+    },
+    "ALNY": {
+      "symbol": "ALNY",
+      "yf_ticker": "ALNY",
+      "asset_class": "EQUITY",
+      "cluster": "DYNAMIC_MARKET",
+      "name": "Alnylam Pharmaceuticals, Inc (⚡ Reversal/Short)",
+      "activity_score": 29.78,
+      "reason": "Live-Screener, Move -25.1%, Vol 6.2x, 5d -23.4%",
       "last_price": 0.0,
       "cycles_watched": 1
     },
@@ -150,7 +150,7 @@
       "activity_score": 1.08,
       "reason": "Aufbau +1.0%, Vol-Anstieg 1.25x, Knapp unter 20d-High",
       "last_price": 439.6,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "HOOD": {
       "symbol": "HOOD",
@@ -161,7 +161,7 @@
       "activity_score": 1.03,
       "reason": "5d -5.2%",
       "last_price": 91.59,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "UBER": {
       "symbol": "UBER",
@@ -172,7 +172,7 @@
       "activity_score": 0.96,
       "reason": "5d -4.8%",
       "last_price": 65.74,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "ISRG": {
       "symbol": "ISRG",
@@ -183,7 +183,7 @@
       "activity_score": 0.84,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 448.76,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "USO": {
       "symbol": "USO",
@@ -194,7 +194,7 @@
       "activity_score": 0.82,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 168.19,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "XOM": {
       "symbol": "XOM",
@@ -208,5 +208,8 @@
       "cycles_watched": 1
     }
   },
-  "discarded_symbols": []
+  "discarded_symbols": [
+    "KPTI",
+    "LUNG"
+  ]
 }
