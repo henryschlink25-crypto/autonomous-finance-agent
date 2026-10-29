@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T09:13:29",
+  "updated_at": "2026-10-29T09:24:20",
   "active": {
     "AAPL": {
       "prediction_id": "AAPL_2026-10-29T00:27:27",
@@ -331,7 +331,7 @@
       "current_price": 292.38,
       "target_price": 316.6145,
       "invalidation_price": 268.1455,
-      "directional_return_pct": 0.0,
+      "directional_return_pct": -0.0,
       "max_favorable_pct": 0.0,
       "max_adverse_pct": 0.0,
       "status": "ACTIVE",

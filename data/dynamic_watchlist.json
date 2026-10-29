@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-10-29T09:12:55",
-  "scan_cycle": 107,
+  "updated_at": "2026-10-29T09:23:37",
+  "scan_cycle": 109,
   "total_scanned_count": 121,
   "hot_action_count": 24,
-  "watch_closely_count": 17,
-  "discarded_count": 24,
+  "watch_closely_count": 7,
+  "discarded_count": 34,
   "hot_action_highlights": [
     "AXGN (Live-Screener, Move +31.5%, Vol 4.8x, 5d +35.0%)",
     "GMAB (Live-Screener, Move +28.3%, Vol 4.5x, 5d +44.8%)",
@@ -14,16 +14,13 @@
     "BEAM (Live-Screener, Move +15.6%, Vol 2.6x, 5d +15.9%)"
   ],
   "promoted_from_watch": [
-    "LABU (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.9%, 5d +8.5%)",
     "SOXS (🚀 Aus 'Weiterbeobachten' gezündet: Move -6.4%, 5d -10.2%)",
     "MU (🚀 Aus 'Weiterbeobachten' gezündet: Move +5.9%, Vol-Anstieg 1.13x, 5d +7.6%)",
     "HOOD (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.3%, Vol 2.0x, 5d -10.3%)",
     "SOFI (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.5%, Vol 1.6x, 5d +15.0%)",
     "MRNA (🚀 Aus 'Weiterbeobachten' gezündet: Move +3.0%, 5d -12.9%)",
     "BBAI (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.7%, Vol 1.6x, 5d +12.3%)",
-    "AXTI (🚀 Aus 'Weiterbeobachten' gezündet: Move +10.6%, Vol 1.3x, 5d +8.6%)",
-    "CECO (🚀 Aus 'Weiterbeobachten' gezündet: Move +9.4%, Vol 1.4x, 5d -5.9%)",
-    "MIR (🚀 Aus 'Weiterbeobachten' gezündet: Move +8.7%, Vol 2.4x, 5d +9.0%)"
+    "CECO (🚀 Aus 'Weiterbeobachten' gezündet: Move +9.4%, Vol 1.4x, 5d -5.9%)"
   ],
   "watch_closely_queue": {
     "MIR": {
@@ -32,10 +29,10 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "Mirion Technologies, Inc. (🔥 Breakout)",
-      "activity_score": 10.48,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +8.7%, Vol 2.4x, 5d +9.0%",
+      "activity_score": 11.68,
+      "reason": "Live-Screener, Move +8.7%, Vol 2.4x, 5d +9.0%",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 1
     },
     "AXTI": {
       "symbol": "AXTI",
@@ -43,63 +40,19 @@
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "AXT Inc (🔥 Breakout)",
-      "activity_score": 10.07,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +10.6%, Vol 1.3x, 5d +8.6%",
+      "activity_score": 11.27,
+      "reason": "Live-Screener, Move +10.6%, Vol 1.3x, 5d +8.6%",
       "last_price": 0.0,
-      "cycles_watched": 3
+      "cycles_watched": 1
     },
-    "CECO": {
-      "symbol": "CECO",
-      "yf_ticker": "CECO",
+    "BBAI": {
+      "symbol": "BBAI",
+      "yf_ticker": "BBAI",
       "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "CECO Environmental Corp. (🔥 Breakout)",
-      "activity_score": 8.77,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +9.4%, Vol 1.4x, 5d -5.9%",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "SOFI": {
-      "symbol": "SOFI",
-      "yf_ticker": "SOFI",
-      "asset_class": "EQUITY",
-      "cluster": "HIGH_BETA",
-      "name": "SoFi Technologies",
-      "activity_score": 7.74,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +4.5%, Vol 1.6x, 5d +15.0%",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "SOXS": {
-      "symbol": "SOXS",
-      "yf_ticker": "SOXS",
-      "asset_class": "EQUITY",
-      "cluster": "SAFE_HAVEN",
-      "name": "3x Short Semiconductor Crash-Hedge ETF",
-      "activity_score": 7.2,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move -6.4%, 5d -10.2%",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "HOOD": {
-      "symbol": "HOOD",
-      "yf_ticker": "HOOD",
-      "asset_class": "EQUITY",
-      "cluster": "HIGH_BETA",
-      "name": "Robinhood Markets",
-      "activity_score": 6.7,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move -3.3%, Vol 2.0x, 5d -10.3%",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "MU": {
-      "symbol": "MU",
-      "yf_ticker": "MU",
-      "asset_class": "EQUITY",
-      "cluster": "US_TECH",
-      "name": "Micron Technology (HBM Memory)",
-      "activity_score": 6.58,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +5.9%, Vol-Anstieg 1.13x, 5d +7.6%",
+      "cluster": "PENNY_STOCKS",
+      "name": "BigBear.ai Holdings (Defense AI)",
+      "activity_score": 7.42,
+      "reason": "🚀 Aus Watch-Queue gezündet, Move +4.7%, Vol 1.6x, 5d +12.3%",
       "last_price": 0.0,
       "cycles_watched": 2
     },
@@ -109,43 +62,10 @@
       "asset_class": "EQUITY",
       "cluster": "LEVERAGED_3X",
       "name": "3x Long S&P Biotech ETF",
-      "activity_score": 5.9,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +4.9%, 5d +8.5%",
+      "activity_score": 4.9,
+      "reason": "Move +4.9%, 5d +8.5%",
       "last_price": 0.0,
-      "cycles_watched": 3
-    },
-    "MRNA": {
-      "symbol": "MRNA",
-      "yf_ticker": "MRNA",
-      "asset_class": "EQUITY",
-      "cluster": "VALUE_CYCLICAL",
-      "name": "Moderna Inc.",
-      "activity_score": 5.51,
-      "reason": "🚀 Aus Watch-Queue gezündet, Move +3.0%, 5d -12.9%",
-      "last_price": 0.0,
-      "cycles_watched": 2
-    },
-    "XOM": {
-      "symbol": "XOM",
-      "yf_ticker": "XOM",
-      "asset_class": "EQUITY",
-      "cluster": "VALUE_CYCLICAL",
-      "name": "Exxon Mobil Corp. (Energy)",
-      "activity_score": 1.15,
-      "reason": "Aufbau +1.2%, Vol-Anstieg 1.10x, Knapp unter 20d-High",
-      "last_price": 182.02,
-      "cycles_watched": 2
-    },
-    "VRTX": {
-      "symbol": "VRTX",
-      "yf_ticker": "VRTX",
-      "asset_class": "EQUITY",
-      "cluster": "VALUE_CYCLICAL",
-      "name": "Vertex Pharmaceuticals",
-      "activity_score": 1.08,
-      "reason": "Aufbau +1.7%, Knapp unter 20d-High",
-      "last_price": 529.69,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
     "SNOW": {
       "symbol": "SNOW",
@@ -156,40 +76,7 @@
       "activity_score": 1.06,
       "reason": "5d +5.3%",
       "last_price": 339.91,
-      "cycles_watched": 3
-    },
-    "GS": {
-      "symbol": "GS",
-      "yf_ticker": "GS",
-      "asset_class": "EQUITY",
-      "cluster": "VALUE_CYCLICAL",
-      "name": "Goldman Sachs Group",
-      "activity_score": 1.01,
-      "reason": "Aufbau +1.5%, Knapp unter 20d-High",
-      "last_price": 925.17,
-      "cycles_watched": 2
-    },
-    "YINN": {
-      "symbol": "YINN",
-      "yf_ticker": "YINN",
-      "asset_class": "EQUITY",
-      "cluster": "CHINA_TECH",
-      "name": "3x Long FTSE China Bull ETF",
-      "activity_score": 0.96,
-      "reason": "5d -4.8%",
-      "last_price": 21.33,
-      "cycles_watched": 2
-    },
-    "NFLX": {
-      "symbol": "NFLX",
-      "yf_ticker": "NFLX",
-      "asset_class": "EQUITY",
-      "cluster": "US_TECH",
-      "name": "Netflix Inc.",
-      "activity_score": 0.94,
-      "reason": "5d -4.7%",
-      "last_price": 61.99,
-      "cycles_watched": 2
+      "cycles_watched": 1
     },
     "TSLA": {
       "symbol": "TSLA",
@@ -200,7 +87,7 @@
       "activity_score": 0.92,
       "reason": "5d +4.6%",
       "last_price": 404.22,
-      "cycles_watched": 1
+      "cycles_watched": 3
     },
     "USO": {
       "symbol": "USO",
@@ -211,7 +98,7 @@
       "activity_score": 0.87,
       "reason": "Aufbau +1.6%, Vol-Anstieg 1.13x",
       "last_price": 166.57,
-      "cycles_watched": 1
+      "cycles_watched": 3
     }
   },
   "discarded_symbols": [
@@ -238,6 +125,16 @@
     "FCX",
     "GLD",
     "OPEN",
-    "BBAI (nach 3 Watch-Zyklen eingeschlafen)"
+    "CECO (nach 3 Watch-Zyklen eingeschlafen)",
+    "SOFI (nach 3 Watch-Zyklen eingeschlafen)",
+    "SOXS (nach 3 Watch-Zyklen eingeschlafen)",
+    "HOOD (nach 3 Watch-Zyklen eingeschlafen)",
+    "MU (nach 3 Watch-Zyklen eingeschlafen)",
+    "MRNA (nach 3 Watch-Zyklen eingeschlafen)",
+    "XOM (nach 3 Watch-Zyklen eingeschlafen)",
+    "VRTX (nach 3 Watch-Zyklen eingeschlafen)",
+    "GS (nach 3 Watch-Zyklen eingeschlafen)",
+    "YINN (nach 3 Watch-Zyklen eingeschlafen)",
+    "NFLX (nach 3 Watch-Zyklen eingeschlafen)"
   ]
 }
