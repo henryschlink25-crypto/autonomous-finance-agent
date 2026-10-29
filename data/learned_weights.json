@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-10-29T13:18:16",
+  "updated_at": "2026-10-29T17:50:11",
   "total_evaluated": 16,
   "correct_calls": 6,
   "false_calls": 10,
   "guardrail_saved_losses": 0,
   "weights": {
     "trend": 0.775,
-    "momentum": 0.94,
+    "momentum": 0.96,
     "volume": 1.025,
     "fundamentals": 0.965,
     "news_sentiment": 1.05,

@@ -15,6 +15,14 @@ import sys
 import time
 from pathlib import Path
 
+# Windows UTF-8 Terminal Fix
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 
 def send_telegram_alert(message: str) -> None:
     try:
