@@ -278,26 +278,28 @@ class DeterministicRiskManager:
         min_rr = self.config.min_risk_reward_ratio
 
         # LIVE-TRADING ECHTZEIT-FILTER (Schutz des 1.000 € Echtgeld-Kapitals & Maximaler Gewinn-Fokus)
-        # Im Paper-Trading wird experimentiert; im Live-Trading werden NUR die gewinnreichsten A+ Spitzen-Aktionen gestartet!
+        # Nutzer-Direktive: "Nie den Handel schließen / sperren, es sei denn hohes Risiko oder Abwarten ist sinnvoller"
         if self.config.is_live_trading:
             min_conf = max(min_conf, 0.80)
-            min_edge = max(min_edge, 1.50)
+            min_edge = max(min_edge, 1.35)
 
-            # Dynamisches R:R: Bei extrem hoher Schwarm-Konfidenz (>= 92%) reicht R:R >= 1.65:1,
-            # da die empirische Win-Rate überproportional hoch ist; ansonsten gilt strenges R:R >= 2.0:1
+            # Dynamisches R:R: Bei hoher Schwarm-Konfidenz (>= 88%) reicht R:R >= 1.60:1,
+            # bei extrem hoher Konfidenz (>= 92%) reicht R:R >= 1.50:1; ansonsten gilt R:R >= 1.80:1
             if signal.confidence >= 0.92:
-                min_rr = max(min_rr, 1.65)
+                min_rr = max(min_rr, 1.50)
+            elif signal.confidence >= 0.88:
+                min_rr = max(min_rr, 1.60)
             else:
-                min_rr = max(min_rr, 2.0)
+                min_rr = max(min_rr, 1.80)
 
-            # 1. Tier 1 Alpha oder außergewöhnliche Schwarm-Konvergenz (Apex-Setup)
+            # 1. Nur werthaltige A+ Setups handeln (Tier-1, Tier-2 Solid oder Konfidenz >= 80% & Edge >= 1.35)
             cio_tier = getattr(signal, "cio_conviction_tier", "")
-            is_tier_1 = cio_tier == "TIER_1_ALPHA_HIGH_CONVICTION"
-            is_apex = (signal.confidence >= 0.85 and signal.expected_edge_score >= 1.50)
-            if not (is_tier_1 or is_apex):
+            is_tier_1_or_2 = cio_tier in ("TIER_1_ALPHA_HIGH_CONVICTION", "TIER_2_SOLID_OPPORTUNITY")
+            has_solid_edge = (signal.confidence >= 0.80 and signal.expected_edge_score >= 1.35)
+            if not (is_tier_1_or_2 or has_solid_edge):
                 return RiskEvaluation(
                     approved=False,
-                    reason=f"LIVE-TRADING FILTER: Nur Tier-1 Alpha oder Apex-Konvergenz erlaubt (aktuell: {cio_tier or 'Standard'}, Konfidenz: {signal.confidence*100:.0f}%, Edge: {signal.expected_edge_score:.2f}). Für Experimente im Paper-Trading vorbehalten.",
+                    reason=f"LIVE-TRADING FILTER: Mindestens solide Schwarm-Konvergenz erforderlich (aktuell: {cio_tier or 'Standard'}, Konfidenz: {signal.confidence*100:.0f}%, Edge: {signal.expected_edge_score:.2f}). Für Experimente im Paper-Trading vorbehalten.",
                     adjusted_action="HOLD",
                 )
 
