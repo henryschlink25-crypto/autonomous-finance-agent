@@ -1346,7 +1346,84 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 37 bestanden: Macro Event Horizon Sentinel (Sub-Agent #29) schützt vor Zins-/Inflations-Whipsaws (Status: {snap_event.horizon_state}, Aktion: {snap_event.protective_action}) & Red-Team verhängt VETO.")
 
-    print("=== Alle 37 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab- & Macro-Event-Horizon-Tests erfolgreich bestanden! ===")
+        # --- Test 38: Probabilistic Forecast Quantile Sentinel (Sub-Agent #30, Kronos/TimesFM) ---
+        from probabilistic_forecast_sentinel import ProbabilisticForecastSentinel
+        test_fc_cache = Path(tmpdir) / "test_forecast_cache.json"
+        fc_sentinel = ProbabilisticForecastSentinel(cache_file=test_fc_cache)
+
+        # 1. Synthetische Kurshistorie mit Aufwärtstrend & Asymmetrie
+        np.random.seed(42)
+        bull_steps = np.random.choice([0.015, 0.02, 0.012, -0.004, 0.025], size=50)
+        bull_closes = 100.0 * np.exp(np.cumsum(bull_steps))
+        q_bull = fc_sentinel.compute_quantiles_from_history("NVDA", bull_closes, horizon_days=5)
+        assert q_bull.p90_price > q_bull.p50_price > q_bull.p10_price, "P90 > P50 > P10 muss zwingend gelten"
+        assert q_bull.asymmetry_ratio >= 1.2, f"Aufwärtstrend muss asymmetrisch sein, erhalten: {q_bull.asymmetry_ratio}"
+        assert q_bull.upside_p90_pct > 0.0
+
+        # 2. Synthetische Kurshistorie mit starkem Abwärtstrend (Downside Skew)
+        bear_steps = np.random.choice([-0.02, -0.015, -0.025, 0.003, -0.01], size=50)
+        bear_closes = 100.0 * np.exp(np.cumsum(bear_steps))
+        q_bear = fc_sentinel.compute_quantiles_from_history("FALLSYM", bear_closes, horizon_days=5)
+        assert q_bear.p90_price > q_bear.p50_price > q_bear.p10_price
+        assert q_bear.forecast_status == "UNFAVORABLE_DOWNSIDE_SKEW"
+        assert q_bear.edge_score <= -0.5
+
+        # 3. Sub-Agent #30 im ADAS Meta Architect prüfen
+        arch_fc = ADASMetaArchitect(cfg)
+        fc_spec = next((ag for ag in arch_fc.state.active_subagents.values() if ag.specialty_focus == "PROBABILISTIC_FORECAST"), None)
+        assert fc_spec is not None, "Sub-Agent #30 (PROBABILISTIC_FORECAST) muss im Schwarm existieren"
+
+        snap_fav = ada_hf_snap.model_copy(update={
+            "forecast_asymmetry_ratio": 2.2,
+            "forecast_status": "FAVORABLE_UPSIDE_ASYMMETRY",
+            "forecast_p10_price": 95.0,
+            "forecast_p50_price": 105.0,
+            "forecast_p90_price": 125.0,
+            "forecast_favorable": True,
+        })
+        vote_fav, _ = arch_fc._compute_single_subagent_vote(fc_spec, snap_fav, green_macro)
+        assert vote_fav.vote_action == "BUY", f"Bei 2.2x Asymmetrie muss Votum BUY sein, erhalten {vote_fav.vote_action}"
+        assert vote_fav.score >= 0.50
+
+        snap_veto = ada_hf_snap.model_copy(update={
+            "forecast_asymmetry_ratio": 0.45,
+            "forecast_status": "UNFAVORABLE_DOWNSIDE_SKEW",
+            "forecast_p10_price": 82.0,
+            "forecast_p50_price": 98.0,
+            "forecast_p90_price": 102.0,
+            "forecast_favorable": False,
+        })
+        vote_veto, _ = arch_fc._compute_single_subagent_vote(fc_spec, snap_veto, green_macro)
+        assert vote_veto.vote_action in ("SELL", "HOLD"), f"Bei Downside Skew darf kein BUY votiert werden, erhalten {vote_veto.vote_action}"
+        assert vote_veto.score <= -0.50
+
+        # 4. Red-Team Tribunal Prüfung
+        tribunal_fc_bull = red_tribunal_hf.convene_tribunal(fake_buy_sig, snap_fav, green_macro, {})
+        assert "Probabilistischer Trichter" in tribunal_fc_bull.bull_argument or "Asymmetrie" in tribunal_fc_bull.bull_argument
+
+        tribunal_fc_bear = red_tribunal_hf.convene_tribunal(fake_buy_sig, snap_veto, green_macro, {})
+        assert "Probabilistischer Trichter" in tribunal_fc_bear.bear_rebuttal or "Unfavorable Probabilistic Skew" in tribunal_fc_bear.bear_rebuttal
+        assert tribunal_fc_bear.verdict in ("REDUCED_SIZE", "REJECTED_VETO")
+
+        # 5. Emergent Dialect Token Prüfung
+        from emergent_dialect_engine import get_dialect_engine
+        from models import RiskEvaluation
+        dialect_engine = get_dialect_engine()
+        dummy_risk = RiskEvaluation(approved=True, reason="Test", adjusted_action="BUY", position_size_usd=1000.0)
+        deal_fav = dialect_engine.compose_and_negotiate_deal(snap_fav, fake_buy_sig, green_macro, dummy_risk)
+        assert "🎲:QUANTILE_ASYMMETRY" in deal_fav.dialect_sentence, f"Dialect Engine muss Token 🎲:QUANTILE_ASYMMETRY enkodieren, erhalten: {deal_fav.dialect_sentence}"
+
+        deal_skew = dialect_engine.compose_and_negotiate_deal(snap_veto, fake_buy_sig, green_macro, dummy_risk)
+        assert "⚠️:DOWNSIDE_SKEW_WARN" in deal_skew.dialect_sentence, f"Dialect Engine muss Token ⚠️:DOWNSIDE_SKEW_WARN enkodieren, erhalten: {deal_skew.dialect_sentence}"
+
+        # 6. Telegram Formatierung
+        tg_txt = fc_sentinel.format_telegram_summary(q_bull)
+        assert "Probabilistischer Kurs-Trichter" in tg_txt
+        assert "P90" in tg_txt and "P10" in tg_txt
+
+        print(f"[OK] Test 38 bestanden: Probabilistic Forecast Quantile Sentinel (Sub-Agent #30) – P10/P50/P90 Trichter berechnet ({q_bull.asymmetry_ratio:.2f}x Asymmetrie), Downside Skew Veto aktiv, Red-Team & Dialect integriert.")
+
+    print("=== Alle 38 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon- & Probabilistic-Forecast-Tests erfolgreich bestanden! ===")
 
 
 

@@ -139,6 +139,14 @@ class MarketSnapshot(BaseModel):
     volume_profile_vah: Optional[float] = None
     liquidity_sweep_status: str = "NONE" # "BULLISH_SWEEP_RECLAIM", "BEARISH_CLIMAX_SWEEP", "IN_VALUE_RANGE", "NONE"
     liquidity_sweep_summary: str = ""
+    # Probabilistischer Forecast Trichter (Kronos / TimesFM Inspiriert)
+    forecast_horizon_days: int = 5
+    forecast_p10_price: Optional[float] = None  # 10% Bären-Quantil
+    forecast_p50_price: Optional[float] = None  # 50% Median-Erwartungswert
+    forecast_p90_price: Optional[float] = None  # 90% Bullen-Quantil
+    forecast_asymmetry_ratio: float = 1.0       # (P90 - P50) / (P50 - P10)
+    forecast_favorable: bool = False
+    forecast_summary: str = ""
     custom_metrics: Dict[str, Any] = Field(default_factory=dict)
     sec_form8k_catalyst: str = ""
     option_delta: Optional[float] = None

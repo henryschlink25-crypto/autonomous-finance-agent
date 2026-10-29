@@ -131,6 +131,8 @@ class AdversarialRedTeamTribunal:
             poc = getattr(snapshot, "volume_profile_poc", 0.0) or 0.0
             poc_txt = f" (POC ${poc:.2f})" if poc > 0 else ""
             points.append(f"🎯 Bullischer Liquidity-Sweep am -2σ VWAP-Band absorbiert{poc_txt}")
+        if getattr(snapshot, "forecast_asymmetry_ratio", 1.0) >= 1.6:
+            points.append(f"📈 Probabilistischer Trichter: {snapshot.forecast_asymmetry_ratio:.1f}x Upside-Asymmetrie")
         if macro is not None and getattr(macro, "geopolitical_regime_mode", "") == "PEACE_DIVIDEND":
             points.append("🕊️ Globale Friedensdividende (GCI ruhig)")
         if getattr(snapshot, "supertrend_direction", "") == "BULLISH":
@@ -277,6 +279,15 @@ class AdversarialRedTeamTribunal:
                 mins = getattr(macro, "macro_minutes_to_event", 120)
                 rebuttals.append(f"Makro-Event naht in {mins} Min – Positionsgröße halbiert")
                 risk_score += 2.0
+
+        # 17. Probabilistischer Forecast Skew (Ungünstiges Downside-Risiko)
+        asym = getattr(snapshot, "forecast_asymmetry_ratio", 1.0)
+        if asym <= 0.75 and asym > 0:
+            p10 = getattr(snapshot, "forecast_p10_price", 0.0)
+            msg = f"Probabilistischer Trichter ungünstig ({asym:.2f}x): Downside-Risiko (P10 ${p10:.2f}) überwiegt Chance"
+            rebuttals.append(msg)
+            fatal_risks.append("Unfavorable Probabilistic Skew")
+            risk_score += 3.5
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)

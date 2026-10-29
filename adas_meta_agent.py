@@ -663,6 +663,16 @@ class ADASMetaArchitect:
                 trust_weight=1.28,
             ))
 
+        # 17. Probabilistic Forecast & Quantile Asymmetry Sentinel (Sub-Agent #30)
+        if "probabilistic_forecast_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="probabilistic_forecast_sentinel",
+                name="📈 Probabilistic Forecast & Quantile Sentinel",
+                role="Berechnet probabilistische Kurstrichter (P10/P50/P90 Quantile) über Monte-Carlo/Bootstrapping. Genehmigt Trades nur bei asymmetrischem Upside-Vorteil (>= 1.6x).",
+                specialty_focus="PROBABILISTIC_FORECAST",
+                trust_weight=1.25,
+            ))
+
         return new_specs
 
 
@@ -1361,6 +1371,36 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = f"Makro-Event Radar temporär nicht verfügbar ({e})"
+
+        elif focus == "PROBABILISTIC_FORECAST":
+            try:
+                asym = getattr(snap, "forecast_asymmetry_ratio", 1.0)
+                p10 = getattr(snap, "forecast_p10_price", 0.0)
+                p50 = getattr(snap, "forecast_p50_price", 0.0)
+                p90 = getattr(snap, "forecast_p90_price", 0.0)
+                fav = getattr(snap, "forecast_favorable", False)
+
+                s_fav = rec.flag("Favorable Asymmetry", fav or asym >= 1.6, "bull")
+                s_skew = rec.flag("Unfavorable Skew", asym <= 0.75 and asym > 0, "bear")
+
+                if s_fav.passed:
+                    score = min(0.92, 0.60 + min(0.30, (asym - 1.0) * 0.20))
+                    conf = 0.88
+                    rationale = f"📈 Asymmetrischer Quantil-Trichter: {asym:.2f}x Upside/Downside (P90 ${p90:.2f} vs P10 ${p10:.2f})"
+                    decisive_idx = rec.idx(s_fav)
+                elif s_skew.passed:
+                    score = -0.80
+                    conf = 0.85
+                    rationale = f"⚠️ VETO: Ungünstiger Downside-Skew ({asym:.2f}x) – P10 Risiko (${p10:.2f}) übersteigt Chance"
+                    decisive_idx = rec.idx(s_skew)
+                else:
+                    score = 0.10 if asym >= 1.0 else -0.10
+                    conf = 0.60
+                    rationale = f"Symmetrischer Prognose-Fächer (Asymmetrie {asym:.2f}x)"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"Probabilistischer Trichter temporär nicht verfügbar ({e})"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:

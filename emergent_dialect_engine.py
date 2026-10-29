@@ -210,7 +210,18 @@ class EmergentDialectEngine:
             self._ensure_token(t, "RISK", f"Kauf-Erschöpfung am oberen VWAP-Band ({z_vwap:+.1f}σ)")
             tokens_used.append(t)
 
-        # J. Confluence-Grad (Güteklasse des Setups)
+        # J. Probabilistischer Forecast Trichter (Kronos/TimesFM)
+        asym = getattr(snapshot, "forecast_asymmetry_ratio", 1.0)
+        if asym >= 1.6:
+            t = f"🎲:QUANTILE_ASYMMETRY[{asym:.1f}x]"
+            self._ensure_token(t, "FLOW", f"Attraktive Aufwärts-Asymmetrie im probabilistischen Trichter ({asym:.1f}x)")
+            tokens_used.append(t)
+        elif asym <= 0.75 and asym > 0:
+            t = f"⚠️:DOWNSIDE_SKEW_WARN[{asym:.1f}x]"
+            self._ensure_token(t, "RISK", f"Ungünstiges Downside-Risiko im Quantil-Trichter ({asym:.1f}x)")
+            tokens_used.append(t)
+
+        # K. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
         if conf_len >= 4:

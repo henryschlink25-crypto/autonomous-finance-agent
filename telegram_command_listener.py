@@ -160,6 +160,7 @@ class TelegramCommandListener:
                 "📊 <b>/analysts &lt;SYM&gt;</b> - Wall Street Analysten-Konsens & Kursziele\n"
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
                 "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
+                "📈 <b>/forecast &lt;SYM&gt;</b> - Probabilistischer Kurs-Trichter (P10/P50/P90)\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
@@ -225,6 +226,12 @@ class TelegramCommandListener:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/vwap NVDA</code>")
             else:
                 self._handle_vwap(args[0])
+
+        elif cmd in ["/forecast", "/quantiles", "/trichter", "/p90"]:
+            if not args:
+                self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/forecast NVDA</code>")
+            else:
+                self._handle_forecast(args[0])
 
         elif cmd in ["/geopolitics", "/geo", "/war", "/peace"]:
             self._handle_geopolitics()
@@ -623,6 +630,18 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei VWAP-Analyse für {sym}: {e}")
+
+    def _handle_forecast(self, symbol: str) -> None:
+        sym = symbol.strip().upper()
+        self.send_message(f"📈 <i>Berechne probabilistischen Kurs-Trichter (P10/P50/P90) für {sym}...</i>")
+        try:
+            from probabilistic_forecast_sentinel import get_forecast_sentinel
+            sentinel = get_forecast_sentinel()
+            res = sentinel.analyze_symbol(sym)
+            msg = sentinel.format_telegram_summary(res)
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Forecast-Analyse für {sym}: {e}")
 
     def _handle_geopolitics(self) -> None:
         self.send_message("🌐 <i>Analysiere globale Konflikt- und Rohstoffrisiken (GCI-Index)...</i>")
