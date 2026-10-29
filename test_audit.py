@@ -1936,12 +1936,13 @@ def test_all_audit_fixes() -> None:
         # 3. Telegram Remote Listener Travel Commands Test
         from telegram_command_listener import TelegramCommandListener
         tg_test = TelegramCommandListener(
-            bot_token=cfg_paper.telegram_bot_token or "123:test_dummy",
+            bot_token="123:test_dummy_token",
             authorized_chat_id="9215209981",
             panic_callback=exec_unattended.emergency_liquidate_all_positions,
             pause_callback=exec_unattended.set_trading_paused,
             engine_ref=exec_unattended,
         )
+        tg_test.send_message = lambda msg: None  # Verhindert, dass Unit-Tests echte Nachrichten an Henrys Handy schicken
         # Teste Methodenaufrufe ohne Exceptions
         tg_test._handle_health()
         tg_test._handle_pause()
