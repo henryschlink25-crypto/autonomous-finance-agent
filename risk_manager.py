@@ -1,5 +1,6 @@
 import datetime
 from typing import Dict, Optional, Tuple
+import numpy as np
 import pytz
 from config import AgentConfig
 from models import MacroRegime, MarketSnapshot, PortfolioRiskMetrics, Position, RiskEvaluation, TradingSignal
@@ -364,7 +365,27 @@ class DeterministicRiskManager:
             # Lineare Reduktion des Risikos auf bis zu 55% bei hoher Korrelation (0.65 <= r < 0.85)
             corr_penalty = round(max(0.55, 1.0 - ((max_r - 0.65) / 0.35)), 2)
 
-        effective_risk_pct = self.config.max_risk_per_trade_pct * macro_mult * corr_penalty
+        # 5. Mathematisches Kelly-Kriterium & Volatilitäts-Parität (Hedgefonds-Standard)
+        # a) Payoff-Ratio b = Gewinnziel-Distanz / Stop-Loss-Distanz
+        target_dist = abs(signal.take_profit_price - signal.entry_price)
+        payoff_b = max(1.0, target_dist / max(0.01, risk_per_unit))
+        # b) Empirische Win-Wahrscheinlichkeit p aus Konfidenz
+        win_p = min(0.85, max(0.42, signal.confidence))
+        # c) Kelly-Formel: f* = (p * b - (1 - p)) / b
+        raw_kelly = (win_p * payoff_b - (1.0 - win_p)) / payoff_b
+        # d) Fractional Quarter-Kelly (0.25x) zur Glättung der Eigenkapitalkurve
+        kelly_fraction = max(0.50, min(1.50, 0.50 + max(0.0, raw_kelly) * 1.5))
+
+        # e) Volatilitäts-Parität: Skaliert Vermögenswerte so, dass jedes Asset denselben Risikobeitrag liefert
+        target_vol = 25.0
+        asset_vol = max(10.0, snapshot.volatility_annualized_pct)
+        vol_parity_weight = round(float(np.clip(target_vol / asset_vol, 0.45, 1.45)), 2)
+
+        effective_risk_pct = float(np.clip(
+            self.config.max_risk_per_trade_pct * kelly_fraction * vol_parity_weight * macro_mult * corr_penalty,
+            0.004,
+            0.025,
+        ))
         max_risk_dollars = total_equity_usd * effective_risk_pct
         risk_based_qty = max_risk_dollars / risk_per_unit
         risk_based_notional = risk_based_qty * signal.entry_price
@@ -379,6 +400,7 @@ class DeterministicRiskManager:
         # Penny-Stock-Positionen auf max 500$ deckeln zum Schutz des 100k-Portfolios
         if is_penny:
             allowed_margin = min(allowed_margin, 500.0)
+
 
         if allowed_margin < min_order:
             return RiskEvaluation(
