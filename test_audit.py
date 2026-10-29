@@ -902,7 +902,84 @@ def test_all_audit_fixes() -> None:
         mgr.alert_level = "BALANCED"  # Zurücksetzen
         print("[OK] Test 31 bestanden: Notification-Manager entprellt Duplikate zuverlässig, drosselt Veto-Spam und schützt Testläufe.")
 
-    print("=== Alle 31 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik- & Notification-Spam-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 32: Kollektive Schwarm-Intelligenz & Wissensaustausch (SwarmKnowledgeBus)
+        # ============================================================================
+        from swarm_knowledge_bus import SwarmKnowledgeBus, get_swarm_knowledge_bus
+        k_bus = get_swarm_knowledge_bus()
+        assert len(k_bus.insights) >= 4, "Start-Erkenntnisse müssen im Wissensspeicher geladen sein"
+
+        # 1. Teste automatische Konsultation: Penny-Stock ohne Katalysator muss Warnung auslösen
+        adj, notes = k_bus.consult_shared_knowledge(
+            symbol="DILUTE",
+            cluster="PENNY_STOCKS",
+            specialty_focus="PENNY_STOCK_MOMENTUM",
+            current_score=0.75,
+            has_catalyst=False,
+            is_penny=True,
+            macro_credit_stress=False,
+        )
+        assert adj < 0, f"Schwarm-Wissen muss Konfidenz bei ungesichertem Penny-Stock drosseln! Erhalten: {adj}"
+        assert any("Penny-Stock" in n or "Warnung" in n for n in notes)
+
+        # 2. Teste Schwarm-Lerneffekt: Verzeichne einen erfolgreichen Trade
+        fake_votes = {
+            "fast_breakout_chaser": type("V", (), {"score": 0.85})(),
+            "ttm_squeeze_specialist": type("V", (), {"score": 0.80})(),
+            "options_smart_money_hunter": type("V", (), {"score": 0.75})(),
+        }
+        learn_events = k_bus.record_collective_outcome(
+            symbol="WINNER",
+            move_pct=4.2,
+            agent_votes=fake_votes,
+            is_penny=False,
+            had_catalyst=True,
+        )
+        # Synergie zwischen Co-Votern muss gestiegen sein
+        pair_key = "fast_breakout_chaser:ttm_squeeze_specialist"
+        assert pair_key in k_bus.synergies, "Synergie-Paar muss registriert sein"
+        assert k_bus.synergies[pair_key].co_success >= 1
+        boost = k_bus.get_synergy_boost_for_agents(["fast_breakout_chaser", "ttm_squeeze_specialist"])
+        assert boost > 1.0, f"Synergie-Multiplikator muss nach gemeinsamem Gewinner über 1.0 liegen! Erhalten: {boost}"
+
+        # 3. Teste Schwarm-Integration im ADAS-Agenten
+        penny_trap_snap = MarketSnapshot(
+            symbol="PUMPBULL",
+            name="Pump Microcap",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            current_price=2.10,
+            change_24h_pct=6.5,
+            change_7d_pct=10.0,
+            rsi_14=65.0,
+            sma_20=1.90,
+            sma_50=1.70,
+            macd_hist=0.1,
+            atr_14=0.15,
+            volatility_annualized_pct=75.0,
+            volume_ratio_vs_20d=2.5,
+            sec_form8k_catalyst="",  # Kein Katalysator!
+        )
+        dummy_sig = TradingSignal(
+            symbol="PUMPBULL",
+            asset_class="EQUITY",
+            cluster="PENNY_STOCKS",
+            action="BUY",
+            confidence=0.80,
+            sentiment_score=0.70,
+            entry_price=2.10,
+            stop_loss_price=1.85,
+            take_profit_price=2.80,
+            risk_reward_ratio=2.8,
+            catalyst_summary="Momentum",
+            thesis="Breakout",
+        )
+        _, swarm_votes_trap, _ = adas.evaluate_symbol_with_swarm(penny_trap_snap, dummy_sig, green_macro)
+        penny_ag_vote = next(v for v in swarm_votes_trap if "penny" in v.agent_id or "rocket" in v.agent_id)
+        assert "Schwarm-Warnung" in penny_ag_vote.rationale or penny_ag_vote.score < 0.82, "Penny Hunter muss Schwarm-Warnung integriert haben"
+        print(f"[OK] Test 32 bestanden: Kollektive Schwarm-Intelligenz teilt Erkenntnisse über alle 26 Spezialisten & vergibt Synergie-Boni ({boost:.2f}x).")
+
+    print("=== Alle 32 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam- & Collective-Swarm-Knowledge-Tests erfolgreich bestanden! ===")
 
 
 

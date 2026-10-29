@@ -245,6 +245,23 @@ class ADASMetaArchitect:
                         ag.trust_weight = round(float(np.clip(ag.trust_weight - 0.04, 0.35, 1.85)), 3)
                         ag.fitness_score = round(max(0.0, ag.fitness_score - 3.5), 1)
                 events.extend(self._reflect_on_trace(ag, trace, move_pct, now_str))
+
+            # Kollektiver Schwarm-Wissens-Austausch: Destilliere neue Erkenntnisse & Synergien
+            try:
+                from swarm_knowledge_bus import get_swarm_knowledge_bus
+                k_bus = get_swarm_knowledge_bus()
+                k_events = k_bus.record_collective_outcome(
+                    symbol=sym,
+                    move_pct=move_pct,
+                    agent_votes=self.state.pending_traces.get(sym, {}),
+                    is_penny=(snap.cluster == "PENNY_STOCKS" or snap.current_price < 5.0) if snap else False,
+                    had_catalyst=bool(snap.sec_form8k_catalyst or getattr(snap, "form4_cluster_buy", False)) if snap else False,
+                    macro_credit_stress=getattr(macro, "credit_stress_active", False),
+                )
+                events.extend(k_events)
+            except Exception:
+                pass
+
             symbols_to_clear.append(sym)
 
         for s in symbols_to_clear:
@@ -671,8 +688,18 @@ class ADASMetaArchitect:
                 swarm_tag = f" 🛡️ [Sakana-VETO: {veto_reasons[0]}]"
             elif swarm_consensus >= 0.30 and len(bull_supporters) >= 3:
                 boost = min(0.08, swarm_consensus * 0.12)
+                # Synergie-Multiplikator aus dem kollektiven Wissens-Bus
+                try:
+                    from swarm_knowledge_bus import get_swarm_knowledge_bus
+                    k_bus = get_swarm_knowledge_bus()
+                    bull_ids = [v.agent_id for v in votes if v.score >= 0.28]
+                    syn_mult = k_bus.get_synergy_boost_for_agents(bull_ids)
+                    boost *= syn_mult
+                except Exception:
+                    syn_mult = 1.0
                 new_conf = round(min(0.97, new_conf + boost), 2)
-                swarm_tag = f" 🐝 [Sakana-Konsens +{swarm_consensus:.2f}: {', '.join(bull_supporters[:3])}]"
+                syn_str = f" · Synergie {syn_mult:.2f}x" if syn_mult > 1.0 else ""
+                swarm_tag = f" 🐝 [Sakana-Konsens +{swarm_consensus:.2f}: {', '.join(bull_supporters[:3])}{syn_str}]"
             elif swarm_consensus < 0.05:
                 new_action = "HOLD"
                 new_conf = round(min(0.66, new_conf), 2)
@@ -1197,7 +1224,32 @@ class ADASMetaArchitect:
                 conf = 0.60
                 rationale = f"Geopolitische Lage kontrolliert (GCI {geo_score:.1f}/10, {geo_mode})"
 
+        # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
+        try:
+            from swarm_knowledge_bus import get_swarm_knowledge_bus
+            k_bus = get_swarm_knowledge_bus()
+            has_cat = bool(snap.sec_form8k_catalyst or getattr(snap, "form4_cluster_buy", False) or getattr(snap, "analyst_consensus", "") in ("STRONG_BUY", "BUY"))
+            is_p = snap.cluster == "PENNY_STOCKS" or snap.current_price < 5.0
+            credit_st = getattr(macro, "credit_stress_active", False)
+            h_val = getattr(snap, "hurst_exponent", 0.50)
 
+            k_adj, k_notes = k_bus.consult_shared_knowledge(
+                symbol=snap.symbol,
+                cluster=snap.cluster,
+                specialty_focus=focus,
+                current_score=score,
+                has_catalyst=has_cat,
+                is_penny=is_p,
+                macro_credit_stress=credit_st,
+                hurst_exponent=h_val,
+            )
+            if k_adj != 0.0:
+                score = float(np.clip(score + k_adj, -1.0, 1.0))
+                conf = float(np.clip(conf + abs(k_adj) * 0.35, 0.40, 0.98))
+                if k_notes:
+                    rationale += f" · {' · '.join(k_notes[:1])}"
+        except Exception:
+            pass
 
         v_act = "BUY" if score >= 0.25 else ("SELL" if score <= -0.25 else "HOLD")
         vote = SubAgentVote(

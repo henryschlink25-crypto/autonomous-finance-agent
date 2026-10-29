@@ -161,6 +161,7 @@ class TelegramCommandListener:
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
                 "🔔 <b>/alerts</b> [trades|balanced|all] - Benachrichtigungen drosseln & Limit prüfen\n"
+                "🧠 <b>/knowledge</b> - Geteilter Schwarm-Wissensspeicher & Agenten-Synergien\n"
                 "─────────────────────────────"
             )
             self.send_message(help_msg)
@@ -209,6 +210,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/alerts", "/alert", "/quiet", "/drossel"]:
             self._handle_alerts(args)
+
+        elif cmd in ["/knowledge", "/wissen", "/learnings", "/synergies", "/schwarm"]:
+            self._handle_knowledge()
 
         elif cmd == "/breed":
             self.send_message("🧬 <i>Starte autonome genetische Strategie-Zucht und Krisen-Stresstest im Hintergrund...</i>")
@@ -622,6 +626,16 @@ class TelegramCommandListener:
             self.send_message("\n".join(lines))
         except Exception as e:
             self.send_message(f"❌ Fehler bei Alert-Konfiguration: {e}")
+
+    def _handle_knowledge(self) -> None:
+        self.send_message("🧠 <i>Lade kollektiven Schwarm-Wissensspeicher & Synergie-Matrix...</i>")
+        try:
+            from swarm_knowledge_bus import get_swarm_knowledge_bus
+            k_bus = get_swarm_knowledge_bus()
+            summary = k_bus.format_telegram_summary()
+            self.send_message(summary)
+        except Exception as e:
+            self.send_message(f"❌ Fehler beim Laden des Schwarm-Wissens: {e}")
 
     def _run_breed_task(self) -> None:
         try:
