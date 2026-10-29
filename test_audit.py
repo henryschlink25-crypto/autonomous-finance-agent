@@ -1,4 +1,5 @@
 import os
+import sys
 import tempfile
 import pandas as pd
 from config import AgentConfig
@@ -7,6 +8,9 @@ from models import MacroRegime, MarketSnapshot, Position, TradingSignal
 from risk_manager import DeterministicRiskManager, is_us_equity_market_open, is_opening_bell_cooldown
 from execution_engine import MultiAssetExecutionEngine
 import datetime
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 
 def test_all_audit_fixes() -> None:
