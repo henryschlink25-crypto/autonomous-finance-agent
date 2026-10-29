@@ -418,6 +418,30 @@ class EmergentDialectEngine:
         self._ensure_token("🧠:MOA_REGIME_ROUTER", "ROUTING", "Hierarchische Mixture-of-Agents Regime-Steuerung")
         tokens_used.append(moa_tag)
 
+        # AA. Fringe Forum & Darknet Leak Intelligence (Sub-Agent #46)
+        try:
+            from fringe_forum_leak_sentinel import FringeForumLeakSentinel
+            f_sentinel = FringeForumLeakSentinel()
+            f_snap = f_sentinel.analyze_symbol(
+                snapshot.symbol,
+                current_price=snapshot.current_price,
+                rsi_14=getattr(snapshot, "rsi_14", 50.0),
+            )
+            if f_snap.pump_and_dump_risk >= 0.75:
+                t = f"⚠️:PUMP_DUMP_COLLUSION[{snapshot.symbol}]"
+                self._ensure_token("⚠️:PUMP_DUMP_COLLUSION", "WARNING", f"Warnung: Akute Pump-and-Dump-Gefahr auf Reddit/Foren ({snapshot.symbol})")
+                tokens_used.append(t)
+            elif f_snap.is_game_stop_style_squeeze:
+                t = f"📢:RETAIL_SQUEEZE_HERD[{snapshot.symbol}]"
+                self._ensure_token("📢:RETAIL_SQUEEZE_HERD", "MOMENTUM", f"Retail-Absprachen & GameStop-Style Squeeze-Dynamik ({snapshot.symbol})")
+                tokens_used.append(t)
+            elif f_snap.leak_buzz_score >= 0.50:
+                t = f"🕵️:DARKNET_INSIDER_LEAK[{snapshot.symbol}]"
+                self._ensure_token("🕵️:DARKNET_INSIDER_LEAK", "CATALYST", f"Insider- oder Whistleblower-Leaks aktiv ({snapshot.symbol})")
+                tokens_used.append(t)
+        except Exception:
+            pass
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

@@ -1,6 +1,6 @@
 {
   "WHALE": {
-    "timestamp": 1793310417.7683475,
+    "timestamp": 1793312260.6635318,
     "data": {
       "symbol": "WHALE",
       "sentiment_label": "NEUTRAL",
@@ -15,11 +15,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:46:57Z"
+      "analyzed_at": "2026-10-29T22:17:40Z"
     }
   },
   "AMD": {
-    "timestamp": 1793310419.6610785,
+    "timestamp": 1793312263.8123567,
     "data": {
       "symbol": "AMD",
       "sentiment_label": "VERY_BULLISH",
@@ -36,11 +36,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:46:59Z"
+      "analyzed_at": "2026-10-29T22:17:43Z"
     }
   },
   "TECH": {
-    "timestamp": 1793310420.3270538,
+    "timestamp": 1793312265.3633115,
     "data": {
       "symbol": "TECH",
       "sentiment_label": "NEUTRAL",
@@ -57,11 +57,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:47:00Z"
+      "analyzed_at": "2026-10-29T22:17:45Z"
     }
   },
   "NVDA": {
-    "timestamp": 1793310421.0700333,
+    "timestamp": 1793312266.716613,
     "data": {
       "symbol": "NVDA",
       "sentiment_label": "NEUTRAL",
@@ -71,18 +71,18 @@
       "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
-        "Altisource Portfolio Solutions S.A. Q3 2026 Earnings Call Summary",
-        "Xcel Energy Inc. Q3 2026 Earnings Call Summary",
-        "FTI Consulting, Inc. Q3 2026 Earnings Call Summary"
+        "NextDecade Corporation Q3 2026 Earnings Call Summary",
+        "Ranpak Holdings Corp. Q3 2026 Earnings Call Summary",
+        "InterDigital, Inc. Q3 2026 Earnings Call Summary"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:47:01Z"
+      "analyzed_at": "2026-10-29T22:17:46Z"
     }
   },
   "PUMPBULL": {
-    "timestamp": 1793310422.0821412,
+    "timestamp": 1793312268.399217,
     "data": {
       "symbol": "PUMPBULL",
       "sentiment_label": "NEUTRAL",
@@ -97,7 +97,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 1 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:47:02Z"
+      "analyzed_at": "2026-10-29T22:17:48Z"
     }
   },
   "BHC": {
@@ -269,7 +269,7 @@
     }
   },
   "PRCH": {
-    "timestamp": 1793310017.2455873,
+    "timestamp": 1793312022.4547572,
     "data": {
       "symbol": "PRCH",
       "sentiment_label": "NEUTRAL",
@@ -286,7 +286,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:40:17Z"
+      "analyzed_at": "2026-10-29T22:13:42Z"
     }
   },
   "MESO": {
@@ -983,7 +983,7 @@
     }
   },
   "LUNG": {
-    "timestamp": 1793310017.7651036,
+    "timestamp": 1793312023.1708405,
     "data": {
       "symbol": "LUNG",
       "sentiment_label": "NEUTRAL",
@@ -1000,7 +1000,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:40:17Z"
+      "analyzed_at": "2026-10-29T22:13:43Z"
     }
   },
   "ALNY": {
@@ -1634,7 +1634,7 @@
     }
   },
   "FMC": {
-    "timestamp": 1793310019.642558,
+    "timestamp": 1793312026.56117,
     "data": {
       "symbol": "FMC",
       "sentiment_label": "NEUTRAL",
@@ -1651,7 +1651,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:40:19Z"
+      "analyzed_at": "2026-10-29T22:13:46Z"
     }
   },
   "PINS": {
@@ -1715,6 +1715,27 @@
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
       "analyzed_at": "2026-10-29T21:54:56Z"
+    }
+  },
+  "GME": {
+    "timestamp": 1793312125.6972017,
+    "data": {
+      "symbol": "GME",
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
+      "headline_count": 5,
+      "top_headlines": [
+        "Airbnb vs. GameStop: Will Consumers Going Out or Staying In Benefit One of These Stocks More in 2026?",
+        "GameStop (GME) Stock Still Looks Undervalued On Its 94% Three Year Run",
+        "GameStop (GME) Stock Dips While Market Gains: Key Facts"
+      ],
+      "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "veto_triggered": false,
+      "analyzed_at": "2026-10-29T22:15:25Z"
     }
   }
 }

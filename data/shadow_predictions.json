@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T22:06:43",
+  "updated_at": "2026-10-29T22:13:54",
   "active": {
     "NOW": {
       "prediction_id": "NOW_2026-10-29T21:17:40",
@@ -1249,8 +1249,8 @@
       }
     },
     "INTR": {
-      "prediction_id": "INTR_2026-10-29T22:06:42",
-      "opened_at": "2026-10-29T22:06:42",
+      "prediction_id": "INTR_2026-10-29T22:13:54",
+      "opened_at": "2026-10-29T22:13:54",
       "symbol": "INTR",
       "asset_class": "EQUITY",
       "predicted_action": "HOLD",

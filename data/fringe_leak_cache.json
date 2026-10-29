@@ -1,0 +1,243 @@
+{
+  "GME": {
+    "cached_at": 1793312312.2806566,
+    "posts": [
+      {
+        "title": "GME SHORT SQUEEZE LOADING: 120% Float shorted, apes together strong to the moon!",
+        "source": "r/wallstreetbets",
+        "upvotes": 4820,
+        "comments": 910,
+        "text_snippet": "Gamma ramp is primed for Friday. Coordinated buy raid at open, hold the line diamond hands!",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.85
+      },
+      {
+        "title": "Next GameStop 2.0: Massive call wall on GME, destroy the shorts",
+        "source": "r/ShortSqueeze",
+        "upvotes": 1850,
+        "comments": 320,
+        "text_snippet": "Borrow fee jumped to 85%. Target 1000% gain if retail army buys the float.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.75
+      },
+      {
+        "title": "Darknet Leak Feed: Hedge fund prime broker margin pressure notice circulating for GME",
+        "source": "darknet_leak_feed",
+        "upvotes": 940,
+        "comments": 180,
+        "text_snippet": "Whistleblower memo alleges failure-to-deliver reset cycle expires this week.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.6
+      }
+    ]
+  },
+  "NVDA": {
+    "cached_at": 1793312267.402106,
+    "posts": [
+      {
+        "title": "NVDA supplier production capacity leak: Q4 guidance beat locked in?",
+        "source": "r/wallstreetbets",
+        "upvotes": 3100,
+        "comments": 640,
+        "text_snippet": "Internal source claims datacenter demand backlog stretches into 2027.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.65
+      }
+    ]
+  },
+  "EXT_TICKER": {
+    "cached_at": 1793312290.4520226,
+    "posts": [
+      {
+        "title": "Watching EXT_TICKER volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on EXT_TICKER.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "BREAKOUT_LEADER": {
+    "cached_at": 1793312291.1031947,
+    "posts": [
+      {
+        "title": "Watching BREAKOUT_LEADER volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on BREAKOUT_LEADER.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "XOM": {
+    "cached_at": 1793312297.2806358,
+    "posts": [
+      {
+        "title": "Watching XOM volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on XOM.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "TEST_RECOV": {
+    "cached_at": 1793312306.569139,
+    "posts": [
+      {
+        "title": "Watching TEST_RECOV volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on TEST_RECOV.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "SPY": {
+    "cached_at": 1793312308.554184,
+    "posts": [
+      {
+        "title": "Fed liquidity repo desk rumors: Quiet quantitative easing via backdoor?",
+        "source": "r/options",
+        "upvotes": 1200,
+        "comments": 210,
+        "text_snippet": "Discussion on institutional hedge roll and macro positioning.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.15
+      }
+    ]
+  },
+  "VRT": {
+    "cached_at": 1793312310.4063878,
+    "posts": [
+      {
+        "title": "Watching VRT volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on VRT.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "SOUN": {
+    "cached_at": 1793312311.6987855,
+    "posts": [
+      {
+        "title": "SOUN Confidential memo leak: Big tech enterprise contract integration signed?",
+        "source": "darknet_leak_feed",
+        "upvotes": 720,
+        "comments": 115,
+        "text_snippet": "Unreleased presentation slides show partnership announcement planned post-market.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": true,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.7
+      },
+      {
+        "title": "SOUN breakout primed on low float, load the boat before retail notices",
+        "source": "r/pennystocks",
+        "upvotes": 450,
+        "comments": 85,
+        "text_snippet": "Volume building fast, apes buying the float.",
+        "is_squeeze_signal": true,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.55
+      }
+    ]
+  },
+  "WHALE": {
+    "cached_at": 1793312262.5085518,
+    "posts": [
+      {
+        "title": "Watching WHALE volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on WHALE.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "AMD": {
+    "cached_at": 1793312264.7353926,
+    "posts": [
+      {
+        "title": "Watching AMD volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on AMD.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "TECH": {
+    "cached_at": 1793312266.0058641,
+    "posts": [
+      {
+        "title": "Watching TECH volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on TECH.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  },
+  "PUMPBULL": {
+    "cached_at": 1793312270.1460772,
+    "posts": [
+      {
+        "title": "Watching PUMPBULL volume patterns for unusual retail flow",
+        "source": "r/wallstreetbets",
+        "upvotes": 120,
+        "comments": 25,
+        "text_snippet": "Standard retail discussion on PUMPBULL.",
+        "is_squeeze_signal": false,
+        "is_leak_signal": false,
+        "is_dump_warning": false,
+        "sentiment_polarity": 0.05
+      }
+    ]
+  }
+}

@@ -172,6 +172,7 @@ class TelegramCommandListener:
                 "🔍 <b>/fund &lt;SYM&gt;</b> - Fundamental-Check (z.B. <code>/fund AAPL</code>)\n"
                 "📊 <b>/analysts &lt;SYM&gt;</b> - Wall Street Analysten-Konsens & Kursziele\n"
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
+                "🕵️ <b>/fringe &lt;SYM&gt;</b> - Reddit-Absprachen (GameStop-Effekt), Darknet-Leaks & Soft-Faktor\n"
                 "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
                 "⏱️ <b>/timing &lt;SYM&gt;</b> - Einstiegs-Timing: Sofort kaufen vs. Abwarten auf Pullback\n"
                 "📊 <b>/chart &lt;SYM&gt;</b> - Push-Chart & Price-Ladder (z.B. <code>/chart NVDA</code>)\n"
@@ -244,6 +245,12 @@ class TelegramCommandListener:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/sentiment NVDA</code>")
             else:
                 self._handle_sentiment(args[0])
+
+        elif cmd in ["/fringe", "/squeeze", "/reddit", "/leaks", "/darknet"]:
+            if not args:
+                self.send_message("🕵️ Bitte Symbol angeben, z.B.: <code>/fringe GME</code>")
+            else:
+                self._handle_fringe(args[0])
 
         elif cmd in ["/vwap", "/sweep", "/poc", "/profile"]:
             if not args:
@@ -688,6 +695,18 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei FinBERT-Sentiment Analyse für {sym}: {e}")
+
+    def _handle_fringe(self, symbol: str) -> None:
+        sym = symbol.strip().upper()
+        self.send_message(f"🕵️ <i>Scanne Reddit (WSB, ShortSqueeze), Fringe-Foren & Darknet-Leaks für {sym}...</i>")
+        try:
+            from fringe_forum_leak_sentinel import FringeForumLeakSentinel
+            sentinel = FringeForumLeakSentinel()
+            snap = sentinel.analyze_symbol(sym)
+            msg = sentinel.format_telegram_summary(snap)
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Fringe- & Leak-Analyse für {sym}: {e}")
 
     def _handle_vwap(self, symbol: str) -> None:
         sym = symbol.strip().upper()

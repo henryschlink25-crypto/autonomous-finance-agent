@@ -2889,7 +2889,73 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 59 bestanden: Automatisierte Laien-Briefings (Morgen- & Abend-Nachrichten mit Bester/Schlechtester Trade, Warum & Anpassung).")
 
-    print("=== Alle 59 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain- & Laien-Briefing-Daily-Review-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 60: Fringe-Foren, Reddit-Absprachen (GameStop-Effekt), Darknet-Leaks
+        #          & Quantitativer Soft-Faktor (Sub-Agent #46)
+        # ============================================================================
+        from fringe_forum_leak_sentinel import FringeForumLeakSentinel
+        fringe_sentinel = FringeForumLeakSentinel()
+
+        # 1. Teste GameStop-Style Retail-Squeeze Absprachen & Soft-Faktor
+        snap_fringe_gme = fringe_sentinel.analyze_symbol("GME", current_price=22.50, rsi_14=54.0, force_refresh=True)
+        assert snap_fringe_gme.coordination_score >= 0.70, f"GME Kaufabsprachen-Score muss >= 0.70 sein: {snap_fringe_gme.coordination_score}"
+        assert snap_fringe_gme.is_game_stop_style_squeeze, "GME muss als GameStop-Style Squeeze erkannt werden"
+        assert snap_fringe_gme.soft_factor_modifier >= 0.10, f"GME Soft-Faktor muss positiv sein: {snap_fringe_gme.soft_factor_modifier}"
+        assert snap_fringe_gme.soft_factor_status == "BULLISH_SQUEEZE_MOMENTUM"
+
+        # 2. Teste Whistleblower- & Insider-Leaks
+        snap_fringe_soun = fringe_sentinel.analyze_symbol("SOUN", current_price=3.50, rsi_14=52.0, force_refresh=True)
+        assert snap_fringe_soun.leak_buzz_score >= 0.50, f"SOUN Leak-Buzz-Score muss >= 0.50 sein: {snap_fringe_soun.leak_buzz_score}"
+        assert snap_fringe_soun.soft_factor_modifier > 0.05, f"SOUN Soft-Faktor muss positiv sein: {snap_fringe_soun.soft_factor_modifier}"
+
+        # 3. Teste Pump-and-Dump Kollusion & VETO bei Überhitzung (Peak FOMO)
+        snap_fringe_dump = fringe_sentinel.analyze_symbol("GME", current_price=45.00, rsi_14=82.0, force_refresh=True)
+        assert snap_fringe_dump.pump_and_dump_risk >= 0.70, f"Überhitztes GME muss hohes Dump-Risiko haben: {snap_fringe_dump.pump_and_dump_risk}"
+        assert snap_fringe_dump.soft_factor_status == "PUMP_DUMP_COLLUSION_VETO"
+        assert snap_fringe_dump.soft_factor_modifier < 0.0, f"Dump-Risiko muss Soft-Faktor ins Negative ziehen: {snap_fringe_dump.soft_factor_modifier}"
+
+        # 4. Teste Sub-Agent #46 (Fringe Forums & Darknet Leak Sentinel) im ADAS-Schwarm
+        adas_fringe = ADASMetaAgent()
+        assert "fringe_forum_leak_sentinel" in adas_fringe.state.active_subagents, "Sub-Agent #46 muss im Schwarm aktiv sein"
+        assert len(adas_fringe.state.active_subagents) >= 46, f"Schwarm muss mindestens 46 Spezialisten umfassen, aktuell: {len(adas_fringe.state.active_subagents)}"
+
+        snap_gme_market = dummy_snap.model_copy(update={
+            "symbol": "GME",
+            "name": "GameStop Corp",
+            "current_price": 22.50,
+            "rsi_14": 54.0,
+            "change_24h_pct": 8.5,
+        })
+        sig_gme_market = sig_apex_high.model_copy(update={"symbol": "GME"})
+        _, votes_gme, _ = adas_fringe.evaluate_symbol_with_swarm(
+            snap=snap_gme_market,
+            baseline_signal=sig_gme_market,
+            macro=green_macro,
+        )
+        vote_fringe_gme = next((v for v in votes_gme if v.agent_id == "fringe_forum_leak_sentinel"), None)
+        assert vote_fringe_gme is not None, "Vote von fringe_forum_leak_sentinel muss vorhanden sein"
+        assert vote_fringe_gme.score >= 0.75, f"GME Squeeze Vote Score muss >= 0.75 sein: {vote_fringe_gme.score}"
+        assert vote_fringe_gme.vote_action == "BUY"
+        assert "GameStop-Style Squeeze" in vote_fringe_gme.rationale
+
+        # 5. Teste Emergent Dialect Tokens (📢:RETAIL_SQUEEZE_HERD)
+        deal_gme = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_gme_market,
+            signal=sig_gme_market,
+            macro=green_macro,
+            risk_evaluation=eval_hrp,
+        )
+        assert "📢:RETAIL_SQUEEZE_HERD" in deal_gme.dialect_sentence, f"Dialekt muss 📢:RETAIL_SQUEEZE_HERD enthalten: {deal_gme.dialect_sentence}"
+
+        # 6. Teste Telegram-Formatierung
+        tg_summary = fringe_sentinel.format_telegram_summary(snap_fringe_gme)
+        assert "Fringe-Foren & Darknet Leak Radar" in tg_summary, "Telegram-Zusammenfassung muss Titel enthalten"
+        assert "Kaufabsprachen" in tg_summary, "Telegram-Zusammenfassung muss Kaufabsprachen enthalten"
+        assert "Soft-Faktor Einfluss" in tg_summary, "Telegram-Zusammenfassung muss Soft-Faktor enthalten"
+
+        print(f"[OK] Test 60 bestanden: Fringe-Foren, Reddit-Absprachen (GameStop-Effekt), Darknet-Leaks & Soft-Faktor (Sub-Agent #46).")
+
+    print("=== Alle 60 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review- & Fringe-Reddit-Leak-Sentinel-Tests erfolgreich bestanden! ===")
 
 
 

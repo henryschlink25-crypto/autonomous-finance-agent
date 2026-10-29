@@ -873,6 +873,16 @@ class ADASMetaArchitect:
                 trust_weight=1.35,
             ))
 
+        # 33. Fringe Forums, Reddit & Darknet Leak Sentinel (Sub-Agent #46)
+        if "fringe_forum_leak_sentinel" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="fringe_forum_leak_sentinel",
+                name="🕵️ Fringe Forums & Darknet Leak Sentinel",
+                role="Scannt unregulierte Foren (Reddit r/wallstreetbets, r/ShortSqueeze, Fringe Leak Boards) auf koordinierte Absprachen, virale Meme-Kaufwellen (wie GameStop 2021) und angebliche Insider-Leaks. Liefert einen Soft-Faktor für Buy/Sell-Entscheidungen mit Schutz vor Pump-and-Dump-Fallen.",
+                specialty_focus="FRINGE_LEAK_SQUEEZE",
+                trust_weight=1.28,
+            ))
+
         return new_specs
 
 
@@ -2182,6 +2192,49 @@ class ADASMetaArchitect:
                 conf = 0.40
                 rationale = f"MoA Router neutral ({e})"
 
+        elif focus == "FRINGE_LEAK_SQUEEZE":
+            try:
+                from fringe_forum_leak_sentinel import FringeForumLeakSentinel
+                sentinel = FringeForumLeakSentinel()
+                f_snap = sentinel.analyze_symbol(
+                    symbol=snap.symbol,
+                    current_price=snap.current_price,
+                    rsi_14=getattr(snap, "rsi_14", 50.0),
+                )
+                
+                # Soft-Faktor in Snapshot einbetten falls Attribute existieren
+                if hasattr(snap, "fringe_squeeze_score"):
+                    snap.fringe_squeeze_score = f_snap.coordination_score
+                if hasattr(snap, "fringe_leak_score"):
+                    snap.fringe_leak_score = f_snap.leak_buzz_score
+                if hasattr(snap, "fringe_soft_factor"):
+                    snap.fringe_soft_factor = f_snap.soft_factor_modifier
+
+                if f_snap.pump_and_dump_risk >= 0.75:
+                    score = -0.75
+                    conf = 0.90
+                    v_act = "VETO_BUY"
+                    rationale = f"⚠️ Fringe VETO: Akute Pump-and-Dump-Gefahr auf Reddit/Foren ({f_snap.pump_and_dump_risk*100:.0f}% Risiko). Soft-Faktor {f_snap.soft_factor_modifier:+.2f} blockiert Späteinstieg."
+                elif f_snap.is_game_stop_style_squeeze:
+                    score = 0.86
+                    conf = 0.92
+                    v_act = "BUY"
+                    rationale = f"📢 GameStop-Style Squeeze: Starke Retail-Kaufabsprachen auf Reddit/Foren ({f_snap.coordination_score*100:.0f}% Squeeze-Score). Soft-Faktor {f_snap.soft_factor_modifier:+.2f} liefert Rückenwind."
+                elif f_snap.leak_buzz_score >= 0.50:
+                    score = 0.74
+                    conf = 0.85
+                    v_act = "BUY"
+                    rationale = f"🕵️ Darknet/Fringe Leak: Whistleblower- oder Insider-Gerüchte kursieren ({f_snap.leak_buzz_score*100:.0f}% Leak-Buzz). Soft-Faktor {f_snap.soft_factor_modifier:+.2f} aktiv."
+                else:
+                    score = round(f_snap.soft_factor_modifier * 2.0, 2)
+                    conf = 0.60
+                    v_act = "BUY" if score > 0.20 else ("SELL" if score < -0.20 else "HOLD")
+                    rationale = f"Fringe-Foren neutral: Geringe Koordination ({f_snap.coordination_score*100:.0f}%), Soft-Faktor {f_snap.soft_factor_modifier:+.2f}."
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Fringe Sentinel neutral ({e})"
+
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))
             min_rvol = ag.rule_parameters.get("min_rvol", 1.95)
@@ -2305,7 +2358,8 @@ class ADASMetaArchitect:
         except Exception:
             pass
 
-        v_act = "BUY" if score >= 0.25 else ("SELL" if score <= -0.25 else "HOLD")
+        if "v_act" not in locals() or not v_act:
+            v_act = "BUY" if score >= 0.25 else ("SELL" if score <= -0.25 else "HOLD")
         vote = SubAgentVote(
             agent_id=ag.agent_id,
             agent_name=ag.name,
