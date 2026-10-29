@@ -182,41 +182,16 @@ class SECForm4Tracker:
             }
 
     def notify_whale_transaction(self, symbol: str, insider_info: Dict[str, Any]) -> None:
-        """Sendet einen sofortigen Telegram-Alert, wenn ein neuer Whale-Kauf registriert wird."""
+        """Sendet einen sofortigen Telegram-Alert, wenn ein neuer Whale-Kauf registriert wird (gedrosselt via NotificationManager)."""
         if insider_info.get("insider_sentiment") != "STRONG_INSIDER_BUY":
             return
-
-        bot_token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-        chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-        if not bot_token or not chat_id:
-            return
-
-        import html
-        import ssl
-        import urllib.request
         try:
-            import certifi
-            ctx = ssl.create_default_context(cafile=certifi.where())
-        except Exception:
-            ctx = ssl._create_unverified_context()
-
-        cid = int(chat_id) if chat_id.isdigit() else chat_id
-        safe_sym = html.escape(symbol)
-        safe_sum = html.escape(insider_info.get("insider_summary", ""))
-
-        text_body = (
-            f"🤖 <b>🐋 SEC Form 4 Whale & Insider-Alert!</b>\n\n"
-            f"• <b>Aktie:</b> <code>{safe_sym}</code>\n"
-            f"• <b>Status:</b> 🚀 <b>STRONG INSIDER BUY</b>\n"
-            f"• <b>Details:</b> {safe_sum}\n\n"
-            f"Vorstände und Großinvestoren kaufen Aktien ihres eigenen Unternehmens auf dem freien Markt. "
-            f"Der KI-Trading-Schwarm priorisiert dieses Signal!"
-        )
-        payload = json.dumps({"chat_id": cid, "text": text_body, "parse_mode": "HTML"}).encode("utf-8")
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        try:
-            req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-            urllib.request.urlopen(req, context=ctx, timeout=4.0)
+            from notification_manager import get_notifier
+            get_notifier().send_whale_alert(
+                symbol=symbol,
+                summary=insider_info.get("insider_summary", ""),
+                net_usd=insider_info.get("net_usd_90d", 0.0),
+            )
         except Exception:
             pass
 

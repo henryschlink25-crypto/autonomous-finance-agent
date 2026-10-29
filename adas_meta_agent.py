@@ -289,34 +289,15 @@ class ADASMetaArchitect:
         return events
 
     def _send_evolution_alert(self, spec: SubAgentSpec) -> None:
-        """Sendet einen sofortigen Push-Alert bei Geburt eines neuen Unteragenten."""
+        """Sendet einen Push-Alert bei Geburt eines neuen Unteragenten (gedrosselt via NotificationManager)."""
         try:
-            bot_token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-            chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-            if not bot_token or not chat_id:
-                return
-            import html
-            import ssl
-            import urllib.request
-            try:
-                import certifi
-                ctx = ssl.create_default_context(cafile=certifi.where())
-            except Exception:
-                ctx = ssl._create_unverified_context()
-            cid = int(chat_id) if chat_id.isdigit() else chat_id
-            safe_name = html.escape(spec.name)
-            safe_role = html.escape(spec.role)
-            text_body = (
-                f"🤖 <b>🧬 Neuer KI-Spezialist autonom erschaffen!</b>\n\n"
-                f"• <b>Agent:</b> {safe_name} (Gen #{spec.generation})\n"
-                f"• <b>Spezialgebiet:</b> {safe_role}\n"
-                f"• <b>Stimmgewicht:</b> {spec.trust_weight:.2f}x\n\n"
-                f"Der Unteragent wurde live in den Handels-Schwarm integriert."
+            from notification_manager import get_notifier
+            get_notifier().send_agent_spawn_alert(
+                name=spec.name,
+                role=spec.role,
+                gen=spec.generation,
+                trust=spec.trust_weight,
             )
-            payload = json.dumps({"chat_id": cid, "text": text_body, "parse_mode": "HTML"}).encode("utf-8")
-            url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-            req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-            urllib.request.urlopen(req, context=ctx, timeout=4.0)
         except Exception:
             pass
 

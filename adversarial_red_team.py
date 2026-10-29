@@ -255,38 +255,14 @@ class AdversarialRedTeamTribunal:
             pass
 
     def _send_veto_push(self, res: AdversarialDebateResult) -> None:
-        """Sendet einen Telegram-Push-Alert, wenn das Red Team einen Kauf verhindert hat."""
-        bot_token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-        chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-        if not bot_token or not chat_id:
-            return
-
-        import html
-        import ssl
-        import urllib.request
+        """Sendet einen Telegram-Push-Alert, wenn das Red Team einen Kauf verhindert hat (mit Entprellung & Drosselung)."""
         try:
-            import certifi
-            ctx = ssl.create_default_context(cafile=certifi.where())
-        except Exception:
-            ctx = ssl._create_unverified_context()
-
-        cid = int(chat_id) if chat_id.isdigit() else chat_id
-        safe_sym = html.escape(res.symbol)
-        safe_bear = html.escape(res.bear_rebuttal)
-        safe_cio = html.escape(res.cio_reasoning)
-
-        text_body = (
-            f"🤖 <b>🛡️ Red-Team VETO: Trade abgewendet!</b>\n\n"
-            f"• <b>Asset:</b> <code>{safe_sym}</code>\n"
-            f"• <b>Risiko-Score:</b> ⚠️ <b>{res.risk_score:.1f}/10</b>\n"
-            f"• <b>Bären-Advokat:</b> {safe_bear}\n\n"
-            f"⚖️ <b>CIO-Entscheid:</b> {safe_cio}\n\n"
-            f"Dein Kapital wurde erfolgreich vor einer potenziellen Falle geschützt."
-        )
-        payload = json.dumps({"chat_id": cid, "text": text_body, "parse_mode": "HTML"}).encode("utf-8")
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        try:
-            req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-            urllib.request.urlopen(req, context=ctx, timeout=4.0)
+            from notification_manager import get_notifier
+            get_notifier().send_red_team_veto(
+                symbol=res.symbol,
+                risk_score=res.risk_score,
+                bear_rebuttal=res.bear_rebuttal,
+                cio_reasoning=res.cio_reasoning,
+            )
         except Exception:
             pass

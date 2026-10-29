@@ -504,43 +504,15 @@ class GeneticStrategyBreeder:
         return True, file_path
 
     def _send_strategy_push(self, strat: Dict[str, Any]) -> None:
-        """Sendet einen sofortigen Push-Alert auf Henrys Telegram-Bot."""
-        bot_token = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
-        chat_id = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-        if not bot_token or not chat_id:
-            return
-
-        import html
-        import ssl
-        import urllib.request
+        """Sendet einen Push-Alert auf Henrys Telegram-Bot (gedrosselt via NotificationManager)."""
         try:
-            import certifi
-            ctx = ssl.create_default_context(cafile=certifi.where())
-        except Exception:
-            ctx = ssl._create_unverified_context()
-
-        cid = int(chat_id) if chat_id.isdigit() else chat_id
-        perf = strat["performance"]
-        safe_name = html.escape(strat["class_name"])
-        safe_arch = html.escape(strat["archetype"])
-        safe_hyp = html.escape(strat["hypothesis"])
-
-        text_body = (
-            f"🤖 <b>🧬 Neue Trading-Strategie gezüchtet & zertifiziert!</b>\n\n"
-            f"• <b>Strategie:</b> {safe_name} (Gen #{strat['generation']})\n"
-            f"• <b>Archetyp:</b> <code>{safe_arch}</code>\n"
-            f"• <b>Sharpe-Ratio:</b> ⭐️ <b>{perf['sharpe_ratio']:.2f}</b>\n"
-            f"• <b>Profit-Faktor:</b> {perf['profit_factor']:.2f}x\n"
-            f"• <b>Win-Rate:</b> {perf['win_rate_pct']:.1f}% ({perf['total_trades']} Trades)\n"
-            f"• <b>Max Drawdown:</b> 🛡️ {perf['max_drawdown_pct']:.1f}%\n\n"
-            f"📖 <i>{safe_hyp}</i>\n\n"
-            f"✅ <b>Status:</b> Live im Unteragenten-Schwarm als stimmberechtigter Spezialist aktiviert!"
-        )
-        payload = json.dumps({"chat_id": cid, "text": text_body, "parse_mode": "HTML"}).encode("utf-8")
-        url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
-        try:
-            req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-            urllib.request.urlopen(req, context=ctx, timeout=4.0)
+            from notification_manager import get_notifier
+            get_notifier().send_agent_spawn_alert(
+                name=strat["class_name"],
+                role=f"Archetyp: {strat['archetype']} (Sharpe {strat['performance']['sharpe_ratio']:.2f})",
+                gen=strat["generation"],
+                trust=1.15,
+            )
         except Exception:
             pass
 

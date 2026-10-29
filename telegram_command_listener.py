@@ -160,6 +160,7 @@ class TelegramCommandListener:
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
+                "🔔 <b>/alerts</b> [trades|balanced|all] - Benachrichtigungen drosseln & Limit prüfen\n"
                 "─────────────────────────────"
             )
             self.send_message(help_msg)
@@ -205,6 +206,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/geopolitics", "/geo", "/war", "/peace"]:
             self._handle_geopolitics()
+
+        elif cmd in ["/alerts", "/alert", "/quiet", "/drossel"]:
+            self._handle_alerts(args)
 
         elif cmd == "/breed":
             self.send_message("🧬 <i>Starte autonome genetische Strategie-Zucht und Krisen-Stresstest im Hintergrund...</i>")
@@ -582,6 +586,42 @@ class TelegramCommandListener:
             self.send_message("\n".join(lines))
         except Exception as e:
             self.send_message(f"❌ Fehler bei Geopolitik-Analyse: {e}")
+
+    def _handle_alerts(self, args: List[str]) -> None:
+        try:
+            from notification_manager import get_notifier
+            notifier = get_notifier()
+
+            if args:
+                wanted = args[0].strip().upper()
+                if wanted in ["TRADES", "TRADES_ONLY", "TRADE", "QUIET"]:
+                    notifier.alert_level = "TRADES_ONLY"
+                    self.send_message("🔇 <b>Alert-Level auf 'TRADES_ONLY' gesetzt!</b>\n\nAb sofort erhältst du <b>nur noch echte Order-Ausführungen</b> (Buy, Sell, Stop-Loss). Keine Veto-Warnungen oder Routine-Scans.")
+                    return
+                elif wanted in ["BALANCED", "DEFAULT", "NORMAL"]:
+                    notifier.alert_level = "BALANCED"
+                    self.send_message("⚖️ <b>Alert-Level auf 'BALANCED' gesetzt!</b>\n\nDu erhältst echte Trades, echte Whale-Käufe und maximal 1 gefiltertes Red-Team Veto pro Symbol alle 2 Stunden.")
+                    return
+                elif wanted in ["ALL", "VERBOSE"]:
+                    notifier.alert_level = "ALL"
+                    self.send_message("📢 <b>Alert-Level auf 'ALL' gesetzt!</b>\n\nAlle Ereignisse aktiv (weiterhin durch das Stunden-Limit geschützt).")
+                    return
+
+            # Status anzeigen
+            sent_count = len(notifier._sent_timestamps)
+            lines = ["🔔 <b>Telegram-Benachrichtigungs-Kontrollzentrum:</b>\n─────────────────────────────"]
+            lines.append(f"• <b>Aktuelles Alert-Level:</b> <b>{notifier.alert_level}</b>")
+            lines.append(f"• <b>Stündliches Limit:</b> <b>{notifier.max_per_hour} Nachrichten / Stunde</b>")
+            lines.append(f"• <b>In dieser Stunde gesendet:</b> <b>{sent_count} / {notifier.max_per_hour}</b>")
+            lines.append(f"• <b>Entprellung (Dedup-Fenster):</b> <b>{notifier.dedup_window_sec // 60} Minuten</b>")
+            lines.append(f"• <b>Instanz-Tag:</b> <code>{notifier.instance_tag}</code>\n")
+            lines.append("<i>Befehle zum Ändern:</i>")
+            lines.append("• <code>/alerts trades</code> ➜ Nur echte Trades (maximale Ruhe)")
+            lines.append("• <code>/alerts balanced</code> ➜ Trades + Whales + seltene Vetos")
+            lines.append("• <code>/alerts all</code> ➜ Ausführlicher Modus")
+            self.send_message("\n".join(lines))
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Alert-Konfiguration: {e}")
 
     def _run_breed_task(self) -> None:
         try:

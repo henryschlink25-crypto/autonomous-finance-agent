@@ -70,6 +70,10 @@ class AgentConfig:
     # Optionale Echtzeit-Push-Alerts (Telegram Bot, Discord Webhook oder WhatsApp)
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     telegram_chat_id: str = os.getenv("TELEGRAM_CHAT_ID", "")
+    telegram_alert_level: str = os.getenv("TELEGRAM_ALERT_LEVEL", "BALANCED")  # "TRADES_ONLY" | "BALANCED" | "ALL"
+    telegram_max_alerts_per_hour: int = int(os.getenv("TELEGRAM_MAX_ALERTS_PER_HOUR", "8"))
+    telegram_dedup_window_seconds: int = int(os.getenv("TELEGRAM_DEDUP_WINDOW_SECONDS", "3600"))
+    telegram_instance_tag: str = os.getenv("TELEGRAM_INSTANCE_TAG", "🤖 Autonomous Agent")
     discord_webhook_url: str = os.getenv("DISCORD_WEBHOOK_URL", "")
     whatsapp_phone_number: str = os.getenv("WHATSAPP_PHONE_NUMBER", "")
     whatsapp_api_key: str = os.getenv("WHATSAPP_API_KEY", "")

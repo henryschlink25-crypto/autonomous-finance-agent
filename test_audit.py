@@ -869,7 +869,40 @@ def test_all_audit_fixes() -> None:
         assert "Geopolitical" in tribunal_war.bear_rebuttal or "Weltpolitisch" in tribunal_war.bear_rebuttal or "Geopolitical" in tribunal_war.cio_reasoning
         print(f"[OK] Test 30 bestanden: Wall Street Specialist #25 votiert {wallst_vote.vote_action} ({wallst_vote.score:+.2f}) & Red-Team verhängt VETO bei Geopolitik-Eskalation.")
 
-    print("=== Alle 30 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings- & Geopolitik-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 31: Telegram Notification Manager (Entprellung, Deckelung & Spam-Schutz)
+        # ============================================================================
+        from notification_manager import TelegramNotificationManager
+        # Test-Instanz mit strengen Limits
+        mgr = TelegramNotificationManager(
+            bot_token="TEST_TOKEN",
+            chat_id="123456",
+            alert_level="BALANCED",
+            max_per_hour=3,
+            dedup_window_sec=60,
+        )
+        assert mgr._is_running_in_test(), "Manager muss automatisch erkennen, dass er in einem Test läuft"
+
+        # 1. Teste Trade-Alert und sofortige Entprellung (Duplicate Detection)
+        res1 = mgr.send_trade_execution("NVDA", "BUY", 10, 140.0, 700.0, 135.0, 150.0)
+        assert res1 is True, "Erster Trade muss gesendet werden"
+        res2 = mgr.send_trade_execution("NVDA", "BUY", 10, 140.0, 700.0, 135.0, 150.0)
+        assert res2 is False, "Doppelter Trade-Alert innerhalb des Cooldowns muss unterdrückt werden!"
+
+        # 2. Teste Red-Team VETO Entprellung (2h Cooldown)
+        veto1 = mgr.send_red_team_veto("VETO_SYM", 9.0, "Überdehnt", "VETO")
+        assert veto1 is True
+        veto2 = mgr.send_red_team_veto("VETO_SYM", 9.0, "Überdehnt", "VETO")
+        assert veto2 is False, "Zweites VETO für selbes Symbol muss unterdrückt werden!"
+
+        # 3. Teste 'TRADES_ONLY' Filtermodus
+        mgr.alert_level = "TRADES_ONLY"
+        veto_suppressed = mgr.send_red_team_veto("NEW_SYM", 8.5, "Risk", "VETO")
+        assert veto_suppressed is False, "Im TRADES_ONLY Modus dürfen keine Vetos gesendet werden!"
+        mgr.alert_level = "BALANCED"  # Zurücksetzen
+        print("[OK] Test 31 bestanden: Notification-Manager entprellt Duplikate zuverlässig, drosselt Veto-Spam und schützt Testläufe.")
+
+    print("=== Alle 31 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik- & Notification-Spam-Tests erfolgreich bestanden! ===")
 
 
 
