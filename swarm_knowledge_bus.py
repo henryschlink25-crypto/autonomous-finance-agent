@@ -138,6 +138,12 @@ class SwarmKnowledgeBus:
                     adjustment += 0.12
                     applied_learnings.append(f"💡 Schwarm-Erkenntnis ({ins.author_agent_name}): {ins.lesson[:60]}")
 
+            # 5. Evolvierte Schwarm-Idiome (Eigene Agenten-Sprache)
+            elif ins.category == "ALPHA_SYNERGY" and ins.insight_id.startswith("IDIOM_"):
+                if current_score > 0 and not is_penny and (ins.symbol_origin in ("*", symbol)):
+                    adjustment += min(0.18, max(0.05, ins.confidence_impact))
+                    applied_learnings.append(f"🧬 Evolvierte Agenten-Sprache ({ins.title}): {ins.lesson[:60]}")
+
         return round(adjustment, 2), applied_learnings
 
     def record_collective_outcome(

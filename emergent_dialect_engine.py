@@ -69,6 +69,29 @@ class DialectToken:
 
 
 @dataclass
+class EvolvedIdiom:
+    """Evolviertes N-Gramm-Sprachkonzept: Wenn 2+ Tokens hochgradig profitabel konvergieren."""
+    idiom_token: str               # z. B. "💎:QUANT_SWEEP_CONVERGENCE"
+    component_tokens: List[str]    # z. B. ["🎲:QUANTILE_ASYMMETRY", "🎯:LIQUIDITY_SWEEP_RECLAIM"]
+    co_occurrence_count: int = 0
+    success_count: int = 0
+    failure_count: int = 0
+    meaning_de: str = ""
+    edge_multiplier: float = 1.20  # Boost für alle Agenten bei diesem Muster
+    discovered_at: str = field(default_factory=lambda: datetime.datetime.now(datetime.timezone.utc).isoformat()[:19])
+
+    @property
+    def win_rate_pct(self) -> float:
+        total = self.success_count + self.failure_count
+        return round((self.success_count / total * 100.0) if total > 0 else 50.0, 1)
+
+    def to_dict(self) -> dict:
+        d = asdict(self)
+        d["win_rate_pct"] = self.win_rate_pct
+        return d
+
+
+@dataclass
 class NegotiatedDealPacket:
     deal_id: str
     symbol: str
@@ -101,6 +124,9 @@ class EmergentDialectEngine:
 
         self.vocabulary: Dict[str, DialectToken] = {}
         self.recent_deals: List[NegotiatedDealPacket] = []
+        self.evolved_idioms: Dict[str, EvolvedIdiom] = {}
+        self.pair_success: Dict[str, int] = {}
+        self.pair_failure: Dict[str, int] = {}
         self.composite_macros: Dict[str, float] = {}  # Evolvierte Token-N-Gramme
         self._load()
         self._bootstrap_foundational_vocabulary()
@@ -247,6 +273,15 @@ class EmergentDialectEngine:
         self._ensure_token(c_tag, "CONFLUENCE", f"{conf_len}-fache Signal-Bestätigung über unabhängige Domänen")
         tokens_used.append(c_tag)
 
+        # M. Evolvierte Schwarm-Idiome prüfen (Eigene Agenten-Sprache)
+        base_tokens_present = {t.split("[")[0] for t in tokens_used}
+        for idiom in self.evolved_idioms.values():
+            if all(comp in base_tokens_present for comp in idiom.component_tokens):
+                t_str = f"{idiom.idiom_token}[+{idiom.edge_multiplier:.2f}x]"
+                self._ensure_token(idiom.idiom_token, "EVOLVED_IDIOM", idiom.meaning_de)
+                tokens_used.append(t_str)
+                signal.expected_edge_score = round(signal.expected_edge_score * idiom.edge_multiplier, 3)
+
         # 2. Urteils-Synthese
         verdict = "SEALED_APPROVED" if risk_evaluation.approved else "VETOED_REJECTED"
         if risk_evaluation.approved and getattr(signal, "debate_result", None) and signal.debate_result.verdict == "REDUCED_SIZE":
@@ -294,8 +329,10 @@ class EmergentDialectEngine:
 
     def record_deal_profitability(self, symbol: str, move_pct: float) -> None:
         """
-        Feedback-Schleife (Reinforcement): Belohnt Tokens erfolgreicher Deals
-        und senkt das Gewicht von Tokens, die zu Verlusten führten.
+        Feedback-Schleife (Reinforcement & Idiom-Evolution): Belohnt Tokens erfolgreicher Deals,
+        senkt das Gewicht unprofitabler Tokens und synthetisiert bei wiederholtem gemeinsamen Erfolg
+        autonom evolvierte Schwarm-Idiome (Eigene Agenten-Sprache), die per SwarmKnowledgeBus
+        an alle 30 Unteragenten zur kollektiven Konfidenz-Steigerung gebroadcastet werden!
         """
         is_success = move_pct >= 1.5
         is_failure = move_pct <= -1.5
@@ -306,10 +343,12 @@ class EmergentDialectEngine:
         # Finde jüngste Deals für dieses Symbol
         matching = [d for d in self.recent_deals if d.symbol == symbol]
         for deal in matching:
-            # Parse Tokens aus dem Dialekt-Satz
+            # Parse alle aktiven Basis-Tokens aus dem Dialekt-Satz
+            deal_tokens = []
             for t_raw in self.vocabulary.values():
                 base_key = t_raw.token_str.split("[")[0]
                 if base_key in deal.dialect_sentence:
+                    deal_tokens.append(base_key)
                     if is_success:
                         t_raw.success_count += 1
                         t_raw.weight = round(min(2.5, t_raw.weight + 0.08), 3)
@@ -317,7 +356,102 @@ class EmergentDialectEngine:
                         t_raw.failure_count += 1
                         t_raw.weight = round(max(0.3, t_raw.weight - 0.10), 3)
 
+            # Filter relevante Tokens für Paar-Konvergenz (schließe reine Confluence-Summen aus)
+            clean_tokens = [t for t in set(deal_tokens) if not t.startswith("Σ:") and not t.startswith("🧬:") and not t.startswith("💎:") and not t.startswith("🐋:") and not t.startswith("🚀:") and not t.startswith("👑:")]
+
+            # Paarweise Erfolgs- und Misserfolgsanalyse für emergente Schwarm-Sprache
+            for i in range(len(clean_tokens)):
+                for j in range(i + 1, len(clean_tokens)):
+                    t1, t2 = sorted([clean_tokens[i], clean_tokens[j]])
+                    pair_key = f"{t1} + {t2}"
+                    if is_success:
+                        self.pair_success[pair_key] = self.pair_success.get(pair_key, 0) + 1
+                        # Wenn ein Paar mindestens 2 erfolgreiche Deals gemeinsam feiert -> Evolvierte Sprache!
+                        if self.pair_success[pair_key] >= 2:
+                            self._evolve_and_broadcast_idiom(
+                                t1=t1,
+                                t2=t2,
+                                succ=self.pair_success[pair_key],
+                                fail=self.pair_failure.get(pair_key, 0),
+                                symbol=symbol,
+                            )
+                    else:
+                        self.pair_failure[pair_key] = self.pair_failure.get(pair_key, 0) + 1
+
         self._save()
+
+    def _evolve_and_broadcast_idiom(
+        self, t1: str, t2: str, succ: int, fail: int, symbol: str
+    ) -> Optional[EvolvedIdiom]:
+        """
+        Synthetisiert ein neues Idiom (Schwarm-Sprache) und sendet es über den
+        SwarmKnowledgeBus an alle 30 Unteragenten für kollektiven Edge-Zuwachs.
+        """
+        pair_set = {t1, t2}
+
+        # Semantischer Idiom-Name basierend auf Konvergenz-Kombination
+        if any("QUANTILE" in t for t in pair_set) and any("LIQUIDITY" in t for t in pair_set):
+            idiom_name = "💎:QUANT_SWEEP_CONVERGENCE"
+            meaning = "Asymmetrische Quantil-Verteilung trifft auf institutionellen Liquiditäts-Reclaim"
+        elif any("WHALE" in t for t in pair_set) and any("INSIDER" in t for t in pair_set):
+            idiom_name = "🐋:WHALE_INSIDER_APEX"
+            meaning = "Whale-Call-Burst konvergiert synchron mit Insider-Cluster-Käufen"
+        elif any("SQUEEZE" in t for t in pair_set) and any("HURST" in t for t in pair_set):
+            idiom_name = "🚀:FRACTAL_MOMENTUM_IGNITION"
+            meaning = "Persistenter Hurst-Trend bricht aus extremer TTM-Volatilitäts-Kompression aus"
+        elif any("WALL_ST" in t for t in pair_set) and any("SECTOR" in t for t in pair_set):
+            idiom_name = "👑:SOVEREIGN_ALPHA_HARVEST"
+            meaning = "Relative Branchenstärke vereint mit Wall Street Konsens-Kursziel"
+        else:
+            c1 = t1.split(":")[-1][:8]
+            c2 = t2.split(":")[-1][:8]
+            idiom_name = f"🧬:{c1}_{c2}"
+            meaning = f"Synthetische Schwarm-Konvergenz aus {t1} und {t2}"
+
+        edge_mult = round(min(1.35, 1.15 + (succ / max(1, succ + fail)) * 0.20), 2)
+
+        idiom = self.evolved_idioms.get(idiom_name)
+        if idiom:
+            idiom.co_occurrence_count += 1
+            idiom.success_count = succ
+            idiom.failure_count = fail
+            idiom.edge_multiplier = edge_mult
+        else:
+            idiom = EvolvedIdiom(
+                idiom_token=idiom_name,
+                component_tokens=sorted([t1, t2]),
+                co_occurrence_count=succ + fail,
+                success_count=succ,
+                failure_count=fail,
+                meaning_de=meaning,
+                edge_multiplier=edge_mult,
+            )
+            self.evolved_idioms[idiom_name] = idiom
+            self._ensure_token(idiom_name, "EVOLVED_IDIOM", meaning)
+
+        # Broadcast über SwarmKnowledgeBus für alle 30 Unteragenten
+        try:
+            from swarm_knowledge_bus import get_swarm_knowledge_bus, KnowledgeInsight
+            bus = get_swarm_knowledge_bus()
+            ins_id = f"IDIOM_{idiom_name}"
+            bus.insights[ins_id] = KnowledgeInsight(
+                insight_id=ins_id,
+                category="ALPHA_SYNERGY",
+                author_agent_id="emergent_dialect_engine",
+                author_agent_name="🗣️ Dialekt-Synthesizer",
+                title=f"Evolviertes Schwarm-Idiom: {idiom_name}",
+                lesson=f"Sprachkonvergenz {idiom_name} ({meaning}) erzeugt +{(edge_mult-1.0)*100:.0f}% Edge.",
+                symbol_origin=symbol,
+                confidence_impact=round(edge_mult - 1.0, 2),
+                target_focuses=["*"],
+                verifications_count=succ,
+                accuracy_pct=round(succ / max(1, succ + fail) * 100.0, 1),
+            )
+            bus._save()
+        except Exception as e:
+            logger.debug("SwarmKnowledgeBus-Broadcast fehlgeschlagen: %s", e)
+
+        return idiom
 
     def format_telegram_deals_summary(self) -> str:
         """Erstellt eine hochgradig lesbare Telegram-Übersicht des Agenten-Dialekts."""
@@ -333,6 +467,14 @@ class EmergentDialectEngine:
         lines.append(f"🔥 <b>Jüngster Schwarm-Deal: <code>{latest.symbol}</code></b>")
         lines.append(f"📜 <b>Agenten-Dialekt:</b>\n<code>{latest.dialect_sentence}</code>\n")
         lines.append(f"🗣️ <b>Dolmetscher-Übersetzung:</b>\n{latest.plain_german_summary}\n")
+
+        # Evolvierte Schwarm-Idiome (Eigene Agenten-Sprache)
+        if self.evolved_idioms:
+            lines.append("🧬 <b>Evolvierte Schwarm-Idiome (Eigene Agenten-Sprache):</b>")
+            for idiom in list(self.evolved_idioms.values())[:3]:
+                lines.append(f"• <code>{idiom.idiom_token}</code> (+{idiom.edge_multiplier:.2f}x | {idiom.win_rate_pct:.0f}% Win)")
+                lines.append(f"   <i>{idiom.meaning_de}</i>")
+            lines.append("")
 
         # Top 3 wertvollste Evolved Tokens
         top_tokens = sorted(self.vocabulary.values(), key=lambda t: t.weight * max(1, t.usage_count), reverse=True)[:3]
@@ -419,6 +561,12 @@ class EmergentDialectEngine:
                         self.vocabulary[k] = DialectToken(**v_clean)
                     for d in data.get("recent_deals", []):
                         self.recent_deals.append(NegotiatedDealPacket(**d))
+                    for k, v in data.get("evolved_idioms", {}).items():
+                        v_clean = dict(v)
+                        v_clean.pop("win_rate_pct", None)
+                        self.evolved_idioms[k] = EvolvedIdiom(**v_clean)
+                    self.pair_success = data.get("pair_success", {})
+                    self.pair_failure = data.get("pair_failure", {})
                     self.composite_macros = data.get("composite_macros", {})
         except Exception as e:
             logger.warning("Konnte Emergent Dialect State nicht laden: %s", e)
@@ -431,6 +579,9 @@ class EmergentDialectEngine:
                     {
                         "vocabulary": {k: v.to_dict() for k, v in self.vocabulary.items()},
                         "recent_deals": [d.to_dict() for d in self.recent_deals],
+                        "evolved_idioms": {k: v.to_dict() for k, v in self.evolved_idioms.items()},
+                        "pair_success": self.pair_success,
+                        "pair_failure": self.pair_failure,
                         "composite_macros": self.composite_macros,
                     },
                     f,

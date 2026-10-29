@@ -308,7 +308,17 @@ class MultiAssetExecutionEngine:
                 reason = "TRAILING_STOP_TRIGGERED" if pos.stop_loss_price > pos.avg_entry_price else "STOP_LOSS_TRIGGERED"
                 symbols_to_close.append((sym, snap.current_price, reason))
             elif snap.current_price >= pos.take_profit_price:
-                symbols_to_close.append((sym, snap.current_price, "TAKE_PROFIT_2_TRIGGERED"))
+                # Runner-Modus: Wenn Teilgewinn bereits gesichert ist (partial_tp_done) und der Trend extrem stark ist,
+                # schließe nicht verfrüht, sondern erweitere das Kursziel auf +5.0x ATR bei nachziehendem Chandelier-Stop!
+                if pos.partial_tp_done and snap.rsi_14 < 74.0 and snap.macd_hist > 0 and snap.current_price >= snap.sma_20:
+                    expanded_tp = round(pos.avg_entry_price + 5.0 * atr, 4)
+                    if expanded_tp > pos.take_profit_price:
+                        pos.take_profit_price = expanded_tp
+                        triggered_events.append(
+                            f"[RUNNER_PROFIT_EXPANDED] {sym}: Bullen-Momentum hält an – TP für Runner auf ${expanded_tp:,.2f} (+5.0x ATR) erweitert!"
+                        )
+                else:
+                    symbols_to_close.append((sym, snap.current_price, "TAKE_PROFIT_2_TRIGGERED"))
             elif avg_news_sent <= -0.40 and snap.change_24h_pct < -0.50:
                 # 1. Breaking-News Notausstieg: Starke Negativ-Schlagzeile + Kurs fällt -> sofort raus, nicht auf SL warten!
                 symbols_to_close.append((sym, snap.current_price, "NEWS_SHOCK_EMERGENCY_EXIT"))

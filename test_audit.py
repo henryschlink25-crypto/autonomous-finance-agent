@@ -1528,7 +1528,95 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 40 bestanden: Dynamic Correlation Breakdown Shield – Gleichlauf-Erkennung (ρ={st_b.average_pairwise_correlation:.2f} >= 0.75), Kauf-Sperre im Risk-Manager & Red-Team Veto aktiv.")
 
-    print("=== Alle 40 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction- & Correlation-Breakdown-Tests erfolgreich bestanden! ===")
+        # --- Test 41: Dynamic Runner Profit Expansion & Emergent Dialect Idiom Evolution (Swarm Collective Learning) ---
+        from emergent_dialect_engine import EmergentDialectEngine, get_dialect_engine, EvolvedIdiom
+        from swarm_knowledge_bus import get_swarm_knowledge_bus
+
+        # 1. Runner Take-Profit Expansion (Gewinnmaximierung: Ziel auf +5.0x ATR erweitern bei starkem Momentum)
+        exec_engine = MultiAssetExecutionEngine(cfg)
+        test_pos = Position(
+            symbol="RUNNER_STOCK",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            side="LONG",
+            quantity=100.0,
+            avg_entry_price=100.0,
+            current_price=106.5,
+            highest_price=106.5,
+            stop_loss_price=102.0,
+            partial_tp_price=103.0,
+            partial_tp_done=True,  # Teilgewinn wurde bereits mitgenommen!
+            take_profit_price=106.4,  # Standard TP2 (+3.2x ATR mit ATR=2.0)
+            opened_at="2026-10-25T10:00:00",
+        )
+        snap_runner = ada_hf_snap.model_copy(update={
+            "symbol": "RUNNER_STOCK",
+            "current_price": 106.5,
+            "atr_14": 2.0,
+            "rsi_14": 65.0,  # < 74.0 (nicht überhitzt)
+            "macd_hist": 0.45,  # > 0 (starker Bullen-Schwung)
+            "sma_20": 102.0,  # Kurs deutlich über SMA20
+            "news": [],
+        })
+        exec_engine.positions["RUNNER_STOCK"] = test_pos
+        events_runner = exec_engine.update_prices_and_check_stops({"RUNNER_STOCK": snap_runner})
+
+        # Position darf NICHT geschlossen worden sein, sondern TP muss auf +5.0x ATR (100 + 5*2 = 110.0) expandiert sein!
+        assert "RUNNER_STOCK" in exec_engine.positions, "Runner-Position darf nicht verfrüht geschlossen werden"
+        assert exec_engine.positions["RUNNER_STOCK"].take_profit_price == 110.0, f"TP muss auf 110.0 erweitert worden sein, erhalten: {exec_engine.positions['RUNNER_STOCK'].take_profit_price}"
+        assert any("RUNNER_PROFIT_EXPANDED" in ev for ev in events_runner), "RUNNER_PROFIT_EXPANDED Event muss getriggert worden sein"
+
+        # 2. Emergent Dialect Idiom Evolution (Eigene Agenten-Sprache für kollektives Schwarm-Lernen)
+        dialect_engine_test = get_dialect_engine()
+        # Erzeuge synthetischen Deal mit Quantil- und Liquidity-Tokens
+        sig_synth = fake_buy_sig.model_copy(update={"expected_edge_score": 1.25})
+        snap_dial = snap_fav.model_copy(update={
+            "symbol": "NVDA",
+            "liquidity_sweep_status": "BULLISH_SWEEP_RECLAIM",
+            "forecast_favorable": True,
+            "forecast_asymmetry_ratio": 2.5,
+        })
+        deal_pack = dialect_engine_test.compose_and_negotiate_deal(snap_dial, sig_synth, green_macro, dummy_risk)
+        assert "🎲:QUANTILE_ASYMMETRY" in deal_pack.dialect_sentence
+        assert "🎯:LIQUIDITY_SWEEP_RECLAIM" in deal_pack.dialect_sentence
+
+        # Simuliere erfolgreiche Deals (move_pct = +3.5%)
+        dialect_engine_test.record_deal_profitability("NVDA", move_pct=3.5)
+        dialect_engine_test.record_deal_profitability("NVDA", move_pct=3.5)
+
+        # Prüfe, ob das Evolved Idiom '💎:QUANT_SWEEP_CONVERGENCE' autonom synthetisiert wurde
+        assert "💎:QUANT_SWEEP_CONVERGENCE" in dialect_engine_test.evolved_idioms, "Evolviertes Schwarm-Idiom muss generiert worden sein"
+        idiom = dialect_engine_test.evolved_idioms["💎:QUANT_SWEEP_CONVERGENCE"]
+        assert idiom.success_count >= 2
+        assert idiom.edge_multiplier >= 1.20
+
+        # Prüfe, ob das Idiom an den SwarmKnowledgeBus für alle 30 Unteragenten gebroadcastet wurde
+        bus = get_swarm_knowledge_bus()
+        assert "IDIOM_💎:QUANT_SWEEP_CONVERGENCE" in bus.insights, "SwarmKnowledgeBus muss Idiom als Shared Insight erhalten haben"
+
+        # Prüfe kollektives Lernen: Beliebiger Unteragent konsultiert Schwarm-Wissen und erhält Konfidenz-Boost
+        conf_boost, learnings = bus.consult_shared_knowledge(
+            symbol="NVDA",
+            cluster="US_TECH",
+            specialty_focus="MOMENTUM_RVOL_RS",
+            current_score=0.60,
+        )
+        assert conf_boost > 0.0, f"Unteragent muss Konfidenz-Boost durch evolviertes Schwarm-Idiom erhalten, erhalten: {conf_boost}"
+        assert any("Evolvierte Agenten-Sprache" in l for l in learnings)
+
+        # Prüfe, ob zukünftige Deals das evolvierte Idiom automatisch einbinden und den Edge verstärken
+        deal_pack_evolved = dialect_engine_test.compose_and_negotiate_deal(snap_dial, sig_synth, green_macro, dummy_risk)
+        assert "💎:QUANT_SWEEP_CONVERGENCE" in deal_pack_evolved.dialect_sentence, f"Evolviertes Idiom muss im Deal erscheinen, erhalten: {deal_pack_evolved.dialect_sentence}"
+        assert deal_pack_evolved.edge_score > 1.25, "Edge-Score muss durch evolviertes Idiom gesteigert worden sein"
+
+        # Telegram-Zusammenfassung des Dialekts
+        tg_deals = dialect_engine_test.format_telegram_deals_summary()
+        assert "Evolvierte Schwarm-Idiome (Eigene Agenten-Sprache)" in tg_deals
+        assert "💎:QUANT_SWEEP_CONVERGENCE" in tg_deals
+
+        print(f"[OK] Test 41 bestanden: Dynamic Runner Profit Expansion (+5.0x ATR bei Momentum) & Emergent Dialect Idiom Evolution (💎:QUANT_SWEEP_CONVERGENCE via SwarmKnowledgeBus an alle 30 Unteragenten gelernt).")
+
+    print("=== Alle 41 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit- & Swarm-Dialect-Evolution-Tests erfolgreich bestanden! ===")
 
 
 
