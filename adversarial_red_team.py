@@ -127,6 +127,10 @@ class AdversarialRedTeamTribunal:
             points.append(f"📊 Wall Street Konsens ({snapshot.analyst_consensus}): +{ups:.1f}% Kurspotenzial ({snapshot.analyst_count} Analysten)")
         if getattr(snapshot, "hf_sentiment_score", 0.0) >= 0.35:
             points.append(f"🤗 Hugging Face FinBERT Bullish Sentiment (Score {snapshot.hf_sentiment_score:+.2f})")
+        if getattr(snapshot, "liquidity_sweep_status", "") == "BULLISH_SWEEP_RECLAIM":
+            poc = getattr(snapshot, "volume_profile_poc", 0.0) or 0.0
+            poc_txt = f" (POC ${poc:.2f})" if poc > 0 else ""
+            points.append(f"🎯 Bullischer Liquidity-Sweep am -2σ VWAP-Band absorbiert{poc_txt}")
         if macro is not None and getattr(macro, "geopolitical_regime_mode", "") == "PEACE_DIVIDEND":
             points.append("🕊️ Globale Friedensdividende (GCI ruhig)")
         if getattr(snapshot, "supertrend_direction", "") == "BULLISH":
@@ -252,6 +256,14 @@ class AdversarialRedTeamTribunal:
             rebuttals.append(msg)
             fatal_risks.append("FinBERT Negative Sentiment Shock")
             risk_score += 3.5
+
+        # 15. VWAP Buying Exhaustion (+2.5σ Überdehnung)
+        if getattr(snapshot, "liquidity_sweep_status", "") == "BEARISH_CLIMAX_SWEEP" or getattr(snapshot, "vwap_z_score", 0.0) >= 2.5:
+            z_s = getattr(snapshot, "vwap_z_score", 2.5)
+            msg = f"VWAP Buying Exhaustion: Kurs extrem überdehnt ({z_s:+.1f}σ über VWAP) – Hohe Mean-Reversion Gefahr"
+            rebuttals.append(msg)
+            fatal_risks.append("VWAP Climax Exhaustion (> +2.5σ)")
+            risk_score += 3.0
 
         bear_text = " | ".join(rebuttals) if rebuttals else "Keine kritischen Risiken identifiziert – Positionierbar."
         return bear_text, fatal_risks, min(10.0, risk_score)

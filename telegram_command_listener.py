@@ -159,6 +159,7 @@ class TelegramCommandListener:
                 "🔍 <b>/fund &lt;SYM&gt;</b> - Fundamental-Check (z.B. <code>/fund AAPL</code>)\n"
                 "📊 <b>/analysts &lt;SYM&gt;</b> - Wall Street Analysten-Konsens & Kursziele\n"
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
+                "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
@@ -215,6 +216,12 @@ class TelegramCommandListener:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/sentiment NVDA</code>")
             else:
                 self._handle_sentiment(args[0])
+
+        elif cmd in ["/vwap", "/sweep", "/poc", "/profile"]:
+            if not args:
+                self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/vwap NVDA</code>")
+            else:
+                self._handle_vwap(args[0])
 
         elif cmd in ["/geopolitics", "/geo", "/war", "/peace"]:
             self._handle_geopolitics()
@@ -592,6 +599,18 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei FinBERT-Sentiment Analyse für {sym}: {e}")
+
+    def _handle_vwap(self, symbol: str) -> None:
+        sym = symbol.strip().upper()
+        self.send_message(f"🎯 <i>Berechne VWAP-Bänder, POC und Liquidity-Sweeps für {sym}...</i>")
+        try:
+            from vwap_liquidity_sweeper import get_vwap_sweeper
+            sweeper = get_vwap_sweeper()
+            res = sweeper.analyze_symbol(sym)
+            msg = sweeper.format_telegram_summary(res)
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei VWAP-Analyse für {sym}: {e}")
 
     def _handle_geopolitics(self) -> None:
         self.send_message("🌐 <i>Analysiere globale Konflikt- und Rohstoffrisiken (GCI-Index)...</i>")

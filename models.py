@@ -124,6 +124,16 @@ class MarketSnapshot(BaseModel):
     hf_negative_prob: float = 0.0
     hf_positive_prob: float = 0.0
     hf_sentiment_summary: str = ""
+    # Institutional VWAP & Volume-Profile Liquidity Sweep
+    vwap_val: Optional[float] = None
+    vwap_z_score: float = 0.0            # Wie viele Standardabweichungen vom VWAP entfernt
+    vwap_band_upper_2s: Optional[float] = None
+    vwap_band_lower_2s: Optional[float] = None
+    volume_profile_poc: Optional[float] = None
+    volume_profile_val: Optional[float] = None
+    volume_profile_vah: Optional[float] = None
+    liquidity_sweep_status: str = "NONE" # "BULLISH_SWEEP_RECLAIM", "BEARISH_CLIMAX_SWEEP", "IN_VALUE_RANGE", "NONE"
+    liquidity_sweep_summary: str = ""
     custom_metrics: Dict[str, Any] = Field(default_factory=dict)
     sec_form8k_catalyst: str = ""
     option_delta: Optional[float] = None

@@ -642,6 +642,17 @@ class ADASMetaArchitect:
                 rule_parameters={"min_positive_score": 0.35, "max_negative_veto_score": -0.40},
             ))
 
+        # 15. Institutional VWAP & Volume-Profile Liquidity Sweeper (Sub-Agent #28)
+        if "institutional_vwap_liquidity_sweeper" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="institutional_vwap_liquidity_sweeper",
+                name="🎯 Institutional VWAP & Liquidity Sweeper",
+                role="Erkennt institutionelle Liquidity-Sweeps an den VWAP-Standardabweichungsbändern (±2σ) und Value-Area Grenzen (POC/VAL). Handelt antizyklische Rebounds, wenn Market-Maker Retail-Stop-Losses abfischen.",
+                specialty_focus="VWAP_LIQUIDITY_SWEEP",
+                trust_weight=1.24,
+                rule_parameters={"min_sweep_edge": 0.50, "max_exhaustion_score": -0.60},
+            ))
+
         return new_specs
 
 
@@ -1272,6 +1283,41 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.50
                 rationale = f"FinBERT-Sentiment temporär nicht verfügbar ({e})"
+
+        elif focus == "VWAP_LIQUIDITY_SWEEP":
+            try:
+                sweep_st = getattr(snap, "liquidity_sweep_status", "NONE")
+                z_vwap = getattr(snap, "vwap_z_score", 0.0)
+                poc_px = getattr(snap, "volume_profile_poc", 0.0)
+
+                s_bull_sweep = rec.flag("Bullish Liquidity Sweep", sweep_st == "BULLISH_SWEEP_RECLAIM", "bull")
+                s_deep_dip = rec.flag("VWAP -2 Sigma Dip", z_vwap <= -1.8, "bull")
+                s_climax_top = rec.flag("Bearish Climax Sweep", sweep_st == "BEARISH_CLIMAX_SWEEP" or z_vwap >= 2.4, "bear")
+
+                if s_bull_sweep.passed:
+                    score = 0.88
+                    conf = 0.90
+                    target_txt = f" Rebound-Ziel: POC ${poc_px:.2f}" if poc_px and poc_px > 0 else ""
+                    rationale = f"🎯 Bullischer Liquidity-Sweep bestätigt: Stop-Losses unter -2σ absorbiert.{target_txt}"
+                    decisive_idx = rec.idx(s_bull_sweep)
+                elif s_climax_top.passed:
+                    score = -0.78
+                    conf = 0.85
+                    rationale = f"⚠️ Bärische Buying-Exhaustion am +2σ VWAP-Band ({z_vwap:+.1f}σ) – Korrektur droht"
+                    decisive_idx = rec.idx(s_climax_top)
+                elif s_deep_dip.passed:
+                    score = 0.55
+                    conf = 0.72
+                    rationale = f"Unterkühlt am -2σ VWAP-Band ({z_vwap:+.1f}σ) – Potenzieller Dip-Kauf"
+                    decisive_idx = rec.idx(s_deep_dip)
+                else:
+                    score = 0.10 if z_vwap < 0 else -0.10
+                    conf = 0.60
+                    rationale = f"Kurs in Value Area unauffällig (VWAP Z: {z_vwap:+.1f}σ)"
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"VWAP-Sweeper temporär nicht verfügbar ({e})"
 
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:

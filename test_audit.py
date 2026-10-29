@@ -1144,7 +1144,93 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 34 bestanden: Hugging Face FinBERT NLP & Sentiment Sentinel klassifiziert News (Score {snap_bull.compound_score:+.2f} Bull / {snap_bear.compound_score:+.2f} Bear) & Red-Team schützt vor Sentiment-Schocks.")
 
-    print("=== Alle 34 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect- & HuggingFace-Sentiment-Tests erfolgreich bestanden! ===")
+        # --- Test 35: Institutional VWAP & Volume-Profile Liquidity Sweeper (Sub-Agent #28) ---
+        from vwap_liquidity_sweeper import InstitutionalVWAPLiquiditySweeper
+        vwap_cache_path = os.path.join(tmpdir, "test_vwap_cache.json")
+        vwap_sweeper = InstitutionalVWAPLiquiditySweeper(cache_file=vwap_cache_path)
+
+        # 1. Synthetisches Liquidity-Sweep Setup erzeugen
+        bars = []
+        # 15 normale Konsolidierungs-Balken um $100
+        for i in range(15):
+            bars.append({"High": 100.5, "Low": 99.5, "Close": 100.0, "Volume": 1000.0})
+        # Gezielter Stop-Loss-Sweep nach unten auf $95.0 mit hohem Volumen (Stop-Abfischung)
+        bars.append({"High": 99.8, "Low": 95.0, "Close": 95.5, "Volume": 3500.0})
+        # Rebound & Reclaim zurück über das Band auf $96.5
+        bars.append({"High": 97.2, "Low": 95.4, "Close": 96.5, "Volume": 2500.0})
+        df_sweep = pd.DataFrame(bars)
+
+        vwap_res = vwap_sweeper.compute_vwap_and_profile("NVDA", df_sweep)
+        assert vwap_res.sweep_status == "BULLISH_SWEEP_RECLAIM", f"Erwartet BULLISH_SWEEP_RECLAIM, erhalten: {vwap_res.sweep_status}"
+        assert vwap_res.band_lower_2s < vwap_res.vwap < vwap_res.band_upper_2s
+        assert vwap_res.poc_price > 0
+        assert vwap_res.suggested_stop_loss is not None and vwap_res.suggested_stop_loss < 95.0
+        assert vwap_res.suggested_take_profit is not None and vwap_res.suggested_take_profit >= vwap_res.vwap
+        assert vwap_res.risk_reward_ratio >= 1.0
+
+        # 2. Sub-Agent #28 im ADAS-Schwarm testen
+        arch_vwap = ADASMetaArchitect(cfg)
+        vwap_spec = next((ag for ag in arch_vwap.state.active_subagents.values() if ag.specialty_focus == "VWAP_LIQUIDITY_SWEEP"), None)
+        assert vwap_spec is not None, "Sub-Agent #28 (VWAP_LIQUIDITY_SWEEP) muss im Schwarm existieren"
+
+        snap_vwap = MarketSnapshot(
+            symbol="NVDA",
+            name="Nvidia",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            current_price=96.5,
+            change_24h_pct=-2.5,
+            change_7d_pct=4.0,
+            rsi_14=48.0,
+            sma_20=98.0,
+            sma_50=94.0,
+            macd_hist=0.2,
+            atr_14=2.0,
+            volatility_annualized_pct=25.0,
+            volume_ratio_vs_20d=1.8,
+            vwap_val=vwap_res.vwap,
+            vwap_z_score=vwap_res.z_score,
+            liquidity_sweep_status=vwap_res.sweep_status,
+            volume_profile_poc=vwap_res.poc_price,
+        )
+        vwap_vote, _ = arch_vwap._compute_single_subagent_vote(vwap_spec, snap_vwap, green_macro)
+        assert vwap_vote.vote_action == "BUY"
+        assert vwap_vote.score >= 0.80
+
+        # 3. Red-Team Tribunal: Bullen-These prüft Sweep & Bären-Advokat warnt bei Buying Exhaustion
+        sig_vwap = TradingSignal(
+            symbol="NVDA",
+            asset_class="EQUITY",
+            cluster="US_TECH",
+            action="BUY",
+            confidence=0.88,
+            sentiment_score=0.8,
+            entry_price=97.5,
+            stop_loss_price=94.2,
+            take_profit_price=101.0,
+            risk_reward_ratio=2.5,
+            expected_edge_score=2.2,
+            catalyst_summary="Liquidity Sweep Rebound",
+            thesis="Institutional Sweep",
+        )
+        tribunal_vwap = red_tribunal_hf.convene_tribunal(sig_vwap, snap_vwap, green_macro, {})
+        assert "Liquidity-Sweep" in tribunal_vwap.bull_argument or "POC" in tribunal_vwap.bull_argument
+
+        # Bären-Exhaustion Test bei +2.8σ über VWAP
+        snap_exhaustion = snap_vwap.model_copy(update={
+            "vwap_z_score": 2.8,
+            "liquidity_sweep_status": "BEARISH_CLIMAX_SWEEP",
+        })
+        tribunal_exhaustion = red_tribunal_hf.convene_tribunal(sig_vwap, snap_exhaustion, green_macro, {})
+        assert "VWAP Buying Exhaustion" in tribunal_exhaustion.bear_rebuttal or "VWAP" in tribunal_exhaustion.bear_rebuttal
+
+        # 4. Emergent Dialect Engine: Symbolisches Token testen
+        deal_vwap = dialect_eng.compose_and_negotiate_deal(snap_vwap, sig_vwap, green_macro, ai_risk_eval)
+        assert "🎯:LIQUIDITY_SWEEP_RECLAIM" in deal_vwap.dialect_sentence
+
+        print(f"[OK] Test 35 bestanden: Institutional VWAP & Volume-Profile Liquidity Sweeper (Sub-Agent #28) identifiziert Stop-Loss-Absorption (Status: {vwap_res.sweep_status}, CRV {vwap_res.risk_reward_ratio}:1) & Dialekt verhandelt Token 🎯:LIQUIDITY_SWEEP_RECLAIM.")
+
+    print("=== Alle 35 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment- & VWAP-Liquidity-Sweep-Tests erfolgreich bestanden! ===")
 
 
 

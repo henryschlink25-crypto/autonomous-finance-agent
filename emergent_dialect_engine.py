@@ -198,7 +198,19 @@ class EmergentDialectEngine:
             self._ensure_token(t, "RISK", "Junk-Bonds kollabieren relativ zu Investment Grade (HYG/LQD)")
             tokens_used.append(t)
 
-        # I. Confluence-Grad (Güteklasse des Setups)
+        # I. VWAP & Volume-Profile Liquidity Sweep
+        sweep_st = getattr(snapshot, "liquidity_sweep_status", "")
+        z_vwap = getattr(snapshot, "vwap_z_score", 0.0)
+        if sweep_st == "BULLISH_SWEEP_RECLAIM":
+            t = f"🎯:LIQUIDITY_SWEEP_RECLAIM[{z_vwap:+.1f}σ]"
+            self._ensure_token(t, "FLOW", f"Institutioneller Liquidity-Sweep & Stop-Absorption am VWAP ({z_vwap:+.1f}σ) mit Reclaim")
+            tokens_used.append(t)
+        elif sweep_st == "BEARISH_CLIMAX_SWEEP" or z_vwap >= 2.5:
+            t = f"⚠️:VWAP_BUYING_EXHAUSTION[{z_vwap:+.1f}σ]"
+            self._ensure_token(t, "RISK", f"Kauf-Erschöpfung am oberen VWAP-Band ({z_vwap:+.1f}σ)")
+            tokens_used.append(t)
+
+        # J. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)
         if conf_len >= 4:
