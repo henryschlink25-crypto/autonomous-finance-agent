@@ -199,3 +199,19 @@ class AgentConfig:
         WatchlistItem(symbol="PLUG", yf_ticker="PLUG", asset_class="EQUITY", cluster="PENNY_STOCKS", name="Plug Power (Hydrogen Energy)"),
     ])
 
+    @property
+    def is_live_trading(self) -> bool:
+        """
+        Prüft, ob der Agent mit echtem Geld (Live Brokerage) handelt.
+        - True: Live-Echtgeld-Konto (Alpaca Live, IBKR Live Port 7496/4001, CCXT Live)
+        - False: Paper-Trading / Sandbox / Simulation (Experimentier-Modus)
+        """
+        if self.execution_mode == "IBKR" and self.ibkr_port in (7496, 4001):
+            return True
+        if "ALPACA" in self.execution_mode and not self.alpaca_paper:
+            return True
+        if self.execution_mode == "CCXT" and not self.ccxt_sandbox:
+            return True
+        return False
+
+

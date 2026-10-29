@@ -272,25 +272,64 @@ class DeterministicRiskManager:
                 adjusted_action="HOLD",
             )
 
-        # 3d. Strenge Mindest-Konfidenz ("Sniper-Patience": Im Zweifel abwarten!)
-        if signal.confidence < self.config.min_signal_confidence:
+        # 3d. Strenge Mindest-Konfidenz & Live-Trading Schwellen
+        min_conf = self.config.min_signal_confidence
+        min_edge = self.config.min_expected_edge_score
+        min_rr = self.config.min_risk_reward_ratio
+
+        # LIVE-TRADING ECHTZEIT-FILTER (Schutz des 1.000 € Echtgeld-Kapitals & Maximaler Gewinn-Fokus)
+        # Im Paper-Trading wird experimentiert; im Live-Trading werden NUR die gewinnreichsten A+ Spitzen-Aktionen gestartet!
+        if self.config.is_live_trading:
+            min_conf = max(min_conf, 0.80)
+            min_edge = max(min_edge, 1.55)
+            min_rr = max(min_rr, 2.2)
+
+            # 1. Tier 1 Alpha oder außergewöhnliche Schwarm-Konvergenz verpflichtend
+            cio_tier = getattr(signal, "cio_conviction_tier", "")
+            is_tier_1 = cio_tier == "TIER_1_ALPHA_HIGH_CONVICTION"
+            is_apex = (signal.confidence >= 0.82 and signal.expected_edge_score >= 1.60)
+            if not (is_tier_1 or is_apex):
+                return RiskEvaluation(
+                    approved=False,
+                    reason=f"LIVE-TRADING FILTER: Nur Tier-1 Alpha oder Apex-Konvergenz erlaubt (aktuell: {cio_tier or 'Standard'}, Konfidenz: {signal.confidence*100:.0f}%, Edge: {signal.expected_edge_score:.2f}). Für Experimente im Paper-Trading vorbehalten.",
+                    adjusted_action="HOLD",
+                )
+
+            # 2. Keine spekulativen Penny-Stocks ohne SEC Insider-Akkumulation
+            is_penny = snapshot.cluster == "PENNY_STOCKS" or snapshot.current_price < 5.0
+            if is_penny and not getattr(snapshot, "insider_cluster_detected", False):
+                return RiskEvaluation(
+                    approved=False,
+                    reason="LIVE-TRADING FILTER: Penny-Stocks ohne SEC Insider-Käufe im Echtgeld gesperrt (Schutz vor Pump & Dump).",
+                    adjusted_action="HOLD",
+                )
+
+            # 3. Probabilistischer Forecast: Downside Skew verboten
+            if getattr(snapshot, "forecast_status", "") == "UNFAVORABLE_DOWNSIDE_SKEW":
+                return RiskEvaluation(
+                    approved=False,
+                    reason="LIVE-TRADING FILTER: Downside-Skew im probabilistischen Kurs-Trichter – Downside-Risiko übersteigt Upside.",
+                    adjusted_action="HOLD",
+                )
+
+        if signal.confidence < min_conf:
             return RiskEvaluation(
                 approved=False,
-                reason=f"⏸️ ABWARTEN: Konfidenz ({signal.confidence*100:.0f}%) unter A+ Schwelle ({self.config.min_signal_confidence*100:.0f}%) – warte auf besseres Setup.",
+                reason=f"⏸️ ABWARTEN: Konfidenz ({signal.confidence*100:.0f}%) unter A+ Schwelle ({min_conf*100:.0f}%) – warte auf besseres Setup.",
                 adjusted_action="HOLD",
             )
 
         # 3e. Mindest-Chance-Risiko-Verhältnis & Expected Edge Score
-        if signal.risk_reward_ratio < self.config.min_risk_reward_ratio:
+        if signal.risk_reward_ratio < min_rr:
             return RiskEvaluation(
                 approved=False,
-                reason=f"⏸️ ABWARTEN: Chance/Risiko ({signal.risk_reward_ratio:.2f}) < Minimum ({self.config.min_risk_reward_ratio:.2f}).",
+                reason=f"⏸️ ABWARTEN: Chance/Risiko ({signal.risk_reward_ratio:.2f}) < Minimum ({min_rr:.2f}).",
                 adjusted_action="HOLD",
             )
-        if signal.expected_edge_score < self.config.min_expected_edge_score:
+        if signal.expected_edge_score < min_edge:
             return RiskEvaluation(
                 approved=False,
-                reason=f"⏸️ ABWARTEN: Edge-Score ({signal.expected_edge_score:.2f}) < A+ Filter ({self.config.min_expected_edge_score:.2f}) – Kapital bleibt in Cash.",
+                reason=f"⏸️ ABWARTEN: Edge-Score ({signal.expected_edge_score:.2f}) < A+ Filter ({min_edge:.2f}) – Kapital bleibt in Cash.",
                 adjusted_action="HOLD",
             )
 
@@ -435,6 +474,13 @@ class DeterministicRiskManager:
                     debate_result=debate_result,
                 )
             elif debate_result.verdict == "REDUCED_SIZE":
+                if self.config.is_live_trading:
+                    return RiskEvaluation(
+                        approved=False,
+                        reason=f"LIVE-TRADING FILTER: Red-Team meldete Bedenken ({debate_result.verdict}: {debate_result.cio_reasoning[:60]}) – im Echtgeld-Modus werden nur unumstrittene Einstiege (APPROVED_FULL) gehandelt.",
+                        adjusted_action="HOLD",
+                        debate_result=debate_result,
+                    )
                 allowed_margin *= debate_result.size_multiplier
 
         if allowed_margin < min_order:

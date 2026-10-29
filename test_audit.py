@@ -1616,7 +1616,104 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 41 bestanden: Dynamic Runner Profit Expansion (+5.0x ATR bei Momentum) & Emergent Dialect Idiom Evolution (💎:QUANT_SWEEP_CONVERGENCE via SwarmKnowledgeBus an alle 30 Unteragenten gelernt).")
 
-    print("=== Alle 41 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit- & Swarm-Dialect-Evolution-Tests erfolgreich bestanden! ===")
+        # --- Test 42: Dual-Mode Execution & Live Ultra-Conviction Fortress (Experimentieren im Paper vs. Höchste Gewinne im Live-Trading) ---
+        # 1. Prüfe Erkennung von Paper- vs. Live-Modus
+        cfg_paper = AgentConfig(execution_mode="ALPACA_PAPER", alpaca_paper=True)
+        assert cfg_paper.is_live_trading is False, "Alpaca Paper muss is_live_trading == False liefern"
+
+        cfg_live = AgentConfig(execution_mode="ALPACA", alpaca_paper=False)
+        assert cfg_live.is_live_trading is True, "Alpaca Live muss is_live_trading == True liefern"
+
+        risk_paper = DeterministicRiskManager(cfg_paper)
+        risk_live = DeterministicRiskManager(cfg_live)
+
+        # 2. Experimentelles Setup (Konfidenz 76%, Edge 1.50, RR 1.9)
+        sig_exp = fake_buy_sig.model_copy(update={
+            "confidence": 0.76,
+            "expected_edge_score": 1.50,
+            "risk_reward_ratio": 1.9,
+            "cio_conviction_tier": "TIER_3_SPECULATIVE",
+        })
+        snap_exp = snap_fav.model_copy(update={"symbol": "EXP_TICKER", "current_price": 50.0})
+
+        # Im Paper-Trading: Erlaubt zum Experimentieren und Lernen!
+        eval_paper = risk_paper.evaluate_signal(
+            signal=sig_exp,
+            snapshot=snap_exp,
+            macro=green_macro,
+            cash_usd=10000.0,
+            total_equity_usd=10000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_paper.approved is True, f"Im Paper-Trading muss experimentelles Setup erlaubt sein: {eval_paper.reason}"
+
+        # Im Live-Trading: Streng geblockt! (Nur die gewinnreichsten Aktionen mit Tier 1 Alpha)
+        eval_live_blocked = risk_live.evaluate_signal(
+            signal=sig_exp,
+            snapshot=snap_exp,
+            macro=green_macro,
+            cash_usd=1080.0,
+            total_equity_usd=1080.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_live_blocked.approved is False, "Im Live-Trading muss mittelmäßiges Setup geblockt werden"
+        assert "LIVE-TRADING FILTER" in eval_live_blocked.reason
+
+        # 3. Penny-Stock-Schutz im Live-Trading (Gesperrt ohne SEC Insider-Akkumulation)
+        snap_penny_live = snap_fav.model_copy(update={
+            "symbol": "PENNY_RISK",
+            "cluster": "PENNY_STOCKS",
+            "current_price": 2.10,
+            "insider_cluster_detected": False,
+        })
+        sig_penny_tier1 = fake_buy_sig.model_copy(update={
+            "cio_conviction_tier": "TIER_1_ALPHA_HIGH_CONVICTION",
+            "confidence": 0.88,
+            "expected_edge_score": 1.80,
+            "risk_reward_ratio": 2.5,
+        })
+        eval_penny_blocked = risk_live.evaluate_signal(
+            signal=sig_penny_tier1,
+            snapshot=snap_penny_live,
+            macro=green_macro,
+            cash_usd=1080.0,
+            total_equity_usd=1080.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_penny_blocked.approved is False, "Penny-Stocks ohne SEC Insider müssen im Live-Trading geblockt werden"
+        assert "Penny-Stocks ohne SEC Insider-Käufe" in eval_penny_blocked.reason
+
+        # 4. Absolutes A+ Spitzen-Setup (Tier-1 Alpha, Konfidenz 88%, Edge 1.85, RR 2.6, Clean Red-Team)
+        sig_live_top = fake_buy_sig.model_copy(update={
+            "cio_conviction_tier": "TIER_1_ALPHA_HIGH_CONVICTION",
+            "confidence": 0.88,
+            "expected_edge_score": 1.85,
+            "risk_reward_ratio": 2.6,
+        })
+        snap_live_top = snap_fav.model_copy(update={
+            "symbol": "NVDA",
+            "cluster": "US_TECH",
+            "current_price": 110.0,
+            "forecast_status": "FAVORABLE_UPSIDE_ASYMMETRY",
+        })
+        eval_live_approved = risk_live.evaluate_signal(
+            signal=sig_live_top,
+            snapshot=snap_live_top,
+            macro=green_macro,
+            cash_usd=1080.0,
+            total_equity_usd=1080.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_live_approved.approved is True, f"A+ Spitzen-Setup muss im Live-Trading freigegeben werden: {eval_live_approved.reason}"
+        assert eval_live_approved.margin_required_usd > 0, "Margin muss berechnet sein"
+
+        print(f"[OK] Test 42 bestanden: Dual-Mode Execution & Live Ultra-Conviction Fortress – Paper-Experimente freigegeben, Live-Trading strikt auf Tier-1 Alpha & A+ Spitzen-Setups beschränkt.")
+
+    print("=== Alle 42 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution- & Live-Ultra-Conviction-Tests erfolgreich bestanden! ===")
 
 
 
