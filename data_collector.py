@@ -832,8 +832,10 @@ class MultiAssetDataCollector:
             pass
         return news_list
 
-    def fetch_snapshot(self, item: WatchlistItem) -> Optional[MarketSnapshot]:
+    def fetch_snapshot(self, item: Any) -> Optional[MarketSnapshot]:
         try:
+            if isinstance(item, str):
+                item = WatchlistItem(symbol=item.upper().strip(), yf_ticker=item.upper().strip(), asset_class="EQUITY", cluster="US_TECH", name=item.upper().strip())
             ticker = yf.Ticker(item.yf_ticker)
             df: pd.DataFrame = ticker.history(period="6mo", interval="1d")
             df = df.dropna(subset=["Close"])

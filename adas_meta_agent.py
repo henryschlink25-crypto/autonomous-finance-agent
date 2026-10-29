@@ -1,7 +1,7 @@
 import datetime
 import json
 import os
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 import numpy as np
 from pydantic import BaseModel, Field
 
@@ -66,6 +66,7 @@ class SubAgentVote(BaseModel):
 class ADASMetaState(BaseModel):
     updated_at: str = ""
     evolution_generation: int = 1
+    evolution_epoch: int = 1
     total_evolution_cycles: int = 0
     active_subagents: Dict[str, SubAgentSpec] = Field(default_factory=dict)
     extinct_subagents: List[str] = Field(default_factory=list)
@@ -86,7 +87,9 @@ class ADASMetaArchitect:
     3. Schuldige Schwellenwerte werden gezielt justiert und bei schlechterer Performance zurückgerollt.
     """
 
-    def __init__(self, config: AgentConfig):
+    def __init__(self, config: Optional[AgentConfig] = None):
+        if config is None:
+            config = AgentConfig()
         self.config = config
         data_dir = os.path.dirname(self.config.portfolio_state_file)
         os.makedirs(data_dir, exist_ok=True)
@@ -717,6 +720,16 @@ class ADASMetaArchitect:
                 role="Wägt bei interessanten Setups & Options-Flows ab: Sofort-Einstieg (Momentum/Ausbruch) vs. geduldiges Abwarten auf Pullback/Retest (VWAP, EMA, Support) zur Renditemaximierung.",
                 specialty_focus="TACTICAL_TIMING",
                 trust_weight=1.27,
+            ))
+
+        # 21. Post-Earnings Announcement Drift (PEAD) Hunter (Sub-Agent #34)
+        if "pead_drift_hunter" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="pead_drift_hunter",
+                name="⚡ Post-Earnings Announcement Drift (PEAD) Hunter",
+                role="Erkennt institutionelle Folgekäufe nach Quartalszahlen-Überraschungen (Earnings Beat + Gap-and-Go + hohes Volumen) und reitet den 3- bis 10-Tage Drift.",
+                specialty_focus="PEAD_MOMENTUM",
+                trust_weight=1.28,
             ))
 
         return new_specs
@@ -1607,6 +1620,43 @@ class ADASMetaArchitect:
                 conf = 0.50
                 rationale = f"Tactical Timing Engine temporär nicht verfügbar ({e})"
 
+        elif focus == "PEAD_MOMENTUM":
+            try:
+                days_earn = getattr(snap, "days_to_earnings", None)
+                earn_rel = getattr(snap, "earnings_date_relative", "")
+                is_post_earnings = (
+                    (days_earn is not None and -5 <= days_earn <= 0)
+                    or earn_rel in ("YESTERDAY", "TODAY_MORNING", "RECENT")
+                    or (snap.change_24h_pct >= 4.5 and snap.volume_ratio >= 1.6)
+                )
+                chg_24h = snap.change_24h_pct
+                rvol = snap.volume_ratio
+                cur_p = snap.current_price
+                vwap = snap.intraday_vwap or cur_p
+
+                if is_post_earnings and chg_24h >= 3.5 and rvol >= 1.5 and cur_p >= vwap * 0.992:
+                    score = min(1.0, 0.70 + (chg_24h / 25.0) * 0.30)
+                    conf = min(0.96, 0.85 + (rvol / 5.0) * 0.11)
+                    rationale = (
+                        f"⚡ PEAD-DRIFT AKTIV: Explosiver Earnings-Beat (+{chg_24h:+.1f}%, Vol {rvol:.1f}x). "
+                        f"Institutionelle Anschlusskäufe treiben mehrtägigen Aufwärtstrend (Post-Earnings Announcement Drift)!"
+                    )
+                elif is_post_earnings and chg_24h <= -4.5 and rvol >= 1.5:
+                    score = max(-1.0, -0.75 - (abs(chg_24h) / 25.0) * 0.25)
+                    conf = 0.88
+                    rationale = (
+                        f"⚡ PEAD-ABVERKAUF: Schwache Zahlen & Guidance (-{abs(chg_24h):.1f}%, Vol {rvol:.1f}x). "
+                        f"Institutioneller Ausstieg setzt sich fort."
+                    )
+                else:
+                    score = 0.05
+                    conf = 0.50
+                    rationale = "Kein akuter Post-Earnings-Drift (Neutrale Zwischenphase)."
+            except Exception as e:
+                score = 0.0
+                conf = 0.50
+                rationale = f"PEAD Hunter temporär neutral ({e})"
+
         # Kollektiver Schwarm-Wissens-Austausch (Cross-Agent Consultation via SwarmKnowledgeBus)
         try:
             from swarm_knowledge_bus import get_swarm_knowledge_bus
@@ -1654,3 +1704,44 @@ class ADASMetaArchitect:
             created_at=datetime.datetime.now(datetime.timezone.utc).isoformat()[:19],
         )
         return vote, trace
+
+    def execute_nightly_bayesian_swarm_evolution(self) -> Dict[str, Any]:
+        """
+        Autonome nächtliche Schwarm-Evolution & Bayesianische Stimmgewicht-Rekalibrierung:
+        - Führt nach Börsenschluss eine statistische Rekalibrierung aller 34 Unteragenten durch.
+        - Agenten mit hoher Trefferquote und positivem Edge erhalten automatisches Gewicht-Upgrade.
+        - Irreführende Unteragenten werden automatisch im Stimmgewicht gedrosselt.
+        """
+        now_str = datetime.datetime.now(datetime.timezone.utc).isoformat()[:10]
+        evolved_agents = []
+        upgraded_count = 0
+        downgraded_count = 0
+
+        for ag_id, ag in self.state.active_subagents.items():
+            tot = ag.signals_evaluated
+            if tot >= 3:
+                win_rate = ag.correct_votes / tot
+                bayes_factor = 0.50 + win_rate
+                new_weight = float(np.clip(ag.trust_weight * 0.85 + bayes_factor * 0.15, 0.40, 1.80))
+                if new_weight > ag.trust_weight + 0.01:
+                    upgraded_count += 1
+                elif new_weight < ag.trust_weight - 0.01:
+                    downgraded_count += 1
+                ag.trust_weight = round(new_weight, 3)
+                evolved_agents.append((ag.name, ag.trust_weight, win_rate))
+
+        self.state.evolution_epoch += 1
+        self._save()
+
+        return {
+            "date": now_str,
+            "epoch": self.state.evolution_epoch,
+            "active_subagents_count": len(self.state.active_subagents),
+            "upgraded_count": upgraded_count,
+            "downgraded_count": downgraded_count,
+            "top_performers": sorted(evolved_agents, key=lambda x: x[1], reverse=True)[:5],
+        }
+
+
+# Alias für bequemen Import
+ADASMetaAgent = ADASMetaArchitect

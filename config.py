@@ -72,6 +72,9 @@ class AgentConfig:
     base_principal_capital_usd: float = float(os.getenv("BASE_PRINCIPAL_CAPITAL_USD", "1000.0"))
     profit_reinvestment_rate: float = float(os.getenv("PROFIT_REINVESTMENT_RATE", "0.35"))  # 35% der Reingewinne für vergrößerte Spitzen-Trades reinvestieren
 
+    # Micro-Dip Limit-Sniper (Slippage-Eliminierung & Rabatt-Einstiege)
+    enable_micro_dip_sniper: bool = os.getenv("ENABLE_MICRO_DIP_SNIPER", "True").lower() == "true"
+
     # Optionale Echtzeit-Push-Alerts (Telegram Bot, Discord Webhook oder WhatsApp)
     telegram_bot_token: str = os.getenv("TELEGRAM_BOT_TOKEN", "")
     telegram_chat_id: str = os.getenv("TELEGRAM_CHAT_ID", "")

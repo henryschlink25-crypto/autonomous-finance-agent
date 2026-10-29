@@ -732,6 +732,17 @@ class MultiAssetExecutionEngine:
         symbol = signal.symbol
         qty = risk_eval.recommended_quantity
         price = signal.entry_price
+
+        # Micro-Dip Limit-Sniper:
+        # Bei Käufen sichern wir den Dip-Rabatt (entweder optimal_entry_price oder -0.3% Micro-Dip)
+        # zur Eliminierung von Slippage und Maximierung des Gewinns
+        opt_entry = getattr(signal, "optimal_entry_price", None)
+        if risk_eval.adjusted_action == "BUY":
+            if opt_entry and 0 < opt_entry < price:
+                price = round(opt_entry, 2)
+            elif getattr(self.config, "enable_micro_dip_sniper", True):
+                price = round(price * 0.997, 2)
+
         notional = round(qty * price, 2)
 
         is_short_entry = (

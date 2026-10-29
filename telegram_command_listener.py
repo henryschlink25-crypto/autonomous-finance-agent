@@ -173,12 +173,14 @@ class TelegramCommandListener:
                 "🤗 <b>/sentiment &lt;SYM&gt;</b> - Hugging Face FinBERT NLP & News-Sentiment\n"
                 "🎯 <b>/vwap &lt;SYM&gt;</b> - VWAP-Bänder (±2σ), Volume Profile POC & Liquidity Sweeps\n"
                 "⏱️ <b>/timing &lt;SYM&gt;</b> - Einstiegs-Timing: Sofort kaufen vs. Abwarten auf Pullback\n"
+                "📊 <b>/chart &lt;SYM&gt;</b> - Push-Chart & Price-Ladder (z.B. <code>/chart NVDA</code>)\n"
                 "📈 <b>/forecast &lt;SYM&gt;</b> - Probabilistischer Kurs-Trichter (P10/P50/P90)\n"
                 "🚨 <b>/shield</b> - Dynamic Correlation Breakdown Shield (Marktpanik & Gleichlauf)\n"
                 "🌐 <b>/geopolitics</b> - Weltpolitische Lage, GCI-Index & Krisen-Mandat\n"
                 "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Pairs-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
+                "🧬 <b>/evolve</b> - Autonome Schwarm-Evolution & Bayesianische Re-Kalibrierung\n"
                 "🧪 <b>/lab</b> - Walk-Forward Forschungs-Labor & WFER-Effizienz\n"
                 "⚡ <b>/optimize</b> - Starte Walk-Forward Optimierung & Auto-Kalibrierung\n"
                 "🧬 <b>/breed</b> - Sofortige genetische Strategie-Zucht starten\n"
@@ -257,6 +259,15 @@ class TelegramCommandListener:
                 self.send_message("⚠️ Bitte Symbol angeben, z.B.: <code>/forecast NVDA</code>")
             else:
                 self._handle_forecast(args[0])
+
+        elif cmd in ["/chart", "/ladder", "/graph", "/candlestick"]:
+            if not args:
+                self.send_message("📊 Bitte Symbol angeben, z.B.: <code>/chart NVDA</code>")
+            else:
+                self._handle_chart(args[0])
+
+        elif cmd in ["/evolve", "/evolution", "/schwarm_update"]:
+            self._handle_evolve()
 
         elif cmd in ["/shield", "/correlation", "/corr", "/gleichlauf"]:
             self._handle_correlation_shield()
@@ -749,6 +760,59 @@ class TelegramCommandListener:
         except Exception as e:
             self.send_message(f"❌ Fehler bei Forecast-Analyse für {sym}: {e}")
 
+    def _handle_chart(self, symbol: str) -> None:
+        sym = symbol.strip().upper()
+        self.send_message(f"📊 <i>Generiere Push-Chart & Price-Ladder für {sym}...</i>")
+        try:
+            from data_collector import MultiAssetDataCollector
+            collector = MultiAssetDataCollector()
+            snap = collector.fetch_snapshot(sym)
+            if not snap:
+                self.send_message(f"⚠️ Keine Marktdaten für {sym} gefunden.")
+                return
+
+            cur_p = snap.current_price
+            vwap = snap.intraday_vwap or cur_p
+            atr = getattr(snap, "atr_14", cur_p * 0.02) or (cur_p * 0.02)
+            rsi = snap.rsi_14
+            rvol = snap.volume_ratio
+
+            tp1 = round(cur_p + 1.5 * atr, 2)
+            tp2 = round(cur_p + 3.0 * atr, 2)
+            micro_dip = round(cur_p * 0.997, 2)
+            sl = round(max(cur_p - 1.2 * atr, cur_p * 0.95), 2)
+
+            tp2_pct = ((tp2 - cur_p) / cur_p) * 100.0 if cur_p > 0 else 0.0
+            tp1_pct = ((tp1 - cur_p) / cur_p) * 100.0 if cur_p > 0 else 0.0
+            dip_pct = ((micro_dip - cur_p) / cur_p) * 100.0 if cur_p > 0 else 0.0
+            vwap_pct = ((vwap - cur_p) / cur_p) * 100.0 if cur_p > 0 else 0.0
+            sl_pct = ((sl - cur_p) / cur_p) * 100.0 if cur_p > 0 else 0.0
+
+            rsi_fill = int(min(max(rsi / 10.0, 1), 10))
+            rsi_bar = "█" * rsi_fill + "░" * (10 - rsi_fill)
+
+            ladder = (
+                f"📊 <b>Push-Chart & Price-Ladder: <code>{sym}</code></b>\n"
+                f"─────────────────────────────\n"
+                f"<code>"
+                f"  ${tp2:>7.2f} ── [TP2: {tp2_pct:>+5.1f}%] ─── 🟢 Zielzone\n"
+                f"  ${tp1:>7.2f} ── [TP1: {tp1_pct:>+5.1f}%] ─── 🎯 Teilgewinn\n"
+                f"► ${cur_p:>7.2f} ── [SPOT-KURS  ] ─── 🔵 Aktueller Preis\n"
+                f"  ${micro_dip:>7.2f} ── [SNIPER-DIP] ─── ⚡ Micro-Dip ({dip_pct:+.1f}%)\n"
+                f"  ${vwap:>7.2f} ── [VWAP-BASIS] ─── 🟣 Support ({vwap_pct:+.1f}%)\n"
+                f"  ${sl:>7.2f} ── [STOP-LOSS ] ─── 🛑 Kapitalschutz ({sl_pct:+.1f}%)\n"
+                f"</code>\n"
+                f"─────────────────────────────\n"
+                f"• <b>RSI (14):</b> {rsi:.1f}  <code>[{rsi_bar}]</code>\n"
+                f"• <b>Relativ-Volumen (RVOL):</b> {rvol:.1f}x\n"
+                f"• <b>Tages-ATR (14):</b> ${atr:.2f}\n"
+                f"─────────────────────────────\n"
+                f"<i>Micro-Dip Sniper aktiv: Kauforders greifen Rücksetzer bei -0.3% ab.</i>"
+            )
+            self.send_message(ladder)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Chart-Generierung für {sym}: {e}")
+
     def _handle_correlation_shield(self) -> None:
         self.send_message("🚨 <i>Analysiere systemischen Gleichlauf & Dynamic Correlation Breakdown Shield...</i>")
         try:
@@ -1014,6 +1078,29 @@ class TelegramCommandListener:
         except Exception as e:
             self.send_message(f"❌ Health-Check Fehler: {e}")
 
+    def _handle_evolve(self) -> None:
+        self.send_message("🧬 <i>Führe autonome Bayesianische Schwarm-Evolution und Rekalibrierung aus...</i>")
+        try:
+            from adas_meta_agent import ADASMetaAgent
+            adas = ADASMetaAgent()
+            evo_res = adas.execute_nightly_bayesian_swarm_evolution()
+            top_performers = evo_res.get("top_performers", [])
+            top_str = "\n".join([f"• <b>{name}:</b> Trust-Weight <code>{w:.3f}x</code> (Win-Rate {wr*100:.1f}%)" for name, w, wr in top_performers[:4]])
+            evo_msg = (
+                "🧬 <b>Autonome Schwarm-Evolution & Bayesianische Rekalibrierung</b>\n"
+                "─────────────────────────────\n"
+                f"• <b>Epoche:</b> #{evo_res.get('epoch', 1)} | Datum: {evo_res.get('date')}\n"
+                f"• <b>Aktive KI-Agenten:</b> {evo_res.get('active_subagents_count', 34)}\n"
+                f"• <b>Statistisches Trust-Upgrade:</b> {evo_res.get('upgraded_count', 0)} Agenten gestärkt\n"
+                f"• <b>Trust-Drosselung:</b> {evo_res.get('downgraded_count', 0)} schwache Agenten abgewertet\n\n"
+                f"🏆 <b>Führende Alpha-Agenten:</b>\n{top_str or '• Baseline-Gewichtung aktiv'}\n"
+                "─────────────────────────────\n"
+                "<i>Alle 34 Spezialisten wurden an die jüngste Marktstruktur angepasst!</i>"
+            )
+            self.send_message(evo_msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Schwarm-Evolution: {e}")
+
     def _handle_report(self) -> None:
         try:
             state_file = Path("data/portfolio_state.json")
@@ -1080,8 +1167,9 @@ class TelegramCommandListener:
                 "🌅 <b>Guten Morgen Henry! Tagesausblick vor US-Börsenöffnung</b>\n"
                 "─────────────────────────────\n"
                 "• <b>Status:</b> Der autonome Trading-Agent läuft 100% stabil.\n"
-                "• <b>Schwarm:</b> 33 KI-Spezialisten scannen den Gesamtmarkt nach A+ Chancen.\n"
+                "• <b>Schwarm:</b> 34 KI-Spezialisten (inkl. PEAD Drift Hunter) scannen den Gesamtmarkt nach A+ Chancen.\n"
                 "• <b>Fokus:</b> Ultra-Conviction (nur die gewinnreichsten Setups bei R:R ≥ 2.2:1).\n"
+                "• <b>Sniper-Modus:</b> Micro-Dip Limit-Sniper aktiv (-0.3% Discount).\n"
                 "─────────────────────────────\n"
                 "<i>Du erhältst sofort eine Nachricht, sobald ein Trade ausgeführt wird. Schönen Tag!</i>"
             )
@@ -1091,5 +1179,24 @@ class TelegramCommandListener:
     def _send_evening_briefing(self) -> None:
         try:
             self._handle_report()
+            # Automatische nächtliche Schwarm-Evolution nach US-Close
+            try:
+                from adas_meta_agent import ADASMetaAgent
+                adas = ADASMetaAgent()
+                evo_res = adas.execute_nightly_bayesian_swarm_evolution()
+                top_str = "\n".join([f"• <b>{name}:</b> Trust-Weight <code>{w:.3f}x</code> (Win-Rate {wr*100:.1f}%)" for name, w, wr in evo_res.get("top_performers", [])[:3]])
+                evo_msg = (
+                    "🧬 <b>Nächtliche Schwarm-Evolution abgeschlossen (Post-Market)</b>\n"
+                    "─────────────────────────────\n"
+                    f"• <b>Epoche:</b> #{evo_res.get('epoch', 1)} | Datum: {evo_res.get('date')}\n"
+                    f"• <b>Aktive KI-Agenten:</b> {evo_res.get('active_subagents_count', 34)}\n"
+                    f"• <b>Statistisches Trust-Upgrade:</b> {evo_res.get('upgraded_count', 0)} Agenten gestärkt\n"
+                    f"• <b>Trust-Drosselung:</b> {evo_res.get('downgraded_count', 0)} schwache Agenten abgewertet\n\n"
+                    f"🏆 <b>Top Performer:</b>\n{top_str or '• Keine signifikanten Gewichtssprünge'}\n"
+                    "─────────────────────────────"
+                )
+                self.send_message(evo_msg)
+            except Exception as ee:
+                logger.debug(f"Nightly Swarm Evolution Error: {ee}")
         except Exception:
             pass

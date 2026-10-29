@@ -299,6 +299,15 @@ class EmergentDialectEngine:
             self._ensure_token("🚀:ASYMMETRIC_COMPOUNDING", "COMPOUNDING", "Asymmetrische Gewinn-Reinvestition zur Kapitalvervielfachung")
             tokens_used.append(t)
 
+        # O. Post-Earnings Announcement Drift (PEAD) Momentum
+        days_earn = getattr(snapshot, "days_to_earnings", None)
+        chg_24 = getattr(snapshot, "change_24h_pct", 0.0)
+        vol_r = getattr(snapshot, "volume_ratio", 1.0)
+        if days_earn is not None and days_earn <= 0 and (chg_24 >= 3.0 or getattr(snapshot, "gap_pct", 0.0) >= 3.0) and vol_r >= 1.4:
+            t = "⚡:PEAD_EARNINGS_DRIFT"
+            self._ensure_token("⚡:PEAD_EARNINGS_DRIFT", "CATALYST", "Post-Earnings Announcement Drift Momentum nach explosiven Quartalszahlen")
+            tokens_used.append(t)
+
         # N. Confluence-Grad (Güteklasse des Setups)
         bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
         conf_len = len(bullish_tokens)

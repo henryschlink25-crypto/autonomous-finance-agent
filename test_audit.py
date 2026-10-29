@@ -1796,9 +1796,9 @@ def test_all_audit_fixes() -> None:
 
         # --- Test 44: Tactical Timing & Entry-Optimization Strategist (Sub-Agent #33: Abwägen Sofort-Einstieg vs. Geduldiges Abwarten auf Pullback) ---
         adas_33 = ADASMetaArchitect(cfg_paper)
-        # 1. Schwarm-Größe prüfen: Genau 33 Spezialisten im Schwarm
+        # 1. Schwarm-Größe prüfen: Mindestens 33 Spezialisten im Schwarm (inkl. tactical_timing_optimizer)
         assert "tactical_timing_optimizer" in adas_33.state.active_subagents, "Sub-Agent #33 muss aktiv sein"
-        assert len(adas_33.state.active_subagents) == 33, f"Schwarm muss genau 33 Spezialisten umfassen, erhalten: {len(adas_33.state.active_subagents)}"
+        assert len(adas_33.state.active_subagents) >= 33, f"Schwarm muss mindestens 33 Spezialisten umfassen, erhalten: {len(adas_33.state.active_subagents)}"
 
         # 2. Fall A: Überdehntes Setup (Aktie steigt rasant, liegt +2.5% über VWAP, RSI 74.0) -> Abwarten auf Pullback!
         snap_overextended = snap_fav.model_copy(update={
@@ -2138,7 +2138,123 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 47 bestanden: Asymmetric Compounding & 1.000 € Multiplier Model (High-Water Mark Ratchet Floor & Dialekt-Token).")
 
-    print("=== Alle 47 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, Unattended-Travel-Fortress-, Dynamic-US-Market-Screener- & Asymmetric-Compounding-Tests erfolgreich bestanden! ===")
+        # --- Test 48: Sub-Agent #34 PEAD Drift Hunter (Post-Earnings Announcement Drift Specialist) ---
+        adas_34 = ADASMetaArchitect(cfg_paper)
+        assert "pead_drift_hunter" in adas_34.state.active_subagents, "Sub-Agent #34 (pead_drift_hunter) muss im Schwarm aktiv sein"
+        assert len(adas_34.state.active_subagents) == 34, f"Schwarm muss genau 34 Spezialisten umfassen, erhalten: {len(adas_34.state.active_subagents)}"
+
+        pead_spec = adas_34.state.active_subagents["pead_drift_hunter"]
+        snap_pead = snap_leader.model_copy(update={
+            "symbol": "NVDA",
+            "days_to_earnings": 0,
+            "change_24h_pct": 5.2,
+            "volume_ratio": 2.1,
+            "relative_strength_vs_spy": 4.5,
+        })
+        vote_pead, _ = adas_34._compute_single_subagent_vote(pead_spec, snap_pead, green_macro)
+        assert vote_pead.vote_action == "BUY", f"PEAD-Signal muss BUY votieren, erhalten: {vote_pead.vote_action}"
+        assert vote_pead.score >= 0.80, f"PEAD Score muss >= 0.80 sein, erhalten: {vote_pead.score}"
+        assert "PEAD" in vote_pead.rationale
+
+        deal_pead = dialect_engine.compose_and_negotiate_deal(snap_pead, sig_apex_high, green_macro, eval_profit)
+        assert "⚡:PEAD_EARNINGS_DRIFT" in deal_pead.dialect_sentence, f"Dialekt muss ⚡:PEAD_EARNINGS_DRIFT enthalten, erhalten: {deal_pead.dialect_sentence}"
+
+        print(f"[OK] Test 48 bestanden: Sub-Agent #34 PEAD Drift Hunter (Post-Earnings Announcement Drift) – 34 Spezialisten im Schwarm, Momentum nach Earnings-Beat & Dialekt-Token ⚡:PEAD_EARNINGS_DRIFT.")
+
+        # --- Test 49: Micro-Dip Limit-Sniper (Zero-Slippage & Pullback Execution) ---
+        cfg_sniper = AgentConfig(execution_mode="PAPER", enable_micro_dip_sniper=True)
+        exec_sniper = MultiAssetExecutionEngine(cfg_sniper)
+        exec_sniper.cash_usd = 2000.0
+
+        sig_sniper = fake_buy_sig.model_copy(update={
+            "symbol": "SNIPER_CO",
+            "entry_price": 100.0,
+            "optimal_entry_price": 99.70,
+            "stop_loss_price": 95.0,
+            "take_profit_price": 110.0,
+            "confidence": 0.89,
+            "risk_reward_ratio": 2.1,
+        })
+        snap_sniper = snap_fav.model_copy(update={
+            "symbol": "SNIPER_CO",
+            "current_price": 100.0,
+            "intraday_vwap": 99.50,
+        })
+        eval_sniper = risk_paper.evaluate_signal(
+            signal=sig_sniper,
+            snapshot=snap_sniper,
+            macro=green_macro,
+            cash_usd=2000.0,
+            total_equity_usd=2000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_sniper.approved is True
+
+        order_res = exec_sniper.execute_order(sig_sniper, eval_sniper)
+        assert "EXECUTED BUY" in order_res
+        assert "SNIPER_CO" in exec_sniper.positions
+        pos_sniper = exec_sniper.positions["SNIPER_CO"]
+        assert pos_sniper.current_price <= 99.70, f"Micro-Dip Limit-Sniper muss bei 99.70 oder besser gefüllt haben: {pos_sniper.current_price}"
+        assert pos_sniper.avg_entry_price <= 99.80, f"Micro-Dip Einstiegskurs inkl. Gebühren muss < 99.80 liegen: {pos_sniper.avg_entry_price}"
+
+        print(f"[OK] Test 49 bestanden: Micro-Dip Limit-Sniper in Execution Engine – Slippage eliminiert und Ausführung bei -0.3% Discount.")
+
+        # --- Test 50: Autonome Schwarm-Evolution & Bayesianische Nacht-Rekalibrierung ---
+        from adas_meta_agent import ADASMetaAgent
+        adas_agent = ADASMetaAgent()
+        initial_epoch = adas_agent.state.evolution_epoch
+
+        evo_metrics = adas_agent.execute_nightly_bayesian_swarm_evolution()
+        assert evo_metrics["active_subagents_count"] == 34, f"Evolution muss 34 Agenten umfassen, erhalten: {evo_metrics['active_subagents_count']}"
+        assert evo_metrics["epoch"] == initial_epoch + 1, "Epoche muss inkrementiert worden sein"
+        assert "date" in evo_metrics
+
+        # Prüfe, dass alle Trust-Weights im gesunden Bereich [0.40, 1.80] liegen
+        for ag in adas_agent.state.active_subagents.values():
+            assert 0.40 <= ag.trust_weight <= 1.80, f"Trust-Weight von {ag.name} außerhalb der Grenzen: {ag.trust_weight}"
+
+        print(f"[OK] Test 50 bestanden: Autonome Schwarm-Evolution & Bayesianische Nacht-Rekalibrierung – Epoche #{evo_metrics['epoch']} erfolgreich kalibriert.")
+
+        # --- Test 51: Telegram Push-Charts, Price-Ladder Visualizer & Evening Briefing ---
+        from telegram_command_listener import TelegramCommandListener
+        from unittest.mock import patch
+        tg_visualizer = TelegramCommandListener(
+            bot_token="123:test_dummy_token",
+            authorized_chat_id="9215209981",
+            engine_ref=exec_sniper,
+        )
+        messages_sent = []
+        tg_visualizer.send_message = lambda msg: messages_sent.append(msg)
+
+        # Teste /chart NVDA mit deterministischem Snapshot
+        mock_chart_snap = snap_fav.model_copy(update={
+            "symbol": "NVDA",
+            "current_price": 140.0,
+            "intraday_vwap": 138.2,
+            "rsi_14": 58.4,
+            "volume_ratio": 1.8,
+            "atr_14": 4.5,
+        })
+        with patch("data_collector.MultiAssetDataCollector.fetch_snapshot", return_value=mock_chart_snap):
+            tg_visualizer._handle_chart("NVDA")
+        assert len(messages_sent) >= 1
+        last_msg = messages_sent[-1]
+        assert "Push-Chart & Price-Ladder" in last_msg
+        assert "SPOT-KURS" in last_msg
+        assert "SNIPER-DIP" in last_msg
+        assert "STOP-LOSS" in last_msg
+
+        # Teste /evolve
+        tg_visualizer._handle_evolve()
+        assert len(messages_sent) >= 2
+        evo_chat_msg = messages_sent[-1]
+        assert "Autonome Schwarm-Evolution" in evo_chat_msg
+        assert "34" in evo_chat_msg
+
+        print(f"[OK] Test 51 bestanden: Telegram Push-Charts, Price-Ladder Visualizer & Autonome Nacht-Rekalibrierungs-Befehle.")
+
+    print("=== Alle 51 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, Unattended-Travel-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution- & Push-Charts-Tests erfolgreich bestanden! ===")
 
 
 
