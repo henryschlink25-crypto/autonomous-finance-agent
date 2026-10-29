@@ -476,6 +476,23 @@ class DeterministicRiskManager:
             leverage_used = self.config.smart_leverage_max
         else:
             leverage_used = 1.0
+
+        # Citadel / Hedge-Fonds Anti-Blowup Audit (Sub-Agent #50 Leopold Aschenbrenner Schutz)
+        try:
+            from hedge_fund_strategy_auditor import HedgeFundStrategyAuditor
+            hf_auditor = HedgeFundStrategyAuditor()
+            hf_audit = hf_auditor.audit_trade_setup(snapshot, macro, planned_leverage=leverage_used)
+            if hf_audit.citadel_dip_status == "WAIT_FOR_CLEANSE":
+                return RiskEvaluation(
+                    approved=False,
+                    reason=f"HEDGE-FONDS SCHUTZ ({hf_audit.citadel_dip_status}): {hf_audit.rationale}",
+                    adjusted_action="HOLD",
+                )
+            if hf_audit.recommended_leverage_cap < leverage_used:
+                leverage_used = min(leverage_used, hf_audit.recommended_leverage_cap)
+        except Exception:
+            pass
+
         effective_total_leverage = round(leverage_used * snapshot.intrinsic_leverage, 1)
 
         corr_penalty = 1.0

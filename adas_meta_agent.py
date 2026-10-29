@@ -913,6 +913,16 @@ class ADASMetaArchitect:
                 trust_weight=1.35,
             ))
 
+        # 37. Situational Awareness & Hedge Fund Auditor (Sub-Agent #50)
+        if "hedge_fund_macro_auditor" not in self.state.active_subagents:
+            new_specs.append(SubAgentSpec(
+                agent_id="hedge_fund_macro_auditor",
+                name="🏛️ Situational Awareness & Hedge Fund Auditor",
+                role="Erkennt säkulare KI-Infrastruktur- & Energie-Flaschenhälse (Aschenbrenner Situational Awareness). Schützt vor der Aschenbrenner-Falle (Liquidierung durch zu hohen Hebel in kurzfristigen Volatilitätswellen) und erzwingt Citadels marktneutrale Risikodisziplin.",
+                specialty_focus="HEDGE_FUND_MACRO_AUDIT",
+                trust_weight=1.38,
+            ))
+
         return new_specs
 
 
@@ -2327,6 +2337,36 @@ class ADASMetaArchitect:
                 score = 0.0
                 conf = 0.40
                 rationale = f"Constraint Regulator neutral ({e})"
+
+        elif focus == "HEDGE_FUND_MACRO_AUDIT":
+            try:
+                from hedge_fund_strategy_auditor import HedgeFundStrategyAuditor
+                hf_auditor = HedgeFundStrategyAuditor()
+                hf_res = hf_auditor.audit_trade_setup(snap, macro, planned_leverage=1.0)
+                if hf_res.citadel_leverage_veto:
+                    score = -0.75
+                    conf = 0.92
+                    v_act = "VETO_BUY"
+                    rationale = f"🛡️ Citadel Anti-Blowup Veto: {hf_res.rationale}"
+                elif hf_res.citadel_dip_status == "WAIT_FOR_CLEANSE":
+                    score = -0.60
+                    conf = 0.88
+                    v_act = "VETO_BUY"
+                    rationale = f"⏳ Aschenbrenner Liquidierungs-Schutz (Wait for Dip): {hf_res.rationale}"
+                elif hf_res.citadel_dip_status == "READY_ACCUMULATE":
+                    score = 0.88 if hf_res.is_situational_awareness_asset else 0.45
+                    conf = 0.89
+                    v_act = "BUY"
+                    rationale = f"🏛️ Situational Awareness Akkumulation ({hf_res.infrastructure_pillar}): {hf_res.rationale}"
+                else:
+                    score = 0.15
+                    conf = 0.50
+                    v_act = "HOLD"
+                    rationale = f"Hedge Fund Auditor neutral: {hf_res.rationale}"
+            except Exception as e:
+                score = 0.0
+                conf = 0.40
+                rationale = f"Hedge Fund Auditor neutral ({e})"
 
         elif focus == "PENNY_CATALYST_ROCKET":
             rvol_val = getattr(snap, "volume_ratio_vs_20d", getattr(snap, "volume_ratio", 1.0))

@@ -182,6 +182,7 @@ class TelegramCommandListener:
                 "🏛️ <b>/events</b> - Makro-Event Horizon (Fed FOMC, CPI, NFP) & Whipsaw-Schutz\n"
                 "⚡ <b>/arbitrage</b> - Einfache Arbitrage-Gewinne (Dual-Listing ADRs, ETF-Disagio, Krypto Funding Yield)\n"
                 "🔓 <b>/constraints</b> - Autonome Begrenzungs-Regulierung (Lockerung/Schärfung, Extended-Hours, Loop-Speed)\n"
+                "🏛️ <b>/situational</b> - Situational Awareness & Hedge Fund Auditor (KI-Infrastruktur & Citadel-Disziplin)\n"
                 "🔀 <b>/pairs</b> - Statistische Arbitrage & Kointegrations-Spreads (Z-Score)\n"
                 "🚀 <b>/sectors</b> - Sektor-Rotations-Radar & führende Branchen\n"
                 "🧬 <b>/evolve</b> - Autonome Schwarm-Evolution & Bayesianische Re-Kalibrierung\n"
@@ -322,6 +323,9 @@ class TelegramCommandListener:
 
         elif cmd in ["/constraints", "/governor", "/limits", "/bounds", "/regeln"]:
             self._handle_constraints()
+
+        elif cmd in ["/situational", "/macrofund", "/citadel", "/aschenbrenner", "/hedgefund"]:
+            self._handle_situational()
 
         elif cmd in ["/morgen", "/morning"]:
             self._handle_morning_briefing()
@@ -1261,6 +1265,34 @@ class TelegramCommandListener:
             self.send_message(msg)
         except Exception as e:
             self.send_message(f"❌ Fehler bei Constraint-Abfrage: {e}")
+
+    def _handle_situational(self) -> None:
+        try:
+            from hedge_fund_strategy_auditor import HedgeFundStrategyAuditor
+            auditor = HedgeFundStrategyAuditor()
+            summary = auditor.get_hedge_fund_audit_summary()
+
+            pillars_txt = []
+            for p, syms in summary.get("pillars", {}).items():
+                pillars_txt.append(f"• <b>{p}:</b> <code>{', '.join(syms)}</code>")
+            pil_str = "\n".join(pillars_txt)
+
+            msg = (
+                "🏛️ <b>Situational Awareness & Hedge Fund Auditor (Sub-Agent #50):</b>\n"
+                "─────────────────────────────\n"
+                "• <b>These (Leopold Aschenbrenner):</b> Säkularer Super-Zyklus in KI-Compute, Rechenzentren & Energie-Infrastruktur.\n"
+                "• <b>Hedge-Fonds-Lektion:</b> Richtige 5-Jahres-Makrothese schützt nicht vor kurzfristigem Hebel-Ruin (Margin Calls in Tech-Korrekturen).\n"
+                "• <b>Citadel Anti-Blowup Guard:</b> 🛡️ Hebel strikt auf max. 1.0x-1.5x begrenzt bei VIX > 25 oder HV > 45%.\n"
+                "• <b>Wait for Citadel Cleanse:</b> ⏳ Kein Einstieg unter SMA50 während Notverkäufen großer Makro-Fonds. Warten auf Bodenbildung.\n"
+                "─────────────────────────────\n"
+                "🔌 <b>Gemonitorte KI-Infrastruktur-Pillars:</b>\n"
+                f"{pil_str}\n"
+                "─────────────────────────────\n"
+                "<i>Präzise Hedge-Fonds-Risikokontrolle ohne Überhebelung.</i>"
+            )
+            self.send_message(msg)
+        except Exception as e:
+            self.send_message(f"❌ Fehler bei Situational-Awareness-Abfrage: {e}")
 
     def _send_evening_briefing(self) -> None:
         try:

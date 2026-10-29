@@ -2,7 +2,7 @@
 Synthetisierte Handelsstrategie: WhaleOrderflowAccumulator_Gen1_1
 Archetyp: WHALE_ORDERFLOW_ACCUMULATOR
 Hypothese: Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.
-Generiert am: 2026-10-29T23:48:53.562505
+Generiert am: 2026-10-30T00:01:56.448998
 """
 
 class WhaleOrderflowAccumulator_Gen1_1:

@@ -58,15 +58,15 @@
       "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 5.52,
-        "max_drawdown_pct": 11.3,
-        "win_rate_pct": 62.7,
-        "profit_factor": 2.22,
-        "total_trades": 51,
-        "net_return_pct": 123.15
+        "sharpe_ratio": 4.61,
+        "max_drawdown_pct": 10.99,
+        "win_rate_pct": 56.5,
+        "profit_factor": 2.05,
+        "total_trades": 46,
+        "net_return_pct": 94.42
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_2.py",
-      "deployed_at": "2026-10-29T23:17:39.744077"
+      "deployed_at": "2026-10-30T00:04:19.294344"
     },
     "strat_supertrend_regime_rider_g3_4": {
       "strategy_id": "strat_supertrend_regime_rider_g3_4",
@@ -219,7 +219,7 @@
         "net_return_pct": 149.14
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_1.py",
-      "deployed_at": "2026-10-29T23:48:53.606637"
+      "deployed_at": "2026-10-30T00:01:56.473446"
     },
     "strat_whale_orderflow_accumulator_g1_4": {
       "strategy_id": "strat_whale_orderflow_accumulator_g1_4",
@@ -279,15 +279,15 @@
       "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
       "generation": 1,
       "performance": {
-        "sharpe_ratio": 6.08,
-        "max_drawdown_pct": 9.95,
-        "win_rate_pct": 62.8,
-        "profit_factor": 2.61,
-        "total_trades": 43,
-        "net_return_pct": 129.84
+        "sharpe_ratio": 5.34,
+        "max_drawdown_pct": 11.84,
+        "win_rate_pct": 59.6,
+        "profit_factor": 2.22,
+        "total_trades": 52,
+        "net_return_pct": 141.88
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_3.py",
-      "deployed_at": "2026-10-29T22:29:24.026022"
+      "deployed_at": "2026-10-29T23:53:16.034446"
     },
     "strat_volatility_squeeze_explosion_g1_3": {
       "strategy_id": "strat_volatility_squeeze_explosion_g1_3",
@@ -330,15 +330,15 @@
       "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
       "generation": 3,
       "performance": {
-        "sharpe_ratio": 6.12,
-        "max_drawdown_pct": 11.88,
-        "win_rate_pct": 52.0,
-        "profit_factor": 2.31,
+        "sharpe_ratio": 7.65,
+        "max_drawdown_pct": 11.06,
+        "win_rate_pct": 60.0,
+        "profit_factor": 2.94,
         "total_trades": 25,
-        "net_return_pct": 93.74
+        "net_return_pct": 126.97
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g3_3.py",
-      "deployed_at": "2026-10-29T23:41:26.190560"
+      "deployed_at": "2026-10-30T00:04:19.310569"
     },
     "strat_supply_chain_spillover_sniper_g3_2": {
       "strategy_id": "strat_supply_chain_spillover_sniper_g3_2",
@@ -424,6 +424,57 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_4.py",
       "deployed_at": "2026-10-29T23:50:06.725313"
+    },
+    "strat_core_etf_momentum_compounder_g1_2": {
+      "strategy_id": "strat_core_etf_momentum_compounder_g1_2",
+      "class_name": "CoreEtfCompounder_Gen1_2",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 13.82,
+        "max_drawdown_pct": 6.32,
+        "win_rate_pct": 79.2,
+        "profit_factor": 6.37,
+        "total_trades": 24,
+        "net_return_pct": 230.19
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g1_2.py",
+      "deployed_at": "2026-10-30T00:01:56.702672"
+    },
+    "strat_core_etf_momentum_compounder_g3_4": {
+      "strategy_id": "strat_core_etf_momentum_compounder_g3_4",
+      "class_name": "CoreEtfCompounder_Gen3_4",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 12.31,
+        "max_drawdown_pct": 11.44,
+        "win_rate_pct": 75.0,
+        "profit_factor": 5.6,
+        "total_trades": 24,
+        "net_return_pct": 232.39
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g3_4.py",
+      "deployed_at": "2026-10-30T00:02:42.604150"
+    },
+    "strat_core_etf_momentum_compounder_g1_3": {
+      "strategy_id": "strat_core_etf_momentum_compounder_g1_3",
+      "class_name": "CoreEtfCompounder_Gen1_3",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 6.33,
+        "max_drawdown_pct": 10.23,
+        "win_rate_pct": 56.0,
+        "profit_factor": 2.33,
+        "total_trades": 25,
+        "net_return_pct": 94.91
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g1_3.py",
+      "deployed_at": "2026-10-30T00:04:46.402927"
     }
   },
   "history": [
@@ -1361,6 +1412,159 @@
       },
       "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_supply_chain_spillover_sniper_g3_4.py",
       "deployed_at": "2026-10-29T23:50:06.725313"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g1_3",
+      "class_name": "WhaleOrderflowAccumulator_Gen1_3",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 5.34,
+        "max_drawdown_pct": 11.84,
+        "win_rate_pct": 59.6,
+        "profit_factor": 2.22,
+        "total_trades": 52,
+        "net_return_pct": 141.88
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_3.py",
+      "deployed_at": "2026-10-29T23:53:16.034446"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g3_2",
+      "class_name": "WhaleOrderflowAccumulator_Gen3_2",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 4.18,
+        "max_drawdown_pct": 11.01,
+        "win_rate_pct": 62.5,
+        "profit_factor": 1.87,
+        "total_trades": 56,
+        "net_return_pct": 90.21
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_2.py",
+      "deployed_at": "2026-10-30T00:01:27.481404"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g1_1",
+      "class_name": "WhaleOrderflowAccumulator_Gen1_1",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 6.3,
+        "max_drawdown_pct": 10.3,
+        "win_rate_pct": 59.6,
+        "profit_factor": 2.52,
+        "total_trades": 47,
+        "net_return_pct": 149.14
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g1_1.py",
+      "deployed_at": "2026-10-30T00:01:56.473446"
+    },
+    {
+      "strategy_id": "strat_core_etf_momentum_compounder_g1_2",
+      "class_name": "CoreEtfCompounder_Gen1_2",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 13.82,
+        "max_drawdown_pct": 6.32,
+        "win_rate_pct": 79.2,
+        "profit_factor": 6.37,
+        "total_trades": 24,
+        "net_return_pct": 230.19
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g1_2.py",
+      "deployed_at": "2026-10-30T00:01:56.702672"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g3_2",
+      "class_name": "WhaleOrderflowAccumulator_Gen3_2",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 5.8,
+        "max_drawdown_pct": 12.0,
+        "win_rate_pct": 60.0,
+        "profit_factor": 2.33,
+        "total_trades": 50,
+        "net_return_pct": 117.39
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_2.py",
+      "deployed_at": "2026-10-30T00:02:42.589297"
+    },
+    {
+      "strategy_id": "strat_core_etf_momentum_compounder_g3_4",
+      "class_name": "CoreEtfCompounder_Gen3_4",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 12.31,
+        "max_drawdown_pct": 11.44,
+        "win_rate_pct": 75.0,
+        "profit_factor": 5.6,
+        "total_trades": 24,
+        "net_return_pct": 232.39
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g3_4.py",
+      "deployed_at": "2026-10-30T00:02:42.604150"
+    },
+    {
+      "strategy_id": "strat_whale_orderflow_accumulator_g3_2",
+      "class_name": "WhaleOrderflowAccumulator_Gen3_2",
+      "archetype": "WHALE_ORDERFLOW_ACCUMULATOR",
+      "hypothesis": "Folgt institutionellen Großkäufen (Whale Call Options Flow P/C < 0.45 und positiver Chaikin Money Flow) während gesunder Konsolidierungen oberhalb des 20 EMA.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 4.61,
+        "max_drawdown_pct": 10.99,
+        "win_rate_pct": 56.5,
+        "profit_factor": 2.05,
+        "total_trades": 46,
+        "net_return_pct": 94.42
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_whale_orderflow_accumulator_g3_2.py",
+      "deployed_at": "2026-10-30T00:04:19.294344"
+    },
+    {
+      "strategy_id": "strat_core_etf_momentum_compounder_g3_3",
+      "class_name": "CoreEtfCompounder_Gen3_3",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 3,
+      "performance": {
+        "sharpe_ratio": 7.65,
+        "max_drawdown_pct": 11.06,
+        "win_rate_pct": 60.0,
+        "profit_factor": 2.94,
+        "total_trades": 25,
+        "net_return_pct": 126.97
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g3_3.py",
+      "deployed_at": "2026-10-30T00:04:19.310569"
+    },
+    {
+      "strategy_id": "strat_core_etf_momentum_compounder_g1_3",
+      "class_name": "CoreEtfCompounder_Gen1_3",
+      "archetype": "CORE_ETF_MOMENTUM_COMPOUNDER",
+      "hypothesis": "Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.",
+      "generation": 1,
+      "performance": {
+        "sharpe_ratio": 6.33,
+        "max_drawdown_pct": 10.23,
+        "win_rate_pct": 56.0,
+        "profit_factor": 2.33,
+        "total_trades": 25,
+        "net_return_pct": 94.91
+      },
+      "file_path": "C:\\Users\\henry\\.gemini\\antigravity\\scratch\\autonomous-finance-agent\\data\\synthesized_strategies\\strat_core_etf_momentum_compounder_g1_3.py",
+      "deployed_at": "2026-10-30T00:04:46.402927"
     }
   ]
 }

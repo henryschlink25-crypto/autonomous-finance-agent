@@ -101,7 +101,7 @@
     }
   },
   "BHC": {
-    "timestamp": 1793312372.352419,
+    "timestamp": 1793314364.8894994,
     "data": {
       "symbol": "BHC",
       "sentiment_label": "VERY_BULLISH",
@@ -118,7 +118,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:19:32Z"
+      "analyzed_at": "2026-10-29T22:52:44Z"
     }
   },
   "AAPL": {
@@ -164,7 +164,7 @@
     }
   },
   "CROX": {
-    "timestamp": 1793312367.1624246,
+    "timestamp": 1793314374.1230185,
     "data": {
       "symbol": "CROX",
       "sentiment_label": "VERY_BULLISH",
@@ -181,11 +181,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:19:27Z"
+      "analyzed_at": "2026-10-29T22:52:54Z"
     }
   },
   "GKOS": {
-    "timestamp": 1793312365.9579852,
+    "timestamp": 1793314366.3341005,
     "data": {
       "symbol": "GKOS",
       "sentiment_label": "NEUTRAL",
@@ -202,11 +202,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:19:25Z"
+      "analyzed_at": "2026-10-29T22:52:46Z"
     }
   },
   "ADT": {
-    "timestamp": 1793312373.4618757,
+    "timestamp": 1793314370.0574453,
     "data": {
       "symbol": "ADT",
       "sentiment_label": "VERY_BULLISH",
@@ -223,11 +223,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:19:33Z"
+      "analyzed_at": "2026-10-29T22:52:50Z"
     }
   },
   "PURR": {
-    "timestamp": 1793312375.4409986,
+    "timestamp": 1793314367.3604283,
     "data": {
       "symbol": "PURR",
       "sentiment_label": "NEUTRAL",
@@ -244,7 +244,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:19:35Z"
+      "analyzed_at": "2026-10-29T22:52:47Z"
     }
   },
   "NOW": {
@@ -269,7 +269,7 @@
     }
   },
   "PRCH": {
-    "timestamp": 1793312022.4547572,
+    "timestamp": 1793314375.3690865,
     "data": {
       "symbol": "PRCH",
       "sentiment_label": "NEUTRAL",
@@ -286,7 +286,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:13:42Z"
+      "analyzed_at": "2026-10-29T22:52:55Z"
     }
   },
   "MESO": {
@@ -962,7 +962,7 @@
     }
   },
   "TDOC": {
-    "timestamp": 1793312368.8034537,
+    "timestamp": 1793314372.4958937,
     "data": {
       "symbol": "TDOC",
       "sentiment_label": "VERY_BULLISH",
@@ -979,11 +979,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:19:28Z"
+      "analyzed_at": "2026-10-29T22:52:52Z"
     }
   },
   "LUNG": {
-    "timestamp": 1793312023.1708405,
+    "timestamp": 1793314368.4047894,
     "data": {
       "symbol": "LUNG",
       "sentiment_label": "NEUTRAL",
@@ -1000,7 +1000,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:13:43Z"
+      "analyzed_at": "2026-10-29T22:52:48Z"
     }
   },
   "ALNY": {
@@ -1277,7 +1277,7 @@
     }
   },
   "VG": {
-    "timestamp": 1793312448.2851703,
+    "timestamp": 1793314451.5332005,
     "data": {
       "symbol": "VG",
       "sentiment_label": "VERY_BULLISH",
@@ -1294,7 +1294,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.88 | Pos: 92%, Neg: 4%, Neu: 4%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:20:48Z"
+      "analyzed_at": "2026-10-29T22:54:11Z"
     }
   },
   "CABA": {
@@ -1403,24 +1403,24 @@
     }
   },
   "MRVL": {
-    "timestamp": 1793308178.1102703,
+    "timestamp": 1793314928.1905398,
     "data": {
       "symbol": "MRVL",
-      "sentiment_label": "VERY_BULLISH",
-      "compound_score": 0.665,
-      "positive_prob": 0.72,
-      "negative_prob": 0.055,
-      "neutral_prob": 0.225,
+      "sentiment_label": "NEUTRAL",
+      "compound_score": 0.0,
+      "positive_prob": 0.2,
+      "negative_prob": 0.2,
+      "neutral_prob": 0.6,
       "headline_count": 5,
       "top_headlines": [
-        "Marvell’s $80 Billion AI Megadeal Has Wall Street Asking: Is This the Dot-Com Bubble All Over Again?",
-        "Lumentum Jumps, Fades On Marvell Buyout Report",
-        "Not Nvidia. Not AMD. This Custom AI Chip Designer Could Outperform Both by 2030."
+        "Stock Market Today, Oct. 29: Marvell Falls on Lumentum Acquisition Talks",
+        "Alphabet, Marvell, ServiceNow, Fortinet, Caterpillar, Lilly, and More Stocks That Explain Today’s Market",
+        "Marvell Technology (MRVL) Sees a More Significant Dip Than Broader Market: Some Facts to Know"
       ],
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
-      "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
+      "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T21:09:38Z"
+      "analyzed_at": "2026-10-29T23:02:08Z"
     }
   },
   "FTRE": {
@@ -1508,7 +1508,7 @@
     }
   },
   "CAT": {
-    "timestamp": 1793311233.9586687,
+    "timestamp": 1793314772.4690018,
     "data": {
       "symbol": "CAT",
       "sentiment_label": "NEUTRAL",
@@ -1525,7 +1525,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:00:33Z"
+      "analyzed_at": "2026-10-29T22:59:32Z"
     }
   },
   "KPTI": {
@@ -1634,7 +1634,7 @@
     }
   },
   "FMC": {
-    "timestamp": 1793312026.56117,
+    "timestamp": 1793314448.6691966,
     "data": {
       "symbol": "FMC",
       "sentiment_label": "NEUTRAL",
@@ -1651,7 +1651,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: NEUTRAL (Score +0.00 | Pos: 20%, Neg: 20%, Neu: 60%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:13:46Z"
+      "analyzed_at": "2026-10-29T22:54:08Z"
     }
   },
   "PINS": {
@@ -1676,7 +1676,7 @@
     }
   },
   "VRT": {
-    "timestamp": 1793313004.136838,
+    "timestamp": 1793315006.088402,
     "data": {
       "symbol": "VRT",
       "sentiment_label": "VERY_BULLISH",
@@ -1693,11 +1693,11 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:30:04Z"
+      "analyzed_at": "2026-10-29T23:03:26Z"
     }
   },
   "INTR": {
-    "timestamp": 1793312796.1409087,
+    "timestamp": 1793314608.774351,
     "data": {
       "symbol": "INTR",
       "sentiment_label": "VERY_BULLISH",
@@ -1714,7 +1714,7 @@
       "model_used": "FinBERT-Calibrated-Lexicon (Fallback)",
       "summary": "FinBERT Sentiment: VERY_BULLISH (Score +0.66 | Pos: 72%, Neg: 6%, Neu: 23%) basierend auf 5 Meldungen via FinBERT-Calibrated-Lexicon (Fallback).",
       "veto_triggered": false,
-      "analyzed_at": "2026-10-29T22:26:36Z"
+      "analyzed_at": "2026-10-29T22:56:48Z"
     }
   },
   "GME": {

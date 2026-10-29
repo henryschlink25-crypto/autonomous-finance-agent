@@ -3130,7 +3130,117 @@ def test_all_audit_fixes() -> None:
 
         print(f"[OK] Test 63 bestanden: Autonome Begrenzungs-Regulierung (Sub-Agent #49) lockert auf Extended Hours & 3-Min ORB und schärft bei Markt-Crash.")
 
-    print("=== Alle 63 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter-, Simple-Arbitrage-Hunter- & Autonomous-Constraint-Regulator-Tests erfolgreich bestanden! ===")
+        # ============================================================================
+        # TEST 64: Situational Awareness & Hedge Fund Strategy Auditor (Sub-Agent #50)
+        #          50 SUB-AGENTS JUBILÄUM: Säkularer KI-Infrastruktur-Flaschenhals (Aschenbrenner)
+        #          Citadel Anti-Blowup Guard (Überhebelungs-Schutz) & Wait-for-Cleanse Dip-Filter
+        # ============================================================================
+        from hedge_fund_strategy_auditor import HedgeFundStrategyAuditor
+        hf_auditor = HedgeFundStrategyAuditor()
+
+        # 1. Teste säkulare KI-Infrastruktur-Erkennung (NVDA -> Silicon, VRT -> Energy/Cooling, ANET -> Interconnect)
+        snap_nvda_hf = dummy_snap.model_copy(update={
+            "symbol": "NVDA",
+            "current_price": 140.0,
+            "sma_20": 136.0,
+            "sma_50": 130.0,
+            "volatility_annualized_pct": 38.0,
+            "rsi_14": 56.0,
+            "change_24h_pct": 1.8,
+        })
+        res_nvda = hf_auditor.audit_trade_setup(snap_nvda_hf, green_macro, planned_leverage=1.0)
+        assert res_nvda.is_situational_awareness_asset is True
+        assert res_nvda.infrastructure_pillar == "COMPUTE_SILICON"
+        assert res_nvda.citadel_dip_status == "READY_ACCUMULATE"
+        assert res_nvda.citadel_leverage_veto is False
+
+        snap_vrt_hf = dummy_snap.model_copy(update={
+            "symbol": "VRT",
+            "current_price": 105.0,
+            "sma_20": 102.0,
+            "sma_50": 98.0,
+            "volatility_annualized_pct": 42.0,
+            "rsi_14": 54.0,
+            "change_24h_pct": 2.2,
+        })
+        res_vrt = hf_auditor.audit_trade_setup(snap_vrt_hf, green_macro, planned_leverage=1.0)
+        assert res_vrt.infrastructure_pillar == "ENERGY_COOLING_GRID"
+
+        # 2. Teste Citadel Anti-Blowup Guard (Hebel-Veto bei hoher Volatilität oder hohem VIX)
+        res_high_lev = hf_auditor.audit_trade_setup(snap_nvda_hf, green_macro, planned_leverage=2.5)
+        assert res_high_lev.citadel_leverage_veto is True, "Hebel 2.5x bei 38% Volatilität muss vom Citadel-Guard blockiert werden"
+        assert "CITADEL ANTI-BLOWUP VETO" in res_high_lev.rationale
+
+        high_vix_macro = green_macro.model_copy(update={"vix_level": 28.5})
+        res_vix_lev = hf_auditor.audit_trade_setup(snap_nvda_hf, high_vix_macro, planned_leverage=1.8)
+        assert res_vix_lev.citadel_leverage_veto is True, "Hebel 1.8x bei VIX 28.5 muss vom Citadel-Guard blockiert werden"
+
+        # 3. Teste Wait for Citadel Cleanse (Schutz vor fallenden Messern bei institutionellen Notverkäufen)
+        snap_falling_knife = snap_nvda_hf.model_copy(update={
+            "current_price": 118.0,
+            "sma_50": 130.0,  # Kurs unter SMA50
+            "rsi_14": 28.0,   # Überverkauft, aber Trend gebrochen
+        })
+        res_knife = hf_auditor.audit_trade_setup(snap_falling_knife, green_macro, planned_leverage=1.0)
+        assert res_knife.citadel_dip_status == "WAIT_FOR_CLEANSE"
+        assert "Aschenbrenner-Falle" in res_knife.rationale
+
+        # 4. Teste DeterministicRiskManager Integration (Leopold Aschenbrenner Schutzregel)
+        sig_nvda_knife = sig_apex_high.model_copy(update={
+            "symbol": "NVDA",
+            "action": "BUY",
+            "leverage": 1.0,
+            "entry_price": 118.0,
+        })
+        eval_knife = rm_dyn.evaluate_signal(
+            signal=sig_nvda_knife,
+            snapshot=snap_falling_knife,
+            macro=green_macro,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        assert eval_knife.approved is False, "Fallendes Messer unter SMA50 muss vom Risk-Manager abgelehnt werden"
+        assert "WAIT_FOR_CLEANSE" in eval_knife.reason
+
+        # 5. Teste Sub-Agent #50 im ADAS-Schwarm (50 Spezialisten Meilenstein!)
+        adas_hf = ADASMetaAgent()
+        assert "hedge_fund_macro_auditor" in adas_hf.state.active_subagents, "Sub-Agent #50 muss aktiv sein"
+        assert len(adas_hf.state.active_subagents) >= 50, f"Schwarm muss 50 Spezialisten umfassen, aktuell: {len(adas_hf.state.active_subagents)}"
+
+        _, votes_hf, _ = adas_hf.evaluate_symbol_with_swarm(
+            snap=snap_nvda_hf,
+            baseline_signal=sig_nvda_knife.model_copy(update={"entry_price": 140.0}),
+            macro=green_macro,
+        )
+        vote_hf = next((v for v in votes_hf if v.agent_id == "hedge_fund_macro_auditor"), None)
+        assert vote_hf is not None, "Vote von hedge_fund_macro_auditor muss vorhanden sein"
+        assert vote_hf.score >= 0.70, f"Vote Score für intakten KI-Trend muss hoch sein: {vote_hf.score}"
+        assert "Situational Awareness" in vote_hf.rationale
+
+        # 6. Teste Dialekt-Token (🏛️:SITUATIONAL_AWARENESS_MACRO & 🛡️:CITADEL_ANTI_BLOWUP_VETO)
+        sig_nvda_healthy = sig_nvda_knife.model_copy(update={"entry_price": 140.0, "leverage": 1.0})
+        eval_nvda_healthy = rm_dyn.evaluate_signal(
+            signal=sig_nvda_healthy,
+            snapshot=snap_nvda_hf,
+            macro=green_macro,
+            cash_usd=1000.0,
+            total_equity_usd=1000.0,
+            daily_pnl_pct=0.0,
+            positions={},
+        )
+        deal_nvda = dialect_engine.compose_and_negotiate_deal(
+            snapshot=snap_nvda_hf,
+            signal=sig_nvda_healthy,
+            macro=green_macro,
+            risk_evaluation=eval_nvda_healthy,
+        )
+        assert "🏛️:SITUATIONAL_AWARENESS_MACRO" in deal_nvda.dialect_sentence, f"Dialekt muss 🏛️:SITUATIONAL_AWARENESS_MACRO enthalten: {deal_nvda.dialect_sentence}"
+
+        print(f"[OK] Test 64 bestanden: Situational Awareness & Hedge Fund Auditor (Sub-Agent #50 - 50 SPEZIALISTEN MEILENSTEIN) schützt vor Aschenbrenner-Hebel-Ruin & erzwingt Citadel-Risikodisziplin.")
+
+    print("=== Alle 64 Architektur-, Smart-Leverage-, Penny-Stock-, IBKR-Bridge-, ADAS-Swarm-, Strategie-Zucht-, Red-Team-, SEC-Whale-, Options-Flow-, Fundamental-, AutoTuner-, StatArb-Pairs-, Hurst-Fractal-, Credit-Intermarket-, Microstructure-, Fractional-Kelly-, Sector-Rotation-, Wall-Street-Ratings-, Geopolitik-, Notification-Spam-, Swarm-Knowledge-, Emergent-Dialect-, HuggingFace-Sentiment-, VWAP-Liquidity-Sweep-, Walk-Forward-Lab-, Macro-Event-Horizon-, Probabilistic-Forecast-, CIO-Conviction-, Correlation-Breakdown-, Runner-Profit-, Swarm-Dialect-Evolution-, Live-Ultra-Conviction-, Multi-Timeframe-Proactive-Shield-, Tactical-Entry-Timing-, 24/7-Permanent-Production-Fortress-, Dynamic-US-Market-Screener-, Asymmetric-Compounding-, PEAD-Drift-Hunter-, Micro-Dip-Sniper-, Nightly-Bayesian-Evolution-, Push-Charts-, Autonomous-Self-Expansion-, TradingView-TA-Sentinel-, Riskfolio-HRP-, Swarm-Blackboard-, Dark-Pool-Sentinel-, SEC-Edgar-Scout-, Microsoft-Qlib-Alpha158-, Smart-Recovery-Evaluator-, Autonomous-Diversification-, MoA-Supply-Chain-, Laien-Briefing-Daily-Review-, Fringe-Reddit-Leak-Sentinel-, Autonomous-Sizing-Arbiter-, Simple-Arbitrage-Hunter-, Autonomous-Constraint-Regulator- & Situational-Awareness-Hedge-Fund-Auditor-Tests erfolgreich bestanden! ===")
 
 
 

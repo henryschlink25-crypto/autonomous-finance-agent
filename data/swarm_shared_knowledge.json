@@ -1,5 +1,5 @@
 {
-  "total_exchanges": 113,
+  "total_exchanges": 116,
   "insights": {
     "TRAP_PENNY_NO_CATALYST": {
       "insight_id": "TRAP_PENNY_NO_CATALYST",
@@ -146,9 +146,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:SECTOR_A_CALL_WHA": {
       "insight_id": "IDIOM_🧬:SECTOR_A_CALL_WHA",
@@ -162,9 +162,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_👑:SOVEREIGN_ALPHA_HARVEST": {
       "insight_id": "IDIOM_👑:SOVEREIGN_ALPHA_HARVEST",
@@ -178,9 +178,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:CALL_WHA_HURST_PE": {
       "insight_id": "IDIOM_🧬:CALL_WHA_HURST_PE",
@@ -194,9 +194,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:HURST_PE_WALL_ST_": {
       "insight_id": "IDIOM_🧬:HURST_PE_WALL_ST_",
@@ -210,9 +210,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:CALL_WHA_WALL_ST_": {
       "insight_id": "IDIOM_🧬:CALL_WHA_WALL_ST_",
@@ -226,9 +226,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:QUANTILE_CIO_TIER": {
       "insight_id": "IDIOM_🧬:QUANTILE_CIO_TIER",
@@ -242,9 +242,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 202,
+      "verifications_count": 219,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:QUANTILE_CORRELAT": {
       "insight_id": "IDIOM_🧬:QUANTILE_CORRELAT",
@@ -258,9 +258,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 117,
+      "verifications_count": 122,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_💎:QUANT_SWEEP_CONVERGENCE": {
       "insight_id": "IDIOM_💎:QUANT_SWEEP_CONVERGENCE",
@@ -274,9 +274,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 172,
+      "verifications_count": 178,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:CALL_WHA_ENTRY_IM": {
       "insight_id": "IDIOM_🧬:CALL_WHA_ENTRY_IM",
@@ -290,9 +290,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:ENTRY_IM_WALL_ST_": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_WALL_ST_",
@@ -306,9 +306,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:HURST_PE_ENTRY_IM": {
       "insight_id": "IDIOM_🧬:HURST_PE_ENTRY_IM",
@@ -322,9 +322,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 143,
+      "verifications_count": 149,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:SECTOR_A_ENTRY_IM": {
       "insight_id": "IDIOM_🧬:SECTOR_A_ENTRY_IM",
@@ -338,9 +338,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 189,
+      "verifications_count": 198,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:ENTRY_IM_QUANTILE": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_QUANTILE",
@@ -354,9 +354,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 699,
+      "verifications_count": 738,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:ENTRY_IM_LIQUIDIT": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_LIQUIDIT",
@@ -370,9 +370,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 284,
+      "verifications_count": 294,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:DOWNSIDE_ENTRY_IM": {
       "insight_id": "IDIOM_🧬:DOWNSIDE_ENTRY_IM",
@@ -386,9 +386,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 114,
+      "verifications_count": 119,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:56"
     },
     "IDIOM_🧬:ENTRY_IM_CIO_TIER": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_CIO_TIER",
@@ -402,9 +402,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 248,
+      "verifications_count": 268,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:ENTRY_IM_CORRELAT": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_CORRELAT",
@@ -418,9 +418,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 117,
+      "verifications_count": 122,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:ENTRY_IM_TRIPLE_T": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_TRIPLE_T",
@@ -434,9 +434,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 48,
+      "verifications_count": 51,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:48"
     },
     "IDIOM_🧬:QUANTILE_TRIPLE_T": {
       "insight_id": "IDIOM_🧬:QUANTILE_TRIPLE_T",
@@ -450,9 +450,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 48,
+      "verifications_count": 51,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:48"
     },
     "IDIOM_🧬:SECTOR_A_CIO_TIER": {
       "insight_id": "IDIOM_🧬:SECTOR_A_CIO_TIER",
@@ -466,9 +466,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 46,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:PEAD_EAR_CIO_TIER": {
       "insight_id": "IDIOM_🧬:PEAD_EAR_CIO_TIER",
@@ -482,9 +482,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 46,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:ENTRY_IM_PEAD_EAR": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_PEAD_EAR",
@@ -498,9 +498,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 46,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:SECTOR_A_PEAD_EAR": {
       "insight_id": "IDIOM_🧬:SECTOR_A_PEAD_EAR",
@@ -514,9 +514,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 46,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "ALPHA_CONFIRMED_DKI": {
       "insight_id": "ALPHA_CONFIRMED_DKI",
@@ -706,9 +706,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 25,
+      "verifications_count": 28,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:SYNTHESI_CIO_TIER": {
       "insight_id": "IDIOM_🧬:SYNTHESI_CIO_TIER",
@@ -722,9 +722,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 25,
+      "verifications_count": 28,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:SYNTHESI_QUANTILE": {
       "insight_id": "IDIOM_🧬:SYNTHESI_QUANTILE",
@@ -738,9 +738,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 25,
+      "verifications_count": 28,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:CALL_WHA_BLACKBOA": {
       "insight_id": "IDIOM_🧬:CALL_WHA_BLACKBOA",
@@ -914,9 +914,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 104,
+      "verifications_count": 119,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:HRP_RISK_ENTRY_IM": {
       "insight_id": "IDIOM_🧬:HRP_RISK_ENTRY_IM",
@@ -930,9 +930,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 104,
+      "verifications_count": 122,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:HRP_RISK_BLACKBOA": {
       "insight_id": "IDIOM_🧬:HRP_RISK_BLACKBOA",
@@ -962,9 +962,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 82,
+      "verifications_count": 94,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:BLACKBOA_TRIPLE_T": {
       "insight_id": "IDIOM_🧬:BLACKBOA_TRIPLE_T",
@@ -1010,9 +1010,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 22,
+      "verifications_count": 25,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:PEAD_EAR_BLACKBOA": {
       "insight_id": "IDIOM_🧬:PEAD_EAR_BLACKBOA",
@@ -1042,9 +1042,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 22,
+      "verifications_count": 25,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:HRP_RISK_SYNTHESI": {
       "insight_id": "IDIOM_🧬:HRP_RISK_SYNTHESI",
@@ -1058,9 +1058,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 22,
+      "verifications_count": 25,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:SYNTHESI_BLACKBOA": {
       "insight_id": "IDIOM_🧬:SYNTHESI_BLACKBOA",
@@ -1090,9 +1090,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:51"
     },
     "IDIOM_🧬:QUANTILE_TRADINGV": {
       "insight_id": "IDIOM_🧬:QUANTILE_TRADINGV",
@@ -1106,9 +1106,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:ENTRY_IM_TRADINGV": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_TRADINGV",
@@ -1122,9 +1122,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:51"
     },
     "IDIOM_🧬:HRP_RISK_TRADINGV": {
       "insight_id": "IDIOM_🧬:HRP_RISK_TRADINGV",
@@ -1138,9 +1138,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:51"
     },
     "IDIOM_🧬:TRADINGV_BLACKBOA": {
       "insight_id": "IDIOM_🧬:TRADINGV_BLACKBOA",
@@ -1170,9 +1170,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:DARK_POO_CIO_TIER": {
       "insight_id": "IDIOM_🧬:DARK_POO_CIO_TIER",
@@ -1186,9 +1186,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:QUANTILE_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:QUANTILE_SEC_EDGA",
@@ -1202,9 +1202,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:DARK_POO_QUANTILE": {
       "insight_id": "IDIOM_🧬:DARK_POO_QUANTILE",
@@ -1218,9 +1218,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:ENTRY_IM_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_SEC_EDGA",
@@ -1234,9 +1234,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:DARK_POO_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:DARK_POO_SEC_EDGA",
@@ -1250,9 +1250,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:HRP_RISK_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:HRP_RISK_SEC_EDGA",
@@ -1266,9 +1266,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:BLACKBOA_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:BLACKBOA_SEC_EDGA",
@@ -1298,9 +1298,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:HRP_RISK_DARK_POO": {
       "insight_id": "IDIOM_🧬:HRP_RISK_DARK_POO",
@@ -1314,9 +1314,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:DARK_POO_BLACKBOA": {
       "insight_id": "IDIOM_🧬:DARK_POO_BLACKBOA",
@@ -1346,9 +1346,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:QUANTILE_QLIB_ALP": {
       "insight_id": "IDIOM_🧬:QUANTILE_QLIB_ALP",
@@ -1362,9 +1362,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:ENTRY_IM_QLIB_ALP": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_QLIB_ALP",
@@ -1378,9 +1378,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:HRP_RISK_QLIB_ALP": {
       "insight_id": "IDIOM_🧬:HRP_RISK_QLIB_ALP",
@@ -1394,9 +1394,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 20,
+      "verifications_count": 23,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:BLACKBOA_QLIB_ALP": {
       "insight_id": "IDIOM_🧬:BLACKBOA_QLIB_ALP",
@@ -1426,9 +1426,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 43,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:SECTOR_A_TACTICAL": {
       "insight_id": "IDIOM_🧬:SECTOR_A_TACTICAL",
@@ -1442,9 +1442,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 58,
+      "verifications_count": 67,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:HURST_PE_TACTICAL": {
       "insight_id": "IDIOM_🧬:HURST_PE_TACTICAL",
@@ -1458,9 +1458,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 43,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:TACTICAL_WALL_ST_": {
       "insight_id": "IDIOM_🧬:TACTICAL_WALL_ST_",
@@ -1474,9 +1474,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 43,
+      "verifications_count": 49,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:TACTICAL_BLACKBOA": {
       "insight_id": "IDIOM_🧬:TACTICAL_BLACKBOA",
@@ -1506,9 +1506,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 342,
+      "verifications_count": 398,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:TACTICAL_QUANTILE": {
       "insight_id": "IDIOM_🧬:TACTICAL_QUANTILE",
@@ -1522,9 +1522,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 247,
+      "verifications_count": 286,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:DOWNSIDE_TACTICAL": {
       "insight_id": "IDIOM_🧬:DOWNSIDE_TACTICAL",
@@ -1538,9 +1538,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 37,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:TACTICAL_CIO_TIER": {
       "insight_id": "IDIOM_🧬:TACTICAL_CIO_TIER",
@@ -1554,9 +1554,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 106,
+      "verifications_count": 126,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:TACTICAL_CORRELAT": {
       "insight_id": "IDIOM_🧬:TACTICAL_CORRELAT",
@@ -1570,9 +1570,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 37,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:TACTICAL_LIQUIDIT": {
       "insight_id": "IDIOM_🧬:TACTICAL_LIQUIDIT",
@@ -1586,9 +1586,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 54,
+      "verifications_count": 60,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:HRP_RISK_TACTICAL": {
       "insight_id": "IDIOM_🧬:HRP_RISK_TACTICAL",
@@ -1602,9 +1602,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 69,
+      "verifications_count": 87,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:TACTICAL_TRIPLE_T": {
       "insight_id": "IDIOM_🧬:TACTICAL_TRIPLE_T",
@@ -1618,9 +1618,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 15,
+      "verifications_count": 18,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:48"
     },
     "IDIOM_🧬:PEAD_EAR_TACTICAL": {
       "insight_id": "IDIOM_🧬:PEAD_EAR_TACTICAL",
@@ -1634,9 +1634,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 15,
+      "verifications_count": 18,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:SYNTHESI_TACTICAL": {
       "insight_id": "IDIOM_🧬:SYNTHESI_TACTICAL",
@@ -1650,9 +1650,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 15,
+      "verifications_count": 18,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:TACTICAL_TRADINGV": {
       "insight_id": "IDIOM_🧬:TACTICAL_TRADINGV",
@@ -1666,9 +1666,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 16,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:TACTICAL_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:TACTICAL_SEC_EDGA",
@@ -1682,9 +1682,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 16,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:TACTICAL_DARK_POO": {
       "insight_id": "IDIOM_🧬:TACTICAL_DARK_POO",
@@ -1698,9 +1698,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 16,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:TACTICAL_QLIB_ALP": {
       "insight_id": "IDIOM_🧬:TACTICAL_QLIB_ALP",
@@ -1714,9 +1714,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 16,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:WALL_ST__MOA_REGI": {
       "insight_id": "IDIOM_🧬:WALL_ST__MOA_REGI",
@@ -1730,9 +1730,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 36,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:CALL_WHA_MOA_REGI": {
       "insight_id": "IDIOM_🧬:CALL_WHA_MOA_REGI",
@@ -1746,9 +1746,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 36,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:HURST_PE_MOA_REGI": {
       "insight_id": "IDIOM_🧬:HURST_PE_MOA_REGI",
@@ -1762,9 +1762,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 36,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:ENTRY_IM_MOA_REGI": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_MOA_REGI",
@@ -1778,9 +1778,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 304,
+      "verifications_count": 364,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:SECTOR_A_MOA_REGI": {
       "insight_id": "IDIOM_🧬:SECTOR_A_MOA_REGI",
@@ -1794,9 +1794,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 48,
+      "verifications_count": 57,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:TACTICAL_MOA_REGI": {
       "insight_id": "IDIOM_🧬:TACTICAL_MOA_REGI",
@@ -1810,9 +1810,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 276,
+      "verifications_count": 332,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:QUANTILE_MOA_REGI": {
       "insight_id": "IDIOM_🧬:QUANTILE_MOA_REGI",
@@ -1826,9 +1826,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 198,
+      "verifications_count": 237,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:LIQUIDIT_MOA_REGI": {
       "insight_id": "IDIOM_🧬:LIQUIDIT_MOA_REGI",
@@ -1842,9 +1842,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 72,
+      "verifications_count": 82,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:DOWNSIDE_MOA_REGI": {
       "insight_id": "IDIOM_🧬:DOWNSIDE_MOA_REGI",
@@ -1858,9 +1858,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 30,
+      "verifications_count": 35,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:CIO_TIER_MOA_REGI": {
       "insight_id": "IDIOM_🧬:CIO_TIER_MOA_REGI",
@@ -1874,9 +1874,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 84,
+      "verifications_count": 104,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:CORRELAT_MOA_REGI": {
       "insight_id": "IDIOM_🧬:CORRELAT_MOA_REGI",
@@ -1890,9 +1890,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 30,
+      "verifications_count": 35,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:TACTICAL_DARKNET_": {
       "insight_id": "IDIOM_🧬:TACTICAL_DARKNET_",
@@ -1906,9 +1906,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 250,
+      "verifications_count": 306,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:HURST_PE_DARKNET_": {
       "insight_id": "IDIOM_🧬:HURST_PE_DARKNET_",
@@ -1922,9 +1922,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 30,
+      "verifications_count": 36,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:ENTRY_IM_DARKNET_": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_DARKNET_",
@@ -1938,9 +1938,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 274,
+      "verifications_count": 334,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:DARKNET__MOA_REGI": {
       "insight_id": "IDIOM_🧬:DARKNET__MOA_REGI",
@@ -1954,9 +1954,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 274,
+      "verifications_count": 334,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🐋:WHALE_INSIDER_APEX": {
       "insight_id": "IDIOM_🐋:WHALE_INSIDER_APEX",
@@ -1970,9 +1970,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 30,
+      "verifications_count": 36,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:SECTOR_A_DARKNET_": {
       "insight_id": "IDIOM_🧬:SECTOR_A_DARKNET_",
@@ -1986,9 +1986,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 42,
+      "verifications_count": 51,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:WALL_ST__DARKNET_": {
       "insight_id": "IDIOM_🧬:WALL_ST__DARKNET_",
@@ -2002,9 +2002,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 30,
+      "verifications_count": 36,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:QUANTILE_DARKNET_": {
       "insight_id": "IDIOM_🧬:QUANTILE_DARKNET_",
@@ -2018,9 +2018,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 182,
+      "verifications_count": 221,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:LIQUIDIT_DARKNET_": {
       "insight_id": "IDIOM_🧬:LIQUIDIT_DARKNET_",
@@ -2034,9 +2034,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 64,
+      "verifications_count": 74,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:DOWNSIDE_DARKNET_": {
       "insight_id": "IDIOM_🧬:DOWNSIDE_DARKNET_",
@@ -2050,9 +2050,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 26,
+      "verifications_count": 31,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:56"
     },
     "IDIOM_🧬:CIO_TIER_DARKNET_": {
       "insight_id": "IDIOM_🧬:CIO_TIER_DARKNET_",
@@ -2066,9 +2066,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 80,
+      "verifications_count": 100,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:DARKNET__CORRELAT": {
       "insight_id": "IDIOM_🧬:DARKNET__CORRELAT",
@@ -2082,9 +2082,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 26,
+      "verifications_count": 31,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:HRP_RISK_MOA_REGI": {
       "insight_id": "IDIOM_🧬:HRP_RISK_MOA_REGI",
@@ -2098,9 +2098,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 54,
+      "verifications_count": 72,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:HRP_RISK_DARKNET_": {
       "insight_id": "IDIOM_🧬:HRP_RISK_DARKNET_",
@@ -2114,9 +2114,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 54,
+      "verifications_count": 72,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:TRIPLE_T_MOA_REGI": {
       "insight_id": "IDIOM_🧬:TRIPLE_T_MOA_REGI",
@@ -2130,9 +2130,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:48"
     },
     "IDIOM_🧬:TRIPLE_T_DARKNET_": {
       "insight_id": "IDIOM_🧬:TRIPLE_T_DARKNET_",
@@ -2146,9 +2146,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:48"
     },
     "IDIOM_🧬:DARKNET__LIQUIDIT": {
       "insight_id": "IDIOM_🧬:DARKNET__LIQUIDIT",
@@ -2162,9 +2162,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:PEAD_EAR_MOA_REGI": {
       "insight_id": "IDIOM_🧬:PEAD_EAR_MOA_REGI",
@@ -2178,9 +2178,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:PEAD_EAR_DARKNET_": {
       "insight_id": "IDIOM_🧬:PEAD_EAR_DARKNET_",
@@ -2194,9 +2194,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:SYNTHESI_MOA_REGI": {
       "insight_id": "IDIOM_🧬:SYNTHESI_MOA_REGI",
@@ -2210,9 +2210,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:SYNTHESI_DARKNET_": {
       "insight_id": "IDIOM_🧬:SYNTHESI_DARKNET_",
@@ -2226,9 +2226,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 12,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:TRADINGV_MOA_REGI": {
       "insight_id": "IDIOM_🧬:TRADINGV_MOA_REGI",
@@ -2242,9 +2242,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:TRADINGV_DARKNET_": {
       "insight_id": "IDIOM_🧬:TRADINGV_DARKNET_",
@@ -2258,9 +2258,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:51"
     },
     "IDIOM_🧬:DARK_POO_MOA_REGI": {
       "insight_id": "IDIOM_🧬:DARK_POO_MOA_REGI",
@@ -2274,9 +2274,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:SEC_EDGA_MOA_REGI": {
       "insight_id": "IDIOM_🧬:SEC_EDGA_MOA_REGI",
@@ -2290,9 +2290,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:DARK_POO_DARKNET_": {
       "insight_id": "IDIOM_🧬:DARK_POO_DARKNET_",
@@ -2306,9 +2306,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:SEC_EDGA_DARKNET_": {
       "insight_id": "IDIOM_🧬:SEC_EDGA_DARKNET_",
@@ -2322,9 +2322,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:QLIB_ALP_MOA_REGI": {
       "insight_id": "IDIOM_🧬:QLIB_ALP_MOA_REGI",
@@ -2338,9 +2338,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:QLIB_ALP_DARKNET_": {
       "insight_id": "IDIOM_🧬:QLIB_ALP_DARKNET_",
@@ -2354,9 +2354,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 13,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:AUTONOMO_MOA_REGI": {
       "insight_id": "IDIOM_🧬:AUTONOMO_MOA_REGI",
@@ -2370,9 +2370,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 107,
+      "verifications_count": 162,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:AUTONOMO_HRP_RISK": {
       "insight_id": "IDIOM_🧬:AUTONOMO_HRP_RISK",
@@ -2386,9 +2386,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 39,
+      "verifications_count": 57,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:AUTONOMO_DARKNET_": {
       "insight_id": "IDIOM_🧬:AUTONOMO_DARKNET_",
@@ -2402,9 +2402,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 107,
+      "verifications_count": 162,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:AUTONOMO_TACTICAL": {
       "insight_id": "IDIOM_🧬:AUTONOMO_TACTICAL",
@@ -2418,9 +2418,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 39,
+      "verifications_count": 57,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:AUTONOMO_CIO_TIER": {
       "insight_id": "IDIOM_🧬:AUTONOMO_CIO_TIER",
@@ -2434,9 +2434,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 39,
+      "verifications_count": 54,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:AUTONOMO_ENTRY_IM": {
       "insight_id": "IDIOM_🧬:AUTONOMO_ENTRY_IM",
@@ -2450,9 +2450,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 39,
+      "verifications_count": 57,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:AUTONOMO_QUANTILE": {
       "insight_id": "IDIOM_🧬:AUTONOMO_QUANTILE",
@@ -2466,9 +2466,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 30,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:SECTOR_A_AUTONOMO": {
       "insight_id": "IDIOM_🧬:SECTOR_A_AUTONOMO",
@@ -2482,9 +2482,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 19,
+      "verifications_count": 28,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:AUTONOMO_PEAD_EAR": {
       "insight_id": "IDIOM_🧬:AUTONOMO_PEAD_EAR",
@@ -2498,9 +2498,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 9,
+      "verifications_count": 12,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:AUTONOMO_SYNTHESI": {
       "insight_id": "IDIOM_🧬:AUTONOMO_SYNTHESI",
@@ -2514,9 +2514,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 9,
+      "verifications_count": 12,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:AUTONOMO_TRADINGV": {
       "insight_id": "IDIOM_🧬:AUTONOMO_TRADINGV",
@@ -2530,9 +2530,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 7,
+      "verifications_count": 10,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:AUTONOMO_SEC_EDGA": {
       "insight_id": "IDIOM_🧬:AUTONOMO_SEC_EDGA",
@@ -2546,9 +2546,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 7,
+      "verifications_count": 10,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:AUTONOMO_DARK_POO": {
       "insight_id": "IDIOM_🧬:AUTONOMO_DARK_POO",
@@ -2562,9 +2562,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 7,
+      "verifications_count": 10,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:AUTONOMO_QLIB_ALP": {
       "insight_id": "IDIOM_🧬:AUTONOMO_QLIB_ALP",
@@ -2578,9 +2578,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 7,
+      "verifications_count": 10,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:ENTRY_IM_AUTONOMO": {
       "insight_id": "IDIOM_🧬:ENTRY_IM_AUTONOMO",
@@ -2594,9 +2594,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 107,
+      "verifications_count": 162,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:TACTICAL_AUTONOMO": {
       "insight_id": "IDIOM_🧬:TACTICAL_AUTONOMO",
@@ -2610,9 +2610,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 97,
+      "verifications_count": 148,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:HURST_PE_AUTONOMO": {
       "insight_id": "IDIOM_🧬:HURST_PE_AUTONOMO",
@@ -2626,9 +2626,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 19,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:WALL_ST__AUTONOMO": {
       "insight_id": "IDIOM_🧬:WALL_ST__AUTONOMO",
@@ -2642,9 +2642,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 19,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:56"
     },
     "IDIOM_🧬:CALL_WHA_AUTONOMO": {
       "insight_id": "IDIOM_🧬:CALL_WHA_AUTONOMO",
@@ -2658,9 +2658,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 13,
+      "verifications_count": 19,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:QUANTILE_AUTONOMO": {
       "insight_id": "IDIOM_🧬:QUANTILE_AUTONOMO",
@@ -2674,9 +2674,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 68,
+      "verifications_count": 102,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:LIQUIDIT_AUTONOMO": {
       "insight_id": "IDIOM_🧬:LIQUIDIT_AUTONOMO",
@@ -2690,9 +2690,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 28,
+      "verifications_count": 38,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:18"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:DOWNSIDE_AUTONOMO": {
       "insight_id": "IDIOM_🧬:DOWNSIDE_AUTONOMO",
@@ -2706,9 +2706,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:CIO_TIER_AUTONOMO": {
       "insight_id": "IDIOM_🧬:CIO_TIER_AUTONOMO",
@@ -2722,9 +2722,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 34,
+      "verifications_count": 54,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:57"
     },
     "IDIOM_🧬:AUTONOMO_CORRELAT": {
       "insight_id": "IDIOM_🧬:AUTONOMO_CORRELAT",
@@ -2738,9 +2738,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 10,
+      "verifications_count": 15,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:17"
+      "created_at": "2026-10-29T23:04:58"
     },
     "IDIOM_🧬:HRP_RISK_AUTONOMO": {
       "insight_id": "IDIOM_🧬:HRP_RISK_AUTONOMO",
@@ -2754,9 +2754,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 24,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:54"
     },
     "IDIOM_🧬:AUTONOMO_AUTONOMO": {
       "insight_id": "IDIOM_🧬:AUTONOMO_AUTONOMO",
@@ -2770,9 +2770,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 24,
+      "verifications_count": 42,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:16"
+      "created_at": "2026-10-29T23:04:55"
     },
     "IDIOM_🧬:TRIPLE_T_AUTONOMO": {
       "insight_id": "IDIOM_🧬:TRIPLE_T_AUTONOMO",
@@ -2786,9 +2786,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 6,
+      "verifications_count": 9,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:48"
     },
     "IDIOM_🧬:AUTONOMO_LIQUIDIT": {
       "insight_id": "IDIOM_🧬:AUTONOMO_LIQUIDIT",
@@ -2802,9 +2802,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 6,
+      "verifications_count": 9,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:14"
+      "created_at": "2026-10-29T23:04:49"
     },
     "IDIOM_🧬:PEAD_EAR_AUTONOMO": {
       "insight_id": "IDIOM_🧬:PEAD_EAR_AUTONOMO",
@@ -2818,9 +2818,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 6,
+      "verifications_count": 9,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:SYNTHESI_AUTONOMO": {
       "insight_id": "IDIOM_🧬:SYNTHESI_AUTONOMO",
@@ -2834,9 +2834,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 6,
+      "verifications_count": 9,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:51:15"
+      "created_at": "2026-10-29T23:04:50"
     },
     "IDIOM_🧬:TRADINGV_AUTONOMO": {
       "insight_id": "IDIOM_🧬:TRADINGV_AUTONOMO",
@@ -2850,9 +2850,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 4,
+      "verifications_count": 7,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:53"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:DARK_POO_AUTONOMO": {
       "insight_id": "IDIOM_🧬:DARK_POO_AUTONOMO",
@@ -2866,9 +2866,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 4,
+      "verifications_count": 7,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:53"
     },
     "IDIOM_🧬:SEC_EDGA_AUTONOMO": {
       "insight_id": "IDIOM_🧬:SEC_EDGA_AUTONOMO",
@@ -2882,9 +2882,9 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 4,
+      "verifications_count": 7,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:54"
+      "created_at": "2026-10-29T23:04:52"
     },
     "IDIOM_🧬:QLIB_ALP_AUTONOMO": {
       "insight_id": "IDIOM_🧬:QLIB_ALP_AUTONOMO",
@@ -2898,30 +2898,414 @@
       "target_focuses": [
         "*"
       ],
-      "verifications_count": 4,
+      "verifications_count": 7,
       "accuracy_pct": 100.0,
-      "created_at": "2026-10-29T22:50:55"
+      "created_at": "2026-10-29T23:04:54"
+    },
+    "IDIOM_🧬:SITUATIO_MOA_REGI": {
+      "insight_id": "IDIOM_🧬:SITUATIO_MOA_REGI",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_MOA_REGI",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_MOA_REGI (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 🧠:MOA_REGIME_ROUTER) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 60,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:SITUATIO_DARKNET_": {
+      "insight_id": "IDIOM_🧬:SITUATIO_DARKNET_",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_DARKNET_",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_DARKNET_ (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 🕵️:DARKNET_INSIDER_LEAK) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 60,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:ENTRY_IM_SITUATIO": {
+      "insight_id": "IDIOM_🧬:ENTRY_IM_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:ENTRY_IM_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:ENTRY_IM_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚡:ENTRY_IMMEDIATE und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 60,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:SITUATIO_AUTONOMO": {
+      "insight_id": "IDIOM_🧬:SITUATIO_AUTONOMO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_AUTONOMO",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_AUTONOMO (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 🔓:AUTONOMOUS_CONSTRAINT_EXPANSION) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 55,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:SECTOR_A_SITUATIO": {
+      "insight_id": "IDIOM_🧬:SECTOR_A_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SECTOR_A_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:SECTOR_A_SITUATIO (Synthetische Schwarm-Konvergenz aus Δ:SECTOR_ALPHA_LEAD und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 9,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:55"
+    },
+    "IDIOM_🧬:CALL_WHA_SITUATIO": {
+      "insight_id": "IDIOM_🧬:CALL_WHA_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:CALL_WHA_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:CALL_WHA_SITUATIO (Synthetische Schwarm-Konvergenz aus Ψ:CALL_WHALE_BURST und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 6,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:55"
+    },
+    "IDIOM_🧬:HURST_PE_SITUATIO": {
+      "insight_id": "IDIOM_🧬:HURST_PE_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:HURST_PE_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:HURST_PE_SITUATIO (Synthetische Schwarm-Konvergenz aus Ω:HURST_PERSIST und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 6,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:55"
+    },
+    "IDIOM_🧬:TACTICAL_SITUATIO": {
+      "insight_id": "IDIOM_🧬:TACTICAL_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:TACTICAL_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:TACTICAL_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚡:TACTICAL_ALPHA_MOMENTUM und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 56,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:SITUATIO_WALL_ST_": {
+      "insight_id": "IDIOM_🧬:SITUATIO_WALL_ST_",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_WALL_ST_",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_WALL_ST_ (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 📊:WALL_ST_UPSIDE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 6,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:55"
+    },
+    "IDIOM_🧬:QUANTILE_SITUATIO": {
+      "insight_id": "IDIOM_🧬:QUANTILE_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:QUANTILE_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:QUANTILE_SITUATIO (Synthetische Schwarm-Konvergenz aus 🎲:QUANTILE_ASYMMETRY und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 39,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:LIQUIDIT_SITUATIO": {
+      "insight_id": "IDIOM_🧬:LIQUIDIT_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:LIQUIDIT_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:LIQUIDIT_SITUATIO (Synthetische Schwarm-Konvergenz aus 🎯:LIQUIDITY_SWEEP_RECLAIM und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 10,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:DOWNSIDE_SITUATIO": {
+      "insight_id": "IDIOM_🧬:DOWNSIDE_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:DOWNSIDE_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:DOWNSIDE_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚠️:DOWNSIDE_SKEW_WARN und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 5,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:57"
+    },
+    "IDIOM_🧬:CIO_TIER_SITUATIO": {
+      "insight_id": "IDIOM_🧬:CIO_TIER_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:CIO_TIER_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:CIO_TIER_SITUATIO (Synthetische Schwarm-Konvergenz aus 🏛️:CIO_TIER1_ALPHA und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 20,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:57"
+    },
+    "IDIOM_🧬:SITUATIO_CORRELAT": {
+      "insight_id": "IDIOM_🧬:SITUATIO_CORRELAT",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_CORRELAT",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_CORRELAT (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 🛑:CORRELATION_BREAKDOWN_PANIC) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 5,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:58"
+    },
+    "IDIOM_🧬:HRP_RISK_SITUATIO": {
+      "insight_id": "IDIOM_🧬:HRP_RISK_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:HRP_RISK_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:HRP_RISK_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚖️:HRP_RISK_PARITY und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 18,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:54"
+    },
+    "IDIOM_🧬:AUTONOMO_SITUATIO": {
+      "insight_id": "IDIOM_🧬:AUTONOMO_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:AUTONOMO_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:AUTONOMO_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚖️:AUTONOMOUS_SIZING_ARBITER und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 18,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:55"
+    },
+    "IDIOM_🧬:SITUATIO_TRIPLE_T": {
+      "insight_id": "IDIOM_🧬:SITUATIO_TRIPLE_T",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_TRIPLE_T",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_TRIPLE_T (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 📐:TRIPLE_TIMEFRAME_ALIGN) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:48"
+    },
+    "IDIOM_🧬:SITUATIO_LIQUIDIT": {
+      "insight_id": "IDIOM_🧬:SITUATIO_LIQUIDIT",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_LIQUIDIT",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_LIQUIDIT (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 🚨:LIQUIDITY_VOID_EVACUATE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:49"
+    },
+    "IDIOM_🧬:PEAD_EAR_SITUATIO": {
+      "insight_id": "IDIOM_🧬:PEAD_EAR_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:PEAD_EAR_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:PEAD_EAR_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚡:PEAD_EARNINGS_DRIFT und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:50"
+    },
+    "IDIOM_🧬:SYNTHESI_SITUATIO": {
+      "insight_id": "IDIOM_🧬:SYNTHESI_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SYNTHESI_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:SYNTHESI_SITUATIO (Synthetische Schwarm-Konvergenz aus ⚙️:SYNTHESIZED_TOOL_BOOST und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:50"
+    },
+    "IDIOM_🧬:SITUATIO_TRADINGV": {
+      "insight_id": "IDIOM_🧬:SITUATIO_TRADINGV",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_TRADINGV",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_TRADINGV (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 📊:TRADINGVIEW_CONSENSUS) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:52"
+    },
+    "IDIOM_🧬:SITUATIO_SEC_EDGA": {
+      "insight_id": "IDIOM_🧬:SITUATIO_SEC_EDGA",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_SEC_EDGA",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_SEC_EDGA (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 📑:SEC_EDGAR_CATALYST) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:52"
+    },
+    "IDIOM_🧬:DARK_POO_SITUATIO": {
+      "insight_id": "IDIOM_🧬:DARK_POO_SITUATIO",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:DARK_POO_SITUATIO",
+      "lesson": "Sprachkonvergenz 🧬:DARK_POO_SITUATIO (Synthetische Schwarm-Konvergenz aus 🌑:DARK_POOL_ACCUMULATION und 🏛️:SITUATIONAL_AWARENESS_MACRO) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:53"
+    },
+    "IDIOM_🧬:SITUATIO_QLIB_ALP": {
+      "insight_id": "IDIOM_🧬:SITUATIO_QLIB_ALP",
+      "category": "ALPHA_SYNERGY",
+      "author_agent_id": "emergent_dialect_engine",
+      "author_agent_name": "🗣️ Dialekt-Synthesizer",
+      "title": "Evolviertes Schwarm-Idiom: 🧬:SITUATIO_QLIB_ALP",
+      "lesson": "Sprachkonvergenz 🧬:SITUATIO_QLIB_ALP (Synthetische Schwarm-Konvergenz aus 🏛️:SITUATIONAL_AWARENESS_MACRO und 📐:QLIB_ALPHA158_CONFLUENCE) erzeugt +35% Edge.",
+      "symbol_origin": "NVDA",
+      "confidence_impact": 0.35,
+      "target_focuses": [
+        "*"
+      ],
+      "verifications_count": 3,
+      "accuracy_pct": 100.0,
+      "created_at": "2026-10-29T23:04:54"
     }
   },
   "synergies": {
     "fast_breakout_chaser:ttm_squeeze_specialist": {
       "agent_a": "fast_breakout_chaser",
       "agent_b": "ttm_squeeze_specialist",
-      "co_success": 85,
+      "co_success": 88,
       "co_failure": 0,
       "synergy_score": 1.3
     },
     "fast_breakout_chaser:options_smart_money_hunter": {
       "agent_a": "fast_breakout_chaser",
       "agent_b": "options_smart_money_hunter",
-      "co_success": 85,
+      "co_success": 88,
       "co_failure": 0,
       "synergy_score": 1.3
     },
     "options_smart_money_hunter:ttm_squeeze_specialist": {
       "agent_a": "options_smart_money_hunter",
       "agent_b": "ttm_squeeze_specialist",
-      "co_success": 85,
+      "co_success": 88,
       "co_failure": 0,
       "synergy_score": 1.3
     },

@@ -2,7 +2,7 @@
 Synthetisierte Handelsstrategie: CoreEtfCompounder_Gen3_3
 Archetyp: CORE_ETF_MOMENTUM_COMPOUNDER
 Hypothese: Spezialisiert auf breite Core-ETFs (SPY/QQQ/GLD/TLT): Stetiges Compounding, weite ATR-Stops und geduldige Trendausnutzung.
-Generiert am: 2026-10-29T23:41:26.176402
+Generiert am: 2026-10-30T00:04:19.283162
 """
 
 class CoreEtfCompounder_Gen3_3:
@@ -15,14 +15,14 @@ class CoreEtfCompounder_Gen3_3:
     
     def __init__(self):
         self.genes = {
-        "min_rvol": 1.094,
-        "min_change_pct": 0.451,
-        "max_rsi": 73.968,
-        "min_edge_score": 1.257,
-        "atr_sl_mult": 2.808,
-        "atr_tp_mult": 5.462,
-        "time_stop_days": 19,
-        "penny_max_price": 1457.014
+        "min_rvol": 1.025,
+        "min_change_pct": 0.366,
+        "max_rsi": 69.351,
+        "min_edge_score": 1.316,
+        "atr_sl_mult": 2.946,
+        "atr_tp_mult": 5.737,
+        "time_stop_days": 21,
+        "penny_max_price": 1508.208
 }
 
     def evaluate_entry(self, snapshot, macro=None) -> dict:

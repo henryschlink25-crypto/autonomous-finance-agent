@@ -477,8 +477,28 @@ class EmergentDialectEngine:
         except Exception:
             pass
 
+        # EE. Situational Awareness & Hedge Fund Strategy Auditor (Sub-Agent #50)
+        try:
+            from hedge_fund_strategy_auditor import HedgeFundStrategyAuditor
+            hf_aud = HedgeFundStrategyAuditor()
+            hf_res = hf_aud.audit_trade_setup(snapshot, macro, planned_leverage=getattr(signal, "leverage", 1.0))
+            if hf_res.citadel_leverage_veto:
+                t = f"🛡️:CITADEL_ANTI_BLOWUP_VETO[{snapshot.symbol}_LEVERAGE]"
+                self._ensure_token("🛡️:CITADEL_ANTI_BLOWUP_VETO", "RISK", f"Citadel Anti-Blowup Veto: {hf_res.rationale}")
+                tokens_used.append(t)
+            elif hf_res.citadel_dip_status == "WAIT_FOR_CLEANSE":
+                t = f"⏳:CITADEL_CLEANSE_WAIT[{snapshot.symbol}_SMA50]"
+                self._ensure_token("⏳:CITADEL_CLEANSE_WAIT", "RISK", f"Aschenbrenner-Schutz (Wait for Cleanse): {hf_res.rationale}")
+                tokens_used.append(t)
+            elif hf_res.is_situational_awareness_asset:
+                t = f"🏛️:SITUATIONAL_AWARENESS_MACRO[{snapshot.symbol}_{hf_res.infrastructure_pillar}]"
+                self._ensure_token("🏛️:SITUATIONAL_AWARENESS_MACRO", "MACRO", f"Säkularer KI-Infrastruktur-Flaschenhals ({hf_res.infrastructure_pillar})")
+                tokens_used.append(t)
+        except Exception:
+            pass
+
         # N. Confluence-Grad (Güteklasse des Setups)
-        bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐")]
+        bullish_tokens = [t for t in tokens_used if not t.startswith("🛑") and not t.startswith("Ψ:PUT") and not t.startswith("🌐") and not t.startswith("🛡️") and not t.startswith("⏳")]
         conf_len = len(bullish_tokens)
         if conf_len >= 4:
             c_tag = "Σ:CONFLUENCE_QUAD_A_PLUS"
@@ -760,6 +780,8 @@ class EmergentDialectEngine:
             ("🌐:GEO_CRISIS_ESCALATION", "RISK", "Geopolitische Kriseneskalation – Rüstung/Energie bevorzugt"),
             ("🕊️:PEACE_DIVIDEND_EXPANSION", "RISK", "Geopolitische Entspannung begünstigt Tech & Growth"),
             ("🛑:CREDIT_CRUNCH_WARN", "RISK", "Junk-Bond Kreditspreads kollabieren – Systemrisiko"),
+            ("🏛️:SITUATIONAL_AWARENESS_MACRO", "MACRO", "Säkularer KI-Infrastruktur-Flaschenhals (Compute/Energie/Optics)"),
+            ("🛡️:CITADEL_ANTI_BLOWUP_VETO", "RISK", "Citadel Anti-Blowup Veto: Übermäßiger Hebel in volatiler Marktphase blockiert"),
             ("Σ:CONFLUENCE_QUAD_A_PLUS", "CONFLUENCE", "A+ Setup: 4 voneinander unabhängige Domänen bestätigen den Einstieg"),
             ("Σ:CONFLUENCE_TRIPLE_STRONG", "CONFLUENCE", "Starkes Setup: 3 voneinander unabhängige Domänen bestätigen"),
             ("Σ:CONFLUENCE_DUAL_SOLID", "CONFLUENCE", "Solides Setup: 2 Domänen bestätigen den Trade"),
