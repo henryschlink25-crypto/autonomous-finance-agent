@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T23:14:30",
+  "updated_at": "2026-10-30T08:46:47",
   "regime": "YELLOW_CAUTION",
   "atr_stop_loss_mult": 2.3,
   "atr_take_profit_mult": 3.8,
@@ -8,5 +8,5 @@
   "target_risk_reward_ratio": 1.65,
   "win_rate_trailing": 0.58,
   "profit_factor_trailing": 1.85,
-  "tuning_rationale": "Mittlere Vola (VIX 17.2) -> Moderater Puffer (2.3x ATR SL)"
+  "tuning_rationale": "Mittlere Vola (VIX 18.6) -> Moderater Puffer (2.3x ATR SL)"
 }

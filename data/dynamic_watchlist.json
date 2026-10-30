@@ -1,42 +1,62 @@
 {
-  "updated_at": "2026-10-29T23:14:13",
-  "scan_cycle": 285,
+  "updated_at": "2026-10-30T08:46:31",
+  "scan_cycle": 399,
   "total_scanned_count": 184,
   "hot_action_count": 45,
-  "watch_closely_count": 18,
-  "discarded_count": 18,
+  "watch_closely_count": 16,
+  "discarded_count": 17,
   "hot_action_highlights": [
     "ADT (Live-Screener, Move +33.2%, Vol 10.8x, 5d +41.2%, RS +33.6% vs SPY)",
+    "BHC (Live-Screener, Move +28.8%, Vol 8.7x, 5d +37.3%, RS +29.1% vs SPY)",
     "GKOS (Live-Screener, Move +33.6%, Vol 4.1x, 5d +37.2%, RS +34.0% vs SPY)",
-    "BHC (🚀 Aus Watch-Queue gezündet, Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY)",
-    "LUNG (🚀 Aus Watch-Queue gezündet, Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)",
-    "TDOC (🚀 Aus Watch-Queue gezündet, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY)",
-    "PRCH (🚀 Aus Watch-Queue gezündet, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY)",
-    "PURR (🚀 Aus Watch-Queue gezündet, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)"
+    "LUNG (Move +25.6%, Vol 5.9x, 5d +68.4%, RS +26.0% vs SPY)",
+    "TDOC (Live-Screener, Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY)",
+    "PRCH (Live-Screener, Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY)",
+    "PURR (Live-Screener, Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)"
   ],
   "promoted_from_watch": [
-    "NOW (🚀 Aus 'Weiterbeobachten' gezündet: Move -26.9%, Vol 4.8x, 5d -30.1%)",
-    "IOVA (🚀 Aus 'Weiterbeobachten' gezündet: Move -35.4%, Vol 4.2x, 5d -32.4%)",
-    "PURR (🚀 Aus 'Weiterbeobachten' gezündet: Move +23.3%, Vol 4.2x, 5d +41.6%, RS +23.7% vs SPY)",
-    "BHC (🚀 Aus 'Weiterbeobachten' gezündet: Move +28.8%, Vol 8.6x, 5d +37.3%, RS +29.1% vs SPY)",
-    "PRCH (🚀 Aus 'Weiterbeobachten' gezündet: Move +28.2%, Vol 3.9x, 5d +16.4%, RS +28.5% vs SPY)",
-    "CROX (🚀 Aus 'Weiterbeobachten' gezündet: Move +25.5%, Vol 4.0x, 5d +24.2%, RS +25.9% vs SPY)",
-    "FTAI (🚀 Aus 'Weiterbeobachten' gezündet: Move +17.3%, Vol 1.8x, 5d +24.5%, RS +17.7% vs SPY)",
-    "MESO (🚀 Aus 'Weiterbeobachten' gezündet: Move +17.0%, Vol 2.3x, 5d +24.9%, RS +17.4% vs SPY)",
-    "TDOC (🚀 Aus 'Weiterbeobachten' gezündet: Move +26.9%, Vol 4.3x, 5d +38.1%, RS +27.3% vs SPY)",
-    "LUNG (🚀 Aus 'Weiterbeobachten' gezündet: Move +25.6%, Vol 5.8x, 5d +68.4%, RS +26.0% vs SPY)"
+    "SQQQ (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.3%, Vol-Anstieg 1.05x, RS +4.7% vs SPY, Markt-Hedge)",
+    "SOFI (🚀 Aus 'Weiterbeobachten' gezündet: Move +2.7%, Vol-Anstieg 1.19x, 5d +19.2%, RS +3.1% vs SPY)",
+    "RDDT (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.8%, Vol 3.6x, 5d -13.7%)",
+    "CAT (🚀 Aus 'Weiterbeobachten' gezündet: Move -9.3%, Vol 2.7x, 5d -7.8%)",
+    "BBD (🚀 Aus 'Weiterbeobachten' gezündet: Move -3.7%, Vol-Anstieg 1.17x, 5d -33.4%)",
+    "F (🚀 Aus 'Weiterbeobachten' gezündet: Move +3.4%, Vol 1.7x, Knapp unter 20d-High, RS +3.8% vs SPY)",
+    "INTR (🚀 Aus 'Weiterbeobachten' gezündet: Aufbau +1.5%, 5d -38.1%, RS +1.8% vs SPY)",
+    "M (🚀 Aus 'Weiterbeobachten' gezündet: Move +4.1%, Knapp unter 20d-High, RS +4.5% vs SPY)"
   ],
   "watch_closely_queue": {
+    "VG": {
+      "symbol": "VG",
+      "yf_ticker": "VG",
+      "asset_class": "EQUITY",
+      "cluster": "DYNAMIC_MARKET",
+      "name": "Venture Global, Inc. (🔥 Breakout)",
+      "activity_score": 9.73,
+      "reason": "Live-Screener, Move +2.9%, Vol-Anstieg 1.18x, 5d +15.3%, RS +3.3% vs SPY",
+      "last_price": 0.0,
+      "cycles_watched": 1
+    },
     "FORM": {
       "symbol": "FORM",
       "yf_ticker": "FORM",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
       "name": "FormFactor, Inc. (⚡ Reversal/Short)",
-      "activity_score": 9.46,
+      "activity_score": 9.47,
       "reason": "Live-Screener, Move -11.6%, Vol 1.5x",
       "last_price": 0.0,
       "cycles_watched": 1
+    },
+    "BBD": {
+      "symbol": "BBD",
+      "yf_ticker": "BBD",
+      "asset_class": "EQUITY",
+      "cluster": "PENNY_STOCKS",
+      "name": "Banco Bradesco Sa (🎯 Penny Stock In-Play)",
+      "activity_score": 9.31,
+      "reason": "🚀 Aus Watch-Queue gezündet, Move -3.7%, Vol-Anstieg 1.17x, 5d -33.4%",
+      "last_price": 0.0,
+      "cycles_watched": 2
     },
     "PLXS": {
       "symbol": "PLXS",
@@ -49,80 +69,14 @@
       "last_price": 0.0,
       "cycles_watched": 1
     },
-    "CAT": {
-      "symbol": "CAT",
-      "yf_ticker": "CAT",
-      "asset_class": "EQUITY",
-      "cluster": "VALUE_CYCLICAL",
-      "name": "Caterpillar Inc.",
-      "activity_score": 9.02,
-      "reason": "Move -9.3%, Vol 2.7x, 5d -7.8%",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "MRVL": {
-      "symbol": "MRVL",
-      "yf_ticker": "MRVL",
-      "asset_class": "EQUITY",
-      "cluster": "US_TECH",
-      "name": "Marvell Technology (Custom AI Silicon)",
-      "activity_score": 8.93,
-      "reason": "Move -13.2%, Vol 1.9x",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "ASX": {
-      "symbol": "ASX",
-      "yf_ticker": "ASX",
+    "OI": {
+      "symbol": "OI",
+      "yf_ticker": "OI",
       "asset_class": "EQUITY",
       "cluster": "DYNAMIC_MARKET",
-      "name": "ASE Technology Holding Co.,  (🔥 Breakout)",
-      "activity_score": 8.6,
-      "reason": "Live-Screener, Aufbau +1.4%, Vol 1.7x, 5d +18.0%, RS +1.8% vs SPY",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "F": {
-      "symbol": "F",
-      "yf_ticker": "F",
-      "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "Ford Motor Company (🔥 Breakout)",
-      "activity_score": 8.57,
-      "reason": "Live-Screener, Move +3.4%, Vol 1.7x, Knapp unter 20d-High, RS +3.8% vs SPY",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "M": {
-      "symbol": "M",
-      "yf_ticker": "M",
-      "asset_class": "EQUITY",
-      "cluster": "DYNAMIC_MARKET",
-      "name": "Macy's Inc (🔥 Breakout)",
-      "activity_score": 8.49,
-      "reason": "Live-Screener, Move +4.1%, Knapp unter 20d-High, RS +4.5% vs SPY",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "BBD": {
-      "symbol": "BBD",
-      "yf_ticker": "BBD",
-      "asset_class": "EQUITY",
-      "cluster": "PENNY_STOCKS",
-      "name": "Banco Bradesco Sa (🎯 Penny Stock In-Play)",
-      "activity_score": 8.31,
-      "reason": "Move -3.7%, Vol-Anstieg 1.17x, 5d -33.4%",
-      "last_price": 0.0,
-      "cycles_watched": 1
-    },
-    "SOFI": {
-      "symbol": "SOFI",
-      "yf_ticker": "SOFI",
-      "asset_class": "EQUITY",
-      "cluster": "HIGH_BETA",
-      "name": "SoFi Technologies",
-      "activity_score": 8.06,
-      "reason": "Move +2.7%, Vol-Anstieg 1.18x, 5d +19.2%, RS +3.1% vs SPY",
+      "name": "O-I Glass, Inc. (⚡ Reversal/Short)",
+      "activity_score": 9.11,
+      "reason": "Live-Screener, Move -6.0%, Vol 1.3x, 5d -17.5%",
       "last_price": 0.0,
       "cycles_watched": 1
     },
@@ -132,8 +86,52 @@
       "asset_class": "EQUITY",
       "cluster": "SAFE_HAVEN",
       "name": "3x Short Nasdaq Crash-Hedge ETF",
-      "activity_score": 7.84,
-      "reason": "Move +4.3%, RS +4.7% vs SPY, Markt-Hedge",
+      "activity_score": 9.09,
+      "reason": "🚀 Aus Watch-Queue gezündet, Move +4.3%, Vol-Anstieg 1.05x, RS +4.7% vs SPY, Markt-Hedge",
+      "last_price": 0.0,
+      "cycles_watched": 2
+    },
+    "SOFI": {
+      "symbol": "SOFI",
+      "yf_ticker": "SOFI",
+      "asset_class": "EQUITY",
+      "cluster": "HIGH_BETA",
+      "name": "SoFi Technologies",
+      "activity_score": 9.06,
+      "reason": "🚀 Aus Watch-Queue gezündet, Move +2.7%, Vol-Anstieg 1.19x, 5d +19.2%, RS +3.1% vs SPY",
+      "last_price": 0.0,
+      "cycles_watched": 2
+    },
+    "MRVL": {
+      "symbol": "MRVL",
+      "yf_ticker": "MRVL",
+      "asset_class": "EQUITY",
+      "cluster": "US_TECH",
+      "name": "Marvell Technology (Custom AI Silicon)",
+      "activity_score": 8.95,
+      "reason": "Move -13.2%, Vol 1.9x",
+      "last_price": 0.0,
+      "cycles_watched": 1
+    },
+    "RDDT": {
+      "symbol": "RDDT",
+      "yf_ticker": "RDDT",
+      "asset_class": "EQUITY",
+      "cluster": "HIGH_BETA",
+      "name": "Reddit Inc.",
+      "activity_score": 8.95,
+      "reason": "🚀 Aus Watch-Queue gezündet, Move -3.8%, Vol 3.6x, 5d -13.7%",
+      "last_price": 0.0,
+      "cycles_watched": 3
+    },
+    "GAP": {
+      "symbol": "GAP",
+      "yf_ticker": "GAP",
+      "asset_class": "EQUITY",
+      "cluster": "DYNAMIC_MARKET",
+      "name": "Gap, Inc. (The) (🔥 Breakout)",
+      "activity_score": 7.93,
+      "reason": "Live-Screener, Move +4.0%, RS +4.4% vs SPY",
       "last_price": 0.0,
       "cycles_watched": 1
     },
@@ -146,7 +144,7 @@
       "activity_score": 1.03,
       "reason": "5d -5.2%",
       "last_price": 91.59,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "UBER": {
       "symbol": "UBER",
@@ -157,7 +155,7 @@
       "activity_score": 0.96,
       "reason": "5d -4.8%",
       "last_price": 65.74,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "ISRG": {
       "symbol": "ISRG",
@@ -168,7 +166,7 @@
       "activity_score": 0.84,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 448.76,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "CVX": {
       "symbol": "CVX",
@@ -179,7 +177,7 @@
       "activity_score": 0.82,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 231.46,
-      "cycles_watched": 1
+      "cycles_watched": 2
     },
     "USO": {
       "symbol": "USO",
@@ -190,18 +188,7 @@
       "activity_score": 0.82,
       "reason": "Aufbau +1.0%, Knapp unter 20d-High",
       "last_price": 168.19,
-      "cycles_watched": 3
-    },
-    "REGN": {
-      "symbol": "REGN",
-      "yf_ticker": "REGN",
-      "asset_class": "EQUITY",
-      "cluster": "VALUE_CYCLICAL",
-      "name": "Regeneron Pharmaceuticals",
-      "activity_score": 0.7,
-      "reason": "Vol-Anstieg 1.24x, Knapp unter 20d-High",
-      "last_price": 818.77,
-      "cycles_watched": 3
+      "cycles_watched": 2
     },
     "XPEV": {
       "symbol": "XPEV",
@@ -213,17 +200,6 @@
       "reason": "Aufbau -1.5%",
       "last_price": 9.18,
       "cycles_watched": 3
-    },
-    "QQQ": {
-      "symbol": "QQQ",
-      "yf_ticker": "QQQ",
-      "asset_class": "EQUITY",
-      "cluster": "CORE_ETF",
-      "name": "Invesco QQQ Trust (Nasdaq-100 Core Anchor)",
-      "activity_score": 0.54,
-      "reason": "Aufbau -1.4%",
-      "last_price": 715.34,
-      "cycles_watched": 1
     }
   },
   "discarded_symbols": [
@@ -237,13 +213,12 @@
     "NIO",
     "FUTU",
     "TCOM",
+    "RHM.DE",
     "DTE.DE",
     "AIR.DE",
-    "MTX.DE",
-    "CBK.DE",
-    "ADS.DE",
-    "MBG.DE",
     "FCX",
-    "PLUG"
+    "PLUG",
+    "MTX.DE (nach 3 Watch-Zyklen eingeschlafen)",
+    "REGN (nach 3 Watch-Zyklen eingeschlafen)"
   ]
 }
